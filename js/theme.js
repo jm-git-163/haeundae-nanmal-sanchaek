@@ -11,54 +11,98 @@
 (function (global) {
   'use strict';
 
-  /* 계절마다 흩날리는 것 — 어느 풍경에나 무언가 떨어집니다.
-     이모지(🌸🍁❄) 를 쓰면 기기마다 그림·색이 제각각이라
-     애써 맞춘 빛깔이 흐트러집니다. 그래서 직접 그립니다. */
-  const petal = (fill) =>
-    `<svg viewBox="0 0 24 24" width="100%" height="100%" aria-hidden="true">
-       <path d="M12 2C8 6.5 5.5 10 5.5 14A6.5 6.5 0 0 0 12 20.5 6.5 6.5 0 0 0 18.5 14C18.5 10 16 6.5 12 2Z"
-             fill="${fill}"/></svg>`;
-  const leaf = (fill) =>
-    `<svg viewBox="0 0 24 24" width="100%" height="100%" aria-hidden="true">
-       <path d="M20 4C11 4 4 9 4 15.5c0 2 .8 3.6 1.8 4.5C9 16 13 13.4 18 12c-4 2.4-7.4 5.2-9.6 9
-                C15 21 20 15.5 20 4Z" fill="${fill}"/></svg>`;
-  const flake = (fill) =>
-    `<svg viewBox="0 0 24 24" width="100%" height="100%" aria-hidden="true"
-          fill="none" stroke="${fill}" stroke-width="1.8" stroke-linecap="round">
-       <path d="M12 3v18M4.2 7.5l15.6 9M19.8 7.5l-15.6 9"/></svg>`;
-  const dot = (fill) =>
-    `<svg viewBox="0 0 24 24" width="100%" height="100%" aria-hidden="true">
-       <circle cx="12" cy="12" r="5" fill="${fill}"/></svg>`;
+  /* ── 흩날리는 것들 ────────────────────────────────
+     벚꽃·단풍·눈·씨앗이 다 같은 동그라미면 계절이 바뀐 줄 모릅니다.
+     저마다 다른 모양으로 그립니다. */
+  const svgd = (inner) =>
+    `<svg viewBox="0 0 24 24" width="100%" height="100%" aria-hidden="true">${inner}</svg>`;
 
+  /** 벚꽃잎 — 끝이 살짝 갈라진 한 장 */
+  const petal = (fill) => svgd(
+    `<path d="M12 2C8 6.5 5.5 10 5.5 14A6.5 6.5 0 0 0 12 20.5 6.5 6.5 0 0 0 18.5 14C18.5 10 16 6.5 12 2Z" fill="${fill}"/>`);
+
+  /** 벚꽃 한 송이 — 다섯 잎 */
+  const blossom = (fill) => {
+    let p = '';
+    for (let k = 0; k < 5; k++) {
+      p += `<ellipse cx="12" cy="6.6" rx="3.4" ry="5" fill="${fill}" transform="rotate(${k * 72} 12 12)"/>`;
+    }
+    return svgd(p + `<circle cx="12" cy="12" r="2" fill="#ffe9a8"/>`);
+  };
+
+  /** 단풍잎 — 다섯 갈래 */
+  const maple = (fill) => svgd(
+    `<path d="M12 2l2.4 4.6 3.2-1.2-1.3 3.4 4.4.6-3.2 2.6 2.6 3.4-4.4-.6.4 4.6L12 16.6l-4.1 2.8.4-4.6-4.4.6L6.5 12 3.3 9.4l4.4-.6L6.4 5.4l3.2 1.2L12 2Z" fill="${fill}"/>`);
+
+  /** 은행잎 — 부채 모양 */
+  const ginkgo = (fill) => svgd(
+    `<path d="M12 21v-7M12 14c-5 0-8-2.6-8-5.4C4 5 8 3 12 3s8 2 8 5.6c0 2.8-3 5.4-8 5.4Z" fill="${fill}" stroke="${fill}" stroke-width="1.4" stroke-linecap="round"/>`);
+
+  /** 나뭇잎 */
+  const leaf = (fill) => svgd(
+    `<path d="M20 4C11 4 4 9 4 15.5c0 2 .8 3.6 1.8 4.5C9 16 13 13.4 18 12c-4 2.4-7.4 5.2-9.6 9C15 21 20 15.5 20 4Z" fill="${fill}"/>`);
+
+  /** 눈송이 — 여섯 갈래에 잔가지 */
+  const flake = (fill) => svgd(
+    `<g fill="none" stroke="${fill}" stroke-width="1.6" stroke-linecap="round"><path d="M12 2.5v19M3.8 7.2l16.4 9.6M20.2 7.2L3.8 16.8"/><path d="M12 6l-2.4-2M12 6l2.4-2M12 18l-2.4 2M12 18l2.4 2M7 9.2 4.2 8.8M7 9.2 6.4 6.4M17 14.8l2.8.4M17 14.8l.6 2.8M17 9.2l2.8-.4M17 9.2l.6-2.8M7 14.8l-2.8.4M7 14.8l-.6 2.8"/></g>`);
+
+  /** 진눈깨비 — 짧게 그은 선 */
+  const sleet = (fill) => svgd(
+    `<path d="M14 3 8 21" stroke="${fill}" stroke-width="2.6" stroke-linecap="round" fill="none"/>`);
+
+  /** 민들레 홀씨 */
+  const seed = (fill) => svgd(
+    `<g stroke="${fill}" stroke-width="1.3" stroke-linecap="round" fill="none"><path d="M12 21v-8"/><path d="M12 13 6 7M12 13l6-6M12 13l-8 2M12 13l8 2M12 13v-9"/></g><circle cx="12" cy="21" r="1.6" fill="${fill}"/>`);
+
+  /** 반짝임 — 네 갈래 별빛 */
+  const spark = (fill) => svgd(
+    `<path d="M12 3c.9 5 3.1 7.2 8 8-4.9.9-7.1 3.1-8 8-.9-4.9-3.1-7.1-8-8 4.9-.8 7.1-3 8-8Z" fill="${fill}"/>`);
+
+  /** 물보라 */
+  const spray = (fill) => svgd(
+    `<ellipse cx="12" cy="13" rx="7" ry="4.4" fill="${fill}"/><ellipse cx="12" cy="11.4" rx="3.4" ry="2" fill="#fff" opacity=".5"/>`);
+
+  /** 모래알 */
+  const grain = (fill) => svgd(`<circle cx="12" cy="12" r="4" fill="${fill}"/>`);
+
+  /** 안개 알갱이 */
+  const mote = (fill) => svgd(
+    `<circle cx="12" cy="12" r="7" fill="${fill}" opacity=".55"/><circle cx="12" cy="12" r="3.4" fill="${fill}"/>`);
+
+  /* 계절 — 같은 계절 안에서도 세 가지가 섞여 떨어집니다 */
   const DUST = {
-    '봄': [petal('#f6b9c4'), petal('#ffd3dc'), petal('#f9c9d2')],
-    '여름': [leaf('#8fbf7a'), leaf('#a8cf95'), leaf('#7fae6c')],
-    '가을': [leaf('#e0954a'), leaf('#d2762f'), petal('#e8b06a')],
-    '겨울': [flake('#cfe0ea'), flake('#e3eef5'), dot('#dce9f0')]
+    '봄': [blossom('#f7bcc8'), petal('#ffd3dc'), petal('#f9c9d2')],
+    '여름': [leaf('#8fbf7a'), seed('#cfe0c2'), leaf('#a8cf95')],
+    '가을': [maple('#e0954a'), ginkgo('#e8c25a'), leaf('#d2762f')],
+    '겨울': [flake('#dcecf5'), flake('#ffffff'), sleet('#e3eef5')]
   };
   const EXTRA = {
-    '밤': dot('#ffe6a8'),
-    '해질녘': leaf('#d98b45'),
-    '새벽': dot('#e6dcd2')
+    '밤': spark('#ffe6a8'),
+    '해질녘': maple('#d98b45'),
+    '새벽': mote('#e6dcd2')
   };
 
-  /* 땅에 어울리는 것이 우선입니다.
-     바다에 벚꽃이 날리면 어색합니다. */
+  /* 땅에 어울리는 것이 우선입니다. 바다에 벚꽃이 날리면 어색합니다. */
   const DUST_BY_LAND = {
-    '바다': [dot('#eaf4f8'), dot('#d6e9f0'), petal('#f3e4d2')],   // 물보라와 모래
-    '설산': [flake('#e8f2f8'), flake('#ffffff'), dot('#dcecf5')],
-    '숲': [leaf('#7fae6c'), leaf('#95c082'), dot('#cfe0c2')],
-    '꽃밭': [petal('#f6b9c4'), petal('#e2c4f0'), petal('#ffd9b0')],
-    '과수원': [petal('#f9d0d8'), leaf('#a8cf95'), dot('#f2dcc4')],
-    '억새': [dot('#efe6d4'), leaf('#dcc79a'), dot('#e8dcc0')],
-    '논': [dot('#eee6cf'), leaf('#b9c98c'), dot('#dfe8cd')]
+    '바다': [spray('#dbeef6'), grain('#efe0c8'), spray('#eaf4f8')],
+    '설산': [flake('#e8f2f8'), flake('#ffffff'), sleet('#dcecf5')],
+    '숲': [leaf('#7fae6c'), seed('#cfe0c2'), ginkgo('#c9d8a0')],
+    '꽃밭': [blossom('#f6b9c4'), blossom('#e2c4f0'), petal('#ffd9b0')],
+    '과수원': [blossom('#f9d0d8'), leaf('#a8cf95'), petal('#f2dcc4')],
+    '억새': [seed('#efe6d4'), seed('#e8dcc0'), grain('#dcc79a')],
+    '논': [seed('#eee6cf'), grain('#dfe8cd'), leaf('#b9c98c')],
+    '기와': [maple('#d8a05e'), leaf('#c9b48a'), grain('#e8dcc8')],
+    '마을': [maple('#e0a868'), leaf('#c8b892'), petal('#f0d8c0')],
+    '개울': [spray('#dceef2'), leaf('#a8cf95'), grain('#e0e8dc')],
+    '산': [maple('#d68a4a'), leaf('#9cb87e'), seed('#dcd4c0')],
+    '언덕': [petal('#f4c6cf'), seed('#e4dcc8'), leaf('#b6c795')]
   };
 
   /* 날씨가 가장 셉니다 — 눈이 오는데 벚꽃이 날리면 안 됩니다 */
   const DUST_BY_WEATHER = {
-    '안개 낀': [dot('#f0f0f0'), dot('#e8e8e8'), dot('#f6f6f6')],
-    '별 총총한': [dot('#ffe6a8'), dot('#fff3cf'), dot('#ffd98a')],
-    '달빛 어린': [dot('#fff0c8'), dot('#f6ecd6'), dot('#ffe6a8')]
+    '안개 낀': [mote('#f0f0f0'), mote('#e8e8e8'), mote('#f6f6f6')],
+    '별 총총한': [spark('#ffe6a8'), spark('#fff3cf'), grain('#ffd98a')],
+    '달빛 어린': [spark('#fff0c8'), mote('#f6ecd6'), grain('#ffe6a8')]
   };
 
   function darken(css, amt) {

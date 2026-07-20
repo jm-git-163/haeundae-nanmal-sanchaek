@@ -1654,3 +1654,65 @@ body.contrast .btn, body.contrast .tool-btn, body.contrast .tile {
   background: var(--white) !important;
 }
 body.contrast .btn.primary { background: var(--primary-c) !important; }
+
+/* ══════════════════════════════════════════════════════
+   강아지 집
+
+   하얀 빈자리에 강아지만 덩그러니 있으면 쓸쓸해 보입니다.
+   지붕과 아치를 두른 '자리'를 만들어 주고,
+   그 안으로 오늘의 풍경이 비치게 합니다.
+   ══════════════════════════════════════════════════════ */
+.pet-card { padding-top: 26px !important; }
+.doghouse { position: relative; width: min(280px, 84%); margin: 0 auto; }
+/* 지붕 — 가운데가 솟은 맞배지붕 */
+.doghouse .roof {
+  height: 30px; margin: 0 -10px -2px;
+  background: var(--primary-c);
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+  opacity: .9;
+}
+/* 아치 — 강아지가 앉는 자리. 뒤로 풍경이 비칩니다. */
+.doghouse .niche {
+  position: relative;
+  display: flex; align-items: flex-end; justify-content: center;
+  padding: 14px 10px 6px;
+  border-radius: 96px 96px 22px 22px;
+  background: color-mix(in srgb, var(--white) 34%, transparent);
+  backdrop-filter: saturate(140%) blur(10px);
+  -webkit-backdrop-filter: saturate(140%) blur(10px);
+  box-shadow:
+    inset 0 0 0 2px color-mix(in srgb, var(--primary-c) 34%, transparent),
+    inset 0 18px 30px -18px rgba(45,21,13,.28);
+}
+/* 바닥 — 강아지가 떠 있지 않게 받쳐 줍니다 */
+.doghouse .floor {
+  height: 10px; margin: -2px 6px 0;
+  border-radius: 0 0 14px 14px;
+  background: color-mix(in srgb, var(--primary-c-dark) 30%, transparent);
+}
+.doghouse .dog { margin-bottom: 2px; }
+body.contrast .doghouse .niche {
+  background: var(--white); backdrop-filter: none; -webkit-backdrop-filter: none;
+}
+
+/* ── 기록 세 칸 ────────────────────────────────
+   줄마다 큰 상자를 쓰면 빈자리만 넓어집니다.
+   좁으면 두 칸, 넓으면 세 칸으로 저절로 접힙니다. */
+.factgrid {
+  display: grid; gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(96px, 1fr));
+}
+.fact {
+  display: flex; flex-direction: column; gap: 2px;
+  padding: 12px 14px; border-radius: 18px;
+  background: color-mix(in srgb, var(--surface-low) 70%, transparent);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+.fact .k { font-size: var(--t-caption); color: var(--on-variant); font-weight: 600; }
+.fact b { font-size: min(calc(26px * var(--fs)), 7vw); font-weight: 800; letter-spacing: -.02em; }
+
+/* 목록 줄 안의 곁설명 */
+.list-item .grow .sub {
+  display: block; margin-top: 2px;
+  font-size: var(--t-caption); font-weight: 500; color: var(--on-variant);
+}

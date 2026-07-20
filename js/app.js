@@ -546,9 +546,16 @@
       this.top('우리 강아지');
       const moods = ['편안함', '반가움', '신남'];
       const mood = moods[d.days.length % moods.length];
-      v.appendChild(h('div', { class: 'card center' },
-        dogEl(mood, 150, 'petdog'),
-        h('h2', { class: 'center', style: 'margin-top:8px' }, d.pet.name),
+      /* 강아지가 하얀 빈 공간에 덩그러니 있으면 쓸쓸해 보입니다.
+         아치 모양 '집' 안에 앉히고, 그 뒤로 오늘의 풍경이 비치게 합니다. */
+      const house = h('div', { class: 'doghouse' });
+      house.appendChild(h('div', { class: 'roof' }));
+      house.appendChild(h('div', { class: 'niche' }, dogEl(mood, 150, 'petdog')));
+      house.appendChild(h('div', { class: 'floor' }));
+
+      v.appendChild(h('div', { class: 'card center pet-card' },
+        house,
+        h('h2', { class: 'center', style: 'margin-top:14px' }, d.pet.name),
         h('p', { class: 'muted center' }, `함께한 지 ${d.days.length}일 · 유대 ${d.pet.bond}단계`),
         h('div', { class: 'row', style: 'justify-content:center;margin-top:8px' },
           h('button', {
@@ -586,19 +593,19 @@
             return w;
           })()))
       ));
+      /* 기록 — 줄마다 큰 상자를 쓰면 빈자리만 넓어집니다.
+         좁으면 두 칸, 넓으면 세 칸으로 저절로 접힙니다. */
       v.appendChild(h('div', { class: 'card' },
         h('h2', null, '함께한 기록'),
-        h('div', { class: 'list-item' }, h('span', { class: 'lead' }, '📅'), h('span', { class: 'grow' }, '함께한 날'), h('span', { class: 'badge' }, d.days.length + '일')),
-        h('div', { class: 'list-item' }, h('span', { class: 'lead' }, '🐾'), h('span', { class: 'grow' }, '모은 발자국'), h('span', { class: 'badge' }, d.footprints + '개')),
-        h('div', { class: 'list-item' }, h('span', { class: 'lead' }, '🚶'), h('span', { class: 'grow' }, '함께 걸은 산책'), h('span', { class: 'badge' }, d.totalDone + '번'))
-      ));
-      v.appendChild(h('div', { class: 'card' },
-        h('h2', null, '이름 바꾸기'),
+        h('div', { class: 'factgrid' },
+          h('div', { class: 'fact' }, h('span', { class: 'k' }, '함께한 날'), h('b', null, d.days.length + '일')),
+          h('div', { class: 'fact' }, h('span', { class: 'k' }, '모은 발자국'), h('b', null, d.footprints + '개')),
+          h('div', { class: 'fact' }, h('span', { class: 'k' }, '함께 걸은 산책'), h('b', null, d.totalDone + '번'))),
         h('button', {
-          class: 'btn tool wide', onclick: () => {
+          class: 'btn tool wide', style: 'margin-top:16px', onclick: () => {
             askName(d.pet.name, n => { d.pet.name = n; Store.save(); this.go('pet'); });
           }
-        }, '✏️ 이름 바꾸기')));
+        }, '이름 바꾸기')));
     },
 
     toast(v, msg) {
@@ -614,24 +621,25 @@
       const due = Generator.dueEntries(d, Date.now());
       const known = Object.keys(d.memory);
 
-      v.appendChild(h('div', { class: 'card' },
-        h('h2', null, '오늘 되새길 낱말'),
-        h('p', { class: 'muted', style: 'margin:0 0 14px' }, due.length ? `${due.length}개를 다시 볼 때가 되었어요.` : '오늘은 되새길 낱말이 없어요. 편히 쉬셔도 돼요.'),
-        due.length ? h('button', { class: 'btn go wide', onclick: () => global.Game.startReview() }, '되새기러 가기') : null));
-
-      const nav = [
-        ['속담 마당', () => global.Game.startProverbs()],
-        ['최근 만난 낱말', () => this.listWords(d.recent.map(id => DB.byId[id]).filter(Boolean), '최근 만난 낱말')],
-        ['간직한 낱말', () => this.listWords(d.fav.map(id => DB.byId[id]).filter(Boolean), '간직한 낱말')],
-        ['나의 기록', () => this.stats()]
-      ];
-      nav.forEach(([name, fn]) => v.appendChild(
-        h('button', { class: 'list-item', onclick: fn }, h('span', { class: 'grow' }, name), h('span', { class: 'badge' }, '보기'))));
-
+      /* 「오늘 되새길 낱말」 상자를 없앴습니다.
+         되새김은 판 안에 저절로 섞여 나오므로 따로 찾아 들어갈 일이 없고,
+         '오늘은 없어요' 라고만 적힌 빈 상자가 자주 떴습니다.
+         「최근 만난 낱말」도 뺐습니다 — 간직한 낱말과 하는 일이 겹칩니다. */
       v.appendChild(h('div', { class: 'card center' },
         h('div', { class: 'muted small' }, '지금까지 만난 낱말'),
         h('div', { class: 'bignum' }, known.length + '개'),
         h('div', { class: 'muted small' }, `꾸러미에 담긴 낱말 ${DB.entries.length}개 가운데`)));
+
+      const nav = [
+        ['속담 마당', '옛말을 이어 맞춰 보세요', () => global.Game.startProverbs()],
+        ['간직한 낱말', `♡ 로 담아 두신 ${d.fav.length}개`, () => this.listWords(d.fav.map(id => DB.byId[id]).filter(Boolean), '간직한 낱말')],
+        ['나의 기록', '함께 걸어온 자취', () => this.stats()]
+      ];
+      nav.forEach(([name, sub, fn]) => v.appendChild(
+        h('button', { class: 'list-item', onclick: fn },
+          h('span', { class: 'grow' }, h('b', null, name),
+            h('span', { class: 'sub' }, sub)),
+          h('span', { class: 'badge' }, '보기'))));
     },
 
     listWords(list, title) {
