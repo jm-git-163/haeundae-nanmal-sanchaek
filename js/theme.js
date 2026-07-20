@@ -11,18 +11,35 @@
 (function (global) {
   'use strict';
 
-  /* 계절마다 흩날리는 것 — 어느 풍경에나 무언가 떨어집니다 */
+  /* 계절마다 흩날리는 것 — 어느 풍경에나 무언가 떨어집니다.
+     이모지(🌸🍁❄) 를 쓰면 기기마다 그림·색이 제각각이라
+     애써 맞춘 빛깔이 흐트러집니다. 그래서 직접 그립니다. */
+  const petal = (fill) =>
+    `<svg viewBox="0 0 24 24" width="100%" height="100%" aria-hidden="true">
+       <path d="M12 2C8 6.5 5.5 10 5.5 14A6.5 6.5 0 0 0 12 20.5 6.5 6.5 0 0 0 18.5 14C18.5 10 16 6.5 12 2Z"
+             fill="${fill}"/></svg>`;
+  const leaf = (fill) =>
+    `<svg viewBox="0 0 24 24" width="100%" height="100%" aria-hidden="true">
+       <path d="M20 4C11 4 4 9 4 15.5c0 2 .8 3.6 1.8 4.5C9 16 13 13.4 18 12c-4 2.4-7.4 5.2-9.6 9
+                C15 21 20 15.5 20 4Z" fill="${fill}"/></svg>`;
+  const flake = (fill) =>
+    `<svg viewBox="0 0 24 24" width="100%" height="100%" aria-hidden="true"
+          fill="none" stroke="${fill}" stroke-width="1.8" stroke-linecap="round">
+       <path d="M12 3v18M4.2 7.5l15.6 9M19.8 7.5l-15.6 9"/></svg>`;
+  const dot = (fill) =>
+    `<svg viewBox="0 0 24 24" width="100%" height="100%" aria-hidden="true">
+       <circle cx="12" cy="12" r="5" fill="${fill}"/></svg>`;
+
   const DUST = {
-    '봄': ['🌸', '🌸', '🌼'],
-    '여름': ['🍃', '🍃', '🌿'],
-    '가을': ['🍁', '🍂', '🍁'],
-    '겨울': ['❄', '❄', '🌨']
+    '봄': [petal('#f6b9c4'), petal('#ffd3dc'), petal('#f9c9d2')],
+    '여름': [leaf('#8fbf7a'), leaf('#a8cf95'), leaf('#7fae6c')],
+    '가을': [leaf('#e0954a'), leaf('#d2762f'), petal('#e8b06a')],
+    '겨울': [flake('#cfe0ea'), flake('#e3eef5'), dot('#dce9f0')]
   };
-  /* 때와 날씨에 따라 한 가지가 더 섞입니다 */
   const EXTRA = {
-    '밤': '✨',
-    '해질녘': '🍂',
-    '새벽': '·'
+    '밤': dot('#ffe6a8'),
+    '해질녘': leaf('#d98b45'),
+    '새벽': dot('#e6dcd2')
   };
 
   function darken(css, amt) {
@@ -140,12 +157,13 @@
       for (let i = 0; i < COUNT; i++) {
         const s = document.createElement('span');
         // 다섯에 하나쯤은 때에 어울리는 것으로
-        s.textContent = (extra && i % 5 === 3) ? extra : pool[i % pool.length];
+        s.innerHTML = (extra && i % 5 === 3) ? extra : pool[i % pool.length];
         s.style.left = ((i * 8.3 + (i % 5) * 3.1) % 96) + '%';
         s.style.animationName = anims[i % anims.length];
         s.style.animationDelay = (-i * 2.9).toFixed(1) + 's';   // 처음부터 골고루 떠 있게
         s.style.animationDuration = (17 + (i % 5) * 4.5).toFixed(1) + 's';
-        s.style.fontSize = (13 + (i % 4) * 7) + 'px';
+        const sz = 11 + (i % 4) * 6;
+        s.style.width = sz + 'px'; s.style.height = sz + 'px';
         s.style.setProperty('--dust-o', (0.22 + (i % 4) * 0.07).toFixed(2));
         box.appendChild(s);
       }

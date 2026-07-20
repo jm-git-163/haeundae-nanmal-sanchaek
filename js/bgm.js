@@ -69,13 +69,12 @@
         const bw = c.createGain(); bw.gain.value = 0.5;
         this.bgmGain.connect(bw); bw.connect(this.wet);
 
-        // 효과음은 울림으로 거의 보내지 않습니다.
-        // 손가락을 놀릴 때마다 울리면 금세 귀에 거슬립니다.
+        // 효과음은 울림으로 전혀 보내지 않습니다.
+        // 짧은 소리에 잔향이 붙으면 '동굴에서 나는 소리'처럼 텅 비어 들립니다.
+        // 울림은 배경음에만 씁니다.
         this.sfxGain = c.createGain();
         this.sfxGain.gain.value = 1;
         this.sfxGain.connect(this.master);
-        const sw = c.createGain(); sw.gain.value = 0.25;
-        this.sfxGain.connect(sw); sw.connect(this.wet);
       } catch (e) { this.ctx = null; }
       return this.ctx;
     },
@@ -130,10 +129,16 @@
       const g = c.createGain();
       const f = c.createBiquadFilter();
       f.type = 'lowpass';
-      const top = (open || 1) * (kind === 'wood' ? 2600 : 3000);
-      f.frequency.setValueAtTime(top, when);
-      f.frequency.exponentialRampToValueAtTime(Math.max(240, top * 0.24), when + dur);  // 갈수록 부드러워집니다
-      f.Q.value = 0.7;
+      // 필터를 아래로 크게 훑어 내리면 소리가 먹먹해져 동굴처럼 들립니다.
+      // 배경음(soft)에만 훑고, 손끝에 닿는 소리는 고정해 또렷하게 둡니다.
+      const top = (open || 1) * (kind === 'wood' ? 4200 : 3600);
+      if (kind === 'soft') {
+        f.frequency.setValueAtTime(top, when);
+        f.frequency.exponentialRampToValueAtTime(Math.max(320, top * 0.5), when + dur);
+      } else {
+        f.frequency.value = top;
+      }
+      f.Q.value = 0.4;
 
       const atk = kind === 'soft' ? 0.45 : (kind === 'wood' ? 0.004 : 0.012);
       g.gain.setValueAtTime(0.0001, when);
@@ -143,7 +148,7 @@
 
       // 배음 짜임 — 소리의 성격을 정합니다
       const parts = kind === 'wood'
-        ? [[1, 1], [2.76, 0.34], [5.4, 0.12]]          // 나무·실로폰
+        ? [[1, 1], [3.9, 0.16]]                        // 또랑또랑한 톡 (통 울리는 배음을 뺐습니다)
         : kind === 'soft'
           ? [[1, 1], [2, 0.28], [3, 0.10]]             // 포근한 패드
           : [[1, 1], [2, 0.42], [3, 0.16], [4.2, 0.07]]; // 오르골
@@ -175,7 +180,7 @@
     /* ── 자리마다 쓰이는 소리 ── */
 
     /** 단추를 누를 때 — 나무를 톡 */
-    tap() { this.fx([[523.25, 0, 0.11, 1]], 'wood', 0.20); },
+    tap() { this.fx([[880.00, 0, 0.055, 1]], 'wood', 0.16); },
 
     /**
      * 글자를 놓을 때 — 이어서 놓으면 음이 한 계단씩 올라갑니다.
@@ -185,8 +190,8 @@
       const now = Date.now();
       this.placeRun = (now - this.placeAt < 2600) ? Math.min(this.placeRun + 1, 5) : 0;
       this.placeAt = now;
-      const up = [392.00, 440.00, 493.88, 523.25, 587.33, 659.25][this.placeRun];
-      this.fx([[up, 0, 0.15, 1], [up * 2, 0.02, 0.09, 0.30]], 'wood', 0.22);
+      const up = [587.33, 659.25, 698.46, 783.99, 880.00, 987.77][this.placeRun];
+      this.fx([[up, 0, 0.075, 1]], 'wood', 0.20);
     },
 
     /** 낱말을 하나 맞혔을 때 — 맑게 올라가는 세 음 */

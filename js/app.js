@@ -193,6 +193,42 @@
     });
   }
 
+  /* ══════════ 아래 띠 아이콘 ══════════════════════
+     이모지(🏡🐕📖⚙️) 대신 직접 그립니다.
+     이모지는 기기마다 그림·색·굵기가 달라 한 벌로 보이지 않고,
+     그것이 화면이 어수선해 보이는 가장 큰 까닭이었습니다.
+     여기서는 굵기 2, 크기 24 로 통일해 한 손에서 그린 것처럼 만듭니다.
+     ══════════════════════════════════════════════ */
+  const TAB_NAME = { walk: '산책', hood: '동네', pet: '강아지', learn: '배움', set: '설정' };
+  const SVG = (inner) =>
+    `<svg viewBox="0 0 24 24" width="100%" height="100%" fill="none"
+       stroke="currentColor" stroke-width="2" stroke-linecap="round"
+       stroke-linejoin="round" aria-hidden="true">${inner}</svg>`;
+  const TAB_ICON = {
+    // 발자국 — 산책
+    walk: SVG('<ellipse cx="12" cy="16" rx="4.2" ry="3.4" fill="currentColor" stroke="none"/>' +
+      '<ellipse cx="6.6" cy="11.4" rx="1.9" ry="2.4" fill="currentColor" stroke="none"/>' +
+      '<ellipse cx="10.2" cy="8.4" rx="1.9" ry="2.5" fill="currentColor" stroke="none"/>' +
+      '<ellipse cx="13.8" cy="8.4" rx="1.9" ry="2.5" fill="currentColor" stroke="none"/>' +
+      '<ellipse cx="17.4" cy="11.4" rx="1.9" ry="2.4" fill="currentColor" stroke="none"/>'),
+    // 집 — 동네
+    hood: SVG('<path d="M4 10.5 12 4l8 6.5"/><path d="M6.5 9.6V19h11V9.6"/><path d="M10 19v-4.5h4V19"/>'),
+    // 강아지 얼굴
+    pet: SVG('<path d="M5 7.5c0-2 1.2-2.8 2.6-2 1 .6 1.7 1.6 2 2.4"/>' +
+      '<path d="M19 7.5c0-2-1.2-2.8-2.6-2-1 .6-1.7 1.6-2 2.4"/>' +
+      '<path d="M12 19c-3.6 0-6.2-2.4-6.2-5.6S8.4 7.6 12 7.6s6.2 2.6 6.2 5.8S15.6 19 12 19Z"/>' +
+      '<circle cx="9.8" cy="13" r="1" fill="currentColor" stroke="none"/>' +
+      '<circle cx="14.2" cy="13" r="1" fill="currentColor" stroke="none"/>' +
+      '<path d="M12 15.2v1.1"/>'),
+    // 펼친 책 — 배움
+    learn: SVG('<path d="M12 7.2C10.4 6 8.4 5.5 5 5.6v11.6c3.4-.1 5.4.4 7 1.6"/>' +
+      '<path d="M12 7.2c1.6-1.2 3.6-1.7 7-1.6v11.6c-3.4-.1-5.4.4-7 1.6"/><path d="M12 7.2v11.6"/>'),
+    // 톱니 — 설정
+    set: SVG('<circle cx="12" cy="12" r="3.1"/>' +
+      '<path d="M12 3.6v2.2M12 18.2v2.2M20.4 12h-2.2M5.8 12H3.6' +
+      'M18.1 5.9l-1.6 1.6M7.5 16.5l-1.6 1.6M18.1 18.1l-1.6-1.6M7.5 7.5 5.9 5.9"/>')
+  };
+
   /* ══════════ 강아지 ══════════════════════════════ */
   const DOG_FACES = { 반가움: '🐕', 편안함: '🐶', 갸웃: '🐕‍🦺', 신남: '🐩', 보고싶음: '🐕' };
 
@@ -261,17 +297,19 @@
     },
 
     renderTabs() {
-      const tabs = [
-        ['walk', '🐾', '산책'], ['hood', '🏡', '동네'], ['pet', '🐕', '강아지'],
-        ['learn', '📖', '배움'], ['set', '⚙️', '설정']
-      ];
+      const tabs = ['walk', 'hood', 'pet', 'learn', 'set'];
       const bar = $('tabbar'); bar.innerHTML = '';
-      tabs.forEach(([id, ic, name]) => bar.appendChild(
-        h('button', {
+      tabs.forEach(id => {
+        const btn = h('button', {
           class: (this.tab === id ? 'on ' : '') + (id === 'walk' ? 'mid' : ''),
-          'aria-label': name, onclick: () => { Sound.tap(); this.go(id); }
-        }, h('span', { class: 'ic' }, ic), h('span', null, name))
-      ));
+          'aria-label': TAB_NAME[id], onclick: () => { Sound.tap(); this.go(id); }
+        });
+        const ic = h('span', { class: 'ic' });
+        ic.innerHTML = TAB_ICON[id];
+        btn.appendChild(ic);
+        btn.appendChild(h('span', null, TAB_NAME[id]));
+        bar.appendChild(btn);
+      });
     },
 
     go(tab) {
@@ -327,10 +365,10 @@
         h('button', { class: 'btn go wide', onclick: () => global.Game.startReview() }, '되새기러 가기')));
 
       v.appendChild(h('div', { class: 'card' },
-        h('div', { class: 'row' },
-          h('div', { style: 'flex:1;min-width:120px' }, h('div', { class: 'muted small' }, '함께한 날'), h('div', { class: 'bignum' }, d.days.length + '일')),
-          h('div', { style: 'flex:1;min-width:120px' }, h('div', { class: 'muted small' }, '만난 낱말'), h('div', { class: 'bignum' }, Object.keys(d.memory).length + '개')),
-          h('div', { style: 'flex:1;min-width:120px' }, h('div', { class: 'muted small' }, '발자국'), h('div', { class: 'bignum' }, '🐾 ' + d.footprints))
+        h('div', { class: 'statrow' },
+          h('div', { style: 'flex:1;min-width:0' }, h('div', { class: 'muted small' }, '함께한 날'), h('div', { class: 'bignum' }, d.days.length + '일')),
+          h('div', { style: 'flex:1;min-width:0' }, h('div', { class: 'muted small' }, '만난 낱말'), h('div', { class: 'bignum' }, Object.keys(d.memory).length + '개')),
+          h('div', { style: 'flex:1;min-width:0' }, h('div', { class: 'muted small' }, '발자국'), h('div', { class: 'bignum' }, d.footprints + '개'))
         )));
     },
 
