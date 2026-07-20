@@ -40,13 +40,16 @@
         // ── 울림(잔향) ──
         // 작은 방에서 나는 울림을 그 자리에서 만들어 씁니다.
         // 울림이 있으면 같은 소리도 훨씬 부드럽고 값지게 들립니다.
+        // 울림은 아주 조금만 둡니다.
+        // 휴대전화의 작은 스피커에서는 잔향이 길면 '욕실에서 나는 소리'처럼 들려
+        // 소리가 지저분해집니다. 방을 좁게(0.5초), 섞는 양도 적게(0.12) 잡았습니다.
         this.wet = c.createGain();
-        this.wet.gain.value = 0.34;
+        this.wet.gain.value = 0.12;
         try {
           const conv = c.createConvolver();
-          conv.buffer = this.makeRoom(1.9);
+          conv.buffer = this.makeRoom(0.5);
           const damp = c.createBiquadFilter();
-          damp.type = 'lowpass'; damp.frequency.value = 2200;   // 울림의 높은 소리를 깎아 포근하게
+          damp.type = 'lowpass'; damp.frequency.value = 1800;
           this.wet.connect(conv); conv.connect(damp); damp.connect(this.master);
         } catch (e) { this.wet.connect(this.master); }
 
@@ -56,10 +59,13 @@
         const bw = c.createGain(); bw.gain.value = 0.5;
         this.bgmGain.connect(bw); bw.connect(this.wet);
 
+        // 효과음은 울림으로 거의 보내지 않습니다.
+        // 손가락을 놀릴 때마다 울리면 금세 귀에 거슬립니다.
         this.sfxGain = c.createGain();
         this.sfxGain.gain.value = 1;
         this.sfxGain.connect(this.master);
-        this.sfxGain.connect(this.wet);
+        const sw = c.createGain(); sw.gain.value = 0.25;
+        this.sfxGain.connect(sw); sw.connect(this.wet);
       } catch (e) { this.ctx = null; }
       return this.ctx;
     },
@@ -159,7 +165,7 @@
     /* ── 자리마다 쓰이는 소리 ── */
 
     /** 단추를 누를 때 — 나무를 톡 */
-    tap() { this.fx([[523.25, 0, 0.20, 1]], 'wood', 0.22); },
+    tap() { this.fx([[523.25, 0, 0.11, 1]], 'wood', 0.20); },
 
     /**
      * 글자를 놓을 때 — 이어서 놓으면 음이 한 계단씩 올라갑니다.
@@ -170,17 +176,16 @@
       this.placeRun = (now - this.placeAt < 2600) ? Math.min(this.placeRun + 1, 5) : 0;
       this.placeAt = now;
       const up = [392.00, 440.00, 493.88, 523.25, 587.33, 659.25][this.placeRun];
-      this.fx([[up, 0, 0.26, 1], [up * 2, 0.03, 0.16, 0.35]], 'wood', 0.24);
+      this.fx([[up, 0, 0.15, 1], [up * 2, 0.02, 0.09, 0.30]], 'wood', 0.22);
     },
 
     /** 낱말을 하나 맞혔을 때 — 맑게 올라가는 세 음 */
     word() {
       this.placeRun = 0;
       this.fx([
-        [523.25, 0, 0.5, 0.9],
-        [659.25, 0.075, 0.5, 0.95],
-        [783.99, 0.15, 0.9, 1],
-        [1046.50, 0.15, 0.9, 0.4]
+        [523.25, 0, 0.28, 0.9],
+        [659.25, 0.06, 0.28, 0.95],
+        [783.99, 0.12, 0.5, 1]
       ], 'bell', 0.15);
     },
 
@@ -340,32 +345,28 @@
       this._prevVoicing = notes;
 
       // ① 아래를 받치는 뿌리음 — 가운데에서 든든하게
-      this.ping(this.hz(rootM), t, bar * 1.2, 0.052 * V, 'soft', this.bgmGain, 0, S.open);
+      this.ping(this.hz(rootM), t, bar * 1.2, 0.045 * V, 'soft', this.bgmGain, 0, S.open);
       this.ping(this.hz(rootM + 12), t + 0.05, bar * 0.9, 0.020 * V, 'soft', this.bgmGain, 0, S.open);
 
       // ② 화음 — 천천히 스며들고, 좌우로 조금씩 벌려 놓습니다
       notes.forEach((m, i) =>
-        this.ping(this.hz(m), t + i * 0.12, bar * 1.1, 0.026 * V, 'soft',
+        this.ping(this.hz(m), t + i * 0.12, bar * 1.1, 0.030 * V, 'soft',
           this.bgmGain, (i - 1) * 0.42, S.open));
 
-      // ③ 아르페지오 — 화음을 한 알씩 굴려 물결 같은 움직임을 만듭니다.
-      //    이게 없으면 소리가 멈춰 있는 것처럼 들려 심심합니다.
-      const arp = notes.concat(notes.map(m => m + 12));
-      const gap = (bar * 0.82) / S.arp;
-      for (let i = 0; i < S.arp; i++) {
-        const m = arp[i % arp.length];
-        this.ping(this.hz(m), t + 0.25 + i * gap, 1.5, 0.016 * V, 'bell',
-          this.bgmGain, (i % 2 ? 0.5 : -0.5), S.open);
-      }
-
-      // ④ 가락 — 오음계 위를 걸어 다닙니다. 마디마다 다르게 나옵니다.
+      // ③ 가락 — 한 마디에 한두 음만. 아주 여리게 얹습니다.
+      //
+      // 예전에는 화음을 한 알씩 굴리는 층(아르페지오)까지 깔았는데,
+      // 휴대전화의 작은 스피커에서는 낮은 소리가 거의 나오지 않아
+      // 그 방울 소리만 남습니다. 그래서 '딩딩거리는 이상한 소리'로 들렸습니다.
+      // 음을 크게 줄이고, 화음(패드)이 주인공이 되게 두었습니다.
       let deg = this._deg === undefined ? 2 : this._deg;
-      for (let i = 0; i < S.mel; i++) {
+      const n = 1 + (Math.random() < 0.45 ? 1 : 0);
+      for (let i = 0; i < n; i++) {
         // 바로 옆 음으로만 움직여 가락이 튀지 않게 합니다
-        deg = Math.max(0, Math.min(this.PENTA.length * 2 - 1, deg + (Math.floor(Math.random() * 5) - 2)));
-        const m = 60 + this.PENTA[deg % this.PENTA.length] + 12 * Math.floor(deg / this.PENTA.length);
-        this.ping(this.hz(m), t + 0.45 + i * (bar / (S.mel + 0.6)),
-          2.2 + Math.random(), 0.040 * V, 'bell', this.bgmGain, 0, S.open);
+        deg = Math.max(0, Math.min(this.PENTA.length - 1, deg + (Math.floor(Math.random() * 3) - 1)));
+        const m = 60 + this.PENTA[deg];
+        this.ping(this.hz(m), t + 0.8 + i * (bar * 0.45),
+          2.6 + Math.random(), 0.022 * V, 'soft', this.bgmGain, 0, S.open * 0.7);
       }
       this._deg = deg;
 

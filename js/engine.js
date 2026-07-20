@@ -317,9 +317,17 @@
      이보다 적으면 판이 허전해서 후보를 넓혀 다시 짭니다. */
   const MIN_WORDS = 12;
 
-  /** 오래 걸으실수록 아주 조금씩 어려워집니다 (너무 가파르지 않게) */
+  /**
+   * 오래 걸으실수록 조금씩 어려워집니다.
+   *
+   * 로그로 올려 초반에는 빠르게, 나중에는 아주 천천히 오릅니다.
+   * 그래야 처음 백 단계에서 '늘고 있다'는 느낌이 나면서도
+   * 천 단계쯤에서 갑자기 벽에 부딪히지 않습니다.
+   * 위쪽은 220점에서 멈춥니다 — 더 올리면 실력이 좋은 분도
+   * 정답률이 70% 아래로 떨어져 재미가 사라집니다.
+   */
   function levelRamp(level) {
-    return Math.min(170, 62 * Math.log10(1 + (level || 1) / 18));
+    return Math.min(220, 78 * Math.log10(1 + (level || 1) / 15));
   }
 
   const NEIGHBORHOODS = [
@@ -375,7 +383,7 @@
 
     compose(mode, rng, bTarget, due, store, targetP, level) {
       switch (mode) {
-        case 'CROSSWORD': return this.crossword(rng, bTarget, due, targetP, level);
+        case 'CROSSWORD': return this.crossword(rng, bTarget, due, targetP, level, store);
         case 'PROVERB_MATCH': return this.proverb(rng, bTarget, due);   // 두 문항
         case 'REVIEW_MIX': return this.review(rng, bTarget, due, store, targetP, level);
         default: return [];
@@ -383,7 +391,7 @@
     },
 
     /* ── 가로세로 낱말 (주력 모드) ── */
-    crossword(rng, bTarget, due, targetP, level) {
+    crossword(rng, bTarget, due, targetP, level, store) {
       const spec = gridSpec(targetP || 0.8, level);
       const ok = e => (e.type === 'WORD' || e.type === 'IDIOM') && e.len >= 2 && e.len <= 4;
 
@@ -399,8 +407,16 @@
        * (실력이 높은 분께 자꾸 쉬운 문제가 나가 실력이 제대로 안 읽힙니다.)
        * 그래서 '목표 난이도에 가까운 순으로 몇 개' 를 세어 고릅니다.
        */
-      const byNear = DB.entries.filter(ok)
-        .sort((a, b) => Math.abs(a.difficulty - bTarget) - Math.abs(b.difficulty - bTarget));
+      /*
+       * 방금 만난 낱말은 뒤로 미룹니다.
+       * 난이도로만 고르면 목표 근처의 같은 낱말이 판마다 되풀이됩니다.
+       * 최근 목록에 있으면 '난이도가 260점 먼 낱말'인 셈 치고 순위를 내려
+       * 다른 낱말이 먼저 뽑히게 합니다. (아주 빼지는 않습니다 —
+       * 되새김에는 다시 만나는 것이 필요합니다)
+       */
+      const seen = new Set((store && store.recent) || []);
+      const rank = e => Math.abs(e.difficulty - bTarget) + (seen.has(e.id) ? 260 : 0);
+      const byNear = DB.entries.filter(ok).sort((a, b) => rank(a) - rank(b));
 
       const makePool = (size) => {
         const p = byNear.slice(0, size);

@@ -100,7 +100,8 @@
       }, (Store.data.settings.sfx || Store.data.settings.bgm) ? '🔊 소리' : '🔇 소리끔');
 
       App.top(this.reviewOnly ? this.stage.modeName : this.stage.level + '번째 산책',
-        h('button', { class: 'iconbtn', onclick: () => this.leave() }, '← 나가기'),
+        h('button', { class: 'iconbtn back', 'aria-label': '나가기', onclick: () => this.leave() },
+          h('span', { class: 'ic' }, '←'), h('span', { class: 'tx' }, '나가기')),
         h('div', { class: 'row', style: 'gap:2px;flex-wrap:nowrap' },
           h('span', { class: 'footchip', id: 'footchip' }, '🐾 ' + Store.data.footprints),
           soundBtn));
@@ -119,8 +120,9 @@
       // 모드와 풍경을 한 줄로 합칩니다.
       // 비슷하게 생긴 줄이 둘이면 어느 쪽을 봐야 할지 알 수 없습니다.
       const scene = global.Theme.apply(this.stage.level);
-      v.appendChild(sceneCaption(this.stage.modeName + ' · ' + scene.name));
-      v.appendChild(dogBlock('편안함', this.stage.guide));
+      // 풍경 이름만 한 줄로. 모드 이름은 판을 보면 알 수 있어 빼고,
+      // 좁은 화면에서 두 줄로 넘치던 것을 막습니다.
+      v.appendChild(sceneCaption(scene.name));
 
       const body = h('div', { id: 'play' });
       v.appendChild(body);
@@ -457,7 +459,24 @@
         : self > 0
           ? `낱말 ${list.length}개 완성! 그중 ${self}개는 혼자 힘으로 🐾+${self * this.PAY.word}`
           : `낱말 ${list.length}개를 모두 찾으셨어요!`;
-      this.card(list[0], () => { this.idx++; this.session.itemsDone++; this.renderItem(); }, praise);
+      this.praise(praise, () => { this.idx++; this.session.itemsDone++; this.renderItem(); });
+    },
+
+    /**
+     * 판을 다 채웠을 때 짧게 축하만 하고 넘어갑니다.
+     * 예전에는 낱말 뜻 카드를 띄웠는데, 한 판에 열다섯 낱말을 맞히고 나서
+     * 그중 하나의 뜻만 보여 주는 것이라 흐름만 끊겼습니다.
+     */
+    praise(text, next) {
+      sheet((box, close) => {
+        box.appendChild(h('div', { class: 'celebrate' },
+          h('div', { class: 'burst' }, global.UI.dogEl('신남', 104)),
+          h('div', { class: 'big' }, text)));
+        box.appendChild(h('button', {
+          class: 'btn primary wide', style: 'margin-top:6px',
+          onclick: () => { close(); if (next) next(); }
+        }, '다음 ▸'));
+      }, null);
     },
 
     /* ── 모드 2: 보기 고르기 ── */
@@ -641,7 +660,10 @@
       // 최근 만난 낱말
       d.recent = d.recent.filter(id => id !== entry.id);
       d.recent.push(entry.id);
-      if (d.recent.length > 60) d.recent.shift();
+      // 최근 목록을 넉넉히 둡니다. 한 판에 열다섯 낱말이 나오므로
+      // 60개면 겨우 네 판 분량이라 금세 같은 낱말이 다시 나왔습니다.
+      // 400개면 스물예닐곱 판 동안은 겹치지 않습니다.
+      if (d.recent.length > 400) d.recent.shift();
 
       // 가로세로 판은 낱말을 맞힐 때마다 이미 드렸습니다(checkWords).
       // 여기서 또 드리면 두 번 드리는 셈이 됩니다.

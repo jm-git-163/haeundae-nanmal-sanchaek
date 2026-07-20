@@ -101,7 +101,9 @@
       const photo = plain ? null : this.photoFor(sc);
       root.setProperty('--scene-photo', photo ? `url("${photo}")` : 'none');
       // 그림 위에 덮는 반투명 막 — 낱말 칸이 또렷하게 보이도록
-      root.setProperty('--scene-veil', dark ? 'rgba(26,19,16,.80)' : 'rgba(255,255,255,.68)');
+      // 사진을 더 옅게 덮습니다. 사진이 선명하면 낱말 칸의 글자가 묻혀
+      // 눈이 피로해집니다. 배경은 '분위기'만 내면 됩니다.
+      root.setProperty('--scene-veil', dark ? 'rgba(23,19,15,.88)' : 'rgba(250,247,244,.86)');
 
       this.current = level;
       this.loadPhotos();

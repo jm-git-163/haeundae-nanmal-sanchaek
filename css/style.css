@@ -1012,3 +1012,13 @@ body.contrast .xwrap::after { display: none; }
 .topbar .helpbtn { font-size: 0; }
 .topbar .helpbtn::before { font-size: calc(21px * var(--fs)); }
 .topbar .helpbtn:active::before { transform: scale(.9); }
+
+/* ── 좁은 화면에서 위 띠 정리 ─────────────────
+   ‘← 나가기 + 23번째 산책 + 🐾40 + 🔊소리’ 가 390px 안에 다 들어가지 않아
+   제목이 잘렸습니다. 좁아지면 ‘나가기’ 글자를 감추고 화살표만 남깁니다. */
+.topbar .iconbtn.back .ic { margin-right: 4px; }
+@media (max-width: 430px) {
+  .topbar .iconbtn.back .tx { display: none; }
+  .topbar .iconbtn.back { padding: 8px 10px; font-size: calc(22px * var(--fs)); }
+  .topbar .footchip { padding: 5px 8px; }
+}
