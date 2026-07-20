@@ -35,6 +35,11 @@
   --primary-c-dark: #c26c05;
   --on-primary-c: #3d1f00;
   --primary-fixed: #ffe0c2;
+  /* 낱말판 안쪽 (사진 대신 아주 옅은 물빛) */
+  --board-tint: #fff1e2;
+  --cell-bg: #f6f1ea;
+  --cell-line: #e6dcd0;
+  --cur-halo: rgba(239,143,34,.18);
   /* 보조 — 켜짐·마침 (감빛과 싸우지 않는 차분한 쑥빛) */
   --secondary: #4c6b3a;
   --secondary-c: #dbe8cd;
@@ -119,6 +124,10 @@ body.dark {
   --primary-c-dark: #a65f0c;
   --on-primary-c: #241200;
   --primary-fixed: #4a3221;
+  --board-tint: #2a211a;
+  --cell-bg: #241d17;
+  --cell-line: #3a2f26;
+  --cur-halo: rgba(212,124,28,.28);
   /* 보조 */
   --secondary: #9dc182;
   --secondary-c: #33402a;
@@ -206,7 +215,12 @@ body.reduce-motion *, body.reduce-motion *::before, body.reduce-motion *::after 
   display: flex; align-items: center; gap: 8px;
   padding: max(8px, env(safe-area-inset-top)) var(--edge) 8px;
   min-height: calc(56px * var(--fs));
-  background: transparent; flex: 0 0 auto;
+  flex: 0 0 auto;
+  /* 아래 내용이 비쳐 흐르는 유리처럼. 요즘 앱의 공통된 결입니다. */
+  position: sticky; top: 0; z-index: 20;
+  background: color-mix(in srgb, var(--surface) 72%, transparent);
+  backdrop-filter: saturate(150%) blur(14px);
+  -webkit-backdrop-filter: saturate(150%) blur(14px);
   border-bottom: 1px solid transparent;
 }
 .topbar h1 {
@@ -238,9 +252,11 @@ body.reduce-motion *, body.reduce-motion *::before, body.reduce-motion *::after 
 /* ── 아래 탭 ───────────────────────────────── */
 .tabbar {
   display: flex; flex: 0 0 auto;
-  background: var(--white); border-top: 1px solid var(--line);
+  background: color-mix(in srgb, var(--white) 76%, transparent);
+  backdrop-filter: saturate(150%) blur(16px);
+  -webkit-backdrop-filter: saturate(150%) blur(16px);
+  border-top: 1px solid var(--line);
   padding-bottom: env(safe-area-inset-bottom);
-  box-shadow: 0 -1px 0 var(--line);
 }
 .tabbar button {
   flex: 1; min-height: calc(84px * var(--fs));
@@ -556,39 +572,18 @@ body { background: transparent; }
 .xwrap {
   position: relative; isolation: isolate;
   display: flex; justify-content: center;
-  padding: 22px 12px;
-  background: transparent;          /* 불투명 배경을 두면 아래 그림을 덮습니다 */
-  border: 3px solid var(--outline-var); border-radius: var(--r-lg);
-  box-shadow: var(--shadow-hero); overflow: hidden;
-  min-height: calc(200px * var(--fs));
+  padding: 20px 12px;
+  /* 사진을 걷어내고 아주 옅은 그러데이션만 둡니다.
+     만지는 것 뒤에는 아무것도 두지 않는 편이 늘 낫습니다. */
+  background:
+    radial-gradient(120% 80% at 50% 0%, var(--board-tint) 0%, transparent 70%),
+    var(--white);
+  border: none; border-radius: 30px;
+  box-shadow: 0 1px 2px rgba(45,21,13,.05), 0 18px 44px -16px rgba(45,21,13,.22);
+  overflow: hidden;
+  min-height: calc(180px * var(--fs));
 }
-/* 판 안쪽 풍경 — 세 겹으로 겹칩니다 (위에서부터)
-   ① 반투명 막   : 낱말 칸이 또렷하게 보이도록
-   ② 그린 풍경   : 단계마다 새로 그려 절대 겹치지 않음
-   ③ 사진        : 같은 계절·때의 사진을 아주 옅게 깔아 결을 더함
-   사진만 쓰면 스무 장마다 반복되고, 그림만 쓰면 결이 밋밋합니다.
-   둘을 겹치면 반복 없이 사진의 질감을 얻습니다. */
-.xwrap::before {
-  content: ''; position: absolute; inset: 0; z-index: -2;
-  background-color: var(--white);
-  background-image:
-    linear-gradient(var(--scene-veil, rgba(255,255,255,.7)), var(--scene-veil, rgba(255,255,255,.7))),
-    var(--scene-img, none),
-    var(--scene-photo, none);
-  background-size: cover, cover, cover;
-  background-position: center, center, center;
-  background-repeat: no-repeat, no-repeat, no-repeat;
-  background-blend-mode: normal, soft-light, normal;
-  transition: background-image 600ms ease;
-}
-body.contrast .xwrap::before { background-image: none; }
-/* 가장자리를 부드럽게 밝혀 그림이 뚝 끊겨 보이지 않게 */
-.xwrap::after {
-  content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none;
-  background: radial-gradient(120% 95% at 50% 50%, transparent 55%, var(--white) 100%);
-  opacity: .38;
-}
-body.contrast .xwrap::after { display: none; }
+/* 판 안쪽은 비워 둡니다 — 배경 그림은 화면 바깥쪽에서만 씁니다 */
 /* ── 풍경 이름 ────────────────────────────────
    이것은 '읽을거리'가 아니라 지금 어디인지 알려 주는 곁말입니다.
    그래서 상자를 두르지 않습니다. 말풍선과 똑같이 생기면
@@ -607,28 +602,41 @@ body.contrast .xwrap::after { display: none; }
 .scene-caption > span { flex: 0 1 auto; word-break: keep-all; text-align: center; }
 .xgrid { display: grid; gap: 5px; min-width: 0; }
 .xcell {
-  aspect-ratio: 1 / 1; border-radius: var(--r-sm);
+  aspect-ratio: 1 / 1; border-radius: 14px;
   display: flex; align-items: center; justify-content: center;
   font-family: inherit; font-weight: 800; line-height: 1;
+  letter-spacing: -0.02em;
   /* 글자 크기는 칸 크기에 맞춰 자바스크립트가 재어 넣습니다.
      여기에 %를 쓰면 '칸 크기'가 아니라 '부모 글자 크기' 기준이 되어
      글자가 아주 작아집니다. */
   font-size: var(--cellfs, 30px);
-  background: var(--surface-low); color: var(--on-surface);
-  border: 3px solid var(--outline-var); box-shadow: var(--inset);
-  cursor: pointer; padding: 0; transition: transform var(--t-press);
+  /* 테두리 3px 은 너무 두꺼웠습니다. 칸이 열다섯 개 모이면
+     선이 화면을 뒤덮어 어수선해집니다. 면으로 구분합니다. */
+  background: var(--cell-bg); color: var(--on-surface);
+  border: none; box-shadow: inset 0 0 0 1.5px var(--cell-line);
+  cursor: pointer; padding: 0;
+  transition: transform 180ms cubic-bezier(.34,1.56,.64,1),
+              background-color 200ms ease, box-shadow 200ms ease;
 }
 /* 판에서 글자가 들어가지 않는 자리. 이름을 .empty 로 두면
    빈 화면용 .empty(안쪽 여백 40px)와 부딪혀 칸이 부풀어 오릅니다. */
 .xcell.gap { background: transparent; border: none; box-shadow: none; cursor: default; }
-.xcell.cur { border-color: var(--primary-c); border-width: 4px; background: var(--primary-fixed); }
-.xcell.fixed { background: var(--tertiary-c); color: var(--on-tertiary-c); border-color: var(--tertiary); }
+.xcell.cur {
+  background: var(--primary-fixed);
+  box-shadow: inset 0 0 0 2px var(--primary-c), 0 0 0 4px var(--cur-halo);
+}
+.xcell.fixed { background: var(--tertiary-c); color: var(--on-tertiary-c); box-shadow: none; }
 .xcell.done {
   background: var(--secondary-c); color: var(--on-secondary-c);
-  border-color: var(--secondary-c-dark); box-shadow: none; cursor: default;
-  animation: pop var(--t-pop) ease-out;
+  box-shadow: none; cursor: default;
+  animation: cellPop 420ms cubic-bezier(.34,1.56,.64,1);
 }
-.xcell:active:not(.gap):not(.done) { transform: scale(.94); }
+.xcell:active:not(.gap):not(.done) { transform: scale(.9); }
+@keyframes cellPop {
+  0%   { transform: scale(1) }
+  35%  { transform: scale(1.16) }
+  100% { transform: scale(1) }
+}
 
 /* 단서 — 낱말판에 딸린 정보이므로 판보다 낮게 둡니다 */
 .clue {
@@ -710,6 +718,11 @@ body.contrast .xwrap::after { display: none; }
    ─ 아무리 좁아도 64px 아래로는 내려가지 않습니다 (손가락 크기)
    ─ 글씨를 키워도 화면 폭(25vw)과 110px 을 넘지 않습니다
    두 조건을 함께 걸지 않으면, 글씨를 키웠을 때 쟁반이 화면 밖으로 나갑니다. */
+.tray {
+  /* 예전에는 쟁반 전체에 베이지 판을 깔았습니다.
+     큰 색 덩어리가 하나 더 생기면 화면이 무거워집니다. */
+  background: none !important; padding: 4px 0 !important;
+}
 .tile {
   /* 조금 줄였습니다(70 → 62px). 국제 기준의 가장 높은 등급(AAA)이 44px 이라
      58px 아래로는 내려가지 않게 막아 두었습니다. */
@@ -718,10 +731,10 @@ body.contrast .xwrap::after { display: none; }
   border-radius: var(--r); border: none; cursor: pointer;
   background: var(--white); color: var(--on-surface);
   font-family: inherit; font-size: min(calc(31px * var(--fs)), 10vw, 46px); font-weight: 800; line-height: 1;
-  box-shadow: 0 4px 0 var(--outline-var), var(--shadow-flat);
-  transition: transform var(--t-press), box-shadow var(--t-press);
+  box-shadow: 0 1px 2px rgba(45,21,13,.06), 0 6px 14px -6px rgba(45,21,13,.22);
+  transition: transform 200ms cubic-bezier(.34,1.56,.64,1), box-shadow 160ms ease;
 }
-.tile:active { transform: translateY(3px); box-shadow: 0 1px 0 var(--outline-var); }
+.tile:active { transform: scale(.88); box-shadow: 0 1px 2px rgba(45,21,13,.10); }
 .tile.used { opacity: .3; }
 
 /* ── 보기 고르기 ──────────────────────────── */
@@ -1058,3 +1071,19 @@ body.contrast .xwrap::after { display: none; }
 .topbar .iconbtn .chip-ic { width: 1.5em; height: 1.5em; vertical-align: -0.35em; }
 .tool-ic { display: block; width: calc(28px * var(--fs)); height: calc(28px * var(--fs)); line-height: 0; }
 .tools .tool-btn .tool-ic { margin: 0 auto 4px; }
+
+/* ── 타이포 다듬기 ────────────────────────────
+   큰 글씨를 기본 자간 그대로 두면 글자가 흩어져 보입니다.
+   레퍼런스의 큰 제목들은 하나같이 자간이 좁습니다. */
+h1, h2, .bignum, .big, .word-title, .qbig {
+  letter-spacing: -0.025em;
+}
+.bignum, .big, .word-title { font-weight: 800; }
+.muted.small, .meta { letter-spacing: 0.01em; }
+
+/* 상자들의 테두리를 걷어내고 면과 그림자로만 층을 나눕니다 */
+.card {
+  border: none;
+  box-shadow: 0 1px 2px rgba(45,21,13,.04), 0 10px 26px -14px rgba(45,21,13,.18);
+}
+.list-item { border: none; box-shadow: inset 0 0 0 1px var(--line); }

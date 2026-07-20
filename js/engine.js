@@ -414,8 +414,22 @@
        * 다른 낱말이 먼저 뽑히게 합니다. (아주 빼지는 않습니다 —
        * 되새김에는 다시 만나는 것이 필요합니다)
        */
-      const seen = new Set((store && store.recent) || []);
-      const rank = e => Math.abs(e.difficulty - bTarget) + (seen.has(e.id) ? 260 : 0);
+      const recent = (store && store.recent) || [];
+      const seen = new Set(recent);
+      /*
+       * 최근일수록 더 세게 밀어냅니다.
+       * 방금 만난 낱말은 900점, 오래된 것일수록 약해져 300점까지 내려옵니다.
+       * (아주 빼지는 않습니다 — 되새김에는 다시 만나는 것이 필요합니다)
+       */
+      const age = {};
+      recent.forEach((id, i) => { age[id] = i; });
+      const n = recent.length;
+      const push = e => {
+        if (!seen.has(e.id)) return 0;
+        const fresh = (age[e.id] + 1) / n;      // 1에 가까울수록 방금 만난 것
+        return 300 + 600 * fresh;
+      };
+      const rank = e => Math.abs(e.difficulty - bTarget) + push(e);
       const byNear = DB.entries.filter(ok).sort((a, b) => rank(a) - rank(b));
 
       const makePool = (size) => {
