@@ -1674,23 +1674,16 @@ body.contrast .btn.primary { background: var(--primary-c) !important; }
   margin: 0 auto;
   border-radius: 50%;
   display: flex; align-items: flex-end; justify-content: center;
-  padding-bottom: 12%;
-  background: radial-gradient(circle at 50% 34%,
-    color-mix(in srgb, var(--white) 42%, transparent) 0%,
-    color-mix(in srgb, var(--white) 18%, transparent) 62%,
-    transparent 100%);
-  backdrop-filter: saturate(150%) blur(6px);
-  -webkit-backdrop-filter: saturate(150%) blur(6px);
+  padding-bottom: 10%;
+  /* 창 안은 거의 비워 둡니다.
+     뒤의 풍경과 흩날리는 잎이 그대로 보여야 '창' 답습니다.
+     흐림(blur)도 걸지 않습니다 — 잎이 뭉개집니다. */
+  background: radial-gradient(circle at 50% 36%,
+    color-mix(in srgb, var(--white) 14%, transparent) 0%,
+    transparent 70%);
   box-shadow:
-    inset 0 0 0 3px color-mix(in srgb, var(--primary-c) 42%, transparent),
-    inset 0 0 44px -14px rgba(45,21,13,.24),
-    0 10px 30px -14px rgba(45,21,13,.30);
-}
-/* 창 아래 걸친 마루 — 강아지가 떠 있지 않게 */
-.moonwin::after {
-  content: ''; position: absolute; left: 8%; right: 8%; bottom: 9%;
-  height: 7px; border-radius: 999px;
-  background: color-mix(in srgb, var(--primary-c-dark) 34%, transparent);
+    inset 0 0 0 3px color-mix(in srgb, var(--primary-c) 46%, transparent),
+    0 8px 26px -16px rgba(45,21,13,.28);
 }
 .moonwin .dog { position: relative; z-index: 1; margin-bottom: -2px; }
 body.contrast .moonwin {
@@ -2369,3 +2362,9 @@ body.contrast .doghouse .niche {
 /* 쓰다듬기·간식 주기는 나란히 */
 .petacts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; }
 .petacts .btn { width: 100%; padding: 12px 8px; }
+
+/* 둥근 창 안에서는 핀 조명을 끕니다.
+   흰 조명이 켜져 있으면 창이 비어 보이지 않고 뿌옇게 막힙니다.
+   테두리와 그림자만으로도 강아지가 또렷합니다. */
+.moonwin .dog::before { display: none; }
+.moonwin .dogsvg { filter: drop-shadow(0 8px 14px rgba(45,21,13,.28)); }

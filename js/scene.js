@@ -644,6 +644,72 @@
       const hi = (x, y, body, op) =>
         `<g opacity="${op}" transform="translate(${x.toFixed(0)} ${y.toFixed(0)})">${body}</g>`;
 
+      /* ── 하늘의 주인공 ────────────────────────────
+         작은 점 몇 개로는 위쪽이 여전히 허전합니다.
+         땅마다 '한눈에 보이는 것' 을 하나씩 크게 놓습니다. */
+      if (land === '바다') {
+        // 돛단배 한 척
+        const bx2 = W * (.18 + rng() * .5), by2 = 176 + rng() * 12;
+        g += `<g opacity=".55" transform="translate(${bx2.toFixed(0)} ${by2.toFixed(0)})">` +
+          `<path d="M-16 0 L16 0 L11 8 L-11 8 Z" fill="${ink(0, -16)}"/>` +
+          `<path d="M0 -2 L0 -30" stroke="${ink(0, -16)}" stroke-width="2"/>` +
+          `<path d="M1 -28 L14 -4 L1 -4 Z" fill="${hsl(hSky, 22, 96)}"/>` +
+          `<path d="M-1 -24 L-11 -4 L-1 -4 Z" fill="${hsl(hSky, 18, 92)}"/></g>`;
+      } else if (land === '개울') {
+        // 개울을 가로지르는 나무다리
+        g += `<g opacity=".5">` +
+          `<path d="M${(W * .18).toFixed(0)} 214 Q${(W / 2).toFixed(0)} 196 ${(W * .82).toFixed(0)} 214"
+             stroke="${ink(1, -18)}" stroke-width="5" fill="none"/>` +
+          `<path d="M${(W * .18).toFixed(0)} 214 Q${(W / 2).toFixed(0)} 204 ${(W * .82).toFixed(0)} 214"
+             stroke="${ink(1, -18)}" stroke-width="2" fill="none"/>` +
+          `<path d="M${(W * .3).toFixed(0)} 208 v12M${(W * .5).toFixed(0)} 202 v14M${(W * .7).toFixed(0)} 208 v12"
+             stroke="${ink(1, -18)}" stroke-width="2.4"/></g>`;
+      } else if (land === '억새' || land === '논') {
+        // 기러기 떼가 V 자로
+        const gx0 = W * (.2 + rng() * .5), gy0 = 74 + rng() * 40;
+        for (let k = 0; k < 7; k++) {
+          const side = k % 2 ? 1 : -1, step = Math.ceil(k / 2);
+          const x = gx0 + side * step * 15, y = gy0 + step * 9;
+          g += `<path d="M${x.toFixed(0)} ${y.toFixed(0)} q5 -5 10 0 q5 -5 10 0"
+                 stroke="${hsl(hRidge, 16, 44)}" stroke-width="1.5" fill="none" opacity=".4"/>`;
+        }
+      } else if (land === '마을' || land === '기와') {
+        // 연 두 개가 하늘에 떠 있습니다
+        for (let k = 0; k < 2; k++) {
+          const kx = W * (.2 + rng() * .6), ky = 62 + rng() * 46;
+          g += `<g opacity=".45" transform="translate(${kx.toFixed(0)} ${ky.toFixed(0)}) rotate(${(-18 + rng() * 36).toFixed(0)})">` +
+            `<path d="M0 -13 L11 0 L0 15 L-11 0 Z" fill="${hsl(base - 14, 46, 74)}"/>` +
+            `<path d="M0 -13 L0 15M-11 0 L11 0" stroke="${hsl(hSky, 14, 96)}" stroke-width="1.2"/>` +
+            `<path d="M0 15 q6 8 -2 14 q-7 6 2 13" stroke="${hsl(base - 14, 40, 70)}" stroke-width="1.3" fill="none"/></g>`;
+        }
+      } else if (land === '산' || land === '설산') {
+        // 능선 위에 작은 정자
+        const px2 = W * (.16 + rng() * .66), py2 = 190;
+        g += `<g opacity=".45" transform="translate(${px2.toFixed(0)} ${py2.toFixed(0)})">` +
+          `<path d="M-17 0 q8 -12 17 -13 q9 1 17 13 Z" fill="${ink(0, -18)}"/>` +
+          `<path d="M-11 0 v11M11 0 v11M0 0 v11" stroke="${ink(0, -18)}" stroke-width="2"/></g>`;
+      } else if (land === '숲' || land === '과수원') {
+        // 앞으로 크게 드리운 나뭇가지 (위쪽 모서리에서)
+        const side = rng() < .5 ? 0 : W;
+        const dir = side ? -1 : 1;
+        g += `<g opacity=".34" fill="none" stroke="${ink(0, -20)}" stroke-width="3.4" stroke-linecap="round">` +
+          `<path d="M${side} 26 q${dir * 52} 14 ${dir * 96} 8"/>` +
+          `<path d="M${side + dir * 34} 33 q${dir * 8} -14 ${dir * 20} -18"/>` +
+          `<path d="M${side + dir * 62} 36 q${dir * 6} -15 ${dir * 18} -20"/>` +
+          `<path d="M${side + dir * 48} 35 q${dir * 4} 14 ${dir * 14} 20"/></g>`;
+      } else if (land === '꽃밭' || land === '언덕') {
+        // 커다란 나비 둘
+        for (let k = 0; k < 2; k++) {
+          const bx3 = W * (.15 + rng() * .7), by3 = 96 + rng() * 60;
+          g += `<g opacity=".5" transform="translate(${bx3.toFixed(0)} ${by3.toFixed(0)}) rotate(${(-20 + rng() * 40).toFixed(0)})">` +
+            `<ellipse cx="-7" cy="-4" rx="7.5" ry="6" fill="${hsl(base - 20, 52, 78)}"/>` +
+            `<ellipse cx="7" cy="-4" rx="7.5" ry="6" fill="${hsl(base - 20, 52, 78)}"/>` +
+            `<ellipse cx="-5.5" cy="5" rx="5.5" ry="4.5" fill="${hsl(base + 16, 48, 84)}"/>` +
+            `<ellipse cx="5.5" cy="5" rx="5.5" ry="4.5" fill="${hsl(base + 16, 48, 84)}"/>` +
+            `<rect x="-1" y="-7" width="2" height="14" rx="1" fill="${ink(2, -22)}"/></g>`;
+        }
+      }
+
       if (land === '바다') {
         // 갈매기 떼가 줄지어 납니다
         for (let i = 0; i < 5; i++) {
