@@ -432,7 +432,12 @@
     top(title, left, right) {
       const t = $('topbar'); t.innerHTML = '';
       t.appendChild(left || h('div', { class: 'spacer' }));
-      t.appendChild(h('h1', null, title));
+      // 제목을 누르면 언제든 첫 화면으로 돌아옵니다
+      t.appendChild(h('h1', {
+        class: 'homelink', role: 'button', tabindex: '0',
+        title: '첫 화면으로', 'aria-label': title + ' — 첫 화면으로',
+        onclick: () => { Sound.tap(); if (global.Game) global.Game.stage = null; this.tab = null; this.go('walk'); }
+      }, title));
       const box = h('div', { class: 'row topright' });
       if (right) box.appendChild(right);
       box.appendChild(this.soundBtn());

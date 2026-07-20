@@ -155,7 +155,7 @@
       // 해 또는 달
       if (time.sun !== 'none') {
         const cx = 60 + rng() * (W - 120), cy = 40 + rng() * 70;
-        const r = time.sun === 'moon' ? 16 + rng() * 8 : 20 + rng() * 12;
+        const r = time.sun === 'moon' ? 20 + rng() * 10 : 26 + rng() * 14;
         g += `<circle cx="${cx.toFixed(0)}" cy="${cy.toFixed(0)}" r="${(r * 2.6).toFixed(0)}" fill="${glowC}" opacity=".45"/>`;
         g += `<circle cx="${cx.toFixed(0)}" cy="${cy.toFixed(0)}" r="${r.toFixed(0)}" fill="${hsl(hSky - 10, sat + 16, 95)}" opacity=".9"/>`;
         if (time.sun === 'moon' && rng() < .6) {
@@ -165,12 +165,23 @@
         }
       }
 
-      // 구름
-      for (let i = 0; i < weather.cloud; i++) {
-        const cx = rng() * W, cy = 30 + rng() * 80, s = 22 + rng() * 30;
-        g += `<g opacity="${(.3 + rng() * .25).toFixed(2)}" fill="${hsl(hSky, sat * .5, 97)}">`;
-        g += `<ellipse cx="${cx.toFixed(0)}" cy="${cy.toFixed(0)}" rx="${s.toFixed(0)}" ry="${(s * .38).toFixed(0)}"/>`;
-        g += `<ellipse cx="${(cx + s * .5).toFixed(0)}" cy="${(cy + 4).toFixed(0)}" rx="${(s * .7).toFixed(0)}" ry="${(s * .3).toFixed(0)}"/>`;
+      /* 멀리 아득한 산줄기 — 어느 풍경에나 깝니다.
+         가운데가 하늘로만 넓게 비어 있으면 밋밋해 보입니다.
+         아주 옅게 두 겹 겹쳐 '멀다'는 느낌만 냅니다. */
+      for (let i = 0; i < 2; i++) {
+        g += `<path d="${ridge(rng, 126 + i * 26, 22 - i * 6, W)}"
+               fill="${hsl(hRidge, sat * .3, Math.min(97, time.ridgeL[0] + 16 - i * 5))}"
+               opacity="${(.5 - i * .14).toFixed(2)}"/>`;
+      }
+
+      // 구름 — 크게, 그리고 늘 몇 조각은 있게
+      for (let i = 0; i < Math.max(2, weather.cloud) + 1; i++) {
+        const cx = rng() * W, cy = 22 + rng() * 96, s = 34 + rng() * 44;
+        g += `<g opacity="${(.34 + rng() * .26).toFixed(2)}" fill="${hsl(hSky, sat * .5, 97)}">`;
+        g += `<ellipse cx="${cx.toFixed(0)}" cy="${cy.toFixed(0)}" rx="${s.toFixed(0)}" ry="${(s * .34).toFixed(0)}"/>`;
+        g += `<ellipse cx="${(cx + s * .48).toFixed(0)}" cy="${(cy + 5).toFixed(0)}" rx="${(s * .68).toFixed(0)}" ry="${(s * .28).toFixed(0)}"/>`;
+        g += `<ellipse cx="${(cx - s * .42).toFixed(0)}" cy="${(cy + 4).toFixed(0)}" rx="${(s * .5).toFixed(0)}" ry="${(s * .24).toFixed(0)}"/>`;
+        g += `<ellipse cx="${(cx + s * .1).toFixed(0)}" cy="${(cy - s * .2).toFixed(0)}" rx="${(s * .44).toFixed(0)}" ry="${(s * .3).toFixed(0)}"/>`;
         g += `</g>`;
       }
 

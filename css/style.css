@@ -2368,3 +2368,15 @@ body.contrast .doghouse .niche {
    테두리와 그림자만으로도 강아지가 또렷합니다. */
 .moonwin .dog::before { display: none; }
 .moonwin .dogsvg { filter: drop-shadow(0 8px 14px rgba(45,21,13,.28)); }
+
+/* 강아지 자리는 상자를 두르지 않습니다.
+   창을 아무리 비워도 그 창이 담긴 카드가 흰색이면 가로막힙니다.
+   카드 배경을 아예 없애 풍경이 그대로 지나가게 합니다. */
+#view > .card.pet-card {
+  background: none !important;
+  backdrop-filter: none; -webkit-backdrop-filter: none;
+  box-shadow: none; padding-left: 0; padding-right: 0;
+}
+/* 제목이 집으로 가는 단추임을 살짝 알립니다 */
+.topbar h1.homelink { cursor: pointer; }
+.topbar h1.homelink:active { opacity: .7; }
