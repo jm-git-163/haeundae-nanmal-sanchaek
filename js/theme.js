@@ -82,22 +82,28 @@
     },
 
     /** 지금 테마의 색상각 — 풍경도 이 빛깔을 따릅니다 */
-    hueDeg() {
-      const M = {
-        't-coral': 28, 't-apricot': 30, 't-sunset': 344, 't-plum': 330,
-        't-lavender': 262, 't-sky': 216, 't-ocean': 197, 't-mint': 168,
-        't-forest': 138, 't-olive': 74, 't-clay': 36, 't-cocoa': 18
-      };
-      const cls = [...document.body.classList].find(c => M[c] !== undefined);
-      return cls ? M[cls] : 28;
+    HUE_DEG: {
+      coral: 28, apricot: 30, sunset: 344, plum: 330,
+      lavender: 262, sky: 216, ocean: 197, mint: 168,
+      forest: 138, olive: 74, clay: 36, cocoa: 18
     },
+
+    /** 지금 켜져 있는 빛깔 이름 */
+    themeKey() {
+      const cls = [...document.body.classList].find(c => this.HUE_DEG[c.slice(2)] !== undefined);
+      return cls ? cls.slice(2) : 'coral';
+    },
+
+    hueDeg() { return this.HUE_DEG[this.themeKey()]; },
 
 
     /** 그 단계의 풍경 정보 (그림은 한 번 그리면 재활용합니다) */
     forLevel(level) {
-      const key = level + '|' + this.hueDeg();
+      const tk = this.themeKey();
+      const key = level + '|' + tk;
       if (!this.cache[key]) {
-        this.cache[key] = global.Scene.make(level, this.hueDeg());
+        this.cache[key] = global.Scene.make(level, this.HUE_DEG[tk],
+          (global.Scene.LAND_BY_THEME || {})[tk]);
         // 오래된 것은 버립니다 (메모리 아끼기)
         const keys = Object.keys(this.cache);
         if (keys.length > 40) delete this.cache[keys[0]];
