@@ -128,8 +128,9 @@
   function hueNow() {
     const s = Store.data.settings;
     if (s.hue && s.hue !== 'auto') return s.hue;
-    // 이웃한 판끼리 비슷한 색이 이어지지 않도록 다섯 칸씩 건너뜁니다
-    const i = ((Store.data.level - 1) * 5) % HUES.length;
+    // 이웃한 판끼리 비슷한 색이 이어지지 않도록 일곱 칸씩 건너뜁니다.
+    // 건너뛰는 수와 빛깔 수(15)가 서로 나누어지지 않아야 열다섯 빛깔을 모두 돕니다.
+    const i = ((Store.data.level - 1) * 7) % HUES.length;
     return HUES[i][0];
   }
 
@@ -246,7 +247,10 @@
     ['forest', '숲', '#57a86c'],
     ['olive', '올리브', '#8d9c52'],
     ['clay', '흙', '#a98953'],
-    ['cocoa', '코코아', '#a67464']
+    ['cocoa', '코코아', '#a67464'],
+    ['canola', '유채', '#c9ae3c'],
+    ['hydrangea', '수국', '#6f7bc4'],
+    ['magnolia', '자목련', '#b06bb8']
   ];
 
   /* ══════════ 아래 띠 아이콘 ══════════════════════
@@ -857,7 +861,7 @@
         if (step === 0) {
           v.appendChild(h('div', { class: 'center', style: 'padding-top:24px' },
             dogEl('반가움', 150, 'introdog'),
-            h('h2', { style: 'font-size:calc(30px * var(--fs));line-height:1.4;word-break:keep-all' }, '안녕하세요!\n오늘부터 함께 걸어요.'),
+            h('h2', { class: 'twoline', style: 'font-size:calc(28px * var(--fs));line-height:1.45;word-break:keep-all' }, '안녕하세요!\n오늘부터 함께 걸어요.'),
             h('p', { class: 'muted', style: 'word-break:keep-all' }, '이름을 지어 주시면 제가 인사드릴게요.'),
             h('button', { class: 'btn primary big wide', style: 'margin-top:20px', onclick: () => { step = 1; render(); } }, '다음')));
           
@@ -896,7 +900,7 @@
         } else {
           v.appendChild(h('div', { class: 'center' },
             dogEl('신남', 130, 'introdog3'),
-            h('h2', { style: 'word-break:keep-all;line-height:1.4' }, `안녕하세요!\n저는 ${d.pet.name}${H.particle(d.pet.name, '이에요', '예요')}.`),
+            h('h2', { class: 'twoline', style: 'word-break:keep-all;line-height:1.45' }, `안녕하세요!\n저는 ${d.pet.name}${H.particle(d.pet.name, '이에요', '예요')}.`),
             h('p', { class: 'muted', style: 'word-break:keep-all' }, '함께 낱말을 찾으며 천천히 걸어요. 어렵지 않아요.'),
             h('button', { class: 'btn primary big wide', style: 'margin-top:20px', onclick: finish }, '산책 나가기')));
         }

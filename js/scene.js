@@ -111,7 +111,8 @@
   const LAND_BY_THEME = {
     coral: '산', apricot: '마을', sunset: '언덕', plum: '과수원',
     lavender: '꽃밭', sky: '설산', ocean: '바다', mint: '개울',
-    forest: '숲', olive: '논', clay: '기와', cocoa: '억새'
+    forest: '숲', olive: '논', clay: '기와', cocoa: '억새',
+    canola: '언덕', hydrangea: '개울', magnolia: '과수원'
   };
 
   const Scene = {

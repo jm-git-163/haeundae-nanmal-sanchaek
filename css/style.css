@@ -2447,3 +2447,70 @@ body.dark .xwrap {
 body.dark .topbar {
   box-shadow: 0 1px 0 color-mix(in srgb, var(--outline-var) 60%, transparent);
 }
+
+/* ── 빛깔 세 벌 더 (열다섯) ────────────────────── */
+body.t-canola {
+  --surface: #fbfaf2; --surface-low: #f4f1e0; --surface-c: #e9e4cb; --surface-high: #d8d1ac;
+  --white: #ffffff;
+  --primary: #7a6414; --primary-c: #c9ae3c; --primary-c-dark: #9d8626;
+  --on-primary-c: #2a2100; --primary-fixed: #f3ecc8;
+  --board-tint: #f8f4dd; --cur-halo: rgba(201,174,60,.20);
+}
+body.dark.t-canola {
+  --surface: #16150c; --surface-low: #1f1d12; --surface-c: #2a2718; --surface-high: #383422;
+  --white: #1f1d12;
+  --primary: #e7d288; --primary-c: #b09a45; --primary-c-dark: #85742f;
+  --on-primary-c: #1c1600; --primary-fixed: #35301c;
+  --board-tint: #1f1d12; --cur-halo: rgba(176,154,69,.30);
+}
+body.t-hydrangea {
+  --surface: #f6f7fc; --surface-low: #eaecf8; --surface-c: #dbdff2; --surface-high: #c2c8e6;
+  --white: #ffffff;
+  --primary: #3b447f; --primary-c: #6f7bc4; --primary-c-dark: #525da4;
+  --on-primary-c: #0e1233; --primary-fixed: #dfe3f7;
+  --board-tint: #edeffb; --cur-halo: rgba(111,123,196,.20);
+}
+body.dark.t-hydrangea {
+  --surface: #101220; --surface-low: #171a2b; --surface-c: #202439; --surface-high: #2c3149;
+  --white: #171a2b;
+  --primary: #b3bcec; --primary-c: #7581cb; --primary-c-dark: #565f9c;
+  --on-primary-c: #080b22; --primary-fixed: #262b45;
+  --board-tint: #171a2b; --cur-halo: rgba(117,129,203,.30);
+}
+body.t-magnolia {
+  --surface: #faf6fb; --surface-low: #f3eaf5; --surface-c: #e9dbec; --surface-high: #d6c0da;
+  --white: #ffffff;
+  --primary: #6d3574; --primary-c: #b06bb8; --primary-c-dark: #8b4d93;
+  --on-primary-c: #290a2d; --primary-fixed: #f2dff4;
+  --board-tint: #f7ecf8; --cur-halo: rgba(176,107,184,.20);
+}
+body.dark.t-magnolia {
+  --surface: #17101a; --surface-low: #201724; --surface-c: #2b2031; --surface-high: #392b40;
+  --white: #201724;
+  --primary: #ddaee4; --primary-c: #a86fb0; --primary-c-dark: #7f5286;
+  --on-primary-c: #220727; --primary-fixed: #382a3d;
+  --board-tint: #201724; --cur-halo: rgba(168,111,176,.30);
+}
+
+/* ── 빛깔 고르는 칸 — 넉 줄로 딱 맞게 ──────────────
+   자동 + 열다섯 = 열여섯. 네 칸씩 넉 줄이면
+   마지막 줄에 하나만 덩그러니 남는 일이 없습니다. */
+.hues { display: grid !important; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.hue { flex: none !important; min-height: calc(72px * var(--fs)); gap: 6px; padding: 6px 2px;
+  font-size: calc(14px * var(--fs)); line-height: 1.25; }
+.hue .dot { width: calc(24px * var(--fs)); height: calc(24px * var(--fs)); }
+
+/* ── 큰 단추를 세련되게 ────────────────────────
+   84px 높이에 24px 글자는 덩치만 컸습니다.
+   기준(44px)보다 넉넉하면서 균형이 잡히는 크기로 낮춥니다. */
+.btn.big {
+  min-height: calc(62px * var(--fs));
+  font-size: calc(20px * var(--fs));
+  border-radius: 999px;
+  letter-spacing: -.01em;
+}
+.btn { min-height: calc(54px * var(--fs)); padding: 12px 22px; }
+.btn.wide { width: 100%; }
+
+/* 두 줄로 보여야 할 인사말 */
+.twoline { white-space: pre-line; }

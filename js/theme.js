@@ -168,7 +168,8 @@
     HUE_DEG: {
       coral: 28, apricot: 30, sunset: 344, plum: 330,
       lavender: 262, sky: 216, ocean: 197, mint: 168,
-      forest: 138, olive: 74, clay: 36, cocoa: 18
+      forest: 138, olive: 74, clay: 36, cocoa: 18,
+      canola: 52, hydrangea: 240, magnolia: 302
     },
 
     /** 지금 켜져 있는 빛깔 이름 */
