@@ -22,9 +22,39 @@
   if (!inApp) return;
 
   var here = location.href.split('#')[0];
-  function jump() {
-    // 카카오가 공식으로 열어 둔 길입니다. 안드로이드·아이폰 모두 됩니다.
+  var isAndroid = ua.indexOf('android') !== -1;
+
+  /**
+   * 바깥 브라우저로 넘기는 길은 둘입니다.
+   *
+   * ① 안드로이드 — intent:// 로 크롬을 콕 집어 엽니다.
+   *    안드로이드가 직접 처리하므로 카톡 버전을 타지 않습니다.
+   *    크롬이 없으면 아무 일도 안 일어나므로 ② 를 이어서 시도합니다.
+   * ② kakaotalk://web/openExternal — 카카오가 열어 둔 길.
+   *    아이폰은 이것뿐이고, 안드로이드에서도 크롬이 없을 때 받아 줍니다.
+   *
+   * 예전에는 ② 만 썼는데, 카톡 버전에 따라 먹지 않아
+   * 어르신이 카톡 브라우저에 갇히는 일이 있었습니다.
+   */
+  function viaKakao() {
     location.href = 'kakaotalk://web/openExternal?url=' + encodeURIComponent(here);
+  }
+
+  function viaIntent() {
+    // intent:// 는 주소에서 scheme 을 뺀 나머지를 씁니다
+    var bare = here.replace(/^https?:\/\//, '');
+    location.href = 'intent://' + bare +
+      '#Intent;scheme=https;package=com.android.chrome;end';
+  }
+
+  function jump() {
+    if (isAndroid) {
+      viaIntent();
+      // 크롬이 없어 아무 일도 안 일어났으면 카카오 길로 이어 갑니다
+      setTimeout(function () { if (!document.hidden) viaKakao(); }, 900);
+    } else {
+      viaKakao();
+    }
   }
   jump();
 
