@@ -91,8 +91,8 @@
       document.body.classList.add('playing');
 
       App.top(this.reviewOnly ? this.stage.modeName : this.stage.level + '번째 산책',
-        h('button', { class: 'iconbtn back', 'aria-label': '나가기', onclick: () => this.leave() },
-          h('span', { class: 'ic' }, '←'), h('span', { class: 'tx' }, '나가기')),
+        h('button', { class: 'iconbtn back', 'aria-label': '산책 그만하기', onclick: () => this.leave() },
+          h('span', { class: 'ic' }, '←'), h('span', { class: 'tx' }, '그만하기')),
         (() => {
           const chip = h('span', { class: 'footchip', id: 'footchip' });
           chip.innerHTML = '<i class="chip-ic">' + global.UI.ICON.paw + '</i>' +
@@ -828,7 +828,7 @@
       Sound.clear();
 
       const v = $('view'); v.innerHTML = ''; v.scrollTop = 0; global.UI.guardTaps(450);
-      App.top('잘하셨어요', h('button', { class: 'iconbtn', onclick: () => this.leave() }, '← 나가기'));
+      App.top('잘하셨어요', h('button', { class: 'iconbtn', onclick: () => this.leave() }, '← 홈으로'));
       const chapterDone = !this.reviewOnly && (d.level - 1) % 10 === 0;
 
       v.appendChild(h('div', { class: 'celebrate' },

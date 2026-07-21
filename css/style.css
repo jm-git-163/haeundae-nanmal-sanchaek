@@ -2640,3 +2640,93 @@ body.playing .tabbar button {
   min-height: calc(54px * var(--fs));
   font-size: calc(14px * var(--fs));
 }
+
+/* ══════════════════════════════════════════════════════
+   인트로 — 앱을 열 때 나오는 짧은 화면 (js/intro.js)
+
+   바깥에서 글꼴을 받아오지 않습니다. 인터넷 없이도 열려야 하고,
+   글꼴 하나가 수백 KB 라 첫 화면이 늦어집니다.
+   대신 기존 글꼴을 굵게 쓰고 자간을 좁혀, 한 자씩 살짝 기울여
+   통통 올라오게 해서 귀여운 느낌을 만듭니다.
+   ══════════════════════════════════════════════════════ */
+.intro {
+  position: fixed; inset: 0; z-index: 2147483600;
+  display: flex; align-items: center; justify-content: center;
+  background:
+    radial-gradient(120% 90% at 50% 18%, #fff6e9 0%, #ffeed8 46%, #ffe0bd 100%);
+  animation: introIn 240ms ease-out;
+}
+body.dark .intro {
+  background:
+    radial-gradient(120% 90% at 50% 18%, #2a1f17 0%, #1e1712 52%, #150f0b 100%);
+}
+.intro.out { animation: introOut 320ms ease-in forwards; }
+@keyframes introIn { from { opacity: 0 } to { opacity: 1 } }
+@keyframes introOut { to { opacity: 0; transform: scale(1.04) } }
+
+/* 한가운데보다 살짝 위에 둡니다.
+   정확히 가운데 놓으면 아래가 허전해 보여 아래로 처져 보입니다. */
+.intro-in { text-align: center; padding: 24px; margin-bottom: 7vh; }
+
+/* 복실이 — 아래에서 통 튀어 올라옵니다 */
+.intro-dog {
+  display: flex; justify-content: center;
+  animation: introDog 900ms cubic-bezier(.2,1.5,.45,1) both;
+}
+@keyframes introDog {
+  0%   { opacity: 0; transform: translateY(46px) scale(.6) }
+  55%  { opacity: 1; transform: translateY(-10px) scale(1.08) }
+  74%  { transform: translateY(0) scale(.98) }
+  88%  { transform: translateY(-4px) scale(1.02) }
+  100% { transform: translateY(0) scale(1) }
+}
+
+/* 글자 — 한 자씩 올라오며 살짝 기울었다 바로 섭니다 */
+.intro-word {
+  margin-top: 14px;
+  font-size: clamp(38px, 12vw, 60px); font-weight: 800;
+  letter-spacing: -0.035em; line-height: 1.25; color: #3b2a1c;
+}
+body.dark .intro-word { color: #f4e6d6; }
+.intro-word span {
+  display: inline-block;
+  animation: introChar 620ms cubic-bezier(.2,1.4,.4,1) both;
+}
+.intro-word span.sp { animation: none; width: .3em; }
+@keyframes introChar {
+  0%   { opacity: 0; transform: translateY(26px) rotate(-9deg) scale(.8) }
+  60%  { opacity: 1; transform: translateY(-5px) rotate(3deg) scale(1.06) }
+  100% { transform: translateY(0) rotate(0) scale(1) }
+}
+
+.intro-sub {
+  margin-top: 8px;
+  font-size: clamp(15px, 4.2vw, 19px); font-weight: 600;
+  color: #8a7460; letter-spacing: -0.01em;
+  animation: introSub 620ms ease-out .95s both;
+}
+body.dark .intro-sub { color: #b6a08a; }
+@keyframes introSub { from { opacity: 0; transform: translateY(8px) } to { opacity: 1 } }
+
+/* 발자국이 차례로 톡톡 */
+.intro-paws {
+  display: flex; justify-content: center; gap: 14px; margin-top: 20px;
+}
+.intro-paws span {
+  width: 22px; height: 22px; color: #edb277;
+  animation: introPaw 520ms cubic-bezier(.3,1.5,.5,1) both;
+}
+body.dark .intro-paws span { color: #8a6238; }
+.intro-paws span:nth-child(even) { transform: translateY(7px) }
+@keyframes introPaw {
+  0%   { opacity: 0; transform: scale(.3) }
+  60%  { opacity: 1; transform: scale(1.25) }
+  100% { transform: scale(1) }
+}
+
+/* 「움직임 줄이기」 — 움직이지 않고 그대로 보였다 사라집니다 */
+.intro.still, .intro.still * { animation: none !important; }
+.intro.still .intro-paws span:nth-child(even) { transform: none }
+
+/* 인트로가 떠 있는 동안에는 뒤가 스크롤되지 않게 */
+body.introing { overflow: hidden; }

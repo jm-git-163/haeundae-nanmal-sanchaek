@@ -74,15 +74,41 @@ async function icon(size, maskable) {
   if (!maskable) { squircle(ctx, 0, 0, W, W, W * .235); ctx.clip(); }
   warmBg(ctx, W, W);
 
-  // 마스커블은 가장자리(20%)가 잘려 나가므로 강아지를 더 작게 넣습니다
-  const f = maskable ? .62 : .96;
-  const d = W * f;
-  spotlight(ctx, W / 2, W * .48, d * .55);
+  /* 얼굴만 크게 담습니다.
+     예전에는 몸까지 통째로 넣었는데, 아이콘은 손톱만 하게 쓰이므로
+     몸이 들어가는 만큼 얼굴이 작아져 무슨 그림인지 알아보기 어려웠습니다.
+     눈·코·볼이 보여야 귀엽습니다.
 
-  const img = await loadDog(600);
-  // 200칸 그림에서 강아지는 세로 46~193 자리에 있습니다.
-  // 가운데(=120쯤)를 아이콘 한가운데로 맞춰야 위아래 여백이 같아집니다.
-  ctx.drawImage(img, (W - d) / 2, W * .50 - d * (120 / 200), d, d);
+     200칸 그림에서 얼굴은 x 38~162, y 46~160 자리에 있습니다.
+     그 네모가 아이콘을 꽉 채우도록 키워서 얹습니다. */
+  const FACE = { x: 38, y: 44, w: 124, h: 118 };
+  const pad = maskable ? 0.30 : 0.10;          // 마스커블은 가장자리가 잘립니다
+  const box = W * (1 - pad * 2);
+  const scale = box / Math.max(FACE.w, FACE.h);
+  const d = 200 * scale;                        // 그림 전체를 이만큼 키우면
+
+  spotlight(ctx, W / 2, W * .50, box * .62);
+
+  const img = await loadDog(700);
+  ctx.drawImage(img,
+    W / 2 - (FACE.x + FACE.w / 2) * scale,
+    W / 2 - (FACE.y + FACE.h / 2) * scale,
+    d, d);
+
+  // 테두리 — 밝은 바탕에 흰 강아지가 묻히지 않게 안쪽으로 한 겹.
+  // 바깥에 두꺼운 선을 두르면 스티커처럼 보입니다.
+  if (!maskable) {
+    ctx.save();
+    squircle(ctx, W * .012, W * .012, W * .976, W * .976, W * .225);
+    ctx.strokeStyle = 'rgba(255,255,255,.72)';
+    ctx.lineWidth = W * .018;
+    ctx.stroke();
+    squircle(ctx, 0, 0, W, W, W * .235);
+    ctx.strokeStyle = 'rgba(150,95,25,.20)';
+    ctx.lineWidth = W * .012;
+    ctx.stroke();
+    ctx.restore();
+  }
 
   const out = document.createElement('canvas'); out.width = out.height = size;
   out.getContext('2d').drawImage(c, 0, 0, size, size);

@@ -132,7 +132,8 @@
       f.type = 'lowpass';
       // 필터를 아래로 크게 훑어 내리면 소리가 먹먹해져 동굴처럼 들립니다.
       // 배경음(soft)에만 훑고, 손끝에 닿는 소리는 고정해 또렷하게 둡니다.
-      const top = (open || 1) * (kind === 'wood' ? 4200 : 3600);
+      const top = (open || 1) *
+        (kind === 'wood' ? 4200 : kind === 'tick' ? 2400 : 3600);
       if (kind === 'soft') {
         f.frequency.setValueAtTime(top, when);
         f.frequency.exponentialRampToValueAtTime(Math.max(320, top * 0.5), when + dur);
@@ -141,7 +142,11 @@
       }
       f.Q.value = 0.4;
 
-      const atk = kind === 'soft' ? 0.45 : (kind === 'wood' ? 0.004 : 0.012);
+      // 붙는 시간이 너무 짧으면 '딱' 하고 튑니다.
+      // tick 은 살짝 눕혀 손끝에 닿는 느낌만 남깁니다.
+      const atk = kind === 'soft' ? 0.45
+        : kind === 'wood' ? 0.004
+          : kind === 'tick' ? 0.010 : 0.012;
       g.gain.setValueAtTime(0.0001, when);
       g.gain.linearRampToValueAtTime(vol, when + atk);
       g.gain.exponentialRampToValueAtTime(0.0001, when + dur);
@@ -150,7 +155,9 @@
       // 배음 짜임 — 소리의 성격을 정합니다
       const parts = kind === 'wood'
         ? [[1, 1], [3.9, 0.16]]                        // 또랑또랑한 톡 (통 울리는 배음을 뺐습니다)
-        : kind === 'soft'
+        : kind === 'tick'
+          ? [[1, 1], [2, 0.07]]                        // 거의 순한 음 하나 — 튀지 않게
+          : kind === 'soft'
           ? [[1, 1], [2, 0.28], [3, 0.10]]             // 포근한 패드
           : [[1, 1], [2, 0.42], [3, 0.16], [4.2, 0.07]]; // 오르골
 
@@ -187,11 +194,15 @@
      * 다섯 음 사이를 오가되 바로 앞 음은 피해 자연스럽게 들리게 합니다.
      */
     tap() {
-      const pool = [783.99, 880.00, 987.77, 1046.50, 1174.66];
-      let i = Math.floor(Math.random() * pool.length);
-      if (i === this.tapLast) i = (i + 1) % pool.length;
-      this.tapLast = i;
-      this.fx([[pool[i], 0, 0.06, 1]], 'wood', 0.30);
+      // 예전에는 다섯 음 사이를 건너뛰었는데, 누를 때마다 음이 껑충
+      // 달라지니 소리가 튀고 어색했습니다. 또 1000Hz 언저리가 섞여
+      // 날카롭게 들렸습니다.
+      //
+      // 이제 한 음(레)만 쓰되 아주 조금(±35센트)만 흔듭니다.
+      // 사람 귀에는 '같은 소리인데 기계 같지 않다' 로 들립니다.
+      // 높이를 낮추고 배음을 거의 없애 부드럽게 눌러 두었습니다.
+      const cents = Math.random() * 70 - 35;
+      this.fx([[587.33 * Math.pow(2, cents / 1200), 0, 0.05, 1]], 'tick', 0.22);
     },
 
     /**
@@ -203,7 +214,7 @@
       this.placeRun = (now - this.placeAt < 2600) ? Math.min(this.placeRun + 1, 5) : 0;
       this.placeAt = now;
       const up = [587.33, 659.25, 698.46, 783.99, 880.00, 987.77][this.placeRun];
-      this.fx([[up, 0, 0.08, 1]], 'wood', 0.34);
+      this.fx([[up, 0, 0.07, 1]], 'tick', 0.30);
       // 이어 놓을수록 위에 얹히는 배음이 하나 더 붙습니다.
       // 잘 되어 간다는 느낌이 소리에서도 쌓입니다.
       if (this.placeRun >= 2) this.fx([[up * 2, 0.012, 0.10, 0.34]], 'bell', 0.34);
