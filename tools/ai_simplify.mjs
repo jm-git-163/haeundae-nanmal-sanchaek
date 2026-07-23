@@ -19,6 +19,19 @@ import { fileURLToPath } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const FEED = path.join(ROOT, 'data', 'feed.json');
+
+/* .env 를 직접 읽어 채웁니다 — Node의 --env-file 플래그가 이 파일의
+   줄바꿈(CRLF)과 한글 주석이 섞인 조합에서 값을 잘못 읽어들이는 경우가
+   실제로 확인되어(키가 멀쩡한데도 엉뚱한 값을 읽음), 직접 파싱한 값을
+   우선으로 둡니다. */
+try {
+  const envRaw = await fs.readFile(path.join(ROOT, '.env'), 'utf8');
+  for (const line of envRaw.split(/\r\n|\n/)) {
+    const m = line.match(/^([A-Z_][A-Z0-9_]*)=(.*)$/);
+    if (m) process.env[m[1]] = m[2].trim();
+  }
+} catch { /* .env 가 없으면 셸 환경변수만 씁니다 */ }
+
 const LIMIT = Number(process.env.LIMIT || 30);
 const MODEL = process.env.OPENAI_MODEL || 'gpt-4o-mini';
 

@@ -44,24 +44,25 @@
   }
 
   function beak(kind, reduce) {
-    // 부리는 얼굴 가운데 아래. 벌리면 위·아래로 갈라집니다.
-    const cx = 104, y = 106;   // 작아진 머리 중심에 맞춤
+    // 부리는 얼굴 가운데 아래, 작은 세모 두 쪽(위·아래)으로 단순하게.
+    // 곡선으로 굴리면 자꾸 '웃는 입'처럼 보여, 직선 삼각형으로 또렷하게 가릅니다.
+    const cx = 104, y = 104;
     if (kind === 'closed')
-      return `<path d="M${cx - 9} ${y} L${cx} ${y + 13} L${cx + 9} ${y} Q${cx} ${y + 4} ${cx - 9} ${y} Z" fill="url(#gbeak)" stroke="#e0902a" stroke-width="1"/>`;
+      return `<path d="M${cx - 8} ${y} L${cx} ${y + 12} L${cx + 8} ${y} Z" ` +
+        `fill="url(#gbeak)" stroke="#e0902a" stroke-width="1" stroke-linejoin="round"/>`;
     const openAnim = (kind === 'wide' && !reduce)
       ? `<animateTransform attributeName="transform" type="translate" values="0 0;0 3;0 0" dur="0.45s" repeatCount="indefinite"/>` : '';
-    /* 위·아래 부리가 서로 다른 방향(둘 다 아래로 뾰족)이면 부리 하나가
-       중간에서 꺾인 것처럼 보입니다. 위 부리는 납작한 지붕 모양으로,
-       그 사이 어두운 입속을 보여야 '벌어진 입'으로 읽힙니다.
-       wide(새우깡 먹을 때)는 open(그냥 기분 좋을 때)보다 더 크게 벌립니다. */
+    // wide(새우깡 먹을 때)만 진짜로 벌어져 틈이 보이고,
+    // 그냥 open 은 위·아래가 서로 맞닿아 하나로 이어져 보여야 합니다
+    // (틈을 두면 부리가 두 조각으로 떨어져 나간 것처럼 보입니다).
     const wide = kind === 'wide';
-    const r = wide ? 1.5 : 1;   // 벌어짐 크기 배율
+    const gap = wide ? 6 : 0;     // 위·아래 부리 사이 벌어진 틈
+    const tip = wide ? 15 : 10;   // 부리 전체 길이(끝까지)
     return `<g>${openAnim}` +
-      `<path d="M${cx - 10} ${y - 2} Q${cx} ${y + 2 * r} ${cx + 10} ${y - 2} ` +
-      `L${cx + 8} ${y + 1} Q${cx} ${y + 4} ${cx - 8} ${y + 1} Z" fill="url(#gbeak)" stroke="#e0902a" stroke-width="1"/>` +
-      `<path d="M${cx - 9} ${y} Q${cx} ${y + 16 * r} ${cx + 9} ${y} Q${cx} ${y + 7} ${cx - 9} ${y} Z" fill="#7a3b2e" opacity=".9"/>` +
-      `<path d="M${cx - 9} ${y + 3} Q${cx} ${y + 3 + 17 * r} ${cx + 9} ${y + 3} Q${cx} ${y + 9} ${cx - 9} ${y + 3} Z" ` +
-      `fill="#e8952c" stroke="#cf8320" stroke-width="1"/>` +
+      `<path d="M${cx - 8} ${y - 1} L${cx} ${y + gap} L${cx + 8} ${y - 1} Z" ` +
+      `fill="url(#gbeak)" stroke="#e0902a" stroke-width="1" stroke-linejoin="round"/>` +
+      `<path d="M${cx - 6} ${y + gap} L${cx} ${y + tip} L${cx + 6} ${y + gap} Z" ` +
+      `fill="#e8952c" stroke="#cf8320" stroke-width="1" stroke-linejoin="round"/>` +
       `</g>`;
   }
 
@@ -156,8 +157,6 @@
    <g>${bobAnim}
     <!-- 다리 -->
     <path d="M88 164 v14 M82 178 h13 M112 164 v14 M106 178 h13" stroke="#f2a733" stroke-width="4.5" fill="none" stroke-linecap="round"/>
-    <!-- 꼬리 — 왼쪽 뒤로 뻗습니다(새다운 실루엣) -->
-    <path d="M54 142 q-26 3 -37 15 q25 10 45 3 Z" fill="#eef2f4" stroke="#d3dde2" stroke-width="1.2"/>
     <!-- 반대쪽 날개 — 몸통에 대부분 가려지고, 삐져나온 만큼만 살짝 보여
          "이쪽도 날개가 있고, 같이 퍼덕인다"는 게 느껴지게 합니다.
          그늘진 쪽이라 앞 날개보다 살짝 어둡게 둡니다. -->

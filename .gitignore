@@ -20,3 +20,4 @@ Thumbs.db
 # ── 수집 파이프라인 내부 파일 (자동 재생성됨, 배포엔 불필요) ──
 data/pending.json
 data/state.json
+.env.txt

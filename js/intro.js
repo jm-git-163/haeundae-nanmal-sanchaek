@@ -88,6 +88,28 @@
     return box;
   }
 
+  /* 백사장과 밀려오는 파도.
+     그러데이션 색만으로는 "여기가 어디인지" 안 읽혀 밋밋해 보이므로,
+     실제 모래·파도 모양을 넣고 파도는 옆으로 천천히 흘러가게 합니다.
+     파도 SVG 는 무늬가 같은 폭 두 번을 이어 붙인 뒤 절반만큼 밀어
+     이음매 없이 계속 도는 것처럼 보이게 합니다. */
+  function shore() {
+    const box = document.createElement('div');
+    box.className = 'intro-shore';
+    box.innerHTML =
+      '<div class="shore-sea"></div>' +
+      '<div class="shore-wave-wrap">' +
+        '<svg class="shore-wave" viewBox="0 0 400 60" preserveAspectRatio="none">' +
+          '<path d="M0,26 Q25,2 50,26 T100,26 T150,26 T200,26 T250,26 T300,26 T350,26 T400,26 V60 H0 Z"/>' +
+        '</svg>' +
+        '<svg class="shore-wave shore-wave2" viewBox="0 0 400 60" preserveAspectRatio="none">' +
+          '<path d="M0,20 Q25,44 50,20 T100,20 T150,20 T200,20 T250,20 T300,20 T350,20 T400,20 V60 H0 Z"/>' +
+        '</svg>' +
+      '</div>' +
+      '<div class="shore-sand"></div>';
+    return box;
+  }
+
   function build(slow) {
     const box = document.createElement('div');
     box.id = 'intro';
@@ -95,6 +117,7 @@
     box.setAttribute('role', 'presentation');
 
     if (!slow) box.appendChild(flock());
+    box.appendChild(shore());
 
     const inner = document.createElement('div');
     inner.className = 'intro-in';
