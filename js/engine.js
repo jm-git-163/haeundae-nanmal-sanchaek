@@ -45,7 +45,7 @@
 
   function makeHints(e) {
     let t1 = e.type === 'IDIOM' ? '옛말에서 온 사자성어입니다.'
-      : e.type === 'PROVERB' ? '오래 전해 온 속담입니다.'
+      : e.type === 'PROVERB' ? '해운대에 관한 이야기입니다.'
         : `‘${e.category}’ 갈래의 낱말입니다.`;
     // 갈래 이름이 곧 정답인 경우(예: 낱말 ‘마음’ / 갈래 ‘마음’)엔 정답이 새어 나갑니다
     if (t1.includes(e.surface)) t1 = `${[...e.surface].length}글자 낱말이에요. 천천히 떠올려 보세요.`;
@@ -266,11 +266,11 @@
      사자성어는 판 안에 섞여 나오고, 속담만 마당에 한 번씩 두 문항 들어갑니다. */
   const MODES = ['CROSSWORD', 'REVIEW_MIX', 'PROVERB_MATCH'];
   const MODE_NAME = {
-    CROSSWORD: '가로세로 낱말', PROVERB_MATCH: '속담 잇기', REVIEW_MIX: '되새김 판'
+    CROSSWORD: '가로세로 낱말', PROVERB_MATCH: '해운대 퀴즈', REVIEW_MIX: '되새김 판'
   };
   const MODE_GUIDE = {
     CROSSWORD: '아래 글자를 눌러 낱말 판을 채워 보세요.',
-    PROVERB_MATCH: '속담의 뒷부분을 이어 보세요.',
+    PROVERB_MATCH: '해운대 이야기의 빈칸을 맞혀 보세요.',
     REVIEW_MIX: '지난번에 만난 낱말로 판을 짰어요. 다시 만나 볼까요?'
   };
 
@@ -346,18 +346,22 @@
     /* land 는 그 동네의 풍경, hue 는 그 동네의 빛깔입니다.
        둘을 나눠 두어야 설정에서 빛깔 하나를 고정해도
        동네가 바뀔 때 풍경은 계속 달라집니다. */
-    { name: '봄 골목', hue: 'sunset', land: '꽃밭' },
-    { name: '개울 마을', hue: 'mint', land: '개울' },
-    { name: '단풍 언덕', hue: 'coral', land: '언덕' },
-    { name: '눈 내린 마을', hue: 'sky', land: '설산' },
-    { name: '들꽃 언덕', hue: 'lavender', land: '억새' },
-    { name: '솔밭 길', hue: 'forest', land: '숲' },
-    { name: '바닷가 마을', hue: 'ocean', land: '바다' },
-    { name: '장터 거리', hue: 'apricot', land: '마을' },
-    { name: '기와 골목', hue: 'clay', land: '기와' },
-    { name: '별 뜨는 언덕', hue: 'plum', land: '산' },
-    { name: '감나무 집', hue: 'olive', land: '과수원' },
-    { name: '아랫목 마을', hue: 'cocoa', land: '논' }
+    /* 해운대 명소 — name 은 실제 명소, art 는 그 명소를 그린 커스텀 삽화(landmarks.js),
+       land 는 산책 배경(scene.js)에 쓰는 풍경 종류입니다. */
+    { name: '해운대해수욕장', hue: 'ocean', land: '바다', art: 'haeundae_beach' },
+    { name: '마린시티', hue: 'sky', land: '마을', art: 'marine_city' },
+    { name: '동백섬 누리마루', hue: 'forest', land: '숲', art: 'nurimaru' },
+    { name: '영화의 거리', hue: 'lavender', land: '마을', art: 'movie_street' },
+    { name: '달맞이길', hue: 'coral', land: '언덕', art: 'dalmaji' },
+    { name: '청사포', hue: 'mint', land: '바다', art: 'cheongsapo' },
+    { name: '해변열차', hue: 'cocoa', land: '바다', art: 'beach_train' },
+    { name: '송정해수욕장', hue: 'sky', land: '바다', art: 'songjeong' },
+    { name: '장산', hue: 'plum', land: '산', art: 'jangsan' },
+    { name: '영화의전당', hue: 'olive', land: '마을', art: 'bic' },
+    { name: '벡스코', hue: 'clay', land: '마을', art: 'bexco' },
+    { name: '부산아쿠아리움', hue: 'ocean', land: '바다', art: 'aquarium' },
+    { name: '수영만 요트경기장', hue: 'sky', land: '바다', art: 'suyeong_marina' },
+    { name: '해운대온천', hue: 'apricot', land: '마을', art: 'haeundae_spa' }
   ];
 
   const Generator = {

@@ -4,35 +4,35 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#faf7f4">
-<title>낱말 산책 — 시니어를 위한 한국어 낱말 퍼즐과 어휘 이야기</title>
-<meta name="description" content="어르신이 매일 편하게 즐기시는 한국어 가로세로 낱말 퍼즐. 낱말 3,889개를 담았고 무료이며 게임 화면에 광고가 없습니다. 사자성어·속담 풀이와 시니어를 위한 화면 설계 이야기도 함께 싣습니다.">
-<link rel="canonical" href="https://nanmal.vercel.app/">
+<title>해운대 낱말 산책 — 낱말 퍼즐과 해운대 공공정보를 함께</title>
+<meta name="description" content="어르신이 매일 편하게 즐기시는 한국어 가로세로 낱말 퍼즐이자, 해운대구청·도서관·보건소 등 공공기관 소식을 쉽고 재미있게 모아 보여 드리는 앱입니다. 무료이며 광고가 없습니다.">
+<link rel="canonical" href="https://busan-nanmal.vercel.app/">
 <link rel="stylesheet" href="css/site.css">
-<link rel="icon" type="image/png" sizes="192x192" href="images/icon-192.png?v=7">
-<link rel="icon" type="image/png" sizes="512x512" href="images/icon-512.png?v=7">
-<link rel="apple-touch-icon" href="images/apple-touch-icon.png?v=7">
+<link rel="icon" type="image/png" sizes="192x192" href="images/icon-192.png?v=8">
+<link rel="icon" type="image/png" sizes="512x512" href="images/icon-512.png?v=8">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png?v=8">
 
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="낱말 산책">
-<meta property="og:title" content="낱말 산책">
+<meta property="og:site_name" content="해운대 낱말 산책">
+<meta property="og:title" content="해운대 낱말 산책">
 <meta property="og:description" content="매일 함께 걷는 한국어 낱말 퍼즐 · 무료 · 게임 화면에 광고 없음">
-<meta property="og:image" content="https://nanmal.vercel.app/images/og.png?v=6">
+<meta property="og:image" content="https://busan-nanmal.vercel.app/images/og.png?v=2">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:url" content="https://nanmal.vercel.app/">
+<meta property="og:url" content="https://busan-nanmal.vercel.app/">
 <meta property="og:locale" content="ko_KR">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://nanmal.vercel.app/images/og.png?v=6">
+<meta name="twitter:image" content="https://busan-nanmal.vercel.app/images/og.png?v=2">
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "name": "낱말 산책",
-  "url": "https://nanmal.vercel.app/",
+  "name": "해운대 낱말 산책",
+  "url": "https://busan-nanmal.vercel.app/",
   "inLanguage": "ko-KR",
-  "description": "시니어를 위한 한국어 낱말 퍼즐과 어휘 이야기",
-  "publisher": { "@type": "Person", "name": "낱말 산책 만든이" }
+  "description": "해운대 공공정보와 한국어 낱말 퍼즐을 함께 담은 시니어용 앱",
+  "publisher": { "@type": "Person", "name": "해운대 낱말 산책 만든이" }
 }
 </script>
 
@@ -48,12 +48,13 @@
      카톡으로 받은 주소가 이 소개 화면일 때가 많은데, 카톡 브라우저에는
      「홈 화면에 추가」가 없어 바탕화면 아이콘을 만들 수 없습니다. -->
 <script src="js/open-outside.js"></script>
+<script src="js/gull.js"></script>
 </head>
 <body>
 
 <header class="site-head">
   <div class="inner">
-    <a class="brand" href="./"><img src="images/icon-192.png?v=7" alt="" width="30" height="30" style="vertical-align:-8px;border-radius:9px;margin-right:7px">낱말 산책</a>
+    <a class="brand" href="./"><img src="images/icon-192.png?v=8" alt="" width="30" height="30" style="vertical-align:-8px;border-radius:9px;margin-right:7px">해운대 낱말 산책</a>
     <nav>
       <a href="play.html">놀러 가기</a>
       <a href="guide/">읽을거리</a>
@@ -66,13 +67,20 @@
 <main>
 
   <div class="hero">
-    <img src="images/og.png" alt="강아지가 반갑게 웃고 있는 낱말 산책 그림">
-    <h1>매일 함께 걷는 한국어 낱말 퍼즐</h1>
+    <div id="herogull" style="width:180px;height:180px;margin:0 auto" aria-hidden="true"></div>
+    <script>
+      (function () {
+        var box = document.getElementById('herogull');
+        if (box && window.Gull) box.innerHTML = window.Gull.make('반가움', 180);
+      })();
+    </script>
+    <h1>낱말 퍼즐과 해운대 소식을 함께 걷습니다</h1>
     <p class="lead">
-      어르신이 편하게 즐기시도록 만든 가로세로 낱말 놀이입니다.<br>
+      어르신이 편하게 즐기시도록 만든 가로세로 낱말 놀이이자,<br>
+      해운대구청·도서관·보건소 등 공공기관 소식을 쉽고 재미있게 모아 보여 드리는 앱입니다.<br>
       회원가입이 없고, 인터넷이 끊겨도 되고, 놀이 화면에는 광고가 없습니다.
     </p>
-    <p><a class="btn-play" href="play.html">낱말 산책 놀러 가기</a></p>
+    <p><a class="btn-play" href="play.html">해운대 낱말 산책 놀러 가기</a></p>
   </div>
 
   <hr>
@@ -86,7 +94,8 @@
 
   <div class="table-wrap">
     <table>
-      <tr><th>담긴 낱말</th><td>3,889개 — 낱말 3,624 · 사자성어 186 · 속담 79</td></tr>
+      <tr><th>담긴 낱말</th><td>3,865개 — 낱말 3,639 · 사자성어 186 · 해운대 정보 퀴즈 40</td></tr>
+      <tr><th>해운대 정보</th><td>구청·주민센터·도서관·보건소 등 19곳 공공기관 소식을 실시간으로 모읍니다</td></tr>
       <tr><th>단계</th><td>정해진 끝이 없습니다. 판은 그때그때 새로 만들어집니다</td></tr>
       <tr><th>비용</th><td>무료. 결제도 없고 유료 도구도 없습니다</td></tr>
       <tr><th>계정</th><td>필요 없습니다. 기록은 쓰시는 기기 안에만 남습니다</td></tr>
@@ -100,6 +109,7 @@
     초등학교 수준의 생활 낱말부터 중·고등학교 교과 어휘, 대학 교양 수준의 개념어까지
     열네 갈래로 나누어 담았습니다. 옛 살림살이와 우리 역사, 우리 땅 이름,
     먹거리와 몸·건강처럼 어르신께 익숙한 갈래를 특히 두텁게 넣었습니다.
+    해운대에 사시는 분들을 위해 부산 사투리와 동네 지명 낱말도 함께 담았습니다.
   </p>
   <p>
     낱말은 무작위로 나오지 않습니다.
@@ -128,7 +138,7 @@
 
   <div class="note">
     <strong>어르신께 알려 드리는 법</strong><br>
-    휴대전화로 <code>nanmal.vercel.app</code> 을 여신 뒤,
+    휴대전화로 이 페이지를 여신 뒤,
     브라우저 메뉴에서 <strong>「홈 화면에 추가」</strong> 를 한 번만 눌러 두시면
     바탕화면 아이콘으로 앱처럼 열립니다. 그다음부터는 인터넷이 없어도 됩니다.
   </div>
@@ -157,7 +167,7 @@
       <a href="privacy.html">개인정보처리방침</a>
       <a href="contact.html">연락처</a>
     </nav>
-    <p>낱말 산책 · 어머니를 위해 만들기 시작한 한국어 낱말 놀이입니다.</p>
+    <p>해운대 낱말 산책 · 흩어진 해운대 공공정보를 어르신께 쉽고 재미있게 전하려고 만든 앱입니다.</p>
   </div>
 </footer>
 

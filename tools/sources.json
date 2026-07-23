@@ -1,0 +1,698 @@
+{
+  "_note": [
+    "해운대 정보 소스 레지스트리. 기관을 추가하려면 항목 한 줄만 넣으면 됩니다.",
+    "해운대구청 계열은 하나의 게시판 CMS(boardId + menuCd)를 써서 어댑터 하나로 처리됩니다.",
+    "listUrl 이 TODO 인 항목은 게시판 주소를 확인해 채우면 바로 수집됩니다.",
+    "cadenceMin = 확인 주기(분). trust = official(관공서) | press(언론) | partner(협력기관).",
+    "※ 반드시 각 기관의 robots.txt·이용약관을 확인하고, 가능하면 공식 제휴(RSS/API)를 우선합니다."
+  ],
+  "_agent": {
+    "_userAgentNote": "HTTP 헤더에는 한글을 넣을 수 없어 영문으로만 씁니다(목적·연락처 명시).",
+    "userAgent": "BusanNanmalBot/1.0 (+senior public-info app for Haeundae; non-commercial; 2s delay; contact: app maintainer)",
+    "minDelayMs": 1200,
+    "respectRobots": true,
+    "maxDetailPerRun": 100
+  },
+  "sources": [
+    {
+      "id": "gu-gosi",
+      "name": "해운대구청 고시공고",
+      "type": "html-board",
+      "trust": "official",
+      "region": "해운대구",
+      "topics": [
+        "생활",
+        "복지",
+        "안전"
+      ],
+      "cadenceMin": 60,
+      "listUrl": "https://www.haeundae.go.kr/index.do?menuCd=DOM_000000104001002000",
+      "linkPattern": "view\\.do[^\"']*",
+      "enabled": false,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "pages": 3,
+      "note": "eminwon 시스템 iframe, 목록을 JS/POST로 불러와 정적 수집 불가. 내용도 대부분 입찰·행정문서라 선별에서 걸러진다."
+    },
+    {
+      "id": "gu-notice",
+      "name": "해운대구청 공지사항",
+      "type": "html-board",
+      "trust": "official",
+      "region": "해운대구",
+      "topics": [
+        "생활",
+        "복지",
+        "안전",
+        "행사"
+      ],
+      "cadenceMin": 60,
+      "listUrl": "https://www.haeundae.go.kr/board/list.do?boardId=BBS_0000038&menuCd=DOM_000000104001001000",
+      "linkPattern": "view\\.do[^\"']*",
+      "enabled": true,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "pages": 15
+    },
+    {
+      "id": "gu-culture",
+      "name": "해운대문화회관",
+      "type": "html-board",
+      "trust": "official",
+      "region": "해운대구",
+      "topics": [
+        "행사",
+        "나들이"
+      ],
+      "cadenceMin": 360,
+      "listUrl": "http://www.haeundae.go.kr/culture/index.do",
+      "linkPattern": "view\\.do[^\"']*",
+      "enabled": true,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "pages": 6
+    },
+    {
+      "id": "lib-haeundae",
+      "name": "해운대도서관 독서문화행사",
+      "type": "html-board",
+      "trust": "official",
+      "region": "해운대구",
+      "topics": [
+        "나들이",
+        "행사"
+      ],
+      "cadenceMin": 240,
+      "listUrl": "https://home.pen.go.kr/haeundaelib/na/ntt/selectNttList.do?mi=11228&bbsId=3475",
+      "enabled": true,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "pages": 6,
+      "note": "목록 링크가 javascript: 라서 <a data-id=\"번호\"> 의 번호로 상세 주소를 만든다",
+      "idPattern": "data-id=\"(\\d+)\"",
+      "detailUrl": "https://home.pen.go.kr/haeundaelib/na/ntt/selectNttInfo.do?mi=11228&bbsId=3475&nttSn={id}",
+      "pageParam": "currPage"
+    },
+    {
+      "id": "lib-humanities",
+      "name": "해운대인문학도서관",
+      "type": "html-board",
+      "trust": "official",
+      "region": "해운대구",
+      "topics": [
+        "나들이",
+        "행사"
+      ],
+      "cadenceMin": 720,
+      "listUrl": "https://www.haeundae.go.kr/index.do?menuCd=DOM_000001004010000000",
+      "linkPattern": "view\\.do[^\"']*",
+      "enabled": false,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "note": "해당 menuCd에 게시판 목록이 없음(링크 0). 주소 재조사 필요."
+    },
+    {
+      "id": "lib-busan-portal",
+      "name": "부산도서관포털(해운대 필터)",
+      "type": "html-board",
+      "trust": "official",
+      "region": "부산광역시",
+      "topics": [
+        "나들이",
+        "행사"
+      ],
+      "cadenceMin": 720,
+      "listUrl": "https://library.busan.go.kr/portal/index.do",
+      "linkPattern": "view\\.do[^\"']*",
+      "enabled": false,
+      "audience": [
+        "senior",
+        "resident"
+      ]
+    },
+    {
+      "id": "busan-gosi",
+      "name": "부산광역시 고시공고",
+      "type": "html-board",
+      "trust": "official",
+      "region": "부산광역시",
+      "topics": [
+        "생활",
+        "복지"
+      ],
+      "cadenceMin": 180,
+      "listUrl": "https://www.busan.go.kr/nbgosi",
+      "linkPattern": "nbgosi[^\"']*",
+      "enabled": true,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "pages": 3,
+      "pageParam": "curPage"
+    },
+    {
+      "id": "bexco",
+      "name": "벡스코 공지사항",
+      "type": "html-board",
+      "trust": "partner",
+      "region": "해운대구",
+      "topics": [
+        "행사",
+        "나들이"
+      ],
+      "cadenceMin": 180,
+      "listUrl": "https://www.bexco.co.kr/kor/CMS/Board/Board.do?mCode=MN105",
+      "enabled": true,
+      "audience": [
+        "senior",
+        "resident",
+        "tourist",
+        "biz"
+      ],
+      "linkPattern": "mode=view[^\"']*",
+      "pages": 5
+    },
+    {
+      "id": "art-museum",
+      "name": "부산시립미술관 새소식",
+      "type": "html-board",
+      "trust": "official",
+      "region": "해운대구",
+      "topics": [
+        "나들이",
+        "행사"
+      ],
+      "cadenceMin": 240,
+      "listUrl": "https://art.busan.go.kr/tblTsite07Bbs/listNewsClient.nm?tn=news",
+      "enabled": true,
+      "audience": [
+        "senior",
+        "resident",
+        "tourist"
+      ],
+      "note": "목록이 onclick=btnView(번호) 방식이라 번호를 뽑아 상세 주소를 만든다",
+      "pages": 5,
+      "idPattern": "btnView\\((\\d+)\\)",
+      "detailUrl": "https://art.busan.go.kr/tblTsite07Bbs/viewNewsClient.nm?idx={id}",
+      "pageParam": "pageIndex"
+    },
+    {
+      "id": "sports-center",
+      "name": "해운대구 사회체육센터",
+      "type": "html-board",
+      "trust": "official",
+      "region": "해운대구",
+      "topics": [
+        "건강",
+        "행사"
+      ],
+      "cadenceMin": 720,
+      "listUrl": "TODO(해운대구 사회체육센터 공지 주소)",
+      "enabled": false,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "note": "공식 사이트가 여러 갈래(부산사회체육센터/해운대교육청스포츠센터/해운대생활체육센터)로 나뉘어 있어 haeundaeswim.com(그누보드 게시판)을 별도 소스로 등록함."
+    },
+    {
+      "id": "health-center",
+      "name": "해운대구보건소",
+      "type": "html-board",
+      "trust": "official",
+      "region": "해운대구",
+      "topics": [
+        "건강"
+      ],
+      "cadenceMin": 120,
+      "listUrl": "https://www.haeundae.go.kr/health/index.do?menuCd=DOM_000000805001000000",
+      "enabled": true,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "linkPattern": "view.do[^\"']*",
+      "pages": 8
+    },
+    {
+      "id": "senior-welfare",
+      "name": "해운대노인종합복지관",
+      "type": "html-board",
+      "trust": "partner",
+      "region": "해운대구",
+      "topics": [
+        "복지",
+        "건강"
+      ],
+      "cadenceMin": 720,
+      "listUrl": "TODO(복지관 공지 주소)",
+      "enabled": false,
+      "audience": [
+        "senior",
+        "resident"
+      ]
+    },
+    {
+      "id": "busan-festival-api",
+      "name": "부산축제정보 OpenAPI",
+      "type": "api",
+      "trust": "official",
+      "region": "부산광역시",
+      "topics": [
+        "행사"
+      ],
+      "cadenceMin": 1440,
+      "listUrl": "https://apis.data.go.kr/6260000/FestivalService/getFestivalKr",
+      "needsKey": "BUSAN_SERVICE_KEY",
+      "enabled": true,
+      "audience": [
+        "senior",
+        "resident"
+      ]
+    },
+    {
+      "id": "dong-u1",
+      "name": "우1동 행정복지센터",
+      "type": "html-board",
+      "trust": "official",
+      "region": "우1동",
+      "cadenceMin": 360,
+      "listUrl": "TODO",
+      "enabled": false,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "note": "해운대구는 동별 게시판을 따로 두지 않는다. 동 소식지·마을행사는 구청 공지사항 게시판(gu-notice)에 작성부서=동 이름으로 올라오므로 그쪽을 여러 쪽 훑어 수집한다."
+    },
+    {
+      "id": "dong-u2",
+      "name": "우2동 행정복지센터",
+      "type": "html-board",
+      "trust": "official",
+      "region": "우2동",
+      "cadenceMin": 360,
+      "listUrl": "TODO",
+      "enabled": false,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "note": "해운대구는 동별 게시판을 따로 두지 않는다. 동 소식지·마을행사는 구청 공지사항 게시판(gu-notice)에 작성부서=동 이름으로 올라오므로 그쪽을 여러 쪽 훑어 수집한다."
+    },
+    {
+      "id": "dong-u3",
+      "name": "우3동 행정복지센터",
+      "type": "html-board",
+      "trust": "official",
+      "region": "우3동",
+      "cadenceMin": 360,
+      "listUrl": "TODO",
+      "enabled": false,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "note": "해운대구는 동별 게시판을 따로 두지 않는다. 동 소식지·마을행사는 구청 공지사항 게시판(gu-notice)에 작성부서=동 이름으로 올라오므로 그쪽을 여러 쪽 훑어 수집한다."
+    },
+    {
+      "id": "dong-jung1",
+      "name": "중1동 행정복지센터",
+      "type": "html-board",
+      "trust": "official",
+      "region": "중1동",
+      "cadenceMin": 360,
+      "listUrl": "TODO",
+      "enabled": false,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "note": "해운대구는 동별 게시판을 따로 두지 않는다. 동 소식지·마을행사는 구청 공지사항 게시판(gu-notice)에 작성부서=동 이름으로 올라오므로 그쪽을 여러 쪽 훑어 수집한다."
+    },
+    {
+      "id": "dong-jung2",
+      "name": "중2동 행정복지센터",
+      "type": "html-board",
+      "trust": "official",
+      "region": "중2동",
+      "cadenceMin": 360,
+      "listUrl": "TODO",
+      "enabled": false,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "note": "해운대구는 동별 게시판을 따로 두지 않는다. 동 소식지·마을행사는 구청 공지사항 게시판(gu-notice)에 작성부서=동 이름으로 올라오므로 그쪽을 여러 쪽 훑어 수집한다."
+    },
+    {
+      "id": "dong-jwa1",
+      "name": "좌1동 행정복지센터",
+      "type": "html-board",
+      "trust": "official",
+      "region": "좌1동",
+      "cadenceMin": 360,
+      "listUrl": "TODO",
+      "enabled": false,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "note": "해운대구는 동별 게시판을 따로 두지 않는다. 동 소식지·마을행사는 구청 공지사항 게시판(gu-notice)에 작성부서=동 이름으로 올라오므로 그쪽을 여러 쪽 훑어 수집한다."
+    },
+    {
+      "id": "dong-jwa2",
+      "name": "좌2동 행정복지센터",
+      "type": "html-board",
+      "trust": "official",
+      "region": "좌2동",
+      "cadenceMin": 360,
+      "listUrl": "TODO",
+      "enabled": false,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "note": "해운대구는 동별 게시판을 따로 두지 않는다. 동 소식지·마을행사는 구청 공지사항 게시판(gu-notice)에 작성부서=동 이름으로 올라오므로 그쪽을 여러 쪽 훑어 수집한다."
+    },
+    {
+      "id": "dong-jwa3",
+      "name": "좌3동 행정복지센터",
+      "type": "html-board",
+      "trust": "official",
+      "region": "좌3동",
+      "cadenceMin": 360,
+      "listUrl": "TODO",
+      "enabled": false,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "note": "해운대구는 동별 게시판을 따로 두지 않는다. 동 소식지·마을행사는 구청 공지사항 게시판(gu-notice)에 작성부서=동 이름으로 올라오므로 그쪽을 여러 쪽 훑어 수집한다."
+    },
+    {
+      "id": "dong-jwa4",
+      "name": "좌4동 행정복지센터",
+      "type": "html-board",
+      "trust": "official",
+      "region": "좌4동",
+      "cadenceMin": 360,
+      "listUrl": "TODO",
+      "enabled": false,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "note": "해운대구는 동별 게시판을 따로 두지 않는다. 동 소식지·마을행사는 구청 공지사항 게시판(gu-notice)에 작성부서=동 이름으로 올라오므로 그쪽을 여러 쪽 훑어 수집한다."
+    },
+    {
+      "id": "dong-songjeong",
+      "name": "송정동 행정복지센터",
+      "type": "html-board",
+      "trust": "official",
+      "region": "송정동",
+      "cadenceMin": 360,
+      "listUrl": "TODO",
+      "enabled": false,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "note": "해운대구는 동별 게시판을 따로 두지 않는다. 동 소식지·마을행사는 구청 공지사항 게시판(gu-notice)에 작성부서=동 이름으로 올라오므로 그쪽을 여러 쪽 훑어 수집한다."
+    },
+    {
+      "id": "dong-banyeo1",
+      "name": "반여1동 행정복지센터",
+      "type": "html-board",
+      "trust": "official",
+      "region": "반여1동",
+      "cadenceMin": 360,
+      "listUrl": "TODO",
+      "enabled": false,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "note": "해운대구는 동별 게시판을 따로 두지 않는다. 동 소식지·마을행사는 구청 공지사항 게시판(gu-notice)에 작성부서=동 이름으로 올라오므로 그쪽을 여러 쪽 훑어 수집한다."
+    },
+    {
+      "id": "dong-banyeo2",
+      "name": "반여2동 행정복지센터",
+      "type": "html-board",
+      "trust": "official",
+      "region": "반여2동",
+      "cadenceMin": 360,
+      "listUrl": "TODO",
+      "enabled": false,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "note": "해운대구는 동별 게시판을 따로 두지 않는다. 동 소식지·마을행사는 구청 공지사항 게시판(gu-notice)에 작성부서=동 이름으로 올라오므로 그쪽을 여러 쪽 훑어 수집한다."
+    },
+    {
+      "id": "dong-banyeo3",
+      "name": "반여3동 행정복지센터",
+      "type": "html-board",
+      "trust": "official",
+      "region": "반여3동",
+      "cadenceMin": 360,
+      "listUrl": "TODO",
+      "enabled": false,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "note": "해운대구는 동별 게시판을 따로 두지 않는다. 동 소식지·마을행사는 구청 공지사항 게시판(gu-notice)에 작성부서=동 이름으로 올라오므로 그쪽을 여러 쪽 훑어 수집한다."
+    },
+    {
+      "id": "dong-banyeo4",
+      "name": "반여4동 행정복지센터",
+      "type": "html-board",
+      "trust": "official",
+      "region": "반여4동",
+      "cadenceMin": 360,
+      "listUrl": "TODO",
+      "enabled": false,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "note": "해운대구는 동별 게시판을 따로 두지 않는다. 동 소식지·마을행사는 구청 공지사항 게시판(gu-notice)에 작성부서=동 이름으로 올라오므로 그쪽을 여러 쪽 훑어 수집한다."
+    },
+    {
+      "id": "dong-bansong1",
+      "name": "반송1동 행정복지센터",
+      "type": "html-board",
+      "trust": "official",
+      "region": "반송1동",
+      "cadenceMin": 360,
+      "listUrl": "TODO",
+      "enabled": false,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "note": "해운대구는 동별 게시판을 따로 두지 않는다. 동 소식지·마을행사는 구청 공지사항 게시판(gu-notice)에 작성부서=동 이름으로 올라오므로 그쪽을 여러 쪽 훑어 수집한다."
+    },
+    {
+      "id": "dong-bansong2",
+      "name": "반송2동 행정복지센터",
+      "type": "html-board",
+      "trust": "official",
+      "region": "반송2동",
+      "cadenceMin": 360,
+      "listUrl": "TODO",
+      "enabled": false,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "note": "해운대구는 동별 게시판을 따로 두지 않는다. 동 소식지·마을행사는 구청 공지사항 게시판(gu-notice)에 작성부서=동 이름으로 올라오므로 그쪽을 여러 쪽 훑어 수집한다."
+    },
+    {
+      "id": "dong-jaesong1",
+      "name": "재송1동 행정복지센터",
+      "type": "html-board",
+      "trust": "official",
+      "region": "재송1동",
+      "cadenceMin": 360,
+      "listUrl": "TODO",
+      "enabled": false,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "note": "해운대구는 동별 게시판을 따로 두지 않는다. 동 소식지·마을행사는 구청 공지사항 게시판(gu-notice)에 작성부서=동 이름으로 올라오므로 그쪽을 여러 쪽 훑어 수집한다."
+    },
+    {
+      "id": "dong-jaesong2",
+      "name": "재송2동 행정복지센터",
+      "type": "html-board",
+      "trust": "official",
+      "region": "재송2동",
+      "cadenceMin": 360,
+      "listUrl": "TODO",
+      "enabled": false,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "note": "해운대구는 동별 게시판을 따로 두지 않는다. 동 소식지·마을행사는 구청 공지사항 게시판(gu-notice)에 작성부서=동 이름으로 올라오므로 그쪽을 여러 쪽 훑어 수집한다."
+    },
+    {
+      "id": "visitbusan-notice",
+      "name": "비지트부산 공지",
+      "type": "html-board",
+      "trust": "official",
+      "region": "부산",
+      "topics": [
+        "관광",
+        "행사"
+      ],
+      "audience": [
+        "tourist",
+        "resident"
+      ],
+      "cadenceMin": 240,
+      "listUrl": "https://www.visitbusan.net/index.do?menuCd=DOM_000000204001000000",
+      "linkPattern": "view.do[^\"']*",
+      "enabled": true,
+      "pages": 5
+    },
+    {
+      "id": "visitbusan-festival",
+      "name": "비지트부산 축제·행사",
+      "type": "html-board",
+      "trust": "official",
+      "region": "부산",
+      "topics": [
+        "축제",
+        "행사"
+      ],
+      "audience": [
+        "tourist",
+        "resident",
+        "senior"
+      ],
+      "cadenceMin": 240,
+      "listUrl": "https://www.visitbusan.net/index.do?menuCd=DOM_000000204012000000",
+      "linkPattern": "view.do[^\"']*",
+      "enabled": true,
+      "pages": 5
+    },
+    {
+      "id": "gu-welfare-news",
+      "name": "해운대구 복지새소식",
+      "type": "html-board",
+      "trust": "official",
+      "region": "해운대구",
+      "topics": [
+        "복지",
+        "건강"
+      ],
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "cadenceMin": 120,
+      "pages": 8,
+      "listUrl": "https://www.haeundae.go.kr/index.do?menuCd=DOM_000000103001001000",
+      "linkPattern": "view.do[^\"']*",
+      "enabled": true
+    },
+    {
+      "id": "gu-banshanghoe",
+      "name": "해운대구 반상회 소식",
+      "type": "html-board",
+      "trust": "official",
+      "region": "해운대구",
+      "topics": [
+        "생활"
+      ],
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "cadenceMin": 360,
+      "pages": 5,
+      "listUrl": "https://www.haeundae.go.kr/index.do?menuCd=DOM_000000104002014000",
+      "linkPattern": "view.do[^\"']*",
+      "enabled": true
+    },
+    {
+      "id": "bexco-schedule",
+      "name": "벡스코 행사일정",
+      "type": "html-board",
+      "trust": "official",
+      "region": "해운대구",
+      "topics": [
+        "행사",
+        "전시"
+      ],
+      "audience": [
+        "senior",
+        "resident",
+        "tourist"
+      ],
+      "cadenceMin": 180,
+      "pages": 5,
+      "listUrl": "https://www.bexco.co.kr/kor/CMS/EventScheduleMgr/list.do?mCode=MN214",
+      "linkPattern": "EventScheduleMgr/view\\.do[^\"\\']*",
+      "enabled": true
+    },
+    {
+      "id": "hmhc-notice",
+      "name": "해운대구정신건강복지센터",
+      "type": "html-board",
+      "trust": "official",
+      "region": "해운대구",
+      "topics": [
+        "건강",
+        "복지"
+      ],
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "cadenceMin": 360,
+      "pages": 3,
+      "listUrl": "http://www.hmhc.or.kr/bbs/board.php?bo_table=notice",
+      "linkPattern": "bo_table=notice&wr_id=d+",
+      "pageParam": "page",
+      "enabled": true
+    },
+    {
+      "id": "haeundaeswim-notice",
+      "name": "해운대생활체육센터",
+      "type": "html-board",
+      "trust": "official",
+      "region": "해운대구",
+      "topics": [
+        "건강",
+        "교육"
+      ],
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "cadenceMin": 360,
+      "pages": 2,
+      "listUrl": "http://www.haeundaeswim.com/bbs/board.php?bo_table=notice",
+      "linkPattern": "bo_table=notice&wr_id=d+",
+      "pageParam": "page",
+      "enabled": true
+    }
+  ]
+}

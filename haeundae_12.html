@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>해운대 명소 — 커스텀 삽화</title>
+<style>
+  body { margin:0; font-family:system-ui,'Malgun Gothic',sans-serif; background:#faf7f4; color:#2a2320; }
+  header { padding:22px 18px 8px; }
+  h1 { font-size:24px; margin:0 0 6px; }
+  .sub { color:#8a7f76; font-size:15px; margin:0; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:16px; padding:16px; }
+  .card { background:#fff; border:1px solid #eadfd4; border-radius:16px; overflow:hidden; box-shadow:0 2px 10px rgba(0,0,0,.04); }
+  .pic { width:100%; aspect-ratio:4/3; overflow:hidden; background:#eee; }
+  .pic svg { width:100%; height:100%; display:block; }
+  .meta { padding:11px 14px 14px; }
+  .no { display:inline-block; background:#ef8f22; color:#fff; font-weight:700; font-size:13px; border-radius:20px; padding:2px 10px; }
+  .name { font-size:18px; font-weight:800; margin:5px 0 3px; }
+  .desc { font-size:13px; line-height:1.55; color:#6a5f56; margin:0; word-break:keep-all; }
+  @media (prefers-color-scheme: dark){ body{background:#1c1917;color:#eee} .card{background:#2a2522;border-color:#3a332e} .sub,.desc{color:#b3a89f} }
+</style>
+</head>
+<body>
+<header>
+  <h1>해운대 명소 — 커스텀 삽화</h1>
+  <p class="sub">각 명소의 <b>실제 모습 특징</b>을 앱 그림톤으로 새로 그렸습니다. 동네 탭에 그대로 나옵니다.</p>
+</header>
+<div class="grid" id="grid"></div>
+
+<script src="js/landmarks.js"></script>
+<script>
+  var HOODS = [
+    ['해운대해수욕장','haeundae_beach','마천루 스카이라인 뒤 넓은 백사장과 파라솔'],
+    ['마린시티','marine_city','물가에 솟은 고층 마천루 야경과 불빛'],
+    ['동백섬 누리마루','nurimaru','물가의 한옥 지붕 APEC하우스와 등대'],
+    ['영화의 거리','movie_street','해변 산책로의 트릭아트 벽화와 필름 릴 조형물'],
+    ['달맞이길','dalmaji','굽이길 위 벚꽃과 보름달'],
+    ['청사포','cheongsapo','빨강·흰 등대가 마주 선 포구'],
+    ['해변열차','beach_train','짙푸른 바다를 끼고 달리는 알록달록 해안 열차'],
+    ['송정해수욕장','songjeong','서핑하는 사람이 있는 바다'],
+    ['장산','jangsan','도심을 굽어보는 능선'],
+    ['영화의전당','bic','하늘을 덮는 거대 지붕과 무지개 LED 야경'],
+    ['벡스코','bexco','큰 곡선 지붕의 전시장'],
+    ['부산아쿠아리움','aquarium','물속 터널과 고래상어·가오리'],
+    ['수영만 요트경기장','suyeong_marina','흰 돛단배들의 마리나'],
+    ['해운대온천','haeundae_spa','김이 오르는 온천탕']
+  ];
+  var grid = document.getElementById('grid');
+  HOODS.forEach(function(hd, i){
+    var card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML =
+      '<div class="pic">' + Landmarks.svg(hd[1]) + '</div>' +
+      '<div class="meta"><span class="no">' + (i+1) + '경</span>' +
+      '<div class="name">' + hd[0] + '</div>' +
+      '<p class="desc">' + hd[2] + '</p></div>';
+    grid.appendChild(card);
+  });
+</script>
+</body>
+</html>

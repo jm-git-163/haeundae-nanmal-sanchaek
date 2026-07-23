@@ -1,9 +1,9 @@
 /* 낱말 산책 — 오프라인 우선 (TECH_SPEC §4.3)
    인터넷이 없어도 앱의 모든 기능이 그대로 동작합니다. */
-const CACHE = 'nanmal-v72';
+const CACHE = 'busan-nanmal-v91';
 const FILES = [
-  './', './play.html', './manifest.json', './css/style.css',
-  './js/hangul.js', './js/data.js', './js/data2.js', './js/data3.js', './js/data4.js', './js/data5.js', './js/data6.js', './js/data7.js', './js/proverbs2.js', './js/crossword.js', './js/bgm.js', './js/scene.js', './js/theme.js', './js/dog.js', './js/install.js', './js/intro.js', './js/update.js', './js/open-outside.js',
+  './', './play.html', './manifest.json', './css/style.css', './data/feed.json',
+  './js/hangul.js', './js/data.js', './js/data2.js', './js/data3.js', './js/data4.js', './js/data5.js', './js/data6.js', './js/data7.js', './js/proverbs2.js', './js/notices.js', './js/busan_api.js', './js/haeundae_media.js', './js/crossword.js', './js/bgm.js', './js/scene.js', './js/landmarks.js', './js/theme.js', './js/dog.js', './js/gull.js', './js/install.js', './js/intro.js', './js/update.js', './js/open-outside.js',
    './js/engine.js', './js/app.js', './js/game.js'
 ];
 self.addEventListener('install', e => {
@@ -28,6 +28,17 @@ self.addEventListener('fetch', e => {
      음악은 없어도 놀이에 지장이 없으므로 그때그때 받아서 틉니다.
      (놀이에 필요한 파일은 그대로 저장하므로 인터넷이 없어도 게임은 됩니다) */
   if (url.pathname.startsWith('/audio/')) return;
+  /* 정보 피드(data/)는 '네트워크 우선' — 온라인이면 늘 최신을 보여 주고,
+     오프라인이면 마지막에 받아 둔 것을 씁니다. */
+  if (url.pathname.includes('/data/')) {
+    e.respondWith(
+      fetch(e.request).then(res => {
+        if (res && res.ok) caches.open(CACHE).then(c => c.put(e.request, res.clone()));
+        return res;
+      }).catch(() => caches.match(e.request))
+    );
+    return;
+  }
   e.respondWith(
     caches.open(CACHE).then(cache =>
       cache.match(e.request).then(hit => {

@@ -18,9 +18,15 @@
         firstMs: Date.now(), lastMs: 0, days: [],
         ability: { GLOBAL: { theta: 1200, n: 0 } },
         memory: {}, fav: [], recent: [],
-        pet: { name: '복실이', bond: 1 },
+        pet: { name: '해운이', bond: 1 },
         onboarded: false,
-        settings: { fs: 1, sfx: true, bgm: true, hue: 'auto', gentle: false, theme: 'light', contrast: false, motion: false }
+        settings: {
+          fs: 1, sfx: true, bgm: true, hue: 'auto', gentle: false, theme: 'light', contrast: false, motion: false,
+          // 맞춤 보기 — 여쭤보고 동의하실 때만 씁니다. null=아직 안 여쭘, true=맞춤, false=전체 보기
+          personalize: null,
+          // 맞춤에 쓰는 항목 — 이 기기에만 저장되고 밖으로 나가지 않습니다
+          interests: [], ageBand: null, dong: null
+        }
       };
     },
     load() {
@@ -77,7 +83,9 @@
     right() { global.Audio2.word(); },
     hint() { global.Audio2.hint(); },
     clear() { global.Audio2.clear(); },
-    bark() { global.Audio2.bark(); }
+    bark() { global.Audio2.bark(); },
+    chirp() { global.Audio2.chirp(); },
+    eat() { global.Audio2.eat(); }
   };
 
   /* ══════════ 화면 도구 ══════════════════════════ */
@@ -203,14 +211,14 @@
 
       const input = h('input', {
         class: 'namefield', type: 'text', maxlength: '8',
-        value: cur || '', 'aria-label': '강아지 이름',
-        placeholder: '예) 복실이'
+        value: cur || '', 'aria-label': '갈매기 이름',
+        placeholder: '예) 해운이'
       });
       box.appendChild(input);
 
       // 고르기만 해도 되도록 미리 지은 이름을 함께 놓습니다
       const chips = h('div', { class: 'chips' });
-      ['복실이', '누리', '해피', '보리', '초코', '설이', '몽이', '별이'].forEach(n =>
+      ['해운이', '바다', '파도', '갈매기', '모래', '구름', '달이', '별이'].forEach(n =>
         chips.appendChild(h('button', {
           class: 'chip', onclick: () => { input.value = n; Sound.tap(); }
         }, n)));
@@ -232,7 +240,27 @@
 
   /* 아이콘을 그리는 틀 — 아래 여러 곳에서 씁니다.
      const 는 선언보다 먼저 쓸 수 없으므로 반드시 맨 위에 둡니다. */
-  const TAB_NAME = { walk: '산책', hood: '동네', pet: '강아지', learn: '속담', set: '설정' };
+  /* 관심 주제 칩 ↔ 게시판이 붙이는 분류.
+     칩은 어르신께 익숙한 말로, 분류는 기관이 쓰는 말로 되어 있어
+     하나의 칩이 여러 갈래를 아우릅니다. */
+  const INTEREST_MAP = {
+    '복지': ['복지'],
+    '건강': ['건강'],
+    '안전': ['안전'],
+    '나들이': ['행사', '관광', '문화'],
+    '배움': ['교육'],
+    '일자리': ['일자리', '창업'],
+    '교통': ['교통'],
+    '살림': ['주거', '환경', '세금', '생활']
+  };
+
+  const TAB_NAME = { walk: '산책', hood: '동네', pet: '갈매기', learn: '해운대', set: '설정' };
+
+  /* 나에게 맞는 정보를 고르는 데 쓰는 항목.
+     이름·주민번호 같은 것은 받지 않습니다. 나이대와 사는 동네만, 그것도 이 기기 안에만 둡니다. */
+  const AGE_BANDS = [['under65', '65세 미만'], ['65-74', '65~74세'], ['75-84', '75~84세'], ['85+', '85세 이상']];
+  const DONG = ['우1동', '우2동', '우3동', '중1동', '중2동', '좌1동', '좌2동', '좌3동', '좌4동',
+    '송정동', '반여1동', '반여2동', '반여3동', '반여4동', '반송1동', '반송2동', '재송1동', '재송2동'];
   const SVG = (inner) =>
     `<svg viewBox="0 0 24 24" width="100%" height="100%" fill="none"
        stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -297,21 +325,19 @@
   };
 
   const TAB_ICON = {
-    // 발자국 — 산책
-    walk: SVG('<ellipse cx="12" cy="16" rx="4.2" ry="3.4" fill="currentColor" stroke="none"/>' +
-      '<ellipse cx="6.6" cy="11.4" rx="1.9" ry="2.4" fill="currentColor" stroke="none"/>' +
-      '<ellipse cx="10.2" cy="8.4" rx="1.9" ry="2.5" fill="currentColor" stroke="none"/>' +
-      '<ellipse cx="13.8" cy="8.4" rx="1.9" ry="2.5" fill="currentColor" stroke="none"/>' +
-      '<ellipse cx="17.4" cy="11.4" rx="1.9" ry="2.4" fill="currentColor" stroke="none"/>'),
+    // 갈매기 발자국 — 산책
+    // 물갈퀴가 세 발가락 사이를 잇습니다. 강아지 발바닥(패드+발가락)과는 모양이 아주 다릅니다.
+    // 뒤꿈치 하나에서 발가락 셋이 뻗고, 그 사이를 물갈퀴가 잇습니다.
+    // 작게 줄여도 '물갈퀴'가 보이도록 사이를 깊게 파 두었습니다.
+    walk: SVG('<path d="M12 20.4 L4.9 6.6 Q9.4 11.8 12 4.6 Q14.6 11.8 19.1 6.6 Z"' +
+      ' fill="currentColor" stroke="none"/>' +
+      '<path d="M12 20.2 v2.2" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" fill="none"/>'),
     // 집 — 동네
     hood: SVG('<path d="M4 10.5 12 4l8 6.5"/><path d="M6.5 9.6V19h11V9.6"/><path d="M10 19v-4.5h4V19"/>'),
-    // 강아지 얼굴
-    pet: SVG('<path d="M5 7.5c0-2 1.2-2.8 2.6-2 1 .6 1.7 1.6 2 2.4"/>' +
-      '<path d="M19 7.5c0-2-1.2-2.8-2.6-2-1 .6-1.7 1.6-2 2.4"/>' +
-      '<path d="M12 19c-3.6 0-6.2-2.4-6.2-5.6S8.4 7.6 12 7.6s6.2 2.6 6.2 5.8S15.6 19 12 19Z"/>' +
-      '<circle cx="9.8" cy="13" r="1" fill="currentColor" stroke="none"/>' +
-      '<circle cx="14.2" cy="13" r="1" fill="currentColor" stroke="none"/>' +
-      '<path d="M12 15.2v1.1"/>'),
+    // 갈매기 — 마스코트 탭
+    pet: SVG('<path d="M3 12c3 0 4-2.4 6-2.4S12 12 12 12s1-2.4 3-2.4S18 12 21 12"/>' +
+      '<path d="M12 12c0 3 1.4 5.4 4 6.6"/>' +
+      '<path d="M16 18.6c-1.2.3-2.6.4-4 .4"/>'),
     // 두루마리 — 속담
     learn: SVG('<path d="M7 4h10a2.4 2.4 0 0 1 2.4 2.4v11.2A2.4 2.4 0 0 1 17 20H7"/>' +
       '<path d="M7 4a2.4 2.4 0 0 0-2.4 2.4c0 1.3 1 2.4 2.4 2.4h2.2"/>' +
@@ -327,28 +353,152 @@
   const DOG_FACES = { 반가움: '🐕', 편안함: '🐶', 갸웃: '🐕‍🦺', 신남: '🐩', 보고싶음: '🐕' };
 
   /**
-   * 강아지 발바닥 하나.
-   * 이모지(🐾)는 작게 쓰면 무엇인지 알아보기 어려워 직접 그립니다.
+   * 갈매기 발자국 하나 (물갈퀴 자국).
+   * 이모지는 작게 쓰면 무엇인지 알아보기 어려워 직접 그립니다.
    * @param state 'on'(지나옴) | 'now'(지금 여기) | ''(아직)
    */
   function paw(state) {
     const el = h('span', { class: 'paw' + (state ? ' ' + state : ''), 'aria-hidden': 'true' });
     el.innerHTML =
       '<svg viewBox="0 0 24 24" width="100%" height="100%" fill="currentColor">' +
-      '<ellipse cx="12" cy="16.6" rx="6.1" ry="5.1"/>' +
-      '<ellipse cx="4.6" cy="10.2" rx="2.7" ry="3.3"/>' +
-      '<ellipse cx="9.6" cy="6.3" rx="2.7" ry="3.5"/>' +
-      '<ellipse cx="14.4" cy="6.3" rx="2.7" ry="3.5"/>' +
-      '<ellipse cx="19.4" cy="10.2" rx="2.7" ry="3.3"/>' +
+      // 물갈퀴 — 발가락 셋 사이가 이어진 갈매기 발자국
+      '<path d="M12 3.6 C10.4 8 7.8 9.8 4.4 10.9 C7.4 13.4 10 15.2 12 20 C14 15.2 16.6 13.4 19.6 10.9 C16.2 9.8 13.6 8 12 3.6 Z"/>' +
+      '<circle cx="12" cy="3.8" r="1.5"/><circle cx="4.5" cy="11" r="1.4"/><circle cx="19.5" cy="11" r="1.4"/>' +
+      // 뒷발가락
+      '<path d="M12 19.4 L12 22.4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>' +
       '</svg>';
     return el;
   }
 
   /** 움직이는 강아지 하나 (그림 파일이 아니라 그려서 움직입니다) */
-  function dogEl(mood, size, id) {
+  // 마스코트는 이제 '부산 갈매기'입니다. (강아지 그림 대신 갈매기를 그립니다)
+  function dogEl(mood, size, id, opts) {
     const box = h('div', { class: 'dog', id: id || 'dog' });
-    box.innerHTML = global.Dog.make(mood, size || 96);
+    box.innerHTML = global.Gull.make(mood, size || 96, opts);
     return box;
+  }
+
+  /* 해운대 갈매기 — 소식을 전해 주는 안내자입니다.
+     부산 상징(갈매기)을 앱 그림체로 새로 그린 원본입니다.
+     ※ 부산시 공식 캐릭터 '부기'를 쓰려면 공공누리(출처표시) 규정에 따라
+       official 이미지를 images/ 에 넣고 이 함수만 바꾸면 됩니다. */
+  function gullSVG(size) {
+    const s = size || 64;
+    return `<svg viewBox="0 0 100 100" width="${s}" height="${s}" aria-hidden="true">
+      <ellipse cx="50" cy="88" rx="18" ry="4" fill="#000" opacity=".06"/>
+      <path d="M28 54 q-16 -6 -22 6 q14 2 22 7 Z" fill="#eef3f5" stroke="#dbe4e8" stroke-width="1.5"/>
+      <path d="M72 54 q16 -6 22 6 q-14 2 -22 7 Z" fill="#eef3f5" stroke="#dbe4e8" stroke-width="1.5"/>
+      <ellipse cx="50" cy="58" rx="24" ry="20" fill="#ffffff" stroke="#dbe4e8" stroke-width="2"/>
+      <path d="M32 50 q18 -9 36 0 q-18 6 -36 0 Z" fill="#cfd8dd" opacity=".85"/>
+      <circle cx="50" cy="35" r="15" fill="#ffffff" stroke="#dbe4e8" stroke-width="2"/>
+      <path d="M50 33 l17 5 l-17 5 Z" fill="#f6a623"/>
+      <circle cx="45" cy="33" r="2.7" fill="#33414a"/>
+      <circle cx="46" cy="32" r="1" fill="#fff"/>
+      <path d="M44 77 v6 M56 77 v6" stroke="#f6a623" stroke-width="2.6" fill="none"/>
+    </svg>`;
+  }
+  function gullEl(size) {
+    const box = h('div', { class: 'gull' });
+    box.innerHTML = gullSVG(size);
+    return box;
+  }
+
+  /* 해운대 삽화 한 장 (그림 우월효과 — 글보다 오래 기억됩니다) */
+  function illEl(key) {
+    const svg = (global.Haeundae && global.Haeundae.ILLUST[key]) || '';
+    const box = h('div', { style: 'width:100%;aspect-ratio:100/72;overflow:hidden' });
+    box.innerHTML = svg;
+    const s = box.firstChild;
+    if (s) { s.setAttribute('width', '100%'); s.setAttribute('height', '100%'); s.setAttribute('preserveAspectRatio', 'xMidYMid slice'); }
+    return box;
+  }
+
+  /* 읽어주기 — 눈이 어두우시거나 글이 어려운 분을 위해 소리로 읽어 드립니다.
+     기기에 내장된 음성(Web Speech)을 쓰므로 따로 받을 것이 없습니다. */
+  function stopSpeak() { try { if (global.speechSynthesis) global.speechSynthesis.cancel(); } catch (e) { } }
+  function resetReadButtons() { document.querySelectorAll('.readbtn').forEach(b => b.textContent = '🔊 읽어주기'); }
+  function speakToggle(btn, text) {
+    const synth = global.speechSynthesis;
+    if (!synth) return say('이 기기에서는 읽어주기가 안 돼요.', '🔊');
+    if (synth.speaking) { stopSpeak(); resetReadButtons(); if (btn.dataset.on === '1') { btn.dataset.on = ''; return; } }
+    resetReadButtons();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = 'ko-KR'; u.rate = 0.92;
+    u.onend = () => { btn.textContent = '🔊 읽어주기'; btn.dataset.on = ''; };
+    btn.textContent = '⏹ 멈추기'; btn.dataset.on = '1';
+    synth.speak(u);
+  }
+
+  /* '해운대 알아두기' 카드 — 삽화 + 쉬운 요지 + 좋은점 + 이렇게하세요 (+읽어주기·맞춤배지) */
+  /* 소식을 카톡으로 건네 드립니다.
+     어르신들 사이에서 좋은 정보는 카톡으로 오갑니다.
+     "이거 봐라" 하고 넘기지 못하면 앱 안에 갇힌 정보가 됩니다.
+     · 휴대전화 — 브라우저가 주는 공유창(카톡·문자·메일)을 띄웁니다.
+     · 컴퓨터   — 공유창이 없으므로 글을 복사해 드립니다. */
+  function shareNotice(n) {
+    const body = String(n.body || '').replace(/…$/, '').trim();
+    const text = `[해운대 소식 · ${n.cat}] ${n.title}\n\n${body}\n\n` +
+      (n.sourceUrl ? `자세히 보기 ▶ ${n.sourceUrl}\n` : '') +
+      `(출처 ${n.source})`;
+
+    if (navigator.share) {
+      navigator.share({ title: n.title, text, url: n.sourceUrl || location.href })
+        .catch(() => { /* 어르신이 그냥 닫으신 경우입니다 */ });
+      return;
+    }
+    const done = () => say('글을 복사했어요. 카톡 대화창에 붙여 넣으세요.', '💬');
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done).catch(() => fallbackCopy(text, done));
+    } else fallbackCopy(text, done);
+  }
+
+  /** 클립보드가 막힌 브라우저를 위한 옛 방식 */
+  function fallbackCopy(text, done) {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.cssText = 'position:fixed;left:-9999px';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); done(); }
+    catch (e) { say('복사가 막혀 있어요. 글을 길게 눌러 복사해 주세요.', '💬'); }
+    ta.remove();
+  }
+
+  function guideCard(g, m) {
+    const CAT = { 복지: '🧡', 건강: '🩺', 안전: '🛡️', 생활: '🏠', 나들이: '🚶' };
+    const readText = `${g.title}. 쉽게 풀면, ${g.lead} 이렇게 하세요. ${(g.how || []).join('. ')}`;
+    return h('div', { class: 'card', style: 'text-align:left;padding:0;overflow:hidden' },
+      illEl(g.ill),
+      h('div', { style: 'padding:12px 14px 14px' },
+        h('div', { style: 'display:flex;justify-content:space-between;align-items:center;gap:8px' },
+          h('span', { class: 'badge warm' }, (CAT[g.cat] || '📌') + ' ' + g.cat),
+          (m && m.mine) ? h('span', { class: 'badge green' }, '✅ 나에게 맞는 정보') : null),
+        h('h3', { style: 'margin:8px 0 5px' }, g.title),
+        (m && m.mine && m.reasons.length)
+          ? h('p', { class: 'muted small', style: 'margin:0 0 6px' }, m.reasons.join(' · ') + ' 에 해당돼요')
+          : null,
+        h('p', { style: 'margin:0 0 4px;line-height:1.75;word-break:keep-all;font-weight:700' }, '쉽게 풀면 — ' + g.lead),
+        h('p', { class: 'muted small', style: 'margin:0 0 10px;word-break:keep-all' }, '💡 ' + g.good),
+        g.official ? h('details', { class: 'fold', style: 'margin:0 0 10px' },
+          h('summary', null, '📋 공식 안내 원문 보기'),
+          h('div', { class: 'muted', style: 'padding:8px 2px 2px;line-height:1.7;word-break:keep-all;font-size:14px' }, g.official)) : null,
+        h('div', { style: 'background:rgba(0,0,0,.05);border-radius:12px;padding:11px 13px' },
+          h('b', null, '이렇게 하세요'),
+          h('ol', { style: 'margin:7px 0 0;padding-left:20px;line-height:1.85' },
+            ...g.how.map(s => h('li', { style: 'word-break:keep-all' }, s)))),
+        h('button', {
+          class: 'btn tool wide readbtn', style: 'margin-top:10px',
+          onclick: (e) => speakToggle(e.currentTarget, readText)
+        }, '🔊 읽어주기'),
+        g.source
+          ? h('div', { style: 'margin-top:10px;text-align:right' },
+            g.sourceUrl
+              ? h('a', {
+                class: 'muted small', href: g.sourceUrl, target: '_blank', rel: 'noopener noreferrer',
+                style: 'text-decoration:underline', onclick: () => Sound.tap()
+              }, '출처 · ' + g.source)
+              : h('span', { class: 'muted small' }, '출처 · ' + g.source))
+          : null));
   }
 
   /** 강아지 + 말풍선 한 줄 */
@@ -364,9 +514,9 @@
   }
 
   /** 표정 바꾸기 */
-  function dogMood(id, mood, size) {
+  function dogMood(id, mood, size, opts) {
     const box = $(id || 'dog');
-    if (box) box.innerHTML = global.Dog.make(mood, size || 96);
+    if (box) box.innerHTML = global.Gull.make(mood, size || 96, opts);
   }
 
   /* ══════════ 화면들 ══════════════════════════════ */
@@ -384,6 +534,7 @@
         h('nav', { class: 'tabbar', id: 'tabbar' })
       ));
       this.renderTabs();
+      this.loadFeed();   // 실시간 정보 피드를 받아 옵니다(백그라운드)
       if (!Store.data.onboarded) this.onboarding();
       else { Store.touchToday(); this.go('walk'); }
     },
@@ -405,6 +556,7 @@
     },
 
     go(tab) {
+      stopSpeak();   // 화면을 옮기면 읽어주던 소리는 멈춥니다
       // 놀이 중에 아래 메뉴를 누르셨으면 판을 정리하고 나옵니다.
       // 하단 메뉴를 늘 보이게 두었으므로 이 길로도 나가실 수 있습니다.
       if (document.body.classList.contains('playing')) {
@@ -536,7 +688,10 @@
       // 동네 그림 — 지금 걷고 있는 풍경을 그대로 보여 드립니다
       const card = h('div', { class: 'card center hood-card' });
       const pic = h('div', { class: 'hood-pic' });
-      pic.style.backgroundImage = `url("${global.Theme.forLevel(d.level).url}")`;
+      // 이 동네의 명소를 그린 커스텀 삽화가 있으면 그것을, 없으면 산책 풍경을 씁니다
+      const art = (global.Landmarks && hood.art
+        && global.Landmarks.url(hood.art, global.Theme.hueDeg())) || global.Theme.forLevel(d.level).url;
+      pic.style.backgroundImage = `url("${art}")`;
       card.appendChild(pic);
       card.appendChild(h('h2', { class: 'center', style: 'margin:14px 0 2px' }, hood.name));
       card.appendChild(h('p', { class: 'muted center', style: 'margin:0' }, `${d.level}번째 산책 중이에요`));
@@ -580,23 +735,22 @@
     /* ── 강아지 ── */
     scrPet(v) {
       const d = Store.data;
-      this.top('우리 강아지');
+      this.top('우리 갈매기');
       const moods = ['편안함', '반가움', '신남'];
       const mood = moods[d.days.length % moods.length];
-      /* 강아지가 하얀 빈자리에 덩그러니 있으면 쓸쓸해 보입니다.
-         둥근 창(월문) 안에 앉히고, 창 너머로 오늘의 풍경이 비치게 합니다. */
+      /* 갈매기를 둥근 창(월문) 안에 앉히고, 창 너머로 오늘의 풍경이 비치게 합니다. */
       v.appendChild(h('div', { class: 'card center pet-card' },
         h('div', { class: 'moonwin' }, dogEl(mood, 150, 'petdog')),
         h('h2', { class: 'center', style: 'margin-top:14px' }, d.pet.name),
         h('p', { class: 'muted center' }, `함께한 지 ${d.days.length}일 · 유대 ${d.pet.bond}단계`),
+        h('p', { class: 'muted center small', style: 'margin:0 0 6px' }, '부산 갈매기예요. 새우깡을 주면 아주 좋아해요.'),
         h('div', { class: 'petacts' },
           h('button', {
             class: 'btn go', onclick: () => {
               dogMood('petdog', '신남', 150);
-              const svg = $('petdog').querySelector('.dogsvg');
-              if (svg) { svg.classList.add('pat'); setTimeout(() => dogMood('petdog', '반가움', 150), 1600); }
-              Sound.right();
-              this.toast(v, `${d.pet.name}가 꼬리를 흔들어요!`);
+              setTimeout(() => dogMood('petdog', '반가움', 150), 1600);
+              Sound.chirp();
+              this.toast(v, `${d.pet.name}가 좋아서 날개를 파닥여요!`);
             }
           }, h('span', { class: 'btn-stack' },
             h('b', null, '쓰다듬기'),
@@ -605,22 +759,16 @@
             class: 'btn', onclick: () => {
               if (d.footprints < 8) return say('발자국이 조금 모자라요. 산책을 다녀오면 채워져요.', '🐾');
               d.footprints -= 8; Store.save();
-              Sound.bark();                     // 멍멍!
-              // 간식을 주면 아주 신나서 방방 뜁니다
-              dogMood('petdog', '신남', 150);
-              const sv = $('petdog').querySelector('.dogsvg');
-              if (sv) {
-                sv.classList.add('jump');
-                setTimeout(() => { sv.classList.remove('jump'); dogMood('petdog', '반가움', 150); }, 2600);
-              }
+              Sound.eat();                      // 냠냠 꿀꺽
+              // 새우깡을 주면 아주 신나서 냠냠 받아먹습니다
+              dogMood('petdog', '먹이', 150);
+              setTimeout(() => dogMood('petdog', '반가움', 150), 2600);
               App.topFootprints();
-              this.toast(v, `${d.pet.name}가 폴짝폴짝 뛰며 먹었어요!`);
+              this.toast(v, `${d.pet.name}가 새우깡을 냠냠 받아먹어요!`);
             }
           }, (() => {
-            // '🐾8' 만 있으면 무슨 뜻인지 알기 어렵습니다.
-            // 무엇을 얼마나 쓰는지 글로 밝혀 둡니다.
             const w = h('span', { class: 'btn-stack' },
-              h('b', null, '간식 주기'),
+              h('b', null, '새우깡 주기'),
               h('span', { class: 'sub' }, '발자국 8개를 써요'));
             return w;
           })()))
@@ -647,27 +795,418 @@
     },
 
     /* ── 배움 ── */
-    /* ── 속담 ──
-       배움 탭을 속담 하나로 좁혔습니다.
+    /* ── 해운대 ──
+       배움 탭을 해운대 정보 퀴즈로 바꿨습니다.
        낱말 공부는 이미 판에서 실컷 하시므로,
-       여기서는 속담을 묻고 답하는 것만 남깁니다. */
+       여기서는 우리 고장 해운대를 묻고 답하는 것만 남깁니다.
+       (문제는 부산 공공데이터·해운대구 안내를 바탕으로 합니다) */
+    /* 오늘 보여 드릴 소식만 고릅니다.
+       올린 날(date)이 지났고 마감일(until)이 아직 안 지난 것만,
+       최신순으로. 마감일이 지난 소식은 저절로 사라집니다. */
+    validNotices() {
+      const stat = this.feedNotices();            // 실시간 피드(없으면 내장 데이터)
+      const api = this._festivalNotices || [];   // 부산축제정보 OpenAPI에서 받아 온 행사 소식
+      const t = new Date();
+      const ymd = t.getFullYear() + '-' + String(t.getMonth() + 1).padStart(2, '0') + '-' + String(t.getDate()).padStart(2, '0');
+      const seen = new Set();
+      return stat.concat(api)
+        .filter(n => n && n.title && !seen.has(n.title) && seen.add(n.title))   // 같은 제목 중복 제거
+        .filter(n => (!n.date || n.date <= ymd) && (!n.until || n.until >= ymd))
+        .sort((a, b) => String(b.date || '').localeCompare(String(a.date || '')));
+    },
+
+    noticeCard(n, m) {
+      const CAT = {
+        복지: '🧡', 건강: '🩺', 안전: '🛡️', 행사: '🎉', 교육: '📚', 일자리: '💼',
+        창업: '🏪', 교통: '🚌', 주거: '🏠', 환경: '🌿', 세금: '🧾',
+        문화: '🎨', 관광: '🗺️', 생활: '🏠'
+      };
+      const emoji = CAT[n.cat] || '📌';
+      const day = String(n.date || '').replace(/-/g, '.');
+      return h('div', { class: 'card', style: 'text-align:left' },
+        h('div', { style: 'display:flex;justify-content:space-between;align-items:center;margin-bottom:8px' },
+          h('span', null,
+            h('span', { class: 'badge warm' }, emoji + ' ' + n.cat),
+            (m && m.mine) ? h('span', { class: 'badge green', style: 'margin-left:6px' }, '✅ 나에게') : null),
+          h('span', { class: 'muted small' }, day)),
+        h('h3', { style: 'margin:0 0 6px;font-size:var(--t-body)' }, n.title),
+        h('p', { style: 'margin:0 0 8px;line-height:1.7;word-break:keep-all' }, n.body),
+        // 왜 이 소식이 나에게 왔는지 밝힙니다 — 「알아서 골라 준다」는 말만으로는 못 믿습니다
+        (m && m.reasons && m.reasons.length)
+          ? h('p', { class: 'muted small', style: 'margin:0 0 8px' }, '내 ' + m.reasons.join(' · ') + ' 에 해당돼요')
+          : null,
+        // 요약만 보고 끝나면 어르신은 정작 필요한 신청 방법·기간을 못 찾습니다.
+        // 원문으로 가는 길을 크고 분명하게 둡니다.
+        h('div', { style: 'display:flex;gap:8px;margin:2px 0 10px' },
+          n.sourceUrl
+            ? h('a', {
+              class: 'btn', href: n.sourceUrl, target: '_blank', rel: 'noopener noreferrer',
+              style: 'flex:1;display:flex;align-items:center;justify-content:center;' +
+                'text-decoration:none',
+              onclick: () => Sound.tap()
+            }, '전문 보기')
+            : null,
+          h('button', {
+            class: 'btn tool', style: 'flex:1',
+            onclick: () => { Sound.tap(); shareNotice(n); }
+          }, '💬 카톡으로 보내기')),
+        h('div', { style: 'display:flex;justify-content:space-between;align-items:center;gap:8px' },
+          // 어느 기관에서 왔는지도 눌러서 바로 확인할 수 있어야 합니다.
+          // 작은 글씨라 눈에 안 띌 수 있으니 밑줄로 눌러지는 곳임을 알립니다.
+          n.sourceUrl
+            ? h('a', {
+              class: 'muted small', href: n.sourceUrl, target: '_blank', rel: 'noopener noreferrer',
+              style: 'text-decoration:underline', onclick: () => Sound.tap()
+            }, '출처 · ' + n.source)
+            : h('span', { class: 'muted small' }, '출처 · ' + n.source),
+          n.auto ? h('span', { class: 'muted small', style: 'white-space:nowrap' }, '🔄 공공데이터 자동수집') : null));
+    },
+
+    /* ── 실시간 정보 피드 ──
+       data/feed.json 을 받아 소식·알아두기를 채웁니다.
+       이 파일은 파이프라인(tools/build_feed.mjs)이 공식 소스에서
+       수집·가공·검수해 갱신합니다. 못 받으면 내장 데이터로 폴백하므로
+       인터넷이 없어도 앱은 그대로 동작합니다. */
+    loadFeed() {
+      fetch('data/feed.json', { cache: 'no-cache' })
+        .then(r => (r && r.ok) ? r.json() : null)
+        .then(f => { if (f && (f.notices || f.guides)) { this._feed = f; if (this.tab === 'learn') this.go('learn'); } })
+        .catch(() => { });
+    },
+    feedNotices() { return (this._feed && this._feed.notices) || (global.RAW && global.RAW.NOTICES) || []; },
+    feedGuides() { return (this._feed && this._feed.guides) || (global.Haeundae && global.Haeundae.GUIDE) || []; },
+    feedUpdated() { return this._feed && this._feed.meta && this._feed.meta.lastUpdated; },
+
+    /* ── 나에게 해당되는 정보인가 ──
+       나이대·사는 동네·관심 주제를 견주어 점수를 냅니다.
+       · 특정 동에만 해당하는 소식인데 내 동네가 아니면 감춥니다(엉뚱한 정보 차단).
+       · 왜 나에게 왔는지 이유(reasons)를 함께 돌려주어 화면에 밝힙니다. */
+    matchInfo(x) {
+      const s = Store.data.settings;
+      const senior = !!s.ageBand && s.ageBand !== 'under65';
+      const reasons = [];
+      let score = 0, blocked = false;
+
+      if (x.for65) {                                   // 만 65세 이상 대상 정보
+        if (senior) { score += 2; reasons.push('만 65세 이상'); }
+      }
+      const reg = x.region;                            // 특정 동 한정 소식
+      if (Array.isArray(reg) && reg.length && !reg.includes('해운대구')) {
+        if (s.dong && reg.includes(s.dong)) { score += 1.5; reasons.push(s.dong); }
+        else if (s.dong) blocked = true;               // 내 동네가 아니면 감춤
+      }
+      /* 관광객·사업자용 소식은 어르신 화면에서 감춥니다.
+         벡스코 임대 공고나 관광 이벤트가 연금 안내 사이에 끼면
+         "내 것이 아닌 글"이 늘어나 결국 아무것도 안 읽게 됩니다. */
+      const aud = x.audience;
+      if (Array.isArray(aud) && aud.length
+        && !aud.includes('senior') && !aud.includes('resident')) blocked = true;
+
+      /* 관심 주제를 고르셨으면 '고른 것만' 보여 드립니다.
+         점수만 올리고 다 보여 주면 고른 보람이 없습니다. */
+      /* 게시판이 붙이는 이름(행사·관광·문화…)과 어르신께 익숙한 말(나들이)은 다릅니다.
+         칩 하나가 여러 갈래를 아우르게 이어 둡니다.
+         이어 두지 않으면 「나들이」를 고르신 분께는 아무것도 안 보입니다. */
+      const its = [];
+      (s.interests || []).forEach(c => its.push(...(INTEREST_MAP[c] || [c])));
+      if (its.length) {
+        if (its.includes(x.cat)) { score += 1.2; reasons.push(x.cat); }
+        else blocked = true;
+      }
+
+      return { mine: !blocked && score > 0, blocked, score, reasons };
+    },
+
+    /* ── 해운대 정보 통합 검색 ──
+       소식·알아두기·퀴즈를 한 번에 찾습니다.
+       모든 검색은 '기기 안에서만' 이뤄집니다(외부 전송 없음 · 오프라인). */
+    buildSearchIndex() {
+      const norm = s => String(s || '').replace(/\s+/g, '').toLowerCase();
+      const idx = [];
+      const push = (kind, data, parts) => idx.push({ kind, data, key: norm(parts.join(' ')) });
+      this.feedNotices().forEach(n => push('notice', n, [n.title, n.body, n.source, n.cat]));
+      (this._festivalNotices || []).forEach(n => push('notice', n, [n.title, n.body, n.source, n.cat]));
+      this.feedGuides().forEach(g => push('guide', g, [g.title, g.lead, g.good, g.official, (g.how || []).join(' '), g.cat]));
+      (DB.byType.PROVERB || []).forEach(e => push('quiz', e, [e.front, e.back, e.meaning]));
+      return idx;
+    },
+
+    searchHaeundae(q) {
+      const norm = s => String(s || '').replace(/\s+/g, '').toLowerCase();
+      const toks = String(q || '').trim().split(/\s+/).map(norm).filter(Boolean);
+      if (!toks.length) return [];
+      const dedupe = list => {
+        const seen = new Set();
+        return list.filter(it => {
+          const id = it.kind + '|' + (it.data.title || it.data.front || it.data.surface);
+          if (seen.has(id)) return false; seen.add(id); return true;
+        });
+      };
+      const idx = this.buildSearchIndex();
+
+      // "노인 일자리"처럼 두 낱말을 다 가진 글이 없을 수 있습니다.
+      // 그렇다고 검색 결과가 텅 비면 어르신은 "여긴 없구나" 하고 앱을 덮습니다.
+      // 낱말을 하나라도 가진 글을, 많이 겹치는 순서로라도 보여 드립니다.
+      const strict = dedupe(idx.filter(it => toks.every(t => it.key.includes(t))));
+      if (strict.length || toks.length < 2) return strict;
+
+      return dedupe(idx
+        .map(it => ({ it, hit: toks.filter(t => it.key.includes(t)).length }))
+        .filter(o => o.hit > 0)
+        .sort((a, b) => b.hit - a.hit)
+        .map(o => o.it));
+    },
+
+    resultCard(it) {
+      if (it.kind === 'guide') return guideCard(it.data);
+      if (it.kind === 'notice') return this.noticeCard(it.data);
+      const e = it.data;                                          // 퀴즈(해운대 지식) 결과
+      const tip = (global.Haeundae && global.Haeundae.TIPS[e.back]) || null;
+      return h('div', { class: 'card', style: 'text-align:left' },
+        h('span', { class: 'badge warm' }, '❓ 해운대 상식'),
+        h('h3', { style: 'margin:7px 0 4px' }, e.front + ' → ' + e.back),
+        h('p', { style: 'margin:0;line-height:1.7;word-break:keep-all' }, e.meaning),
+        tip ? h('p', { class: 'muted small', style: 'margin:7px 0 0;word-break:keep-all' }, '💡 ' + tip.tip) : null);
+    },
+
     scrLearn(v) {
       const d = Store.data;
-      this.top('속담');
+      this.top('해운대 정보');
+
+      // 부산축제정보 OpenAPI에서 해운대 행사 소식을 한 번 받아 옵니다(받으면 다시 그림).
+      if (!this._festivalTried && global.BusanAPI) {
+        this._festivalTried = true;
+        global.BusanAPI.festivalNotices()
+          .then(ns => { this._festivalNotices = ns || []; if (this.tab === 'learn') this.go('learn'); })
+          .catch(() => { });
+      }
+
+      // 🔎 검색 — 궁금한 것을 낱말로 찾습니다 (기기 안에서만 · 오프라인)
+      const results = h('div');
+      const content = h('div');
+      const search = h('input', {
+        type: 'search', value: this._searchQ || '',
+        placeholder: '예) 지하철, 연금, 보이스피싱, 축제',
+        'aria-label': '해운대 정보 검색',
+        style: 'width:100%;box-sizing:border-box;font-size:calc(19px*var(--fs));padding:12px 14px;border:2px solid #e0d5c8;border-radius:12px'
+      });
+      const run = () => {
+        const q = search.value.trim();
+        this._searchQ = q;
+        results.innerHTML = '';
+        if (!q) { content.style.display = ''; results.style.display = 'none'; return; }
+        content.style.display = 'none'; results.style.display = '';
+        const hits = this.searchHaeundae(q);
+        results.appendChild(h('div', { class: 'section-title' }, `‘${q}’ 검색 결과 ${hits.length}가지`));
+        if (!hits.length) results.appendChild(h('div', { class: 'card center' },
+          h('p', { class: 'muted', style: 'margin:0' }, '찾는 정보가 없어요. 다른 낱말로 찾아 보세요.')));
+        hits.forEach(it => results.appendChild(this.resultCard(it)));
+      };
+      search.addEventListener('input', run);
+      v.appendChild(h('div', { class: 'card', style: 'padding:12px' },
+        h('div', { style: 'font-weight:700;margin:0 0 8px' }, '🔎 해운대 정보 검색'),
+        search));
+      v.appendChild(results);
+      v.appendChild(content);
+
+      // 정보 갱신일 — 언제 최신화됐는지 보여 드려 신뢰를 높입니다
+      const upd = this.feedUpdated();
+      content.appendChild(h('p', { class: 'muted small', style: 'margin:0 4px 4px;text-align:right' },
+        (upd ? '정보 갱신 ' + upd.replace(/-/g, '.') : '기본 정보') + ' · 공식 출처'));
+
+      /* 나에게 맞는 정보 받기 — 나이대·사는 동네·관심만 고르면 해당 정보를 먼저 보여 드립니다.
+         이름·연락처는 묻지 않고, 고른 값은 이 기기 안에만 남습니다. */
+      const st = d.settings;
+      const interests = st.interests || (st.interests = []);
+      const personalizeOn = st.personalize === true;
+      const personalized = personalizeOn && !!(st.ageBand || st.dong || interests.length);
+
+      if (st.personalize === null) {
+        /* 아직 여쭤보지 않았습니다 — 먼저 여쭙고, 원하실 때만 맞춤으로 보여 드립니다. */
+        content.appendChild(h('div', { class: 'card', style: 'padding:14px;text-align:left' },
+          h('div', { style: 'font-weight:700;font-size:calc(19px*var(--fs));margin:0 0 6px' }, '정보를 어떻게 보여 드릴까요?'),
+          h('p', { class: 'muted small', style: 'margin:0 0 13px;line-height:1.7;word-break:keep-all' },
+            '나이와 사는 동네를 알려 주시면 나에게 해당되는 것만 골라 드려요. 이름·연락처는 묻지 않고, 이 기기에만 저장돼요.'),
+          h('button', {
+            class: 'btn primary big wide', style: 'margin-bottom:9px',
+            onclick: () => { st.personalize = true; this._profileOpen = true; Store.save(); this.go('learn'); }
+          }, '나에게 맞는 것만 볼래요'),
+          h('button', {
+            class: 'btn tool wide',
+            onclick: () => { st.personalize = false; Store.save(); this.go('learn'); }
+          }, '그냥 전체 다 볼래요')));
+
+      } else if (!personalizeOn) {
+        /* 전체 보기를 고르셨습니다 — 아무것도 거르지 않고, 언제든 바꾸실 수 있게 둡니다. */
+        content.appendChild(h('div', { class: 'card', style: 'padding:12px;text-align:left' },
+          h('p', { class: 'muted small', style: 'margin:0 0 9px' }, '지금은 모든 정보를 보고 계세요.'),
+          h('button', {
+            class: 'btn tool wide',
+            onclick: () => { st.personalize = null; Store.save(); this.go('learn'); }
+          }, '나에게 맞는 것만 보기')));
+
+      } else {
+      const open = this._profileOpen || !st.ageBand || !st.dong;   // 아직 안 고르셨으면 펼쳐 둡니다
+
+      const prof = h('div', { class: 'card', style: 'padding:13px;text-align:left' });
+      prof.appendChild(h('div', { style: 'font-weight:700;margin:0 0 3px' }, '나에게 맞는 정보 받기'));
+
+      if (!open) {
+        const parts = [];
+        const ab = AGE_BANDS.find(a => a[0] === st.ageBand);
+        if (ab) parts.push(ab[1]);
+        if (st.dong) parts.push(st.dong);
+        if (interests.length) parts.push(interests.join('·'));
+        prof.appendChild(h('p', { class: 'muted', style: 'margin:3px 0 11px' }, parts.join(' · ')));
+        prof.appendChild(h('button', {
+          class: 'btn tool wide', onclick: () => { this._profileOpen = true; this.go('learn'); }
+        }, '고치기'));
+        prof.appendChild(h('button', {
+          class: 'btn tool wide', style: 'margin-top:8px',
+          onclick: () => { st.personalize = false; Store.save(); this.go('learn'); }
+        }, '전체 다 보기'));
+      } else {
+        prof.appendChild(h('p', { class: 'muted small', style: 'margin:0 0 11px;word-break:keep-all;line-height:1.6' },
+          '나이와 사는 동네를 알려 주시면 나에게 해당되는 정보를 먼저 보여 드려요. 이름은 묻지 않고, 이 기기에만 저장돼요.'));
+
+        prof.appendChild(h('div', { style: 'font-weight:700;font-size:15px;margin:0 0 7px' }, '나이대'));
+        const ageRow = h('div', { style: 'display:flex;flex-wrap:wrap;gap:8px;margin:0 0 13px' });
+        AGE_BANDS.forEach(([k, label]) => ageRow.appendChild(h('button', {
+          class: 'btn ' + (st.ageBand === k ? 'primary' : 'tool'), style: 'padding:9px 14px',
+          onclick: () => { st.ageBand = k; Store.save(); this.go('learn'); }
+        }, label)));
+        prof.appendChild(ageRow);
+
+        prof.appendChild(h('div', { style: 'font-weight:700;font-size:15px;margin:0 0 7px' }, '사는 동네'));
+        const sel = h('select', {
+          'aria-label': '사는 동네',
+          style: 'width:100%;box-sizing:border-box;font-size:calc(18px*var(--fs));padding:11px;border:2px solid #e0d5c8;border-radius:12px;margin:0 0 13px'
+        });
+        sel.appendChild(h('option', { value: '' }, '고르지 않음'));
+        DONG.forEach(dn => { const o = h('option', { value: dn }, dn); if (st.dong === dn) o.selected = true; sel.appendChild(o); });
+        sel.addEventListener('change', () => { st.dong = sel.value || null; Store.save(); this.go('learn'); });
+        prof.appendChild(sel);
+
+        prof.appendChild(h('div', { style: 'font-weight:700;font-size:15px;margin:0 0 7px' }, '관심 있는 것'));
+        const chips = h('div', { style: 'display:flex;flex-wrap:wrap;gap:8px' });
+        Object.keys(INTEREST_MAP).forEach(c => chips.appendChild(h('button', {
+          class: 'btn ' + (interests.includes(c) ? 'primary' : 'tool'), style: 'padding:8px 15px',
+          onclick: () => { const i = interests.indexOf(c); if (i >= 0) interests.splice(i, 1); else interests.push(c); Store.save(); this._noticeShown = 0; this.go('learn'); }
+        }, c)));
+        prof.appendChild(chips);
+
+        if (st.ageBand && st.dong) prof.appendChild(h('button', {
+          class: 'btn primary wide', style: 'margin-top:13px',
+          onclick: () => { this._profileOpen = false; this.go('learn'); }
+        }, '다 골랐어요'));
+      }
+      content.appendChild(prof);
+      }
+
+      // 해운대 갈매기가 오늘의 소식을 전해 드립니다
+      content.appendChild(h('div', { class: 'card', style: 'display:flex;align-items:center;gap:12px;text-align:left' },
+        gullEl(60),
+        h('div', null,
+          h('h3', { style: 'margin:0 0 2px' }, '해운대 갈매기'),
+          h('p', { class: 'muted small', style: 'margin:0' }, '오늘의 해운대 소식을 전해 드려요'))));
+
+      // 흩어진 기관 홈페이지를 일일이 뒤지지 않아도, 여기 다 모여 있다는 것 —
+      // 그게 이 화면의 핵심입니다. 숫자로 보여 드리고, 눌러서 '어디어디인지' 밝힙니다.
+      {
+        const all = this.feedNotices();
+        const orgCount = new Set(all.map(n => n.source)).size;
+        const upd = this.feedUpdated();
+        content.appendChild(h('button', {
+          class: 'card', style: 'width:100%;text-align:center;background:var(--primary-c);' +
+            'display:flex;justify-content:space-around;align-items:center;padding:14px 8px;border:0;cursor:pointer',
+          onclick: () => { Sound.tap(); this.showSources(); }
+        },
+          h('div', null,
+            h('div', { style: 'font-size:22px;font-weight:800' }, orgCount + '곳'),
+            h('div', { class: 'muted small' }, '공공기관 통합 · 눌러 보기')),
+          h('div', null,
+            h('div', { style: 'font-size:22px;font-weight:800' }, all.length + '건'),
+            h('div', { class: 'muted small' }, '실시간 소식')),
+          h('div', null,
+            h('div', { style: 'font-size:22px;font-weight:800' }, upd ? String(upd).slice(5).replace('-', '.') : '오늘'),
+            h('div', { class: 'muted small' }, '마지막 갱신'))));
+      }
+
+      // 오늘의 해운대 소식 — 믿을 수 있는 공지를 제때, 꾸준히 올립니다
+      // 내 동네가 아닌 소식은 감추고, 나에게 해당되는 것부터 보여 드립니다.
+      const scored = this.validNotices().map(n => ({ x: n, m: this.matchInfo(n) }));
+      const picked = scored.filter(o => !o.m.blocked);
+      const wideOpen = !personalizeOn || this._showAllNotices;
+      const notices = wideOpen
+        ? scored.map(o => ({ x: o.x, m: personalizeOn ? o.m : null }))
+        : picked;
+      if (personalized) notices.sort((a, b) => (b.m ? b.m.score : 0) - (a.m ? a.m.score : 0));
+
+      content.appendChild(h('div', { class: 'section-title' }, '오늘의 해운대 소식'));
+
+      // 골라 준 개수와 전체 개수를 함께 보여 주고, 언제든 전체를 펼 수 있게 합니다.
+      if (personalizeOn && picked.length !== scored.length) {
+        content.appendChild(h('button', {
+          class: 'btn quiet wide', style: 'margin:0 0 10px',
+          onclick: () => { Sound.tap(); this._showAllNotices = !this._showAllNotices; this._noticeShown = 0; this.go('learn'); }
+        }, wideOpen
+          ? '← 내게 맞는 소식만 보기 (' + picked.length + '건)'
+          : '전체 소식도 보기 (' + scored.length + '건)'));
+      }
+
+      if (!notices.length) {
+        content.appendChild(h('div', { class: 'card center' },
+          h('p', { class: 'muted', style: 'margin:0 0 10px' },
+            '고르신 주제에 맞는 소식이 아직 없어요.'),
+          h('button', {
+            class: 'btn wide',
+            onclick: () => { Sound.tap(); this._showAllNotices = true; this._noticeShown = 0; this.go('learn'); }
+          }, '전체 소식 ' + scored.length + '건 보기')));
+      } else {
+        /* 소식이 백 건을 넘습니다. 한 번에 다 쏟아 놓으면
+           어르신은 끝없이 손가락을 밀다 지쳐 그만둡니다.
+           열두 건씩 보여 드리고, 더 보고 싶으실 때만 늘립니다. */
+        const STEP = 12;
+        const shown = this._noticeShown || STEP;
+        notices.slice(0, shown).forEach(o => content.appendChild(this.noticeCard(o.x, o.m)));
+        if (notices.length > shown) {
+          content.appendChild(h('button', {
+            class: 'btn tool wide', style: 'margin:2px 0 6px',
+            onclick: () => {
+              Sound.tap();
+              this._noticeShown = shown + STEP;
+              this.go('learn');
+            }
+          }, '소식 ' + Math.min(STEP, notices.length - shown) + '건 더 보기 ' +
+          '(' + shown + ' / ' + notices.length + ')'));
+        }
+      }
+
+      // 해운대 알아두기 — 삽화와 쉬운 안내, 실행법. 내게 맞는 것 먼저.
+      const guide = personalizeOn
+        ? this.feedGuides().map(g => ({ x: g, m: this.matchInfo(g) })).filter(o => !o.m.blocked)
+        : this.feedGuides().map(g => ({ x: g, m: null }));
+      if (personalized) guide.sort((a, b) => b.m.score - a.m.score);
+      if (guide.length) {
+        content.appendChild(h('div', { class: 'section-title' }, personalized ? '해운대 알아두기 · 나에게 맞는 정보 먼저' : '해운대 알아두기'));
+        guide.forEach(o => content.appendChild(guideCard(o.x, o.m)));
+      }
+
+      // 해운대 퀴즈
       const all = DB.byType.PROVERB || [];
       const met = all.filter(e => d.memory[e.id]).length;
 
-      v.appendChild(h('div', { class: 'card center' },
-        h('p', { class: 'muted', style: 'margin:0 0 4px' }, '옛말 잇기'),
-        h('h2', { class: 'center', style: 'margin:0 0 6px' }, '앞을 보고 뒤를 맞혀 보세요'),
+      content.appendChild(h('div', { class: 'section-title' }, '해운대 퀴즈'));
+      content.appendChild(h('div', { class: 'card center' },
+        h('p', { class: 'muted', style: 'margin:0 0 4px' }, '우리 고장 이야기'),
+        h('h2', { class: 'center', style: 'margin:0 0 6px' }, '해운대를 얼마나 아시나요'),
         h('p', { class: 'muted small', style: 'margin:0 0 18px' },
-          `속담 ${all.length}개 가운데 ${met}개를 만나셨어요`),
+          `해운대 이야기 ${all.length}가지 가운데 ${met}가지를 만나셨어요`),
         h('button', {
           class: 'btn primary big wide', onclick: () => global.Game.startProverbs()
-        }, '속담 맞히러 가기')));
+        }, '해운대 퀴즈 풀러 가기')));
 
-      // 「간직한 속담과 낱말」은 지웠습니다.
-      // 간직하기(♡) 자체를 없앴으니 늘 비어 있는 칸이었습니다.
+      run();   // 저장된 검색어가 있으면 결과를 바로 보여 줍니다
     },
 
 
@@ -855,61 +1394,117 @@
         box.appendChild(h('p', { class: 'muted center', style: 'margin:0 0 4px' },
           '천천히 하셔도 괜찮아요. 틀려도 아무 일 없어요.'));
 
+        /* 발자국 값(💰 자리)에는 사람 발자국 이모지가 아니라
+           앱 전체에서 쓰는 '갈매기 물갈퀴 발자국'을 그립니다.
+           이모지 사람 발자국을 그대로 쓰면 산책 탭 아이콘·진행 표시와 어긋납니다. */
+        const gullPawTag = '<svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" ' +
+          'style="vertical-align:-3px;margin-right:3px">' +
+          '<path d="M12 3.6 C10.4 8 7.8 9.8 4.4 10.9 C7.4 13.4 10 15.2 12 20 C14 15.2 16.6 13.4 19.6 10.9 C16.2 9.8 13.6 8 12 3.6 Z"/>' +
+          '<circle cx="12" cy="3.8" r="1.5"/><circle cx="4.5" cy="11" r="1.4"/><circle cx="19.5" cy="11" r="1.4"/>' +
+          '<path d="M12 19.4 L12 22.4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>';
+        const priceHtml = n => gullPawTag + n;
+
         /* ── 한 묶음 ──
            [그림, 설명, 값, 덧붙이는 말]
            값은 오른쪽에 세로로 맞춰 값표처럼 훑을 수 있게 둡니다. */
         const group = (title, rows) => {
           const g = h('div', { class: 'help-group' }, h('div', { class: 'help-head' }, title));
           rows.forEach(([ic, t, price, note]) => g.appendChild(h('div', { class: 'help-row' },
-            h('span', { class: 'help-ic' }, ic),
+            ic === '👣' ? h('span', { class: 'help-ic', html: gullPawTag }) : h('span', { class: 'help-ic' }, ic),
             h('span', { class: 'help-txt' }, t,
               note ? h('span', { class: 'help-note' }, note) : null),
-            price ? h('span', { class: 'help-price' }, price) : null)));
+            price ? h('span', { class: 'help-price', html: priceHtml(price.replace(/^👣\s*/, '')) }) : null)));
           box.appendChild(g);
         };
 
         group('놀이 방법', [
-          ['🐾', '「산책 나가기」를 누르면 낱말 판이 나와요.'],
+          ['👣', '「산책 나가기」를 누르면 낱말 판이 나와요.'],
           ['👆', '아래 글자를 누르면 판의 빈 칸에 들어가요.'],
           ['↩', '잘못 넣으셨으면 「지우기」를 누르시면 돼요.'],
           ['⏭', '어려우면 「오늘은 넘어가기」로 넘기셔도 돼요.', null, '아무 손해가 없어요.']
         ]);
 
         group('막히셨을 때', [
-          ['🎯', '글자 하나', '🐾 3', '빈 칸 하나를 채워드려요'],
-          ['✨', '낱말 하나', '🐾 10', '낱말을 통째로 채워드려요']
+          ['🎯', '글자 하나', '👣 3', '빈 칸 하나를 채워드려요'],
+          ['✨', '낱말 하나', '👣 10', '낱말을 통째로 채워드려요']
         ]);
 
         group('발자국 모으기', [
-          ['🐾', '혼자 힘으로 낱말을 맞히면', '🐾 1'],
-          ['🎉', '판을 다 채우면', '🐾 8'],
-          ['🏅', '열 판을 걸어 마당 하나를 마치면', '🐾 20'],
-          ['🌅', '하루에 처음 오시면', '🐾 10']
+          ['👣', '혼자 힘으로 낱말을 맞히면', '👣 1'],
+          ['🎉', '판을 다 채우면', '👣 8'],
+          ['🏅', '열 판을 걸어 마당 하나를 마치면', '👣 20'],
+          ['🌅', '하루에 처음 오시면', '👣 10']
+        ]);
+
+        group('해운대 정보', [
+          ['🐦', '아래 「해운대」 탭을 누르면 구청·주민센터·도서관·보건소 등의 소식을 모아 보여 드려요.'],
+          ['🔎', '알고 싶은 말을 넣으면 소식·안내·퀴즈를 한 번에 찾아 드려요.'],
+          ['✅', '내 나이·동네·관심사를 넣으시면 나에게 맞는 소식만 추려 드려요.', null, '언제든 전체 보기로 되돌릴 수 있어요.']
         ]);
 
         group('편하게 보시려면', [
           ['🅰', '글씨가 작으면 「설정」에서 크게 키우세요.'],
           ['🔊', '소리가 나면 안 될 때는 오른쪽 위 「소리」를 누르세요.'],
-          ['🏠', '강아지는 매일 기다려요. 못 오셔도 괜찮아요.']
+          ['🐦', '갈매기는 매일 기다려요. 못 오셔도 괜찮아요.']
         ]);
 
         box.appendChild(h('button', { class: 'btn primary wide', style: 'margin-top:18px', onclick: close }, '알겠어요'));
       });
     },
 
+    /* ── 참여 기관 목록 ──
+       "믿을 수 있는 정보"라는 말만으로는 못 믿습니다. 지금 이 소식들이
+       실제로 어느 기관에서 왔는지 이름을 하나하나 밝혀 드립니다. */
+    showSources() {
+      sheet((box, close) => {
+        const all = this.feedNotices();
+        const guides = this.feedGuides();
+        const bySource = {};
+        [...all, ...guides].forEach(x => {
+          if (!x.source) return;
+          (bySource[x.source] = bySource[x.source] || { count: 0, url: null }).count++;
+          if (!bySource[x.source].url && x.sourceUrl) bySource[x.source].url = x.sourceUrl;
+        });
+        const rows = Object.entries(bySource).sort((a, b) => b[1].count - a[1].count);
+
+        box.appendChild(h('h2', { class: 'center', style: 'margin:8px 0 2px' }, '어디서 모아 왔나요'));
+        box.appendChild(h('p', { class: 'muted center', style: 'margin:0 0 14px' },
+          rows.length + '곳 공공기관 누리집에서 받아 왔어요.'));
+
+        rows.forEach(([name, info]) => box.appendChild(h('div', {
+          class: 'list-item', style: 'display:flex;justify-content:space-between;align-items:center;gap:8px'
+        },
+          info.url
+            ? h('a', {
+              href: info.url, target: '_blank', rel: 'noopener noreferrer',
+              style: 'text-decoration:underline;color:inherit', onclick: () => Sound.tap()
+            }, name)
+            : h('span', null, name),
+          h('span', { class: 'muted small', style: 'white-space:nowrap' }, info.count + '건'))));
+
+        box.appendChild(h('p', { class: 'muted small', style: 'margin:14px 0 0;word-break:keep-all' },
+          '기관 이름을 누르면 그 기관 누리집으로 바로 이동해요. ' +
+          '개인·업체 정보는 담지 않고, 공공기관 정보만 다룹니다.'));
+        box.appendChild(h('button', { class: 'btn primary wide', style: 'margin-top:14px', onclick: close }, '닫기'));
+      });
+    },
+
     about() {
       sheet((box, close) => {
-        box.appendChild(h('h2', { class: 'center' }, '낱말 산책'));
+        box.appendChild(h('h2', { class: 'center' }, '해운대 낱말 산책'));
         box.appendChild(h('p', { class: 'center muted' }, '판 1.0'));
         box.appendChild(h('div', { class: 'card' },
           h('h2', null, '자료 출처'),
           h('p', { class: 'small muted', style: 'word-break:keep-all;margin:0' },
             '낱말의 뜻풀이와 예문은 어르신께서 편히 읽으실 수 있도록 이 앱에서 직접 새로 썼습니다. ' +
-            '낱말 선정과 난이도는 국립국어원의 「한국어 학습용 어휘 목록」 등 공공 자료를 참고했습니다.')));
+            '낱말 선정과 난이도는 국립국어원의 「한국어 학습용 어휘 목록」 등 공공 자료를 참고했습니다. ' +
+            '해운대 정보는 해운대구청·도서관·보건소·문화회관·벡스코·미술관 등 공공기관 누리집에서 ' +
+            '주기적으로 받아 오며, 원문 주소를 함께 남겨 언제든 직접 확인하실 수 있습니다.')));
         box.appendChild(h('div', { class: 'card' },
           h('h2', null, '약속'),
           h('p', { class: 'small muted', style: 'word-break:keep-all;margin:0' },
             '놀이 화면에는 광고를 넣지 않습니다. 개인정보를 모으지 않습니다. ' +
+            '내 나이·동네 정보는 이 기기 안에만 저장되고 바깥으로 나가지 않습니다. ' +
             '모든 기록은 이 기기 안에만 저장되며, 인터넷이 없어도 그대로 사용하실 수 있습니다.')));
         box.appendChild(h('button', { class: 'btn primary wide', onclick: close }, '닫기'));
       });
@@ -951,17 +1546,17 @@
         } else if (step === 2) {
           v.appendChild(h('div', { class: 'center' }, dogEl('갸웃', 130, 'introdog2')));
           v.appendChild(h('div', { class: 'card' },
-            h('h2', null, '강아지 이름을 지어 주세요'),
+            h('h2', null, '갈매기 이름을 지어 주세요'),
             h('p', { class: 'muted' }, '마음에 드는 이름을 골라 주세요.'),
             (() => {
               const box = h('div', { class: 'stack' });
-              ['복실이', '누리', '해피', '보리', '초코', '설이'].forEach(n => box.appendChild(
+              ['누리', '해운이', '바다', '파도', '구름', '달이'].forEach(n => box.appendChild(
                 h('button', { class: 'btn tool wide', onclick: () => { d.pet.name = n; Store.save(); step = 3; render(); } }, n)));
               return box;
             })(),
             h('button', {
               class: 'btn quiet wide', style: 'margin-top:10px', onclick: () => {
-                askName(d.pet.name || '복실이', n => { d.pet.name = n; Store.save(); step = 3; render(); });
+                askName(d.pet.name || '누리', n => { d.pet.name = n; Store.save(); step = 3; render(); });
               }
             }, '직접 지어 줄게요')));
         } else {

@@ -208,6 +208,14 @@
       const plain = document.body.classList.contains('contrast');
       const root = document.documentElement.style;
 
+      /* 이 동네의 명소 그림이 있으면 그것을 '모든 화면'의 배경으로 씁니다.
+         (동네 탭에서만 보이면 명소를 만든 보람이 없습니다) */
+      const hoods = (global.Engine && global.Engine.NEIGHBORHOODS) || [];
+      const hood = hoods.length ? hoods[Math.floor((level - 1) / 100) % hoods.length] : null;
+      const artUrl = (hood && hood.art && global.Landmarks
+        && global.Landmarks.url(hood.art, this.hueDeg())) || null;
+      const bgUrl = artUrl || sc.url;
+
       if (plain) {
         root.setProperty('--scene-a', '#ffffff');
         root.setProperty('--scene-b', '#ffffff');
@@ -217,12 +225,12 @@
         root.setProperty('--scene-a', darken(sc.skyTop, 0.20));
         root.setProperty('--scene-b', darken(sc.skyBot, 0.16));
         root.setProperty('--scene-glow', darken(sc.glow, 0.42));
-        root.setProperty('--scene-img', `url("${sc.url}")`);
+        root.setProperty('--scene-img', `url("${bgUrl}")`);
       } else {
         root.setProperty('--scene-a', sc.skyTop);
         root.setProperty('--scene-b', sc.skyBot);
         root.setProperty('--scene-glow', sc.glow);
-        root.setProperty('--scene-img', `url("${sc.url}")`);
+        root.setProperty('--scene-img', `url("${bgUrl}")`);
       }
       // 같은 계절·때의 사진을 뒤에 아주 옅게 깔아 결을 더합니다
       const photo = plain ? null : this.photoFor(sc);

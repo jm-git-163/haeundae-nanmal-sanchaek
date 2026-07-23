@@ -3,11 +3,11 @@
 
    바탕화면 아이콘을 누르면 흰 화면이 잠깐 있다가 앱이 떴습니다.
    그 잠깐이 「덜 만든 것 같은」 첫인상을 만듭니다.
-   그 자리를 복실이가 채웁니다.
+   그 자리를 갈매기가 채웁니다.
 
    흐름 (모두 2.7초)
-     ① 복실이가 담긴 유리 공이 왼쪽에서 굴러 들어와 통 튀고 멈춥니다
-     ② 「낱말 산책」 글자가 한 자씩 올라옵니다
+     ① 갈매기가 담긴 유리 공이 왼쪽에서 굴러 들어와 통 튀고 멈춥니다
+     ② 「해운대 낱말 산책」 글자가 한 자씩 올라옵니다
      ③ 발자국이 톡톡 찍히고 종소리 한 번
      ④ 스르르 사라지고 앱이 나옵니다
 
@@ -24,7 +24,7 @@
   'use strict';
 
   const KEY = 'nanmal.intro.shown';
-  const WORD = '낱말 산책';
+  const WORD = '해운대 낱말 산책';
 
   function skipReason() {
     // 같은 창에서 새로고침한 경우
@@ -42,12 +42,12 @@
     try {
       const d = JSON.parse(localStorage.getItem('nanmal.v1') || '{}');
       return {
-        name: (d.pet && d.pet.name) || '복실이',
+        name: (d.pet && d.pet.name) || '누리',
         bond: (d.pet && d.pet.bond) || 1,
         days: (d.days && d.days.length) || 0,
         done: d.totalDone || 0
       };
-    } catch (e) { return { name: '복실이', bond: 1, days: 0, done: 0 }; }
+    } catch (e) { return { name: '누리', bond: 1, days: 0, done: 0 }; }
   }
 
   function reduced() {
@@ -68,9 +68,9 @@
     const inner = document.createElement('div');
     inner.className = 'intro-in';
 
-    /* 복실이가 유리 공에 담겨 굴러 들어옵니다.
-       공은 굴러야 공답습니다. 다만 강아지까지 같이 돌면 거꾸로
-       뒤집혀 우스워지므로, 공만 돌리고 강아지는 그대로 둡니다. */
+    /* 갈매기가 유리 공에 담겨 굴러 들어옵니다.
+       공은 굴러야 공답습니다. 다만 갈매기까지 같이 돌면 거꾸로
+       뒤집혀 우스워지므로, 공만 돌리고 갈매기는 그대로 둡니다. */
     const ball = document.createElement('div');
     ball.className = 'intro-ball';
 
@@ -82,8 +82,8 @@
     const dog = document.createElement('div');
     dog.className = 'intro-dog';
     // 오래 함께 걸으셨을수록 더 신이 나 있습니다
-    dog.innerHTML = global.Dog
-      ? global.Dog.make(me.bond >= 8 ? '신남' : me.done > 0 ? '반가움' : '갸웃', 132) : '';
+    dog.innerHTML = global.Gull
+      ? global.Gull.make(me.bond >= 8 ? '신남' : me.done > 0 ? '반가움' : '갸웃', 132) : '';
     ball.appendChild(dog);
 
     inner.appendChild(ball);
@@ -117,13 +117,13 @@
       const p = document.createElement('span');
       if (i < lit) p.className = 'on';
       p.style.animationDelay = (1.60 + i * 0.10).toFixed(2) + 's';
+      // 물갈퀴가 세 발가락 사이를 잇는 갈매기 발자국입니다(강아지 발바닥이 아닙니다)
       p.innerHTML =
         '<svg viewBox="0 0 24 24" width="100%" height="100%" fill="currentColor">' +
-        '<ellipse cx="12" cy="16.6" rx="6.1" ry="5.1"/>' +
-        '<ellipse cx="4.6" cy="10.2" rx="2.7" ry="3.3"/>' +
-        '<ellipse cx="9.6" cy="6.3" rx="2.7" ry="3.5"/>' +
-        '<ellipse cx="14.4" cy="6.3" rx="2.7" ry="3.5"/>' +
-        '<ellipse cx="19.4" cy="10.2" rx="2.7" ry="3.3"/></svg>';
+        '<path d="M12 3.6 C10.4 8 7.8 9.8 4.4 10.9 C7.4 13.4 10 15.2 12 20 ' +
+        'C14 15.2 16.6 13.4 19.6 10.9 C16.2 9.8 13.6 8 12 3.6 Z"/>' +
+        '<circle cx="12" cy="3.8" r="1.5"/><circle cx="4.5" cy="11" r="1.4"/><circle cx="19.5" cy="11" r="1.4"/>' +
+        '<path d="M12 19.4 L12 22.4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>';
       paws.appendChild(p);
     }
     inner.appendChild(paws);

@@ -102,11 +102,15 @@
     wrap.id = 'installbar';
     wrap.className = 'card install-bar';
 
-    const img = document.createElement('img');
-    img.src = 'images/icon-192.png';
-    img.alt = '';
-    img.width = 52; img.height = 52;
+    // 아이콘도 마스코트(갈매기)로 그립니다. 강아지 그림이 남아 있으면 앱 정체성이 흔들립니다.
+    const img = document.createElement('div');
     img.className = 'install-ico';
+    img.setAttribute('aria-hidden', 'true');
+    img.style.width = '52px';
+    img.style.height = '52px';
+    img.innerHTML = (window.Gull && window.Gull.make)
+      ? window.Gull.make('반가움', 52, { still: true })
+      : '<img src="images/icon-192.png" alt="" width="52" height="52">';
 
     const txt = document.createElement('div');
     txt.className = 'install-txt';

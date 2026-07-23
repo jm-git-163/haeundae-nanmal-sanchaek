@@ -54,8 +54,8 @@
     },
 
     /**
-     * 속담 마당 — 레벨과 따로 있는 코너입니다.
-     * 속담은 길어서 가로세로 판에 들어가지 않기 때문에 여기서 따로 즐깁니다.
+     * 해운대 마당 — 레벨과 따로 있는 코너입니다.
+     * 우리 고장 해운대의 명소·행사·생활정보를 묻고 답하며 쉬어 갑니다.
      */
     startProverbs() {
       this.reviewOnly = true;
@@ -64,11 +64,11 @@
       const theta = Store.data.ability.GLOBAL.theta;
       const bTarget = Ability.targetB(theta, 0.8) - (global.Engine.MODE_DELTA.PROVERB_MATCH || 0);
       const items = Generator.proverb(rng, bTarget, []);
-      if (!items.length) return say('속담을 준비하지 못했어요. 잠시 뒤에 다시 해 볼까요?', '🧧');
+      if (!items.length) return say('해운대 퀴즈를 준비하지 못했어요. 잠시 뒤에 다시 해 볼까요?', '🌊');
       this.stage = {
-        level: Store.data.level, mode: 'PROVERB_MATCH', modeName: '속담 마당',
-        guide: '속담의 뒷부분을 이어 보세요.',
-        hood: { name: '속담 마당', emoji: '🧧' }, stepInChapter: 1, items
+        level: Store.data.level, mode: 'PROVERB_MATCH', modeName: '해운대 마당',
+        guide: '해운대 이야기의 빈칸을 맞혀 보세요.',
+        hood: { name: '해운대 마당', emoji: '🌊' }, stepInChapter: 1, items
       };
       this.idx = 0; this.metEntries = [];
       this.renderItem();
@@ -796,12 +796,26 @@
           style: 'font-size:var(--t-body);line-height:1.75;word-break:keep-all;text-align:center;margin:0 0 16px'
         }, e.clue));
 
+        // 해운대 퀴즈는 정답 직후 '삽화 + 이렇게 하세요' 실행팁을 보여 줍니다
+        // (즉시 피드백 + 그림 우월효과로 오래 기억됩니다).
+        if (e.type === 'PROVERB' && global.Haeundae && global.Haeundae.TIPS[e.back]) {
+          const t = global.Haeundae.TIPS[e.back];
+          const pic = h('div', { style: 'width:100%;aspect-ratio:100/72;border-radius:14px;overflow:hidden;margin:0 0 10px' });
+          pic.innerHTML = global.Haeundae.ILLUST[t.ill] || '';
+          const s = pic.firstChild;
+          if (s) { s.setAttribute('width', '100%'); s.setAttribute('height', '100%'); s.setAttribute('preserveAspectRatio', 'xMidYMid slice'); }
+          box.appendChild(pic);
+          box.appendChild(h('div', {
+            style: 'background:rgba(0,0,0,.05);border-radius:12px;padding:11px 13px;margin:0 0 4px;line-height:1.8;word-break:keep-all;text-align:left'
+          }, h('b', null, '이렇게 하세요  '), t.tip));
+        }
+
         if (e.example) box.appendChild(h('details', { class: 'fold' },
           h('summary', null, '이런 때 써요'),
           h('div', { class: 'body' }, '“' + e.example + '”')));
         if (e.type === 'PROVERB') box.appendChild(h('details', { class: 'fold' },
-          h('summary', null, '속담 전체'),
-          h('div', { class: 'body' }, e.front + ' ' + e.back)));
+          h('summary', null, '정답 다시 보기'),
+          h('div', { class: 'body' }, e.front + ' → ' + e.back)));
         // 간직하기는 판이 끝난 뒤 낱말 목록에서 합니다.
         // 여기에도 두면 같은 일을 두 군데서 하게 되어 번거롭습니다.
         box.appendChild(h('button', {

@@ -318,6 +318,53 @@
       one(t + 0.19, 470, 215);
     },
 
+    /**
+     * 끼룩 — 갈매기 울음. 쓰다듬을 때 냅니다.
+     * 위로 올랐다 내려오는 두 마디로 '끼-룩' 을 흉내 냅니다.
+     */
+    chirp() {
+      if (!global.Store || !global.Store.data.settings.sfx) return;
+      const c = this.ensure(); if (!c) return;
+      this.resume();
+      const one = (at, f0, f1) => {
+        const o = c.createOscillator(), g = c.createGain(), f = c.createBiquadFilter();
+        o.type = 'triangle';
+        o.frequency.setValueAtTime(f0, at);
+        o.frequency.exponentialRampToValueAtTime(f1, at + 0.12);
+        f.type = 'bandpass'; f.frequency.value = 2000; f.Q.value = 0.8;
+        g.gain.setValueAtTime(0.0001, at);
+        g.gain.linearRampToValueAtTime(0.12, at + 0.02);
+        g.gain.exponentialRampToValueAtTime(0.0001, at + 0.16);
+        o.connect(f); f.connect(g); g.connect(this.sfxGain);
+        o.start(at); o.stop(at + 0.18);
+      };
+      const t = c.currentTime + 0.02;
+      one(t, 1180, 1760);          // 끼-
+      one(t + 0.17, 1560, 980);    // 룩
+    },
+
+    /**
+     * 냠냠 꿀꺽 — 새우깡을 받아먹을 때.
+     * 부드러운 두 번의 '톡'(씹기) 뒤에 살짝 올라가는 음(만족)을 얹습니다.
+     */
+    eat() {
+      if (!global.Store || !global.Store.data.settings.sfx) return;
+      const c = this.ensure(); if (!c) return;
+      this.resume();
+      const t = c.currentTime + 0.02;
+      this.knock(t, 300, 0.30);
+      this.knock(t + 0.17, 260, 0.30);
+      const o = c.createOscillator(), g = c.createGain();
+      o.type = 'sine';
+      o.frequency.setValueAtTime(480, t + 0.36);
+      o.frequency.exponentialRampToValueAtTime(920, t + 0.52);
+      g.gain.setValueAtTime(0.0001, t + 0.36);
+      g.gain.linearRampToValueAtTime(0.12, t + 0.39);
+      g.gain.exponentialRampToValueAtTime(0.0001, t + 0.58);
+      o.connect(g); g.connect(this.sfxGain);
+      o.start(t + 0.36); o.stop(t + 0.6);
+    },
+
     /** 판을 다 채웠을 때 — 작은 축하 가락 */
     clear() {
       this.placeRun = 0;
