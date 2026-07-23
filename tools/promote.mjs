@@ -107,6 +107,9 @@ function toNotice(it) {
     date: it.publishedAt,
     verified: new Date().toISOString().slice(0, 10),
     auto: true,
+    // 동 소식지는 대부분 글자가 아니라 사진 한 장입니다. 사진 자체를 카드에 보여
+    // 정부 사이트를 거치지 않고 바로 볼 수 있게 합니다.
+    ...(it.imageUrl ? { imageUrl: it.imageUrl } : {}),
     ...(region.length ? { region } : {}),
     audience: AUDIENCE[it.source] || ['senior', 'resident'],
     ...(/(어르신|경로|노인|고령|연금|치매|경로당|복지관|보건소)/.test(text) ? { for65: true } : {}),

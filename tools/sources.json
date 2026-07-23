@@ -716,6 +716,47 @@
       "pageParam": "page",
       "titleFilter": "해운대",
       "enabled": true
+    },
+    {
+      "id": "gu-culture-perform",
+      "name": "해운대문화회관 공연일정",
+      "type": "html-board",
+      "trust": "official",
+      "region": "해운대구",
+      "topics": [
+        "행사",
+        "나들이"
+      ],
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "cadenceMin": 240,
+      "pages": 4,
+      "listUrl": "https://www.haeundae.go.kr/culture/board/list.do?boardId=BBS_0000215&menuCd=DOM_000000901001001000",
+      "linkPattern": "view.do[^\"']*",
+      "enabled": true
+    },
+    {
+      "id": "gu-culture-exhibit",
+      "name": "해운대문화회관 전시일정",
+      "type": "html-board",
+      "trust": "official",
+      "region": "해운대구",
+      "topics": [
+        "행사",
+        "나들이",
+        "문화"
+      ],
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "cadenceMin": 240,
+      "pages": 4,
+      "listUrl": "https://www.haeundae.go.kr/culture/board/list.do?boardId=BBS_0000233&menuCd=DOM_000000901002001000",
+      "linkPattern": "view.do[^\"']*",
+      "enabled": true
     }
   ]
 }

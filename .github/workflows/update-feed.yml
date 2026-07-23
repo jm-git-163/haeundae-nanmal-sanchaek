@@ -1,5 +1,8 @@
-# 매일 공식 소스를 수집·가공해 data/feed.json 을 갱신한다.
-# (사람 검수: 자동 커밋 대신 PR 로 올려 승인 후 병합하도록 구성)
+# 매일 21개 공공기관 게시판을 훑어 data/feed.json 을 갱신하고,
+# 바뀐 게 있으면 그대로 main 에 커밋한 뒤 Vercel 배포를 깨운다.
+#
+# ※ tools/collect.mjs → tools/promote.mjs 가 실제로 쓰는 파이프라인입니다.
+#   (예전에 있던 build_feed.mjs 는 시험 단계 초안이라 여기서 부르지 않습니다)
 name: 해운대 정보 피드 갱신
 
 on:
@@ -9,7 +12,6 @@ on:
 
 permissions:
   contents: write
-  pull-requests: write
 
 jobs:
   update-feed:
@@ -18,19 +20,29 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: { node-version: '20' }
-      - run: npm i @anthropic-ai/sdk
-      - name: 피드 생성
+
+      - name: 게시판 훑기(수집)
+        run: node tools/collect.mjs --all
+
+      - name: 선별·분류해 피드에 싣기
+        run: node tools/promote.mjs
+
+      - name: AI 쉬운말 변환(선택 — 키가 있을 때만)
+        if: ${{ env.OPENAI_API_KEY != '' }}
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          BUSAN_SERVICE_KEY: ${{ secrets.BUSAN_SERVICE_KEY }}
-          # REVIEW 은 넣지 않는다 → 새 항목은 pending 으로만 표시되고,
-          # 검수자가 확인해 승인(REVIEW=1 로 재생성 또는 수동 편집)한다.
-        run: node tools/build_feed.mjs
-      - name: 변경분 PR 로 올리기(검수 후 병합)
-        uses: peter-evans/create-pull-request@v6
-        with:
-          commit-message: "chore(feed): 정보 피드 자동 갱신"
-          branch: feed/auto-update
-          title: "해운대 정보 피드 갱신 (검수 필요)"
-          body: "공식 소스에서 자동 수집·가공했습니다. 정확성(수치·자격·날짜)을 확인한 뒤 병합하세요."
-          add-paths: data/feed.json
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: node tools/ai_simplify.mjs
+
+      - name: 바뀐 점이 있으면 main 에 바로 커밋
+        run: |
+          git config user.name "haeundae-feed-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/feed.json
+          git diff --cached --quiet && echo "변경 없음" || git commit -m "chore(feed): 해운대 정보 자동 갱신 $(date +%Y-%m-%d)"
+          git push
+
+      - name: Vercel 배포 깨우기
+        if: ${{ env.VERCEL_DEPLOY_HOOK_URL != '' }}
+        env:
+          VERCEL_DEPLOY_HOOK_URL: ${{ secrets.VERCEL_DEPLOY_HOOK_URL }}
+        run: curl -X POST "$VERCEL_DEPLOY_HOOK_URL"

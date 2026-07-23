@@ -59,7 +59,15 @@ function extractLinks(html, baseUrl, pattern) {
     const u = abs(baseUrl, m[1].replace(/&amp;/g, '&'));
     if (!u || seen.has(u)) continue;
     seen.add(u);
-    out.push({ url: u, text: strip(m[2]).replace(/^(새글|NEW|첨부파일)\s*/i, '').slice(0, 120) });
+    // 목록 표에 '부서 | 2026.07.23' 처럼 진짜 게시일이 같은 줄에 있는 경우가
+    // 많습니다. 사진 한 장뿐인 글은 상세 페이지에서 날짜를 못 찾아 '오늘'로
+    // 잘못 찍히므로, 같은 줄(같은 <tr>) 안에서 날짜를 먼저 찾아 둡니다.
+    const rowStart = html.lastIndexOf('<tr', m.index);
+    const rowEnd = html.indexOf('</tr>', m.index);
+    const row = (rowStart >= 0 && rowEnd > rowStart) ? html.slice(rowStart, rowEnd) : '';
+    const dateM = row.match(/(20\d{2})[.\-](\d{1,2})[.\-](\d{1,2})/);
+    const listDate = dateM ? `${dateM[1]}-${dateM[2].padStart(2, '0')}-${dateM[3].padStart(2, '0')}` : null;
+    out.push({ url: u, text: strip(m[2]).replace(/^(새글|NEW|첨부파일)\s*/i, '').slice(0, 120), listDate });
   }
   // 게시글 주소에는 대개 긴 일련번호가 붙는다. 그런 링크가 충분하면 메뉴 링크는 버린다.
   const withId = out.filter(l => /\d{4,}/.test(l.url));
@@ -127,7 +135,14 @@ function extractDetail(html, url, listTitle) {
   const publishedAt = d.length === 3 ? `${d[0]}-${d[1].padStart(2, '0')}-${d[2].padStart(2, '0')}` : null;
   const attachments = [...html.matchAll(/href=["']([^"']*(?:download|fileDown|\.pdf|\.hwp)[^"']*)["']/gi)]
     .map(m => abs(url, m[1].replace(/&amp;/g, '&'))).filter(Boolean).slice(0, 5);
-  return { title, body, publishedAt, attachments };
+
+  /* 동 소식지는 대부분 '스캔한 사진 한 장'입니다(텍스트가 아니라 글자를 못 뽑습니다).
+     대신 그 사진은 로그인 없이 그냥 열리는 정적 파일이라, 사진 자체를 카드에
+     보여 드리면 어르신이 정부 사이트를 헤매지 않고 바로 소식지를 보실 수 있습니다. */
+  const image = (html.match(/<img[^>]*src=["']([^"']*\/upload_data\/[^"']*\.(?:jpg|jpeg|png)[^"']*)["']/i) || [])[1];
+  const imageUrl = image ? abs(url, image.replace(/&amp;/g, '&')) : null;
+
+  return { title, body, publishedAt, attachments, imageUrl };
 }
 
 /* ── 소스 하나 확인 ── */
@@ -215,8 +230,9 @@ async function checkSource(src, state, agent) {
         uid: sha1(url), source: src.name, sourceId: src.id, sourceUrl: url,
         trust: src.trust, region: src.region, topics: src.topics || [],
         rawTitle: d.title, rawBody: d.body,
-        publishedAt: d.publishedAt || new Date().toISOString().slice(0, 10),
+        publishedAt: link.listDate || d.publishedAt || new Date().toISOString().slice(0, 10),
         attachments: d.attachments,
+        imageUrl: d.imageUrl || null,
         collectedAt: new Date().toISOString(),
         stage: 'collected'          // collected → filtered → simplified → approved
       });

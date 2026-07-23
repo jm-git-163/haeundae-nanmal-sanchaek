@@ -847,6 +847,15 @@
             (m && m.mine) ? h('span', { class: 'badge green', style: 'margin-left:6px' }, '✅ 나에게') : null),
           h('span', { class: 'muted small' }, day)),
         h('h3', { style: 'margin:0 0 6px;font-size:var(--t-body)' }, n.title),
+        // 동 소식지는 대부분 사진 한 장입니다. 사진을 카드 안에 바로 보여 드려
+        // 정부 사이트를 헤매지 않고 그 자리에서 다 보실 수 있게 합니다.
+        n.imageUrl
+          ? h('img', {
+            src: n.imageUrl, alt: n.title, loading: 'lazy',
+            style: 'width:100%;border-radius:12px;margin:0 0 8px;display:block;' +
+              'max-height:480px;object-fit:contain;background:#f3ede4'
+          })
+          : null,
         // AI가 쉬운 말로 바꾼 문장이 있으면 그것을 먼저 보여 드리고,
         // 사실이 달라지지 않았는지 대조할 수 있게 원문 요지도 작게 함께 둡니다.
         n.aiSimplified
