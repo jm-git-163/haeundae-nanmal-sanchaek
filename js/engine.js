@@ -269,7 +269,7 @@
     CROSSWORD: '가로세로 낱말', PROVERB_MATCH: '해운대 퀴즈', REVIEW_MIX: '되새김 판'
   };
   const MODE_GUIDE = {
-    CROSSWORD: '아래 글자를 눌러 낱말 판을 채워 보세요.',
+    CROSSWORD: '퍼즐판 아래 글자 버튼을 누르면 빈 칸이 채워져요.',
     PROVERB_MATCH: '해운대 이야기의 빈칸을 맞혀 보세요.',
     REVIEW_MIX: '지난번에 만난 낱말로 판을 짰어요. 다시 만나 볼까요?'
   };
