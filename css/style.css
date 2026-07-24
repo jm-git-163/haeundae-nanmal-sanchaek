@@ -613,6 +613,12 @@ body.playing .tile {
   background: var(--white) !important;
   -webkit-backdrop-filter: none !important; backdrop-filter: none !important;
 }
+/* 도구 단추(글자 하나·낱말 하나·지우기·다른 낱말)도 뒤가 비치지 않게
+   불투명하게. 단, 고른 상태(.on)는 자기 색을 그대로 씁니다. */
+body.playing .tool-btn:not(.on) {
+  background: var(--white) !important;
+  -webkit-backdrop-filter: none !important; backdrop-filter: none !important;
+}
 
 /* 산책 화면 카드·말풍선은 다른 화면(기본 84%)보다 조금 더 비치게 해, 카드
    뒤에 가려지던 삽화 가운데 부분이 은은하게 보이게 합니다. 글자 가독성을
