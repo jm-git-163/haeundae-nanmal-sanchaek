@@ -600,10 +600,23 @@
       if (!keys.length) return null;
       const key = keys[Math.floor(Math.random() * keys.length)];
       const deg = global.Theme && global.Theme.hueDeg ? global.Theme.hueDeg() : null;
+      const top = global.Landmarks.topColor(key, deg);
       root.setProperty('--hero-img', `url("${global.Landmarks.url(key, deg)}")`);
-      root.setProperty('--hero-top', global.Landmarks.topColor(key, deg));
+      root.setProperty('--hero-top', top);
+      // 밤 풍경(마린시티·영화의전당·아쿠아리움 등)은 배경이 어두워, 어두운
+      // 제목 글자가 묻힙니다. 배경이 어두우면 body 에 표시를 달아, 상단 제목·
+      // 아이콘을 밝게 바꿉니다(아래 CSS).
+      document.body.classList.toggle('hero-dark', this._isDarkColor(top));
       this._heroKey = key;
       return key;
+    },
+
+    /** 색(#rrggbb)이 어두운지 — 배경이 어두우면 위 제목을 밝게 하려고 씁니다 */
+    _isDarkColor(hex) {
+      const n = parseInt(String(hex || '').replace('#', ''), 16);
+      if (isNaN(n)) return false;
+      const r = n >> 16 & 255, g = n >> 8 & 255, b = n & 255;
+      return (0.299 * r + 0.587 * g + 0.114 * b) < 130;   // 대략적인 밝기
     },
 
     /** 위 띠의 발자국 숫자를 새로 적습니다 */
