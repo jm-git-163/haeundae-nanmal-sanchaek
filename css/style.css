@@ -566,7 +566,7 @@ body.tab-walk::after, body.playing::after {
   display: block; opacity: 1;
   /* 그림을 화면 아래(반투명 탭 메뉴 뒤)까지 채우되, 아주 살짝만 올려 둡니다.
      메뉴가 반투명이라 그림이 잘리지 않고 위=카드·아래=메뉴 양쪽으로 이어집니다. */
-  bottom: 12px;
+  bottom: 18px;
   background-image: var(--hero-img, none);
   background-size: 100% auto;                            /* 너비에 꽉 맞춰 큼직하게 */
   background-position: bottom center;
@@ -608,11 +608,14 @@ body.contrast.tab-walk .tabbar, body.contrast.playing .tabbar {
   background: color-mix(in srgb, var(--white) 90%, transparent);
 }
 
-/* 산책 화면은 카드를 낮고 위로 바짝 모아, 아래 삽화가 넓게 보이게 합니다. */
-body.tab-walk #view > .card { padding: 9px 16px; margin-bottom: 8px; }
-body.tab-walk #view > .card.compact { padding-top: 10px; padding-bottom: 12px; }
-body.tab-walk .dog-area { margin: 0 0 6px; }            /* 인사말 위아래 여백 줄이기 */
-body.tab-walk .statrow .bignum { font-size: min(calc(26px * var(--fs)), 7vw); }  /* 통계 숫자 조금 작게 */
+/* 산책 화면은 카드를 낮고 위로 바짝 모아, 아래 삽화 공간을 넓게 냅니다. */
+body.tab-walk #view { padding-top: 4px; }
+body.tab-walk #view > .card { padding: 7px 15px; margin-bottom: 6px; }
+body.tab-walk #view > .card.compact { padding-top: 8px; padding-bottom: 10px; }
+body.tab-walk .dog-area { margin: 0 0 5px; }            /* 인사말 위아래 여백 줄이기 */
+body.tab-walk .dog-area .speech { padding: 9px 13px; }  /* 말풍선도 조금 낮게 */
+body.tab-walk .statrow .bignum { font-size: min(calc(24px * var(--fs)), 6.6vw); }  /* 통계 숫자 조금 작게 */
+body.tab-walk .steps { margin: 2px 0; }                 /* 발자국 줄 여백 줄이기 */
 
 /* ── 흩날리는 것 (꽃잎·단풍·눈·잎) ──────────────
    어느 풍경에나 무언가 천천히 흩날립니다.
