@@ -580,6 +580,28 @@
       const v = $('view'); v.innerHTML = ''; v.scrollTop = 0;
       ({ walk: this.scrWalk, hood: this.scrHood, pet: this.scrPet, learn: this.scrLearn, set: this.scrSet })[tab].call(this, v);
       guardTaps();
+      // 산책 화면에 머무는 동안, 애써 만든 명소 그림을 다시 들어오지 않아도
+      // 감상할 수 있게 몇 초마다 저절로 바꿔 줍니다(슬라이드쇼). 다른 화면으로
+      // 가면 멈춥니다. '움직임 줄이기'에서는 바꾸지 않습니다.
+      this._stopHeroRotate();
+      if (tab === 'walk' && !Store.data.settings.motion) {
+        // 첫 진입은 배경색을 즉시 삽화색에 맞춰(끊김 없이) 두고, 잠깐 뒤에
+        // 부드러운 배경색 전환(hero-anim)을 켜서 이후 슬라이드쇼 전환만
+        // 스르르 바뀌게 합니다.
+        this._heroAnimT = setTimeout(() => document.body.classList.add('hero-anim'), 400);
+        this._heroTimer = setInterval(() => {
+          if (this.tab !== 'walk' || document.body.classList.contains('playing')) { this._stopHeroRotate(); return; }
+          if (document.hidden) return;               // 화면이 안 보이면 굳이 안 바꿉니다
+          this.applyHero(false);
+        }, 2000);
+      }
+    },
+
+    /** 산책 삽화 슬라이드쇼 타이머를 멈춥니다 */
+    _stopHeroRotate() {
+      if (this._heroTimer) { clearInterval(this._heroTimer); this._heroTimer = null; }
+      if (this._heroAnimT) { clearTimeout(this._heroAnimT); this._heroAnimT = null; }
+      document.body.classList.remove('hero-anim');
     },
 
     /**
