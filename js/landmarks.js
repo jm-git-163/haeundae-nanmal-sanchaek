@@ -42,9 +42,14 @@
     '<rect x="4" y="26" width="8" height="24"/><rect x="15" y="18" width="7" height="32"/><rect x="24" y="30" width="9" height="20"/><rect x="35" y="12" width="6" height="38"/><rect x="43" y="24" width="8" height="26"/><rect x="70" y="20" width="7" height="30"/><rect x="79" y="10" width="6" height="40"/><rect x="87" y="26" width="9" height="24"/><rect x="99" y="22" width="7" height="28"/></g>' +
     '<rect y="50" width="120" height="22" fill="#7fc3dc"/><path d="M0 50 q20 4 40 0 t40 0 t40 0 v6H0Z" fill="#a7dcec"/>' +
     '<rect y="66" width="120" height="24" fill="#f0e2c4"/>' +
-    '<g><line x1="26" y1="76" x2="26" y2="66" stroke="#caa" stroke-width="1.4"/><path d="M18 66a8 8 0 0 1 16 0Z" fill="#e46a5a"/>' +
-    '<line x1="54" y1="80" x2="54" y2="69" stroke="#caa" stroke-width="1.4"/><path d="M46 69a8 8 0 0 1 16 0Z" fill="#4f93c4"/>' +
-    '<line x1="90" y1="78" x2="90" y2="68" stroke="#caa" stroke-width="1.4"/><path d="M82 68a8 8 0 0 1 16 0Z" fill="#e9b44a"/></g>');
+    // 파라솔 — 아래 알파벳 조형물 자리를 내려고 살짝 위로 올리고 조금 작게
+    '<g><line x1="24" y1="72" x2="24" y2="62" stroke="#caa" stroke-width="1.4"/><path d="M17 62a7 7 0 0 1 14 0Z" fill="#e46a5a"/>' +
+    '<line x1="54" y1="74" x2="54" y2="64" stroke="#caa" stroke-width="1.4"/><path d="M47 64a7 7 0 0 1 14 0Z" fill="#4f93c4"/>' +
+    '<line x1="92" y1="73" x2="92" y2="63" stroke="#caa" stroke-width="1.4"/><path d="M85 63a7 7 0 0 1 14 0Z" fill="#e9b44a"/></g>' +
+    // HAEUNDAE 컬러 알파벳 조형물 — 실제 해운대 해변에 있는 무지개색 글자 조형물
+    '<g font-family="sans-serif" font-size="12.5" font-weight="700" text-anchor="middle">' +
+    (() => { const ch = ['H', 'A', 'E', 'U', 'N', 'D', 'A', 'E'], c = ['#e0433c', '#ef8f22', '#f2b32e', '#3fa45b', '#2f9e8f', '#2f7ed8', '#6a5acd', '#c0568f']; return ch.map((s, i) => `<text x="${9 + i * 14.6}" y="88" fill="${c[i]}">${s}</text>`).join(''); })() +
+    '</g>');
 
   // 마린시티 — 물가에 솟은 고층 마천루 야경 + 물빛 반영
   L.marine_city = wrap(skyNight + stars(10) + moon(104, 14) +
