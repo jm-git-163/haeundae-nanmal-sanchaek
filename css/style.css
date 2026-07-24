@@ -602,6 +602,18 @@ body.hero-dark.playing:not(.contrast) .topbar .iconbtn {
 }
 /* 도움말 '?' 는 자체 동그라미 배경이 있어 배경색과 무관하게 그대로 둡니다. */
 
+/* 시니어 가독성 — 퍼즐에서 '글자가 걸리는' 낱말 칸과 글자 타일은 뒤 삽화가
+   비치지 않게 완전히 불투명하게 둡니다. 배경 그림은 낱말판 빈 자리·주변에만
+   은은하게 남고, 어르신이 읽어야 할 글자는 또렷한 바탕 위에 있게 합니다. */
+body.playing .xcell:not(.gap) {
+  background: var(--cell-bg) !important;
+  -webkit-backdrop-filter: none !important; backdrop-filter: none !important;
+}
+body.playing .tile {
+  background: var(--white) !important;
+  -webkit-backdrop-filter: none !important; backdrop-filter: none !important;
+}
+
 /* 산책 화면 카드·말풍선은 다른 화면(기본 84%)보다 조금 더 비치게 해, 카드
    뒤에 가려지던 삽화 가운데 부분이 은은하게 보이게 합니다. 글자 가독성을
    위해 옅은 블러를 함께 걸어 뒤 그림이 번지지 않게 합니다.
