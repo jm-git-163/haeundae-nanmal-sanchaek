@@ -451,14 +451,8 @@ body.reduce-motion .dogsvg * { animation: none !important; }
   max-width: 100%; word-break: keep-all; line-height: 1.5;
   box-shadow: none;
 }
-/* 강아지 쪽을 가리키는 꼬리 */
-.speech::before {
-  content: ''; position: absolute; left: -8px; bottom: 12px;
-  width: 14px; height: 14px; transform: rotate(45deg);
-  background: var(--surface-low);
-  border-left: 1px solid var(--line); border-bottom: 1px solid var(--line);
-  border-bottom-left-radius: 3px;
-}
+/* 말풍선 꼬리(작은 다이아몬드)는 두지 않습니다 — 말풍선만 깔끔하게 둡니다. */
+.speech::before { display: none; }
 /* 화면이 좁아 말풍선이 강아지 아래로 내려가면 꼬리는 위를 가리킵니다 */
 @media (max-width: 430px) {
   /* 예전에는 좁으면 강아지 아래로 말풍선을 내렸는데,
@@ -568,9 +562,9 @@ body.tab-walk .topbar, body.playing .topbar { background: transparent; }
 body.tab-walk::before, body.playing::before { display: none; }   /* 하늘 그라데이션 끄기 */
 body.tab-walk::after, body.playing::after {
   display: block; opacity: 1;
-  /* 그림을 화면 아래(반투명 탭 메뉴 뒤)까지 채우되, 아주 살짝만 올려 둡니다.
-     메뉴가 반투명이라 그림이 잘리지 않고 위=카드·아래=메뉴 양쪽으로 이어집니다. */
-  bottom: 26px;
+  /* 그림 아래 끝(예: 송정 'SONGJEONG' 글자)이 탭 메뉴에 가리지 않도록,
+     메뉴 높이만큼 올려 메뉴 바로 위에 얹습니다. */
+  bottom: var(--tabbar-h, 64px);
   background-image: var(--hero-img, none);
   background-size: 100% auto;                            /* 너비에 꽉 맞춰 큼직하게 */
   background-position: bottom center;
@@ -614,14 +608,18 @@ body.contrast.tab-walk .tabbar, body.contrast.playing .tabbar {
   background: color-mix(in srgb, var(--white) 90%, transparent);
 }
 
-/* 산책 화면은 카드를 낮고 위로 바짝 모아, 아래 삽화 공간을 넓게 냅니다. */
-body.tab-walk #view { padding-top: 4px; }
-body.tab-walk #view > .card { padding: 7px 15px; margin-bottom: 6px; }
-body.tab-walk #view > .card.compact { padding-top: 8px; padding-bottom: 10px; }
-body.tab-walk .dog-area { margin: 0 0 5px; }            /* 인사말 위아래 여백 줄이기 */
-body.tab-walk .dog-area .speech { padding: 9px 13px; }  /* 말풍선도 조금 낮게 */
+/* 산책 화면은 카드를 조금 낮추되 답답하지 않게 숨 쉴 여백은 둡니다. */
+body.tab-walk #view { padding-top: 6px; }
+body.tab-walk #view > .card { padding: 12px 16px; margin-bottom: 11px; }
+body.tab-walk #view > .card.compact { padding-top: 13px; padding-bottom: 15px; }
+body.tab-walk .dog-area { margin: 2px 0 10px; }         /* 인사말 아래 여백 조금 */
+body.tab-walk .dog-area .speech { padding: 11px 14px; }
 body.tab-walk .statrow .bignum { font-size: min(calc(24px * var(--fs)), 6.6vw); }  /* 통계 숫자 조금 작게 */
-body.tab-walk .steps { margin: 2px 0; }                 /* 발자국 줄 여백 줄이기 */
+body.tab-walk .steps { margin: 3px 0; }
+/* 통계 카드(함께한 날·만난 낱말·발자국)는 세 칸을 고르게 나누고 가운데
+   정렬해, 글자가 한쪽으로 쏠리지 않고 좌우 여백이 맞게 합니다. */
+body.tab-walk .statrow { justify-content: space-between; gap: 8px; }
+body.tab-walk .statrow > div { flex: 1 1 0; text-align: center; min-width: 0; }
 
 /* ── 흩날리는 것 (꽃잎·단풍·눈·잎) ──────────────
    어느 풍경에나 무언가 천천히 흩날립니다.
