@@ -575,9 +575,24 @@
      */
     praise(text, next) {
       sheet((box, close) => {
+        // '🐾+15'의 🐾 자리에는 강아지 발바닥 이모지 대신 우리 앱의
+        // '갈매기 물갈퀴 발자국' 그림을 넣습니다(마스코트가 갈매기이므로).
+        const big = h('div', { class: 'big' });
+        if (text.includes('🐾')) {
+          const parts = text.split('🐾');
+          big.appendChild(document.createTextNode(parts[0]));
+          const ic = h('span', {
+            style: 'display:inline-block;width:1em;height:1em;vertical-align:-.16em;margin:0 1px;color:var(--primary)'
+          });
+          ic.innerHTML = global.UI.ICON.paw;
+          big.appendChild(ic);
+          big.appendChild(document.createTextNode(parts.slice(1).join('🐾')));
+        } else {
+          big.textContent = text;
+        }
         box.appendChild(h('div', { class: 'celebrate' },
           h('div', { class: 'burst joy' }, global.UI.dogEl('신남', 112)),
-          h('div', { class: 'big' }, text)));
+          big));
         box.appendChild(h('button', {
           class: 'btn primary wide', style: 'margin-top:6px',
           onclick: () => { close(); if (next) next(); }
