@@ -684,7 +684,7 @@
       // (큰 숫자·여백을 줄이되, '산책 나가기' 단추는 어르신 손에 맞게 큼직하게).
       v.appendChild(h('div', { class: 'card center compact' },
         h('div', { class: 'hood-tag' }, hood.name),
-        h('div', { style: 'font-size:calc(24px * var(--fs));font-weight:800;line-height:1.25;margin:2px 0 5px' },
+        h('div', { style: 'font-size:calc(22px * var(--fs));font-weight:800;line-height:1.2;margin:2px 0 4px' },
           d.level + '번째 산책'),
         h('div', { class: 'steps' }, Array.from({ length: 10 }, (_, i) =>
           paw(i < step - 1 ? 'on' : (i === step - 1 ? 'now' : '')))),
