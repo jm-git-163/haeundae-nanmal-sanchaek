@@ -566,13 +566,15 @@ body.tab-walk::after, body.playing::after {
   display: block; opacity: 1;
   /* 그림을 화면 아래(반투명 탭 메뉴 뒤)까지 채우되, 아주 살짝만 올려 둡니다.
      메뉴가 반투명이라 그림이 잘리지 않고 위=카드·아래=메뉴 양쪽으로 이어집니다. */
-  bottom: 18px;
+  bottom: 26px;
   background-image: var(--hero-img, none);
   background-size: 100% auto;                            /* 너비에 꽉 맞춰 큼직하게 */
   background-position: bottom center;
-  /* 위쪽은 투명하게 사라져 카드·낱말판 뒤가 깔끔합니다(글자 가독성 우선). */
-  -webkit-mask-image: linear-gradient(180deg, transparent 0%, transparent 40%, #000 78%, #000 100%);
-  mask-image: linear-gradient(180deg, transparent 0%, transparent 40%, #000 78%, #000 100%);
+  /* 그림 하늘색(=페이지 배경색)에서 아주 완만하게 스며 나오게 해, 위쪽
+     경계가 끊겨 보이지 않고 화면이 한 장처럼 이어집니다(중간에 rgba 점을
+     하나 둬 부드러운 S자 곡선으로 서서히 나타납니다). */
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, transparent 22%, rgba(0,0,0,.45) 50%, #000 80%, #000 100%);
+  mask-image: linear-gradient(180deg, transparent 0%, transparent 22%, rgba(0,0,0,.45) 50%, #000 80%, #000 100%);
 }
 body.contrast.tab-walk, body.contrast.playing { background: #fff; }
 body.contrast.tab-walk::after, body.contrast.playing::after { display: none; }
