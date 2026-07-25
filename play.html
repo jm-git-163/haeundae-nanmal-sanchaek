@@ -67,7 +67,18 @@
 <script src="js/game.js"></script>
 <script>
   if ('serviceWorker' in navigator && location.protocol !== 'file:') {
-    window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
+    window.addEventListener('load', () => {
+      // updateViaCache:'none' — sw.js 를 브라우저 캐시에 의존하지 않고 늘 새로
+      // 확인해, 고쳐 올린 새 판을 빨리 잡습니다.
+      navigator.serviceWorker.register('sw.js', { updateViaCache: 'none' }).then((reg) => {
+        // 앱을 다시 보거나(포커스·화면 켜기) 일정 시간마다 새 판이 있는지
+        // 확인합니다. 새 판이 자리를 잡으면 update.js 가 알아서 새로고침합니다.
+        var check = function () { if (!document.hidden) { try { reg.update(); } catch (e) {} } };
+        document.addEventListener('visibilitychange', check);
+        window.addEventListener('focus', check);
+        setInterval(check, 60000);
+      }).catch(function () {});
+    });
   }
 </script>
 </body>

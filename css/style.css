@@ -570,15 +570,19 @@ body.tab-walk::after, body.playing::after {
   /* 그림 아래 끝(예: 송정 'SONGJEONG' 글자)이 탭 메뉴에 가리지 않도록,
      메뉴 높이만큼 올려 메뉴 바로 위에 얹습니다. */
   bottom: var(--tabbar-h, 64px);
-  /* ★ 반응형 — 그림 영역을 본문(#app, 620px)과 같은 폭으로 가운데 맞춥니다.
-     예전엔 화면 전체 폭(left:0;right:0)이라, 갤럭시 폴드처럼 넓은 화면에서
-     그림이 폭에 비례해 지나치게 커져 위쪽이 잘렸습니다. */
+  /* ★ 반응형 — 그림 칸을 본문(#app, 620px)과 같은 폭으로 가운데 맞추고,
+     높이를 그림 비율(4:3)에 딱 맞춥니다. 이렇게 하면 그림이 칸을 정확히
+     꽉 채워서, 위 페이드(마스크)가 '그림 자신의 위'에 항상 일정하게 걸립니다.
+     예전엔 칸 높이(78vh)와 그림 높이가 달라, 갤럭시 폴드처럼 넓은 화면에선
+     그림이 칸 안에서 위로 올라가 상단이 페이드에 먹혀 잘려 보였습니다. */
   left: 50%; right: auto; transform: translateX(-50%);
-  width: min(100vw, 620px);
+  --hero-w: min(100vw, 620px);
+  width: var(--hero-w);
+  height: calc(var(--hero-w) * 0.75);        /* 120:90 = 4:3 */
   background-image: var(--hero-img, none);
-  /* contain: 어떤 화면 비율에서도 그림 전체가 잘리지 않고 온전히 들어갑니다. */
-  background-size: contain;
-  background-position: bottom center;
+  background-size: cover;                      /* 칸을 꽉 채움(칸=그림 비율이라 안 잘림) */
+  background-position: center;
+  background-repeat: no-repeat;
   /* 그림 하늘색(=페이지 배경색)에서 아주 완만하게 스며 나오게 해, 위쪽
      경계가 끊겨 보이지 않고 화면이 한 장처럼 이어집니다(중간에 rgba 점을
      하나 둬 부드러운 S자 곡선으로 서서히 나타납니다). */
