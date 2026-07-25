@@ -564,12 +564,14 @@ body.contrast::before, body.contrast::after { background: #fff; opacity: 1; }
    않고 삽화와 같은 순간에 딱 맞춰 바꿉니다. */
 body.tab-walk, body.playing { background: var(--hero-top, var(--surface)); }
 body.tab-walk .topbar, body.playing .topbar { background: transparent; }
-body.tab-walk::before, body.tab-walk::after,
-body.playing::before { display: none; }   /* 하늘 그라데이션·산책용 고정그림 끄기 */
+body.tab-walk::before, body.playing::before { display: none; }   /* 하늘 그라데이션 끄기 */
 
-/* 퍼즐(놀이) 화면 — 삽화를 바탕에 은은히 깝니다. 낱말 칸·타일은 불투명해
-   글자 가독성은 지켜집니다. 칸=그림 비율(4:3)이라 어느 화면에서도 안 잘립니다. */
-body.playing::after {
+/* 산책·퍼즐 화면 — 명소 그림을 화면 아래에 '전체가' 큼직하게 깝니다.
+   칸 = 그림 비율(4:3)이라 어떤 화면(폰·폴드)에서도 그림이 잘리지 않고 온전히
+   들어갑니다. 그림 맨 위(하늘)는 페이지 배경색과 같은 색이라, 위쪽을 아주
+   살짝만 부드럽게 해도 배경으로 자연스럽게 이어집니다('댕강' 잘리는 하드
+   엣지가 없습니다). 카드는 반투명이라 그림 윗부분이 카드 뒤로 비쳐 보입니다. */
+body.tab-walk::after, body.playing::after {
   display: block; opacity: 1;
   bottom: var(--tabbar-h, 64px);
   left: 50%; right: auto; transform: translateX(-50%);
@@ -577,38 +579,17 @@ body.playing::after {
   width: var(--hero-w); height: calc(var(--hero-w) * 0.75);
   background-image: var(--hero-img, none);
   background-size: cover; background-position: center; background-repeat: no-repeat;
-  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 9%, #000 100%);
-  mask-image: linear-gradient(180deg, transparent 0%, #000 9%, #000 100%);
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 6%, #000 100%);
+  mask-image: linear-gradient(180deg, transparent 0%, #000 6%, #000 100%);
 }
-
-/* 산책 화면 — 삽화를 카드 '뒤'가 아니라 '카드 아래 빈 공간'에 놓습니다.
-   예전엔 고정 배경이라 그림 윗부분이 카드에 가려 뿌옇게/잘려 보였습니다.
-   이제 카드들을 위에서부터 쌓고, 남는 세로 공간을 그림이 차지하며(flex),
-   contain 으로 어떤 화면에서도 그림 전체가 온전히·또렷하게 보입니다. */
-body.tab-walk #view { display: flex; flex-direction: column; }
-.walk-illust {
-  /* 남는 세로 공간을 화면 '가로폭 가득' 크게 채웁니다(작게 가운데 박히지
-     않게). 세로가 모자라면 그림 '위쪽(하늘)'만 잘리는데, 하늘색은 페이지
-     배경색과 같으므로 그 위로 자연스럽게 이어져 잘린 티가 안 납니다.
-     건물·백사장·글자 등 의미 있는 부분은 아래쪽이라 늘 온전히 보입니다. */
-  /* 남는 공간을 '정확히' 채웁니다(min-height 0). 그래야 그림 아래 끝이 탭
-     메뉴 뒤로 밀려 잘리지 않습니다. 대신 카드를 아담하게 줄여 이 공간을
-     넓게 확보합니다(아래 규칙). */
-  flex: 1 1 auto; min-height: 0;
-  margin: 6px calc(-1 * var(--edge)) 0;
-  background-image: var(--hero-img, none);
-  background-repeat: no-repeat;
-  background-position: bottom center;
-  background-size: 100% auto;   /* 가로폭 가득 · 세로는 비율대로(아래 기준) */
-}
-/* 아래 삽화 공간을 넓히려고 인사말 갈매기·큰 단추를 조금 줄입니다. */
+/* 아래 삽화가 더 넓게 보이게 인사말 갈매기·큰 단추를 조금 줄입니다. */
 body.tab-walk .dog-area .gullmascot,
 body.tab-walk .dog-area .gullimg { width: 58px !important; height: 58px !important; }
 body.tab-walk #view > .card .btn.big { min-height: calc(60px * var(--fs)); }
 body.hero-anim.tab-walk { transition: background-color 900ms ease; }
+body.hero-anim.tab-walk::after { transition: opacity 900ms ease; }
 body.contrast.tab-walk, body.contrast.playing { background: #fff; }
-body.contrast.playing::after { display: none; }
-body.contrast .walk-illust { background-image: none; }
+body.contrast.tab-walk::after, body.contrast.playing::after { display: none; }
 
 /* 산책·퍼즐 화면의 상단바는 삽화색 위에 얹히므로, 제목·아이콘 색을 '앱
    테마'가 아니라 '배경 밝기'에 맞춥니다. 밝은 배경 → 어두운 글자, 어두운
@@ -654,13 +635,13 @@ body.playing .tool-btn:not(.on) {
    (#view > .card 규칙이 id라 이겨 버리므로, 여기서는 더 구체적으로 잡습니다) */
 body.tab-walk #view > .card,
 body.tab-walk .speech {
-  background: color-mix(in srgb, var(--white) 60%, transparent) !important;
-  -webkit-backdrop-filter: saturate(120%) blur(10px);
-  backdrop-filter: saturate(120%) blur(10px);
+  background: color-mix(in srgb, var(--white) 46%, transparent) !important;
+  -webkit-backdrop-filter: saturate(120%) blur(9px);
+  backdrop-filter: saturate(120%) blur(9px);
 }
 body.dark.tab-walk #view > .card,
 body.dark.tab-walk .speech {
-  background: color-mix(in srgb, var(--white) 66%, transparent) !important;
+  background: color-mix(in srgb, var(--white) 54%, transparent) !important;
 }
 /* 또렷하게 보기에서는 비침·블러를 끄고 완전히 불투명하게(가독성 최우선). */
 body.contrast.tab-walk #view > .card,
@@ -848,10 +829,10 @@ body { background: transparent; }
 
 /* ── 위 띠의 발자국 ────────────────────────── */
 .footchip {
-  display: inline-flex; align-items: center; gap: 4px;
+  display: inline-flex; align-items: center; justify-content: center; gap: 3px;
   background: var(--sunshine); color: var(--on-sunshine);
-  border-radius: 999px; padding: 6px 14px; white-space: nowrap;
-  font-size: calc(18px * var(--fs)); font-weight: 800;
+  border-radius: 999px; padding: 6px 13px; white-space: nowrap;
+  font-size: calc(18px * var(--fs)); font-weight: 800; line-height: 1;
   box-shadow: var(--shadow-flat);
 }
 
@@ -1231,7 +1212,7 @@ body { background: transparent; }
   display: inline-block; width: 1.05em; height: 1.05em;
   vertical-align: -0.16em; line-height: 0;
 }
-.footchip .chip-ic { margin-right: 5px; }
+.footchip .chip-ic { margin-right: 0; }
 .footchip b, .tool-cost b { font-weight: 800; font-variant-numeric: tabular-nums; }
 .tool-cost .chip-ic { margin-right: 4px; }
 .topbar .iconbtn .chip-ic { width: 1.5em; height: 1.5em; vertical-align: -0.35em; }
@@ -1966,7 +1947,7 @@ body.contrast .moonwin {
   display: inline-block; width: 1.05em; height: 1.05em;
   vertical-align: -0.16em; line-height: 0;
 }
-.footchip .chip-ic { margin-right: 5px; }
+.footchip .chip-ic { margin-right: 0; }
 .footchip b, .tool-cost b { font-weight: 800; font-variant-numeric: tabular-nums; }
 .tool-cost .chip-ic { margin-right: 4px; }
 .topbar .iconbtn .chip-ic { width: 1.5em; height: 1.5em; vertical-align: -0.35em; }
