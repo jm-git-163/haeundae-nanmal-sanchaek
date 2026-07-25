@@ -564,38 +564,40 @@ body.contrast::before, body.contrast::after { background: #fff; opacity: 1; }
    않고 삽화와 같은 순간에 딱 맞춰 바꿉니다. */
 body.tab-walk, body.playing { background: var(--hero-top, var(--surface)); }
 body.tab-walk .topbar, body.playing .topbar { background: transparent; }
-body.tab-walk::before, body.playing::before { display: none; }   /* 하늘 그라데이션 끄기 */
-body.tab-walk::after, body.playing::after {
+body.tab-walk::before, body.tab-walk::after,
+body.playing::before { display: none; }   /* 하늘 그라데이션·산책용 고정그림 끄기 */
+
+/* 퍼즐(놀이) 화면 — 삽화를 바탕에 은은히 깝니다. 낱말 칸·타일은 불투명해
+   글자 가독성은 지켜집니다. 칸=그림 비율(4:3)이라 어느 화면에서도 안 잘립니다. */
+body.playing::after {
   display: block; opacity: 1;
-  /* 그림 아래 끝(예: 송정 'SONGJEONG' 글자)이 탭 메뉴에 가리지 않도록,
-     메뉴 높이만큼 올려 메뉴 바로 위에 얹습니다. */
   bottom: var(--tabbar-h, 64px);
-  /* ★ 반응형 — 그림 칸을 본문(#app, 620px)과 같은 폭으로 가운데 맞추고,
-     높이를 그림 비율(4:3)에 딱 맞춥니다. 이렇게 하면 그림이 칸을 정확히
-     꽉 채워서, 위 페이드(마스크)가 '그림 자신의 위'에 항상 일정하게 걸립니다.
-     예전엔 칸 높이(78vh)와 그림 높이가 달라, 갤럭시 폴드처럼 넓은 화면에선
-     그림이 칸 안에서 위로 올라가 상단이 페이드에 먹혀 잘려 보였습니다. */
   left: 50%; right: auto; transform: translateX(-50%);
   --hero-w: min(100vw, 620px);
-  width: var(--hero-w);
-  height: calc(var(--hero-w) * 0.75);        /* 120:90 = 4:3 */
+  width: var(--hero-w); height: calc(var(--hero-w) * 0.75);
   background-image: var(--hero-img, none);
-  background-size: cover;                      /* 칸을 꽉 채움(칸=그림 비율이라 안 잘림) */
-  background-position: center;
-  background-repeat: no-repeat;
-  /* 그림 맨 위(하늘)는 이미 페이지 배경색과 같은 색이라, 예전처럼 위쪽을
-     크게 흐리게 지울(페이드) 필요가 없습니다. 오히려 그렇게 하면 애써 그린
-     그림의 윗부분이 뿌옇게 사라져 '잘린 것처럼' 보였습니다. 이제 맨 위
-     가장자리만 아주 살짝 부드럽게 하고, 나머지는 또렷하게 다 보여 줍니다. */
+  background-size: cover; background-position: center; background-repeat: no-repeat;
   -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 9%, #000 100%);
   mask-image: linear-gradient(180deg, transparent 0%, #000 9%, #000 100%);
 }
-/* 슬라이드쇼(자동 전환) 중에는 배경색과 그림이 스르르 바뀌게 합니다.
-   (첫 진입 때는 이 클래스가 없어 즉시 맞춰지므로 끊김이 없습니다) */
+
+/* 산책 화면 — 삽화를 카드 '뒤'가 아니라 '카드 아래 빈 공간'에 놓습니다.
+   예전엔 고정 배경이라 그림 윗부분이 카드에 가려 뿌옇게/잘려 보였습니다.
+   이제 카드들을 위에서부터 쌓고, 남는 세로 공간을 그림이 차지하며(flex),
+   contain 으로 어떤 화면에서도 그림 전체가 온전히·또렷하게 보입니다. */
+body.tab-walk #view { display: flex; flex-direction: column; }
+.walk-illust {
+  flex: 1 1 auto; min-height: 20vh;
+  margin: 6px calc(-1 * var(--edge)) 0;
+  background-image: var(--hero-img, none);
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-size: contain;   /* 잘림 없이 그림 전체가 온전히 */
+}
 body.hero-anim.tab-walk { transition: background-color 900ms ease; }
-body.hero-anim.tab-walk::after { transition: opacity 900ms ease; }
 body.contrast.tab-walk, body.contrast.playing { background: #fff; }
-body.contrast.tab-walk::after, body.contrast.playing::after { display: none; }
+body.contrast.playing::after { display: none; }
+body.contrast .walk-illust { background-image: none; }
 
 /* 산책·퍼즐 화면의 상단바는 삽화색 위에 얹히므로, 제목·아이콘 색을 '앱
    테마'가 아니라 '배경 밝기'에 맞춥니다. 밝은 배경 → 어두운 글자, 어두운
@@ -666,12 +668,12 @@ body.contrast.tab-walk .tabbar, body.contrast.playing .tabbar {
   background: color-mix(in srgb, var(--white) 90%, transparent);
 }
 
-/* 산책 화면은 카드를 조금 낮추되 답답하지 않게 숨 쉴 여백은 둡니다. */
-body.tab-walk #view { padding-top: 6px; }
-body.tab-walk #view > .card { padding: 10px 16px; margin-bottom: 9px; }
-body.tab-walk #view > .card.compact { padding-top: 11px; padding-bottom: 13px; }
-body.tab-walk .dog-area { margin: 2px 0 10px; }         /* 인사말 아래 여백 조금 */
-body.tab-walk .dog-area .speech { padding: 11px 14px; }
+/* 산책 화면은 카드를 위로 바짝 모아, 아래 삽화가 넓게 보이게 합니다. */
+body.tab-walk #view { padding-top: 4px; }
+body.tab-walk #view > .card { padding: 8px 15px; margin-bottom: 7px; }
+body.tab-walk #view > .card.compact { padding-top: 9px; padding-bottom: 11px; }
+body.tab-walk .dog-area { margin: 0 0 7px; }            /* 인사말 아래 여백 줄이기 */
+body.tab-walk .dog-area .speech { padding: 9px 13px; }
 body.tab-walk .statrow .bignum { font-size: min(calc(24px * var(--fs)), 6.6vw); }  /* 통계 숫자 조금 작게 */
 body.tab-walk .steps { margin: 3px 0; }
 /* 통계 카드(함께한 날·만난 낱말·발자국)는 세 칸을 고르게 나누고 가운데
