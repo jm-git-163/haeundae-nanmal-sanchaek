@@ -583,11 +583,12 @@ body.tab-walk::after, body.playing::after {
   background-size: cover;                      /* 칸을 꽉 채움(칸=그림 비율이라 안 잘림) */
   background-position: center;
   background-repeat: no-repeat;
-  /* 그림 하늘색(=페이지 배경색)에서 아주 완만하게 스며 나오게 해, 위쪽
-     경계가 끊겨 보이지 않고 화면이 한 장처럼 이어집니다(중간에 rgba 점을
-     하나 둬 부드러운 S자 곡선으로 서서히 나타납니다). */
-  -webkit-mask-image: linear-gradient(180deg, transparent 0%, transparent 22%, rgba(0,0,0,.45) 50%, #000 80%, #000 100%);
-  mask-image: linear-gradient(180deg, transparent 0%, transparent 22%, rgba(0,0,0,.45) 50%, #000 80%, #000 100%);
+  /* 그림 맨 위(하늘)는 이미 페이지 배경색과 같은 색이라, 예전처럼 위쪽을
+     크게 흐리게 지울(페이드) 필요가 없습니다. 오히려 그렇게 하면 애써 그린
+     그림의 윗부분이 뿌옇게 사라져 '잘린 것처럼' 보였습니다. 이제 맨 위
+     가장자리만 아주 살짝 부드럽게 하고, 나머지는 또렷하게 다 보여 줍니다. */
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 9%, #000 100%);
+  mask-image: linear-gradient(180deg, transparent 0%, #000 9%, #000 100%);
 }
 /* 슬라이드쇼(자동 전환) 중에는 배경색과 그림이 스르르 바뀌게 합니다.
    (첫 진입 때는 이 클래스가 없어 즉시 맞춰지므로 끊김이 없습니다) */
