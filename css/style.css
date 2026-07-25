@@ -591,13 +591,20 @@ body.tab-walk #view { display: flex; flex-direction: column; }
      않게). 세로가 모자라면 그림 '위쪽(하늘)'만 잘리는데, 하늘색은 페이지
      배경색과 같으므로 그 위로 자연스럽게 이어져 잘린 티가 안 납니다.
      건물·백사장·글자 등 의미 있는 부분은 아래쪽이라 늘 온전히 보입니다. */
-  flex: 1 1 auto; min-height: 26vh;
+  /* 남는 공간을 '정확히' 채웁니다(min-height 0). 그래야 그림 아래 끝이 탭
+     메뉴 뒤로 밀려 잘리지 않습니다. 대신 카드를 아담하게 줄여 이 공간을
+     넓게 확보합니다(아래 규칙). */
+  flex: 1 1 auto; min-height: 0;
   margin: 6px calc(-1 * var(--edge)) 0;
   background-image: var(--hero-img, none);
   background-repeat: no-repeat;
   background-position: bottom center;
   background-size: 100% auto;   /* 가로폭 가득 · 세로는 비율대로(아래 기준) */
 }
+/* 아래 삽화 공간을 넓히려고 인사말 갈매기·큰 단추를 조금 줄입니다. */
+body.tab-walk .dog-area .gullmascot,
+body.tab-walk .dog-area .gullimg { width: 58px !important; height: 58px !important; }
+body.tab-walk #view > .card .btn.big { min-height: calc(60px * var(--fs)); }
 body.hero-anim.tab-walk { transition: background-color 900ms ease; }
 body.contrast.tab-walk, body.contrast.playing { background: #fff; }
 body.contrast.playing::after { display: none; }
