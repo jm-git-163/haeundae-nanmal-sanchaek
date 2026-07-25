@@ -661,10 +661,10 @@ body.contrast.tab-walk .tabbar, body.contrast.playing .tabbar {
 }
 
 /* 산책 화면은 카드를 위로 바짝 모아, 아래 삽화가 넓게 보이게 합니다. */
-body.tab-walk #view { padding-top: 4px; }
+body.tab-walk #view { padding-top: 10px; }              /* 제목 띠와 인사말 갈매기 사이 숨통 */
 body.tab-walk #view > .card { padding: 8px 15px; margin-bottom: 7px; }
 body.tab-walk #view > .card.compact { padding-top: 9px; padding-bottom: 11px; }
-body.tab-walk .dog-area { margin: 0 0 7px; }            /* 인사말 아래 여백 줄이기 */
+body.tab-walk .dog-area { margin: 2px 0 7px; }          /* 인사말 위 여백 조금(머리가 제목에 안 닿게) */
 body.tab-walk .dog-area .speech { padding: 9px 13px; }
 body.tab-walk .statrow .bignum { font-size: min(calc(24px * var(--fs)), 6.6vw); }  /* 통계 숫자 조금 작게 */
 body.tab-walk .steps { margin: 3px 0; }
