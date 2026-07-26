@@ -1204,6 +1204,32 @@
           h('h3', { style: 'margin:0 0 2px' }, '해운대 갈매기'),
           h('p', { class: 'muted small', style: 'margin:0' }, '오늘의 해운대 소식을 전해 드려요'))));
 
+      // ☀️ 오늘의 한 가지 — 매일 딱 하나. 다른 걸 못 보셔도 이것만은 챙기시게,
+      // 그날 가장 중요한 소식 한 건을 맨 위에 큼직하게 올립니다(어르신 정보과잉 완화).
+      const brief = this.feedBrief();
+      const CATE = {
+        복지: '🧡', 건강: '🩺', 안전: '🛡️', 행사: '🎉', 교육: '📚', 일자리: '💼',
+        교통: '🚌', 문화: '🎨', 관광: '🗺️', 생활: '🏠'
+      };
+      if (brief && brief.items && brief.items.length) {
+        const one = brief.items[0];
+        const hero = h('div', { class: 'card', style: 'text-align:left;background:linear-gradient(180deg,#fff7ec,#fff);border:2px solid #ffd9a8' });
+        hero.appendChild(h('div', { style: 'display:flex;align-items:center;gap:7px;margin:0 0 8px' },
+          h('span', { class: 'badge', style: 'background:#ffe1bd;color:#b5560a;font-weight:800' }, '☀️ 오늘의 한 가지'),
+          h('span', { class: 'muted small' }, '이것만은 꼭')));
+        hero.appendChild(h('p', { style: 'margin:0 0 6px;font-size:calc(20px*var(--fs));font-weight:800;line-height:1.5;word-break:keep-all' },
+          (CATE[one.cat] || '📌') + ' ' + one.plain));
+        if (one.why) hero.appendChild(h('p', { class: 'muted', style: 'margin:0 0 10px;line-height:1.6;word-break:keep-all' }, '💡 ' + one.why));
+        const acts = h('div', { style: 'display:flex;gap:10px;align-items:center;flex-wrap:wrap' });
+        acts.appendChild(h('button', { class: 'btn go', style: 'padding:8px 14px',
+          onclick: (e) => speakToggle(e.currentTarget, `${one.plain} ${one.why || ''}`) }, '🔊 읽어주기'));
+        if (one.sourceUrl) acts.appendChild(h('a', { class: 'muted small', href: one.sourceUrl, target: '_blank', rel: 'noopener noreferrer',
+          style: 'text-decoration:underline', onclick: () => Sound.tap() }, '자세히 · ' + one.source));
+        else acts.appendChild(h('span', { class: 'muted small' }, '출처 · ' + one.source));
+        hero.appendChild(acts);
+        content.appendChild(hero);
+      }
+
       // 흩어진 기관 홈페이지를 일일이 뒤지지 않아도, 여기 다 모여 있다는 것 —
       // 그게 이 화면의 핵심입니다. 숫자로 보여 드리고, 눌러서 '어디어디인지' 밝힙니다.
       {
@@ -1230,19 +1256,14 @@
             h('div', { class: 'muted small' }, '마지막 갱신'))));
       }
 
-      // 오늘의 안심 브리핑 — 매일 파이프라인에서 AI 가 '오늘 어르신이 꼭
-      // 챙기실 것' 세 가지를 미리 골라 둔 것을 큼직하게 먼저 보여 드립니다.
-      const brief = this.feedBrief();
-      if (brief && brief.items && brief.items.length) {
-        const CATE = {
-          복지: '🧡', 건강: '🩺', 안전: '🛡️', 행사: '🎉', 교육: '📚', 일자리: '💼',
-          교통: '🚌', 문화: '🎨', 관광: '🗺️', 생활: '🏠'
-        };
+      // 오늘 더 챙기실 것 — '오늘의 한 가지'로 올린 첫 건을 뺀 나머지를
+      // AI 안심 브리핑으로 이어서 보여 드립니다(중복 방지).
+      if (brief && brief.items && brief.items.length > 1) {
         const card = h('div', { class: 'card brief-card', style: 'text-align:left' });
         card.appendChild(h('div', { style: 'display:flex;align-items:center;gap:7px;margin:0 0 4px' },
           h('span', { class: 'badge', style: 'background:#fff3e0;color:#c8600f' }, '🤖 AI 안심 브리핑'),
-          h('span', { class: 'muted small' }, '오늘 꼭 챙기세요')));
-        brief.items.forEach((it, i) => {
+          h('span', { class: 'muted small' }, '오늘 더 챙기실 것')));
+        brief.items.slice(1).forEach((it, i) => {
           const row = h('div', { style: 'padding:11px 0' + (i ? ';border-top:1px solid rgba(0,0,0,.07)' : '') });
           row.appendChild(h('p', { style: 'margin:0 0 3px;line-height:1.6;word-break:keep-all;font-weight:700' },
             (CATE[it.cat] || '📌') + ' ' + it.plain));
