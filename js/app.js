@@ -703,7 +703,6 @@
       // 가운데 있어야 할 제목이 왼쪽으로 밀립니다 — 그게 눈에 거슬립니다.
       this.top('낱말 산책', null,
         h('button', { class: 'helpbtn', 'aria-label': '도움말 보기', onclick: () => this.help() }, '？'));
-      const due = Generator.dueEntries(d, Date.now()).length;
       const hood = NEIGHBORHOODS[Math.floor((d.level - 1) / 100) % NEIGHBORHOODS.length];
       const step = ((d.level - 1) % 10) + 1;
 
@@ -727,11 +726,6 @@
         h('button', { class: 'btn primary big wide', onclick: () => global.Game.start() },
           d.totalDone === 0 ? '산책 나가기' : '이어서 산책하기')
       ));
-
-      if (due > 0) v.appendChild(h('div', { class: 'card' },
-        h('h2', null, '되새길 낱말이 있어요'),
-        h('p', { class: 'muted', style: 'margin:0 0 14px' }, `지난번에 만난 낱말 ${due}개를 다시 볼까요?`),
-        h('button', { class: 'btn go wide', onclick: () => global.Game.startReview() }, '되새기러 가기')));
 
       v.appendChild(h('div', { class: 'card' },
         h('div', { class: 'statrow' },

@@ -40,19 +40,6 @@
       this.renderItem();
     },
 
-    /** 되새김만 모아서 */
-    startReview() {
-      this.reviewOnly = true;
-      this.ensureSession();
-      const due = Generator.dueEntries(Store.data, Date.now());
-      const rng = global.Engine.rngFrom('review', Date.now());
-      const items = Generator.review(rng, Store.data.ability.GLOBAL.theta - 241, due, Store.data, 0.8);
-      this.stage = { level: Store.data.level, mode: 'REVIEW_MIX', modeName: '되새김 판', guide: '지난번에 만난 낱말로 판을 짰어요. 다시 만나 볼까요?', hood: { name: '되새김 마실', emoji: '📖' }, stepInChapter: 1, items };
-      this.idx = 0; this.metEntries = [];
-      if (!items.length) return say('되새길 낱말이 아직 없어요. 산책을 다녀오면 생겨요.', '📖');
-      this.renderItem();
-    },
-
     /**
      * 해운대 마실 — 레벨과 따로 있는 코너입니다.
      * 우리 고장 해운대의 명소·행사·생활정보를 묻고 답하며 쉬어 갑니다.
@@ -243,7 +230,7 @@
       word: 1,        // 혼자 힘으로 맞힌 낱말 하나
       board: 8,       // 판을 다 채웠을 때
       chapter: 20,    // 열 판(마당 하나)을 마쳤을 때
-      corner: 3       // 되새김 판·속담 마당을 마쳤을 때
+      corner: 3       // 해운대 마실을 마쳤을 때
     },
 
     /* 도구 칸 — 무엇을 얼마에 쓸 수 있는지 늘 보이게 둡니다.
@@ -863,7 +850,7 @@
         d.footprints += chapterDone ? this.PAY.chapter : this.PAY.board;
         Store.save();
       } else {
-        // 되새김 판·속담 마당도 마치면 조금 드립니다
+        // 해운대 마실도 마치면 조금 드립니다
         d.footprints += this.PAY.corner;
         Store.save();
       }
@@ -877,7 +864,7 @@
         h('div', { class: 'burst' }, global.UI.dogEl('신남', 104)),
         h('div', { class: 'big' }, chapterDone ? '마실 하나를 다 걸었어요!' : '산책을 마쳤어요!'),
         h('p', { class: 'muted', style: 'word-break:keep-all' },
-          this.reviewOnly ? `${H.withParticle(d.pet.name, '과/와')} 함께 되새겼어요.` : `${H.withParticle(d.pet.name, '이/가')} 날개를 파닥여요.`)));
+          this.reviewOnly ? `${H.withParticle(d.pet.name, '과/와')} 함께 해운대를 거닐었어요.` : `${H.withParticle(d.pet.name, '이/가')} 날개를 파닥여요.`)));
 
       v.appendChild(h('div', { class: 'card center' },
         h('div', { class: 'muted small' }, '오늘 받은 발자국'),

@@ -153,8 +153,7 @@
     CROSSWORD: -160,  // 글자가 모두 주어지고 서로 물려 있어 단서가 됨
     CHOSEONG: -280,  // 첫소리와 뜻이 함께 주어지고 넷 중 고르기 (사자성어 전용)
     IDIOM_BLANK: -240,  // 한 글자만 고르면 됨
-    PROVERB_MATCH: -200,  // 앞구절이 주어짐 (속담 마당 전용)
-    REVIEW_MIX: -120
+    PROVERB_MATCH: -200   // 앞구절이 주어짐 (속담 마당 전용)
   };
 
   const Ability = {
@@ -264,30 +263,25 @@
   /* 뜻이나 낱말을 넷 중에서 고르는 문제는 모두 없앴습니다.
      가로세로 낱말에서 이미 낱말을 충분히 익히므로 지루하기만 합니다.
      사자성어는 판 안에 섞여 나오고, 속담만 마당에 한 번씩 두 문항 들어갑니다. */
-  const MODES = ['CROSSWORD', 'REVIEW_MIX', 'PROVERB_MATCH'];
+  const MODES = ['CROSSWORD', 'PROVERB_MATCH'];
   const MODE_NAME = {
-    CROSSWORD: '가로세로 낱말', PROVERB_MATCH: '해운대 퀴즈', REVIEW_MIX: '되새김 판'
+    CROSSWORD: '가로세로 낱말', PROVERB_MATCH: '해운대 퀴즈'
   };
   const MODE_GUIDE = {
     CROSSWORD: '퍼즐판 아래 글자 버튼을 누르면 빈 칸이 채워져요.',
-    PROVERB_MATCH: '해운대 이야기의 빈칸을 맞혀 보세요.',
-    REVIEW_MIX: '지난번에 만난 낱말로 판을 짰어요. 다시 만나 볼까요?'
+    PROVERB_MATCH: '해운대 이야기의 빈칸을 맞혀 보세요.'
   };
 
-  /** 마당(10걸음) 안 위치별 모드 — 열 걸음 중 여덟이 낱말 판입니다 */
+  /** 마당(10걸음) 안 위치별 모드 — 산책은 모두 십자말 판입니다 */
   /**
    * 산책에서는 십자말 판만 냅니다.
    *
-   * 예전에는 다섯 번째 판을 속담 잇기로 바꿔 쉬어 가게 했는데,
-   * 산책을 하다 갑자기 고르는 문제가 나오면 흐름이 끊깁니다.
-   * 속담은 「속담」 탭에서 따로 하시는 편이 낫습니다.
-   *
-   * 되새김 판은 그대로 둡니다 — 이것도 십자말이고(배운 낱말로 짠 판),
-   * 손으로 채우는 방식이 같아 흐름이 끊기지 않습니다.
+   * 예전에는 다섯 번째 판을 속담 잇기로, 일곱 번째 판을 '되새김 판'으로
+   * 바꿔 쉬어 가게 했는데, 산책 도중 다른 판이 끼어들면 흐름이 끊깁니다.
+   * 이제는 열 걸음을 모두 같은 십자말 판으로 이어, 해운대 이야기는
+   * 「해운대 마실」 코너에서 따로 즐기시게 했습니다.
    */
   function modeForLevel(level, rng) {
-    const pos = ((level - 1) % 10) + 1;
-    if (pos === 7) return 'REVIEW_MIX';      // 배운 낱말로 짠 판 (역시 십자말)
     return 'CROSSWORD';
   }
 
@@ -410,7 +404,6 @@
       switch (mode) {
         case 'CROSSWORD': return this.crossword(rng, bTarget, due, targetP, level, store);
         case 'PROVERB_MATCH': return this.proverb(rng, bTarget, due);   // 두 문항
-        case 'REVIEW_MIX': return this.review(rng, bTarget, due, store, targetP, level);
         default: return [];
       }
     },
@@ -560,39 +553,6 @@
         seen.add(p.back); wrongs.push(p.back);
       }
       return shuffled(rng, [e.back, ...wrongs]).map(t => ({ text: t, correct: t === e.back }));
-    },
-
-    /* ── 되새김 판 ──
-       예전에는 배운 낱말의 뜻을 묻는 퀴즈였지만,
-       쉬운 낱말을 다시 묻는 것은 지루합니다.
-       이제는 '배운 낱말로 짠 십자말 판'을 드립니다.
-       똑같이 되새기면서도 손으로 채우는 재미가 있습니다. */
-    review(rng, bTarget, due, store, targetP, level) {
-      const ok = e => store.memory[e.id] && (e.type === 'WORD' || e.type === 'IDIOM') && e.len >= 2 && e.len <= 4;
-      // 되새김이라고 난이도 밴드를 깨면 안 됩니다.
-      // 배운 낱말 가운데 지금 실력에 맞는 것부터 씁니다.
-      let learned = DB.entries.filter(e => ok(e) && Math.abs(e.difficulty - bTarget) <= 300);
-      if (learned.length < 80) {
-        learned = DB.entries.filter(ok)
-          .sort((a, b) => Math.abs(a.difficulty - bTarget) - Math.abs(b.difficulty - bTarget))
-          .slice(0, 150);
-      }
-      const pool = learned.length >= 60 ? learned : null;
-
-      if (pool) {
-        const spec = gridSpec(targetP || 0.8, level);
-        const grid = global.Crossword.buildBest(rng, pool, { words: spec.words, maxW: 7, maxH: 15 });
-        if (grid && grid.words.length >= 3) {
-          // 미리 채울 칸 수는 판이 실제로 몇 칸인지 보고 정합니다
-      const cellCount = Object.keys(grid.letters).length;
-      const prefilled = global.Crossword.pickPrefilled(rng, grid, Math.round(cellCount * spec.fill));
-          const tray = global.Crossword.makeTray(rng, grid, prefilled, spec.decoys);
-          const entries = grid.words.map(w => DB.byId[w.entryId]).filter(Boolean);
-          return [{ kind: 'crossword', grid, tray, prefilled: [...prefilled], entries, entry: entries[0], review: true }];
-        }
-      }
-      // 아직 배운 낱말이 적으면 평범한 판으로 대신합니다
-      return this.crossword(rng, bTarget, due, targetP, level);
     },
 
     /** 오답 보기 만들기 — 혼동어 우선 (§3.2) */
