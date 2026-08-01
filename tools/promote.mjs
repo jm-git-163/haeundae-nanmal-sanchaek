@@ -142,7 +142,18 @@ const main = async () => {
     return true;   // 공식 기관이 구민에게 알리려고 올린 글이다 — 기본은 싣는다
   });
 
-  const CUTOFF = new Date(Date.now() - 730 * 864e5).toISOString().slice(0, 10);   // 2년
+  // 철 지난 소식이 쌓이지 않게 '최근 것 + 아직 안 끝난 행사'만 싣습니다.
+  const KST = new Date(Date.now() + 9 * 3600 * 1000);
+  const TODAY = KST.toISOString().slice(0, 10);
+  const RECENT_DAYS = 45;                                       // 최근 45일 이내 게시물만
+  const CUTOFF = new Date(KST.getTime() - RECENT_DAYS * 864e5).toISOString().slice(0, 10);
+  // 제목의 'A ~ B' 날짜 범위에서 끝 날짜가 오늘보다 이전이면 '이미 끝난 행사'로 봅니다.
+  const eventEnded = (title) => {
+    const m = String(title).match(/(20\d{2})[.\-\/](\d{1,2})[.\-\/](\d{1,2})\s*[~∼]\s*(?:(20\d{2})[.\-\/])?(\d{1,2})[.\-\/](\d{1,2})/);
+    if (!m) return false;
+    const ey = m[4] || m[1];
+    return `${ey}-${String(m[5]).padStart(2, '0')}-${String(m[6]).padStart(2, '0')}` < TODAY;
+  };
 
   // AI 쉬운말 변환(tools/ai_simplify.mjs)은 여기서 만드는 목록과 별개로 나중에 얹힙니다.
   // 매번 목록을 새로 짜면서 그 결과를 잊어버리면, 애써 돈 값을 치르고 받은 변환이
@@ -154,7 +165,7 @@ const main = async () => {
 
   const seen = new Set();
   const freshNotices = passed.map(toNotice)
-    .filter(n => n.title && n.date && n.date >= CUTOFF)
+    .filter(n => n.title && n.date && n.date >= CUTOFF && !eventEnded(n.title))
     // 같은 제목이라도 기관이 다르면 다른 글입니다.
     // 제목만으로 지우면 '공지사항' 같은 흔한 이름의 글이 통째로 사라집니다.
     .filter(n => { const k = n.source + '|' + n.title.replace(/\s/g, '');
@@ -178,7 +189,8 @@ const main = async () => {
   const carried = (feed.notices || []).filter(n =>
     n.auto &&
     !freshKeys.has(n.source + '|' + n.title.replace(/\s/g, '')) &&
-    n.verified >= carryCutoff
+    n.verified >= carryCutoff &&
+    n.date >= CUTOFF && !eventEnded(n.title)          // 이어 붙이더라도 철 지난 건 빼기
   );
 
   // 같은 사업 공고를 부서 전용 게시판과 '구청 공지사항' 같은 통합 게시판에

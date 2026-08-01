@@ -885,10 +885,28 @@
       const api = this._festivalNotices || [];   // 부산축제정보 OpenAPI에서 받아 온 행사 소식
       const t = new Date();
       const ymd = t.getFullYear() + '-' + String(t.getMonth() + 1).padStart(2, '0') + '-' + String(t.getDate()).padStart(2, '0');
+      // 오래된 소식이 쌓여 보이지 않게 '최근 45일 이내(또는 손으로 정리한 상시 안내)'만,
+      // 이미 끝난 행사·마감 지난 것은 빼고 최신순으로 보여 드립니다.
+      const RECENT_DAYS = 45;
+      const lo = new Date(t.getTime() - RECENT_DAYS * 864e5);
+      const loYmd = lo.getFullYear() + '-' + String(lo.getMonth() + 1).padStart(2, '0') + '-' + String(lo.getDate()).padStart(2, '0');
+      const eventEnded = (title) => {
+        const m = String(title).match(/(20\d{2})[.\-\/](\d{1,2})[.\-\/](\d{1,2})\s*[~∼]\s*(?:(20\d{2})[.\-\/])?(\d{1,2})[.\-\/](\d{1,2})/);
+        if (!m) return false;
+        const ey = m[4] || m[1];
+        return (ey + '-' + String(m[5]).padStart(2, '0') + '-' + String(m[6]).padStart(2, '0')) < ymd;
+      };
       const seen = new Set();
       return stat.concat(api)
         .filter(n => n && n.title && !seen.has(n.title) && seen.add(n.title))   // 같은 제목 중복 제거
-        .filter(n => (!n.date || n.date <= ymd) && (!n.until || n.until >= ymd))
+        .filter(n => {
+          if (n.until && n.until < ymd) return false;        // 마감 지난 것
+          if (eventEnded(n.title)) return false;             // 이미 끝난 행사
+          if (!n.auto) return true;                          // 손으로 정리한 상시 안내는 항상
+          if (!n.date) return true;
+          if (n.date > ymd) return false;                    // 아직 안 올라온(미래) 자동글은 숨김
+          return n.date >= loYmd;                            // 최근 N일 이내만
+        })
         .sort((a, b) => String(b.date || '').localeCompare(String(a.date || '')));
     },
 
