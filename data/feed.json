@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-09-08",
+    "lastUpdated": "2026-09-09",
     "note": "이 파일은 tools/build_feed.mjs 파이프라인이 공식 소스에서 수집·가공·검수하여 갱신합니다. 앱은 이 파일을 실시간으로 받아 화면에 올립니다.",
     "sources": [
       "해운대구청 공지사항",
@@ -28,9 +28,9 @@
       "부산정보산업진흥원 공지사항",
       "부산콘텐츠코리아랩 공지사항"
     ],
-    "autoCount": 391,
+    "autoCount": 415,
     "orgCount": 25,
-    "noticeCount": 391
+    "noticeCount": 415
   },
   "notices": [
     {
@@ -40,7 +40,7 @@
       "source": "해운대종합사회복지관",
       "sourceUrl": "http://haeundae.saem.or.kr/community/news1.php?mode=read&page=1&number=2852&keyfield=&key=",
       "date": "2026-12-03",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "audience": [
         "senior",
@@ -74,7 +74,7 @@
       "source": "해운대종합사회복지관",
       "sourceUrl": "http://haeundae.saem.or.kr/community/news1.php?mode=read&page=5&number=2799&keyfield=&key=",
       "date": "2026-11-30",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "audience": [
         "senior",
@@ -85,13 +85,32 @@
       "aiSimplified": "2026년 신중년 일자리 지원사업에 참여할 분을 추가로 모집하니 많은 관심 부탁드립니다."
     },
     {
+      "cat": "문화",
+      "title": "함께 달린 시간 : 우리 곁의 말 이야기 2026-09-22 ~ 2026-11-22",
+      "body": "1) 전 시 명: 2) 전시기간: 2026.9.22.(화)~11.22.(일) [총 62일간] 3) 전시장소: 복천박물관 기획전시실 4) 전시내용: 복천동고분군을 중심으로 한반도 말 문화의 역사적 변천 및 인간과 말의 관계에 담긴 시대별 상징과 그 의미를 조명…",
+      "source": "비지트부산 축제·행사",
+      "sourceUrl": "https://www.visitbusan.net/schedule/view.do?boardId=BBS_0000009&menuCd=DOM_000000204012000000&dataSid=6357",
+      "date": "2026-09-22",
+      "verified": "2026-09-09",
+      "auto": true,
+      "imageUrl": "https://www.visitbusan.net/upload_data/board_data/BBS_0000009/178885893568294.jpg",
+      "audience": [
+        "tourist",
+        "resident",
+        "senior"
+      ],
+      "useful": true,
+      "aiSimplified": "2026년 9월 22일부터 11월 22일까지 복천박물관에서 '우리 곁의 말 이야기' 전시가 열립니다. 이 전시는 한반도 말 문화의 역사와 인간과 말의 관계를 다룹니다.",
+      "aiSimplifiedAt": "2026-09-08"
+    },
+    {
       "cat": "관광",
       "title": "세븐브릿지 투어 라이딩 인 부산 2026-09-20 ~ 2026-09-20",
       "body": "세븐브릿지 투어 라이딩 인 부산 - 일 시 : 2026.9.20.(일) 06:30~11:30 - 장 소 : 부산시 주요 교량(도로) 및 경관 명소 등 - 참가규모 : 5,000여명(사이클 투어 4,000명, 부대행사 1,000명) - 프로그램 : 사이클 투어(본행사) 및 시민참여 부대행사* * 보행개방, 자전거 안전 교실…",
       "source": "비지트부산 축제·행사",
       "sourceUrl": "https://www.visitbusan.net/schedule/view.do?boardId=BBS_0000009&menuCd=DOM_000000204012000000&dataSid=5767",
       "date": "2026-09-20",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "https://www.visitbusan.net/upload_data/board_data/BBS_0000009/178521675264208.jpg",
       "audience": [
@@ -109,7 +128,7 @@
       "source": "부산시립미술관 새소식",
       "sourceUrl": "https://art.busan.go.kr/tblTsite07Bbs/viewNewsClient.nm?idx=2356",
       "date": "2026-09-17",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "audience": [
         "senior",
@@ -126,7 +145,7 @@
       "source": "해운대종합사회복지관",
       "sourceUrl": "http://haeundae.saem.or.kr/community/news1.php?mode=read&page=1&number=2851&keyfield=&key=",
       "date": "2026-09-15",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "audience": [
         "senior",
@@ -143,7 +162,7 @@
       "source": "비지트부산 축제·행사",
       "sourceUrl": "https://www.visitbusan.net/schedule/view.do?boardId=BBS_0000009&menuCd=DOM_000000204012000000&dataSid=6344",
       "date": "2026-09-12",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "https://www.visitbusan.net/upload_data/board_data/BBS_0000009/178778983422944.jpg",
       "audience": [
@@ -161,7 +180,7 @@
       "source": "비지트부산 축제·행사",
       "sourceUrl": "https://www.visitbusan.net/schedule/view.do?boardId=BBS_0000009&menuCd=DOM_000000204012000000&dataSid=6346",
       "date": "2026-09-12",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "https://www.visitbusan.net/upload_data/board_data/BBS_0000009/178822985149818.jpg",
       "audience": [
@@ -173,13 +192,83 @@
       "aiSimplified": "2026년 9월 12일부터 9월 26일까지 광복로에서 발코니 뮤직쇼가 열립니다."
     },
     {
+      "cat": "문화",
+      "title": "2026 부산캣쇼",
+      "body": "기간: 2026.09.11 ~ 2026.09.13 · 시간: 10시 ~ 18시 · 장소: 제2전시장 4(A-C)홀 · 주최: (주)KNN / (주)미래전람 · 관람료: ①사전등록(~2026.9.10(목)까지) : 무료②사전등록(2026.9.11(금)부터) : 5,000원③일반 : 7,000원 · 2026 부산캣쇼(9.11…",
+      "source": "벡스코 행사일정",
+      "sourceUrl": "https://www.bexco.co.kr/kor/CMS/EventScheduleMgr/view.do?mCode=MN214&&event_seq=15778",
+      "date": "2026-09-11",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "senior",
+        "resident",
+        "tourist"
+      ],
+      "useful": true,
+      "aiSimplified": "2026 부산캣쇼는 2026년 9월 11일부터 9월 13일까지 제2전시장 4(A-C)홀에서 열리며, 사전등록을 하시면 무료로 관람하실 수 있습니다.",
+      "aiSimplifiedAt": "2026-09-08"
+    },
+    {
+      "cat": "문화",
+      "title": "2026 W웨딩박람회",
+      "body": "기간: 2026.09.11 ~ 2026.09.13 · 장소: 제2전시장 4F홀 · 주최: 더블유웨딩 · 관람료: 사전등록시 무료…",
+      "source": "벡스코 행사일정",
+      "sourceUrl": "https://www.bexco.co.kr/kor/CMS/EventScheduleMgr/view.do?mCode=MN214&&event_seq=16306",
+      "date": "2026-09-11",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "senior",
+        "resident",
+        "tourist"
+      ],
+      "useful": true,
+      "aiSimplified": "2026 W웨딩박람회는 2026년 9월 11일부터 9월 13일까지 제2전시장 4F홀에서 열리며, 더블유웨딩이 주최하고 사전등록하시면 무료로 관람하실 수 있습니다.",
+      "aiSimplifiedAt": "2026-09-08"
+    },
+    {
+      "cat": "생활",
+      "title": "2026 데이터센터 테크 서밋 부산",
+      "body": "기간: 2026.09.11 ~ 2026.09.11 · 시간: 07시 ~ 19시 · 장소: 제1회의실 314-315호 · 주최: (재)부산정보산업진흥원…",
+      "source": "벡스코 행사일정",
+      "sourceUrl": "https://www.bexco.co.kr/kor/CMS/EventScheduleMgr/view.do?mCode=MN214&&event_seq=16614",
+      "date": "2026-09-11",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "senior",
+        "resident",
+        "tourist"
+      ],
+      "aiSimplified": "2026년 9월 11일에 오전 7시부터 오후 7시까지 제1회의실 314-315호에서 '2026 데이터센터 테크 서밋 부산' 행사가 열립니다.",
+      "aiSimplifiedAt": "2026-09-08"
+    },
+    {
+      "cat": "생활",
+      "title": "26년도 호남영남권 AI확산 기술교류회",
+      "body": "기간: 2026.09.11 ~ 2026.09.11 · 시간: 13시 ~ 18시 · 장소: 제1회의실 316-317호 · 주최: (사)캠틱종합기술원…",
+      "source": "벡스코 행사일정",
+      "sourceUrl": "https://www.bexco.co.kr/kor/CMS/EventScheduleMgr/view.do?mCode=MN214&&event_seq=16615",
+      "date": "2026-09-11",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "senior",
+        "resident",
+        "tourist"
+      ],
+      "aiSimplified": "2026년 9월 11일 오후 1시부터 6시까지 제1회의실 316-317호에서 (사)캠틱종합기술원이 주최하는 호남영남권 AI확산 기술교류회가 열립니다.",
+      "aiSimplifiedAt": "2026-09-08"
+    },
+    {
       "cat": "교통",
       "title": "2026 한국교통정책경제학회 추계학술대회",
       "body": "기간: 2026.09.10 ~ 2026.09.11 · 장소: 제2전시장 321-326호 · 주최: (사)한국교통정책경제학회 · 교통, 정책, 경제 분야 특별세션 개회 및 학술 논문 발표…",
       "source": "벡스코 행사일정",
       "sourceUrl": "https://www.bexco.co.kr/kor/CMS/EventScheduleMgr/view.do?mCode=MN214&&event_seq=16579",
       "date": "2026-09-10",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "audience": [
         "senior",
@@ -196,7 +285,7 @@
       "source": "벡스코 행사일정",
       "sourceUrl": "https://www.bexco.co.kr/kor/CMS/EventScheduleMgr/view.do?mCode=MN214&&event_seq=16613",
       "date": "2026-09-10",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "audience": [
         "senior",
@@ -212,15 +301,96 @@
       "source": "벡스코 행사일정",
       "sourceUrl": "https://www.bexco.co.kr/kor/CMS/EventScheduleMgr/view.do?mCode=MN214&&event_seq=16636",
       "date": "2026-09-10",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "audience": [
         "senior",
         "resident",
         "tourist"
       ],
-      "aiSimplified": "2026년 9월 10일 오후 2시부터 4시까지 제2회의실 124호에서 부산경영자협회 주최로 워라밸+4.5 프로젝트 참여기업 담당자 간담회가 열립니다.",
-      "aiSimplifiedAt": "2026-09-07"
+      "aiSimplified": "2026년 9월 10일 오후 2시부터 4시까지 제2회의실 124호에서 부산경영자협회 주최로 워라밸+4.5 프로젝트 참여기업 담당자 간담회가 열립니다."
+    },
+    {
+      "cat": "교통",
+      "title": "2026년 한국교통정책경제학회 추계학술대회",
+      "body": "기간: 2026.09.10 ~ 2026.09.11 · 장소: 제2회의실 3층 전체 · 주최: (사)한국교통정책경제학회…",
+      "source": "벡스코 행사일정",
+      "sourceUrl": "https://www.bexco.co.kr/kor/CMS/EventScheduleMgr/view.do?mCode=MN214&&event_seq=16637",
+      "date": "2026-09-10",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "senior",
+        "resident",
+        "tourist"
+      ],
+      "useful": true,
+      "aiSimplified": "2026년 9월 10일부터 11일까지 제2회의실 3층에서 한국교통정책경제학회에서 학술대회가 열립니다.",
+      "aiSimplifiedAt": "2026-09-08"
+    },
+    {
+      "cat": "교통",
+      "title": "도로의 사용개시 공고(광로3-1 외 3개노선)",
+      "body": "내용 도로 사용개시 공고 도로법 제39조(도로의 사용개시 및 폐지) 및 동법 시행규칙 14조(도로의 사용 개시 및 폐지의 공고)의 규정에 따라 도로의 사용개시를 다음과 같이 공고합니다. 2026. 9. 9. 부 산 광 역 시 장 1. 도로의 종류 : 도시계획도로 2. 노선번호⋅노선명 : 광(주)로 3-1호선 외 3개 노선…",
+      "source": "부산광역시 고시공고",
+      "sourceUrl": "https://www.busan.go.kr/nbgosi/view?sno=79417&gosiGbn=A&curPage=1",
+      "date": "2026-09-09",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "aiSimplified": "2026년 9월 9일부터 부산의 도시계획도로인 광(주)로 3-1호선 등 3개 노선이 사용될 예정입니다.",
+      "aiSimplifiedAt": "2026-09-08"
+    },
+    {
+      "cat": "생활",
+      "title": "도시관리계획(에덴유원지 조성계획) 변경결정 및 지형도면 고시",
+      "body": "내용 부산광역시 고시 제2026-316호 도시관리계획(에덴유원지 조성계획) 변경결정 및 지형도면 고시 부산광역시 도시관리계획을「국토의 계획 및 이용에 관한 법률」제30조, 제32조 및 같은법 시행령 제25조 및 토지이용규제기본법 제8조 제2항에 따라 아래와 같이 도시관리계획 변경결정과 동시에 지형도면을 작성하여 고시합니다…",
+      "source": "부산광역시 고시공고",
+      "sourceUrl": "https://www.busan.go.kr/nbgosi/view?sno=79471&gosiGbn=N&curPage=1",
+      "date": "2026-09-09",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "aiSimplified": "부산광역시에서 에덴유원지 조성계획을 변경하고, 그에 따른 지형도면을 발표했습니다.",
+      "aiSimplifiedAt": "2026-09-08"
+    },
+    {
+      "cat": "생활",
+      "title": "서부산스마트밸리(기존단지) 관리기본계획 변경 고시",
+      "body": "고시공고 법령 등에 따라 공보에 게재하는 고시공고 사항은 「부산시보 고시공고」 메뉴에서 열람하실 수 있습니다. ☞ 부산시보(고시공고) 바로가기 입법예고는 자치법규정보시스템에서도 확인하실 수 있습니다. ☞ 자치법규정보시스템 바로가기…",
+      "source": "부산광역시 고시공고",
+      "sourceUrl": "https://www.busan.go.kr/nbgosi/view?sno=79462&gosiGbn=N&curPage=1",
+      "date": "2026-09-09",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "aiSimplified": "서부산스마트밸리 관리기본계획 변경에 대한 내용은 부산시보 고시공고 메뉴에서 확인하실 수 있습니다.",
+      "aiSimplifiedAt": "2026-09-08"
+    },
+    {
+      "cat": "환경",
+      "title": "하천점용허가고시",
+      "body": "내용 부산광역시 고시 제2026-309호 하 천 점 용 허 가 고 시 하천법 제33조 제7항 및 동법 시행령 제38조의 규정에 의거 하천부지 점용 허가사항에 대하여 다음과 같이 고시합니다. 2026. 9. 9. 부 산 광 역 시 장 1. 하천 명칭 : 낙동강(국가하천) 2. 피허가자 : 부산광역시 강서구청장(경제진흥과) …",
+      "source": "부산광역시 고시공고",
+      "sourceUrl": "https://www.busan.go.kr/nbgosi/view?sno=79435&gosiGbn=N&curPage=2",
+      "date": "2026-09-09",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "useful": true,
+      "aiSimplified": "부산광역시에서 낙동강의 하천부지 점용 허가에 대한 내용을 2026년 9월 2일에 발표했습니다."
     },
     {
       "cat": "교통",
@@ -229,7 +399,7 @@
       "source": "벡스코 행사일정",
       "sourceUrl": "https://www.bexco.co.kr/kor/CMS/EventScheduleMgr/view.do?mCode=MN214&&event_seq=15776",
       "date": "2026-09-09",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "audience": [
         "senior",
@@ -246,7 +416,7 @@
       "source": "벡스코 행사일정",
       "sourceUrl": "https://www.bexco.co.kr/kor/CMS/EventScheduleMgr/view.do?mCode=MN214&&event_seq=15777",
       "date": "2026-09-09",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "audience": [
         "senior",
@@ -263,7 +433,7 @@
       "source": "벡스코 행사일정",
       "sourceUrl": "https://www.bexco.co.kr/kor/CMS/EventScheduleMgr/view.do?mCode=MN214&&event_seq=16606",
       "date": "2026-09-09",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "audience": [
         "senior",
@@ -279,7 +449,7 @@
       "source": "벡스코 행사일정",
       "sourceUrl": "https://www.bexco.co.kr/kor/CMS/EventScheduleMgr/view.do?mCode=MN214&&event_seq=16634",
       "date": "2026-09-09",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "audience": [
         "senior",
@@ -296,7 +466,7 @@
       "source": "벡스코 행사일정",
       "sourceUrl": "https://www.bexco.co.kr/kor/CMS/EventScheduleMgr/view.do?mCode=MN214&&event_seq=16635",
       "date": "2026-09-09",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "audience": [
         "senior",
@@ -307,21 +477,1047 @@
       "aiSimplified": "2026년 9월 9일에 오후 1시부터 6시까지 제2회의실 124호에서 (주)케이스탯리서치가 사업설명회를 엽니다."
     },
     {
-      "cat": "복지",
-      "title": "2026년 부산광역시 장애인 평생교육이용권 신청접수(3차) 공고",
-      "body": "내용 1. 평생교육을 통해 장애인들의 자기계발 및 자아실현을 지원하기 위한 ‘2026년 부산광역시 장애인 평생교육이용권’을 아래와 같이 공고합니다. 2. 게시내용 가. 지원개요 ○ 지원대상 : 부산광역시에 거주하는 19세 이상 등록 장애인 ○ 지원규모 : 108명(단, 사용현황에 따라 선정 규모 조정 가능) ○ 지원내용 …",
-      "source": "부산광역시 고시공고",
-      "sourceUrl": "https://www.busan.go.kr/nbgosi/view?sno=79483&gosiGbn=A&curPage=1",
+      "cat": "교육",
+      "title": "2026 하반기 해운대별밤학교 수강생 모집",
+      "body": "하루를 마무리하는 가장 빛 나는 시간 퇴근 후 나를 위한 특별한 배움이 시작됩니다 . 직장인과 해운대구민을 위한 2026 하반기 해운대 별밤학교가 열립니다 미술 · 공예부터 제과제빵, 자기계발, 인문교양, 건강 · 미용까지 60여 개의 다양한 강좌를 만나보세요.​ ​ ​ - 운영기간 : 2026.10.2.~11.26. -…",
+      "source": "해운대구청 공지사항",
+      "sourceUrl": "https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000038&menuCd=DOM_000000104001001000&paging=ok&startPage=1&dataSid=3173500",
       "date": "2026-09-08",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
+      "auto": true,
+      "imageUrl": "https://www.haeundae.go.kr/upload_data/board_data/BBS_0000038/178884710235196.jpg",
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "useful": true,
+      "aiSimplified": "2026 하반기 해운대별밤학교에서 직장인과 해운대구민을 위해 미술, 공예, 제과제빵 등 60여 개 강좌를 운영합니다. 운영기간은 2026년 10월 2일부터 11월 26일까지입니다.",
+      "aiSimplifiedAt": "2026-09-08"
+    },
+    {
+      "cat": "문화",
+      "title": "문화가 있는 날 두배로데이 확대 운영(매주 수요일)",
+      "body": "독서마당 독서교실 독서토론회 독서토론회 독서토론회 게시판 독서문화행사 도서관의 날 · 도서관주간 및 독서의 달 부산시민독후감공모 범시민독후감 원북원부산독후감 신착·추천자료 신착도서 우리가 뽑은 이달의 책 월별 선정도서 역대 이달의 책(2011-2024) 추천 도서 외부기관권장도서 원북원부산 독서퀴즈 어린이독서퀴즈 영어독서…",
+      "source": "해운대도서관 독서문화행사",
+      "sourceUrl": "https://home.pen.go.kr/haeundaelib/na/ntt/selectNttInfo.do?mi=11228&bbsId=3475&nttSn=993918",
+      "date": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "audience": [
         "senior",
         "resident"
       ],
       "useful": true,
-      "aiSimplified": "2026년 부산광역시에서 19세 이상 등록 장애인을 위한 평생교육이용권 신청을 받습니다. 지원 인원은 108명이며, 사용 상황에 따라 조정될 수 있습니다.",
-      "aiSimplifiedAt": "2026-09-07"
+      "aiSimplified": "매주 수요일에 문화가 있는 날 두배로데이를 운영합니다."
+    },
+    {
+      "cat": "복지",
+      "title": "2026년 부산광역시 장애인 평생교육이용권 신청접수(3차) 공고",
+      "body": "내용 1. 평생교육을 통해 장애인들의 자기계발 및 자아실현을 지원하기 위한 ‘2026년 부산광역시 장애인 평생교육이용권’을 아래와 같이 공고합니다. 2. 게시내용 가. 지원개요 ○ 지원대상 : 부산광역시에 거주하는 19세 이상 등록 장애인 ○ 지원규모 : 108명(단, 사용현황에 따라 선정 규모 조정 가능) ○ 지원내용 …",
+      "source": "부산광역시 고시공고",
+      "sourceUrl": "https://www.busan.go.kr/nbgosi/view?sno=79483&gosiGbn=A&curPage=3",
+      "date": "2026-09-08",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "useful": true,
+      "aiSimplified": "2026년 부산광역시에서 19세 이상 등록 장애인을 위한 평생교육이용권 신청을 받습니다. 지원 인원은 108명이며, 사용 상황에 따라 조정될 수 있습니다."
+    },
+    {
+      "cat": "교육",
+      "title": "2026년 부산광역시 평생교육이용권(3차) 신청 접수 공고",
+      "body": "내용 부산광역시에서 경제적 여건에 따른 교육격차를 완화하고, 저소득층 등 성인의 자기계발 및 자아실현을 지원하기 위한 2026년 부산광역시 평생교육이용권(3차) 신청접수를 다음과 같이 공고합니다. 1. 지원개요 ○ 지원규모 : 734명 ○ 지원내용 : 평생교육강좌 수강료 및 해당 강좌 수강에 필요한 교재비에 사용가능한 평…",
+      "source": "부산광역시 고시공고",
+      "sourceUrl": "https://www.busan.go.kr/nbgosi/view?sno=79480&gosiGbn=A&curPage=3",
+      "date": "2026-09-08",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "for65": true,
+      "useful": true,
+      "aiSimplified": "2026년 부산광역시에서 저소득층 어르신을 위해 평생교육이용권(3차) 신청을 받습니다. 지원은 734명이며, 교육비와 교재비에 사용할 수 있습니다.",
+      "aiSimplifiedAt": "2026-09-08"
+    },
+    {
+      "cat": "안전",
+      "title": "우천 시 관람객 안전 유의사항(Visitor Safety Notice in Wet Weather)",
+      "body": "우천 시 이우환공간 진입로가 미끄러울 수 있으니, 방문객 여러분께서는 이동 시 안전에 각별히 유의하여 주시기 바랍니다. 특히 자갈길 및 경사진 구간에서는 천천히 이동해 주시고, 우산 사용 시 주변 관람객과 시설물에 유의하여 주시기 바랍니다. 강우량이 많거나 기상 상황이 좋지 않은 경우 관람객의 안전을 위해 일부 이동 동선…",
+      "source": "부산시립미술관 새소식",
+      "sourceUrl": "https://art.busan.go.kr/tblTsite07Bbs/viewNewsClient.nm?idx=2363",
+      "date": "2026-09-08",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "senior",
+        "resident",
+        "tourist"
+      ],
+      "useful": true,
+      "aiSimplified": "비 오는 날에는 이우환공간 길이 미끄러울 수 있으니, 조심해서 이동해 주시고, 특히 자갈길과 경사가 있는 곳에서는 천천히 걸어 주시기 바랍니다. 우산을 사용할 때는 주변 사람들과 시설물에 주의해 주세요."
+    },
+    {
+      "cat": "행사",
+      "title": "재개관 특별전 프로젝트 작업〈퍼포먼스 리뷰〉어시스턴트 모집",
+      "body": "부산시립미술관 재개관 특별전 《퓨처 뮤지올로지 Future Museology 》에서 참여작가 요나스 룬드(Jonas Lund)의 프로젝트 작업〈퍼포먼스 리뷰 Performance Review 〉에 참여할 어시스턴트를 모집합니다. 〈퍼포먼스 리뷰〉는 인공지능 에이전트가 디렉터가 되어 예술가들을 관리하고 평가하는 시스템을 실…",
+      "source": "부산시립미술관 새소식",
+      "sourceUrl": "https://art.busan.go.kr/tblTsite07Bbs/viewNewsClient.nm?idx=2360",
+      "date": "2026-09-08",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "senior",
+        "resident",
+        "tourist"
+      ],
+      "useful": true,
+      "aiSimplified": "부산시립미술관에서 특별전 《퓨처 뮤지올로지》에 참여할 어시스턴트를 모집합니다."
+    },
+    {
+      "cat": "문화",
+      "title": "2026년 부산시립미술관 도슨트 1차 서류심사 합격자 및 2차 심사 안내",
+      "body": "부산시립미술관 「 2026 년 부산시립미술관 도슨트 모집 」 1 차 서류심사 합격자 및 2 차 면접 &middot; 작품해설 시연 일정을 안내드립니다 . 1 차 서류심사 합격자 명단 및 2 차 심사 세부일정은 첨부된 공고문을 확인해 주시기 바랍니다 . ○ 작 품해설 시연 대상 작품 ① 방정아 , 〈 The Hall 〉 ,…",
+      "source": "부산시립미술관 새소식",
+      "sourceUrl": "https://art.busan.go.kr/tblTsite07Bbs/viewNewsClient.nm?idx=2359",
+      "date": "2026-09-08",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "senior",
+        "resident",
+        "tourist"
+      ],
+      "aiSimplified": "2026년 부산시립미술관 도슨트 1차 서류심사에 합격하신 분들과 2차 면접 및 작품해설 시연 일정에 대해 안내드립니다. 자세한 내용은 첨부된 공고문을 확인해 주시기 바랍니다."
+    },
+    {
+      "cat": "문화",
+      "title": "2025년도 소장품 수집 공고",
+      "body": "부산시립미술관 공고 제 2025-5 호 공 고 부 산시립미술관은 우수한 소장품 확보를 위하여 2025 년도 작품 구입 계획을 다음과 같이 공고합니다 . 역량 있는 국내외작가 , 개인 소장가 , 화랑 관계자 여러분의 많은 참여를 바랍니다 . 2025 년 6 월 25 일 부산시립미술관장 1. 구입 대상 작품 ○ 뉴미디 어 단…",
+      "source": "부산시립미술관 새소식",
+      "sourceUrl": "https://art.busan.go.kr/tblTsite07Bbs/viewNewsClient.nm?idx=2276",
+      "date": "2026-09-08",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "senior",
+        "resident",
+        "tourist"
+      ],
+      "useful": true,
+      "aiSimplified": "부산시립미술관에서 2025년도에 좋은 작품을 사기 위해 작품을 모집합니다. 많은 참여 부탁드립니다."
+    },
+    {
+      "cat": "복지",
+      "title": "[모집]2026 영유아기 발달장애인 부모교육지원사업 부모다움 참여자 모집",
+      "body": "- 내용: 꽃으로 채우는 힐링교육, 건강한 디저트 만들기, 나를 돌보는 색의 하루(백드롭페인팅), 힐링우드 클래스(다과상 만들기), 찾아가는 부모코칭 등…",
+      "source": "해운대종합사회복지관",
+      "sourceUrl": "http://haeundae.saem.or.kr/community/news1.php?mode=read&page=1&number=2841&keyfield=&key=",
+      "date": "2026-09-08",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "useful": true,
+      "aiSimplified": "2026 영유아기 발달장애인 부모교육지원사업에 참여하실 부모님을 모집합니다. 다양한 힐링 교육과 활동이 준비되어 있습니다."
+    },
+    {
+      "cat": "교육",
+      "title": "[안내] 9·10월 사회교육프로그램 안내",
+      "body": "공지사항 게시판 읽기 [안내] 9·10월 사회교육프로그램 안내 해운대종합사회복지관의 9·10월 사회교육프로그램을 안내드립니다. 지역주민(성인) 누구나 이용 가능하며 이용 전 전화 등록 or 방문 등록 후 이용하실 수 있습니다.  예약문의 : 051-782-5005 자세한 내용은 홍보지를 참고해 주시기 바랍니다. 자 20…",
+      "source": "해운대종합사회복지관",
+      "sourceUrl": "http://haeundae.saem.or.kr/community/news1.php?mode=read&page=1&number=2840&keyfield=&key=",
+      "date": "2026-09-08",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "for65": true,
+      "useful": true,
+      "aiSimplified": "해운대종합사회복지관에서 9·10월 사회교육프로그램을 안내드리니, 성인 주민 누구나 전화나 방문으로 등록 후 이용하실 수 있습니다. 예약 문의는 051-782-5005로 해 주시기 바랍니다."
+    },
+    {
+      "cat": "복지",
+      "title": "[안내] 9월 스크린파크골프 일반이용 예약 안내",
+      "body": "공지사항 게시판 읽기 [안내] 9월 스크린파크골프 일반이용 예약 안내 해운대종합사회복지관 스크린파크골프센터의 9월 일반이용 일정을 안내드립니다. 지역주민 누구나 이용 가능하며, 이용 전 전화 예약 후 이용하실 수 있습니다. ■ 이용안내 이용시간 : 타임별 2시간 이용료 : 이용권 1장(8,000원) 이용권 판매 : 5매 …",
+      "source": "해운대종합사회복지관",
+      "sourceUrl": "http://haeundae.saem.or.kr/community/news1.php?mode=read&page=2&number=2837&keyfield=&key=",
+      "date": "2026-09-08",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "for65": true,
+      "useful": true,
+      "aiSimplified": "9월에 해운대종합사회복지관 스크린파크골프센터를 이용하시려면 전화로 예약하시고, 이용료는 8,000원입니다."
+    },
+    {
+      "cat": "교육",
+      "title": "[모집] 9월·10월 스크린 파크골프 아카데미 수강생 모집",
+      "body": "공지사항 게시판 읽기 [모집] 9월·10월 스크린 파크골프 아카데미 수강생 모집 해운대종합사회복지관 스크린파크골프센터에서는 지역주민을 대상으로 「9월·10월 스크린 파크골프 아카데미」 수강생을 모집합니다. 파크골프를 처음 접하는 입문자부터 실력 향상을 원하는 이용자까지 수준별 맞춤 교육을 제공하며, 전문 강사의 체계적인 …",
+      "source": "해운대종합사회복지관",
+      "sourceUrl": "http://haeundae.saem.or.kr/community/news1.php?mode=read&page=2&number=2836&keyfield=&key=",
+      "date": "2026-09-08",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "for65": true,
+      "useful": true,
+      "aiSimplified": "해운대종합사회복지관에서 9월과 10월에 스크린 파크골프 아카데미 수강생을 모집하니, 관심 있으신 분들은 신청해 주시기 바랍니다."
+    },
+    {
+      "cat": "교육",
+      "title": "[모집] 파크골프 아카데미 방학특강 초등학생 모집",
+      "body": "공지사항 게시판 읽기 [모집] 파크골프 아카데미 방학특강 초등학생 모집 해운대종합사회복지관에서는 여름방학을 맞아 초등학생을 대상으로 「파크골프 방학특강」을 운영합니다. 스크린파크골프의 기본 이론부터 실전 기술까지 체계적으로 배우며 건강한 여가활동과 스포츠 경험을 제공하고자 하오니 많은 관심과 참여 바랍니다. ■ 교육기간:…",
+      "source": "해운대종합사회복지관",
+      "sourceUrl": "http://haeundae.saem.or.kr/community/news1.php?mode=read&page=2&number=2833&keyfield=&key=",
+      "date": "2026-09-08",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "for65": true,
+      "useful": true,
+      "aiSimplified": "해운대종합사회복지관에서 초등학생을 위해 2026년 8월 11일(화)부터 8월 27일(목)까지 매주 화요일과 목요일에 파크골프 방학특강을 엽니다. 많은 관심과 참여 부탁드립니다."
+    },
+    {
+      "cat": "문화",
+      "title": "[모집]여송독서캠프 상상ON 스토리 캠프 참여자 모집",
+      "body": "공지사항 게시판 읽기 [모집]여송독서캠프 상상ON 스토리 캠프 참여자 모집 여름방학을 맞이하여 아이들의 디지털 문해력과 창의표현력 향상을 위한 미디어 독서 프로그램 참여자를 모집합니다. ★ 대상: 초등학생 3학년~6학년 10명 ★ 운영시간: 10시~12시(2시간) ★ 장소: 해운대종합사회복지관 ★ 참가비: 무료 ★사업기간…",
+      "source": "해운대종합사회복지관",
+      "sourceUrl": "http://haeundae.saem.or.kr/community/news1.php?mode=read&page=2&number=2832&keyfield=&key=",
+      "date": "2026-09-08",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "for65": true,
+      "useful": true,
+      "aiSimplified": "여름방학 동안 초등학생 3학년에서 6학년까지 10명을 대상으로 하는 무료 미디어 독서 프로그램에 참여할 어린이를 모집합니다."
+    },
+    {
+      "cat": "복지",
+      "title": "[공지] 해운대종합사회복지관 산책로 네이밍 공모전 수상 결과 안내",
+      "body": "공지사항 게시판 읽기 [공지] 해운대종합사회복지관 산책로 네이밍 공모전 수상 결과 안내 안녕하세요. 해운대종합사회복지관입니다. 해운대종합사회복지관 산책로 네이밍 공모전에 많은 관심과 성원을 보내주시고, 소중한 아이디어를 제안해 주신 모든 분들께 진심으로 감사드립니다. 이번 공모전에는 총 24개의 작품이 접수되었으며, 공정…",
+      "source": "해운대종합사회복지관",
+      "sourceUrl": "http://haeundae.saem.or.kr/community/news1.php?mode=read&page=3&number=2830&keyfield=&key=",
+      "date": "2026-09-08",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "for65": true,
+      "useful": true,
+      "aiSimplified": "해운대종합사회복지관에서 산책로 이름 공모전 결과를 발표했습니다. 많은 관심과 아이디어를 주신 분들께 감사드립니다."
+    },
+    {
+      "cat": "환경",
+      "title": "[공지] 제34회 청소년 가요제 홍보",
+      "body": "공지사항 게시판 읽기 [공지] 제34회 청소년 가요제 홍보 제34회 청소년 가요제 참가자 모집 해운대종합사회복지관에서는 청소년들의 문화적 재능을 발휘하고 건전한 청소년 문화를 조성하기 위해 「제34회 청소년 가요제」를 개최합니다. 노래를 좋아하는 청소년이라면 누구나 참여할 수 있으며, 솔로와 그룹 모두 참가 가능합니다. …",
+      "source": "해운대종합사회복지관",
+      "sourceUrl": "http://haeundae.saem.or.kr/community/news1.php?mode=read&page=3&number=2828&keyfield=&key=",
+      "date": "2026-09-08",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "for65": true,
+      "useful": true,
+      "aiSimplified": "해운대종합사회복지관에서 제34회 청소년 가요제를 열고, 노래를 좋아하는 청소년은 누구나 솔로 또는 그룹으로 참가할 수 있습니다."
+    },
+    {
+      "cat": "복지",
+      "title": "[모집] 해운대종합사회복지관 산책로 네이밍 공모전",
+      "body": "복지관소개 현황 연혁 직원소개 오시는길 이용자만족 서비스 헌장 사업안내 사례관리기능 서비스제공기능 지역조직화기능 부설기관 LH행복꿈터 해운대지역아동센터 해운대 푸드마켓 해운대 푸드뱅크 프로그램 여성, 일반 유아, 아동, 청소년 어르신 장애인 무료특강 후원사업 후원안내 사례 자원봉사 자원봉사 안내 사례 알림마당 공지사항 공…",
+      "source": "해운대종합사회복지관",
+      "sourceUrl": "http://haeundae.saem.or.kr/community/news1.php?mode=read&page=3&number=2822&keyfield=&key=",
+      "date": "2026-09-08",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "for65": true,
+      "useful": true,
+      "aiSimplified": "해운대종합사회복지관에서 산책로 이름을 정할 공모전을 엽니다."
+    },
+    {
+      "cat": "복지",
+      "title": "2026 영유아기 발달장애인 부모교육지원사업 부모다움 참여자 모집",
+      "body": "- 내용: 기본형 교육(부모반응성중재(RT)교육, 긍정적 행동지원, 발달장애 유아의 언어발달 교육, 정서발달 및 학습지원 활동 등), 자율형 교육(꽃으로 채우는 힐링교육, 건강한 디저트 만들기, 나를 돌보는 색의 하루(백드롭페인팅), 우리 함께 성장 운동 등)…",
+      "source": "해운대종합사회복지관",
+      "sourceUrl": "http://haeundae.saem.or.kr/community/news1.php?mode=read&page=5&number=2810&keyfield=&key=",
+      "date": "2026-09-08",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "useful": true,
+      "aiSimplified": "2026 영유아기 발달장애인 부모교육지원사업에 참여할 부모님을 모집합니다. 교육 내용은 부모님이 아이를 잘 돌볼 수 있도록 돕는 여러 가지 프로그램입니다."
+    },
+    {
+      "cat": "교육",
+      "title": "[모집] 6월 스크린파크골프 아카데미 수강생 대모집",
+      "body": "공지사항 게시판 읽기 [모집] 6월 스크린파크골프 아카데미 수강생 대모집 2026년 스크린 파크골프 아카데미 수강생 모집 기초부터 실전까지! 전문 강사와 함께 배우는 스크린 파크골프 새로운 취미를 찾고 계신가요? 건강한 여가생활과 즐거운 운동을 동시에 누릴 수 있는 스크린 파크골프 아카데미 가 여러분을 기다립니다! 파크골…",
+      "source": "해운대종합사회복지관",
+      "sourceUrl": "http://haeundae.saem.or.kr/community/news1.php?mode=read&page=5&number=2804&keyfield=&key=",
+      "date": "2026-09-08",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "useful": true,
+      "aiSimplified": "2026년 스크린파크골프 아카데미에서 수강생을 모집하니, 기초부터 배우고 싶으신 분들은 참여해 주세요."
+    },
+    {
+      "cat": "행사",
+      "title": "[모집] 5월 파크골프 체험의날 안내",
+      "body": "공지사항 게시판 읽기 [모집] 5월 파크골프 체험의날 안내 안녕하십니까, 해운대종합사회복지관입니다. 해운대종합사회복지관에서는 지역주민의 건강한 여가활동 지원을 위해 스크린파크골프 체험의 날 을 운영합니다. 파크골프를 처음 접하시는 분들도 쉽게 참여하실 수 있도록 기초 교육과 체험 중심으로 진행되오니 많은 관심과 참여 바랍…",
+      "source": "해운대종합사회복지관",
+      "sourceUrl": "http://haeundae.saem.or.kr/community/news1.php?mode=read&page=5&number=2795&keyfield=&key=",
+      "date": "2026-09-08",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "for65": true,
+      "useful": true,
+      "aiSimplified": "5월에 해운대종합사회복지관에서 파크골프 체험의 날을 운영하니, 처음 하시는 분들도 쉽게 참여하실 수 있습니다. 많은 관심과 참여 부탁드립니다."
+    },
+    {
+      "cat": "행사",
+      "title": "[모집] 생일서비스 후원자 모집",
+      "body": "공지사항 게시판 읽기 [모집] 생일서비스 후원자 모집 ■ 생일서비스 후원자 모집 ▪ 지역 내 영세가정 및 복지사각지대 가정의 생일을 축하하실 후원자를 모집합니다 . ▪ 모집일자 : 상시모집 ▪ 참여방법 : 피자 , 치킨 , 케이크 , 모바일상품권 등 기프티콘 후원요청 ​ ( 후원 시 기부금 영수증 발행 가능 , 연말정산 …",
+      "source": "해운대종합사회복지관",
+      "sourceUrl": "http://haeundae.saem.or.kr/community/news1.php?mode=read&page=6&number=2793&keyfield=&key=",
+      "date": "2026-09-08",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "useful": true,
+      "aiSimplified": "지역 내 어려운 가정의 생일을 축하해 주실 후원자를 상시 모집합니다. 피자, 치킨, 케이크, 모바일상품권 등으로 후원하실 수 있으며, 기부금 영수증도 발행됩니다."
+    },
+    {
+      "cat": "복지",
+      "title": "[공지]복지관 외부 행복한 숲 조성공사 안내",
+      "body": "5월 6일(수)-5월 30일(토)까지 해운대종합사회복지관 외부 '행복한 숲' 공사를 진행합니다. 소음이 발생할 수 있으며, 공사 구간 접근이 어렵습니다.…",
+      "source": "해운대종합사회복지관",
+      "sourceUrl": "http://haeundae.saem.or.kr/community/news1.php?mode=read&page=6&number=2791&keyfield=&key=",
+      "date": "2026-09-08",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "for65": true,
+      "useful": true,
+      "aiSimplified": "5월 6일(수)부터 5월 30일(토)까지 해운대종합사회복지관 외부에서 '행복한 숲' 공사를 하니, 소음이 날 수 있고 공사 구간에 접근하기 어려울 수 있습니다."
+    },
+    {
+      "cat": "복지",
+      "title": "제46회 장애인의 날 기념 카드뉴스",
+      "body": "공지사항 게시판 읽기 제46회 장애인의 날 기념 카드뉴스 서로 다른 모습과 속도로 살아가지만, 우리 모두는 같은 마음으로 세상을 살아가고 있습니다.…",
+      "source": "해운대종합사회복지관",
+      "sourceUrl": "http://haeundae.saem.or.kr/community/news1.php?mode=read&page=6&number=2788&keyfield=&key=",
+      "date": "2026-09-08",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "aiSimplified": "제46회 장애인의 날을 기념하는 카드뉴스가 게시되었습니다."
+    },
+    {
+      "cat": "행사",
+      "title": "[모집] 우리 동네 클리닝 참여자 모집",
+      "body": "공지사항 게시판 읽기 [모집] 우리 동네 클리닝 참여자 모집  우리 동네 클리닝 참여자 모집 해운대종합사회복지관과 함께하는 “우리 동네 클리닝” 플로깅 활동 참여자를 모집합니다! 무심코 지나쳤던 우리 동네 거리, 이제는 우리가 직접 깨끗하게 만들어보세요  플로깅은 걷거나 뛰면서 쓰레기를 줍는 친환경 실천 활동으로, 단…",
+      "source": "해운대종합사회복지관",
+      "sourceUrl": "http://haeundae.saem.or.kr/community/news1.php?mode=read&page=6&number=2787&keyfield=&key=",
+      "date": "2026-09-08",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "for65": true,
+      "useful": true,
+      "aiSimplified": "해운대종합사회복지관에서 우리 동네를 깨끗하게 만들기 위해 플로깅 활동에 참여할 어르신을 모집합니다."
+    },
+    {
+      "cat": "행사",
+      "title": "[모집] 파크골프 4월 체험의 날 안내",
+      "body": "공지사항 게시판 읽기 [모집] 파크골프 4월 체험의 날 안내 안녕하십니까, 해운대종합사회복지관입니다. 해운대종합사회복지관에서는 지역주민의 건강한 여가활동 지원을 위해 스크린파크골프 체험의 날 을 운영합니다. 파크골프를 처음 접하시는 분들도 쉽게 참여하실 수 있도록 기초 교육과 체험 중심으로 진행되오니 많은 관심과 참여 바…",
+      "source": "해운대종합사회복지관",
+      "sourceUrl": "http://haeundae.saem.or.kr/community/news1.php?mode=read&page=7&number=2781&keyfield=&key=",
+      "date": "2026-09-08",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "for65": true,
+      "useful": true,
+      "aiSimplified": "해운대종합사회복지관에서 4월에 스크린파크골프 체험의 날을 운영하니, 처음 하시는 분들도 쉽게 참여하실 수 있습니다."
+    },
+    {
+      "cat": "교육",
+      "title": "[모집] 파크골프 아카데미 참여자 모집",
+      "body": "공지사항 게시판 읽기 [모집] 파크골프 아카데미 참여자 모집 안녕하십니까, 해운대종합사회복지관입니다. 해운대종합사회복지관에서는 지역주민의 건강 증진과 여가 활성화를 위해 다양한 복지 프로그램을 운영하고 있습니다. 최근 많은 관심을 받고 있는 생활체육 **‘파크골프’**를 배우고 즐길 수 있는 프로그램을 아래와 같이 진행하…",
+      "source": "해운대종합사회복지관",
+      "sourceUrl": "http://haeundae.saem.or.kr/community/news1.php?mode=read&page=7&number=2780&keyfield=&key=",
+      "date": "2026-09-08",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "for65": true,
+      "useful": true,
+      "aiSimplified": "해운대종합사회복지관에서 파크골프 아카데미 참여자를 모집합니다."
+    },
+    {
+      "cat": "교육",
+      "title": "2026년 시나브로 배움터 「꿈꾸는 힐링Ⅱ」 참여자 모집",
+      "body": "공지사항 게시판 읽기 2026년 시나브로 배움터 「꿈꾸는 힐링Ⅱ」 참여자 모집 안녕하세요. 해운대종합사회복지관입니다. 청소년의 또래 관계 확장 및 정서 안정을 위한 청소년 사회적응력 프로그램, 2026년 시나브로 배움터 「꿈꾸는 힐링Ⅱ」 참여자를 모집합니다. ▪ 모집일자 : 2026년 3월 31일(화)까지 *모집 인원 미…",
+      "source": "해운대종합사회복지관",
+      "sourceUrl": "http://haeundae.saem.or.kr/community/news1.php?mode=read&page=7&number=2777&keyfield=&key=",
+      "date": "2026-09-08",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "for65": true,
+      "useful": true,
+      "aiSimplified": "2026년 3월 31일(화)까지 청소년을 위한 프로그램인 시나브로 배움터 「꿈꾸는 힐링Ⅱ」에 참여할 분을 모집합니다."
+    },
+    {
+      "cat": "복지",
+      "title": "[모집] 2026 성인장애인 평생학습 「나만의 쌀베이킹」 참여자 모집",
+      "body": "공지사항 게시판 읽기 [모집] 2026 성인장애인 평생학습 「나만의 쌀베이킹」 참여자 모집 홈베이킹 프로그램에 참여할 성인장애인을 모집합니다. 쌀을 이용하여 쉽고 간단하고 재밌게 만들어보는 베이킹! 수강료 및 재료비 전액 무료이니, 많은 관심과 참여 부탁드립니다 :) ■ 대상: 성인장애인 8명 ■ 교육일정: 2026년 4…",
+      "source": "해운대종합사회복지관",
+      "sourceUrl": "http://haeundae.saem.or.kr/community/news1.php?mode=read&page=7&number=2762&keyfield=&key=",
+      "date": "2026-09-08",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "useful": true,
+      "aiSimplified": "2026년 4월부터 시작하는 '나만의 쌀베이킹' 프로그램에 참여할 성인장애인 8명을 모집합니다. 수강료와 재료비는 무료이니 많은 관심 부탁드립니다."
+    },
+    {
+      "cat": "교육",
+      "title": "[모집] 2026 지식정보취약계층 평생학습프로그램 「실버스윙」 참여자 모집",
+      "body": "복지관소개 현황 연혁 직원소개 오시는길 이용자만족 서비스 헌장 사업안내 사례관리기능 서비스제공기능 지역조직화기능 부설기관 LH행복꿈터 해운대지역아동센터 해운대 푸드마켓 해운대 푸드뱅크 프로그램 여성, 일반 유아, 아동, 청소년 어르신 장애인 무료특강 후원사업 후원안내 사례 자원봉사 자원봉사 안내 사례 알림마당 공지사항 공…",
+      "source": "해운대종합사회복지관",
+      "sourceUrl": "http://haeundae.saem.or.kr/community/news1.php?mode=read&page=7&number=2761&keyfield=&key=",
+      "date": "2026-09-08",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "for65": true,
+      "useful": true,
+      "aiSimplified": "2026년 지식정보취약계층을 위한 평생학습프로그램 「실버스윙」에 참여할 어르신을 모집합니다."
+    },
+    {
+      "cat": "복지",
+      "title": "[모집] 2026 성인장애인 밴드교실 「THE 울림」 참여자 모집",
+      "body": "공지사항 게시판 읽기 [모집] 2026 성인장애인 밴드교실 「THE 울림」 참여자 모집 해운대복지관에서는 성인장애인 대상 밴드교실을 운영하고 있습니다. 보컬, 베이스기타 및 통기타 연주가 가능한 성인장애인은 누구나 참여 가능합니다. 음악밴드 개인연습 지도부터 합주연습, 연말 공연까지! 음악으로 하나되는 기회를 놓치지 마세…",
+      "source": "해운대종합사회복지관",
+      "sourceUrl": "http://haeundae.saem.or.kr/community/news1.php?mode=read&page=8&number=2758&keyfield=&key=",
+      "date": "2026-09-08",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "for65": true,
+      "useful": true,
+      "aiSimplified": "해운대복지관에서 2026 성인장애인 밴드교실 「THE 울림」에 참여할 성인장애인을 모집합니다. 보컬, 베이스기타, 통기타를 할 수 있는 분은 누구나 참여하실 수 있습니다."
+    },
+    {
+      "cat": "복지",
+      "title": "[모집] 2026년 국민연금 수급자 아카데미 <生生투게더> 참여자 모집",
+      "body": "공지사항 게시판 읽기 [모집] 2026년 국민연금 수급자 아카데미 <生生투게더> 참여자 모집 안녕하세요~ 해운대종합사회복지관입니다:) 건강하고 행복한 노후를 위한 힐링교육프로그램 국민연금 수급자 아카데미 <生生투게더> 참여자를 모집 합니다! ■ 모집대상 선정기준에 해당하는 성인 30명 ① 국민연금 수급자(일시금 수급자 제…",
+      "source": "해운대종합사회복지관",
+      "sourceUrl": "http://haeundae.saem.or.kr/community/news1.php?mode=read&page=8&number=2748&keyfield=&key=",
+      "date": "2026-09-08",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "for65": true,
+      "useful": true,
+      "aiSimplified": "2026년 국민연금 수급자 아카데미 <生生투게더>에 참여할 어르신 30명을 모집합니다."
+    },
+    {
+      "cat": "교육",
+      "title": "[모집] 스크린파크골프센터 아카데미 참여자 모집",
+      "body": "공지사항 게시판 읽기 [모집] 스크린파크골프센터 아카데미 참여자 모집 안녕하십니까 해운대종합사회복지관입니다.:) 2026년 스크린파크골프 프로그램이 개설되었습니다! 참여자 모집 마감 전까지 상시 모집 진행 예정이며, 많은 관심 부탁드립니다. 감사합니다.​…",
+      "source": "해운대종합사회복지관",
+      "sourceUrl": "http://haeundae.saem.or.kr/community/news1.php?mode=read&page=8&number=2744&keyfield=&key=",
+      "date": "2026-09-08",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "for65": true,
+      "useful": true,
+      "aiSimplified": "2026년 스크린파크골프센터 아카데미에 참여할 분을 모집하니 많은 관심 부탁드립니다."
+    },
+    {
+      "cat": "관광",
+      "title": "시니어가 직접 만드는 부산 여행 하루코스!「LOCAL PICK 부산 로컬가이드」를 소개합니..",
+      "body": "공지 「로컬픽 다국어 제작단」은 한국노인인력개발원과 부산시청자미디어센터가 함께 시니어 미디어 분야 일자리 지원사업의 일환으로 추진되는 사업입니다. 시니어 제작자들은 부산 곳곳의 지역 관광자원을 직접 발굴하고, 기획·촬영·편집·다국어 자막 제작까지 전 과정에 참여하여 국내외 여행객들에게 부산의 다양한 매력을 쉽고 친근하게 …",
+      "source": "비지트부산 공지",
+      "sourceUrl": "https://www.visitbusan.net/board/view.do?boardId=BBS_0000001&menuCd=DOM_000000204001000000&paging=ok&startPage=1&dataSid=6356",
+      "date": "2026-09-08",
+      "verified": "2026-09-09",
+      "auto": true,
+      "imageUrl": "https://www.visitbusan.net/upload_data/board_data/BBS_0000001/178882921129549.png",
+      "audience": [
+        "tourist",
+        "resident"
+      ],
+      "for65": true,
+      "useful": true,
+      "aiSimplified": "부산의 시니어 분들이 직접 부산 여행 코스를 만들고, 관광지를 소개하는 프로그램이 시작됩니다.",
+      "aiSimplifiedAt": "2026-09-08"
+    },
+    {
+      "cat": "관광",
+      "title": "2026 부산돼지국밥대전 2026-08-16 ~ 2026-10-18",
+      "body": "돼지국밥 한 그릇으로 부산 여행! 「2026 부산돼지국밥대전」 부산 사람들의 일상과 오랜 시간 함께해 온 대표 음식, 돼지국밥. 가게마다 다른 맛과 개성, 동네마다 담긴 이야기를 따라 부산의 돼지국밥을 새롭게 만나보는 시민참여형 미식관광 프로젝트 「2026 부산돼지국밥대전」이 시작됩니다. 시민과 관광객의 추천을 시작으로 …",
+      "source": "비지트부산 축제·행사",
+      "sourceUrl": "https://www.visitbusan.net/schedule/view.do?boardId=BBS_0000009&menuCd=DOM_000000204012000000&dataSid=6338",
+      "date": "2026-09-08",
+      "verified": "2026-09-09",
+      "auto": true,
+      "imageUrl": "https://www.visitbusan.net/upload_data/board_data/BBS_0000009/178728747747519.jpg",
+      "audience": [
+        "tourist",
+        "resident",
+        "senior"
+      ],
+      "useful": true,
+      "aiSimplified": "2026년 8월 16일부터 10월 18일까지 부산에서 돼지국밥을 즐기며 여행하는 '2026 부산돼지국밥대전'이 열립니다."
+    },
+    {
+      "cat": "생활",
+      "title": "2026 9월 별바다부산 나이트마켓 2026-09-26 ~ 2026-10-18",
+      "body": "부산의 가을바람과 함께, 낭만이 반짝이는 순간으로 다시 돌아왔습니다. 〈2026 별바다부산 나이트마켓〉이 이번엔 9월, 여러분을 다시 찾아갑니다. 초여름 밤을 수놓았던 그 설렘, 이제 가을의 정취를 담아 한층 더 깊어진 이야기로 돌아왔어요. 많은 방문과 참여 부탁드립니다! 1. 일시 : 2026년 9월 26일(토) ~ 1…",
+      "source": "비지트부산 축제·행사",
+      "sourceUrl": "https://www.visitbusan.net/schedule/view.do?boardId=BBS_0000009&menuCd=DOM_000000204012000000&dataSid=6353",
+      "date": "2026-09-08",
+      "verified": "2026-09-09",
+      "auto": true,
+      "imageUrl": "https://www.visitbusan.net/upload_data/board_data/BBS_0000009/178841096537797.jpg",
+      "audience": [
+        "tourist",
+        "resident",
+        "senior"
+      ],
+      "useful": true,
+      "aiSimplified": "2026년 9월 26일부터 10월 18일까지 부산에서 별바다부산 나이트마켓이 열립니다. 많은 참여 부탁드립니다!"
+    },
+    {
+      "cat": "교통",
+      "title": "2026 월드 스마트시티 엑스포 2026-09-09 ~ 2026-09-11",
+      "body": "-2026 월드 스마트시티 엑스포- ○ 기간/장소 : &rsquo;26.9.9.(수) ~ 11.(금) / 벡스코 제1전시장 ○ 주 제 :&lsquo;Beyond Smart City, Into AI City ○ 내 용 : 공식행사(개막식, 전시투어), 전시, 비즈니스, 콘퍼런스, 투어 등 ○ 주 최 : 부산광역시, 국토교통…",
+      "source": "비지트부산 축제·행사",
+      "sourceUrl": "https://www.visitbusan.net/schedule/view.do?boardId=BBS_0000009&menuCd=DOM_000000204012000000&dataSid=6314",
+      "date": "2026-09-08",
+      "verified": "2026-09-09",
+      "auto": true,
+      "imageUrl": "https://www.visitbusan.net/upload_data/board_data/BBS_0000009/178635065899065.jpg",
+      "audience": [
+        "tourist",
+        "resident",
+        "senior"
+      ],
+      "useful": true,
+      "aiSimplified": "2026년 9월 9일부터 11일까지 벡스코 제1전시장에서 '2026 월드 스마트시티 엑스포'가 열립니다. 이 행사에서는 개막식, 전시, 비즈니스 회의 등 다양한 활동이 진행됩니다."
+    },
+    {
+      "cat": "문화",
+      "title": "「광안리 M 드론라이트쇼」 9월 공연 프로그램 안내 2026-09-05 ~ 2026-09-26",
+      "body": "「광안리 M 드론라이트쇼」 9월 공연 프로그램 안내 ○ 9. 5.(토) : 숲의 멜로디 ○ 9. 12.(토) : 2026 LCK with 광안리 ○ 9. 19.(토) : 빛나는 청춘을 위해 ○ 9. 26.(토): 한가위 달밤의 연회 with 레이저쇼 &zwj; ※ 9월 26일(토) \"한가위 달밤의 연회 with 레이저쇼\"…",
+      "source": "비지트부산 축제·행사",
+      "sourceUrl": "https://www.visitbusan.net/schedule/view.do?boardId=BBS_0000009&menuCd=DOM_000000204012000000&dataSid=6342",
+      "date": "2026-09-08",
+      "verified": "2026-09-09",
+      "auto": true,
+      "imageUrl": "https://www.visitbusan.net/upload_data/board_data/BBS_0000009/178773228374762.png",
+      "audience": [
+        "tourist",
+        "resident",
+        "senior"
+      ],
+      "useful": true,
+      "aiSimplified": "2026년 9월 5일부터 9월 26일까지 광안리에서 드론라이트쇼가 열리며, 매주 토요일마다 다른 공연이 있습니다."
+    },
+    {
+      "cat": "문화",
+      "title": "해녀와 함께 바다를 배우다 2026-08-04 ~ 2026-09-19",
+      "body": "부산 바다의 숨겨진 이야기를 만나는 특별한 체험! 해녀에게 직접 듣는 숨비소리와 바다 이야기 스노클링과 해양생물 관찰을 통해부산 해녀문화와 바다를 가까이에서 경험해보세요 체험 안내 대상 : 초등학교 4학년 이상 누구나 운영 : 8월 4일(화) ~ 9월 초 / 총 20회 참가비 : 1인 30,000원 포함사항 ✔ 슈트 &m…",
+      "source": "비지트부산 축제·행사",
+      "sourceUrl": "https://www.visitbusan.net/schedule/view.do?boardId=BBS_0000009&menuCd=DOM_000000204012000000&dataSid=6294",
+      "date": "2026-09-08",
+      "verified": "2026-09-09",
+      "auto": true,
+      "imageUrl": "https://www.visitbusan.net/upload_data/board_data/BBS_0000009/178657896989513.png",
+      "audience": [
+        "tourist",
+        "resident",
+        "senior"
+      ],
+      "useful": true,
+      "aiSimplified": "부산 바다에서 해녀와 함께 바다를 배우는 특별한 체험이 있습니다. 초등학교 4학년 이상 누구나 참여할 수 있으며, 2026년 8월 4일부터 9월 19일까지 총 20회 진행됩니다. 참가비는 1인 30,000원입니다."
+    },
+    {
+      "cat": "생활",
+      "title": "2026 클라우드 컨퍼런스",
+      "body": "기간: 2026.09.08 ~ 2026.09.10 · 시간: 09시 ~ 18시 · 장소: 제1회의실 316-317호 · 주최: 주식회사 라쿤…",
+      "source": "벡스코 행사일정",
+      "sourceUrl": "https://www.bexco.co.kr/kor/CMS/EventScheduleMgr/view.do?mCode=MN214&&event_seq=16611",
+      "date": "2026-09-08",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "senior",
+        "resident",
+        "tourist"
+      ],
+      "aiSimplified": "2026년 9월 8일부터 10일까지 오전 9시부터 오후 6시까지 제1회의실 316-317호에서 '2026 클라우드 컨퍼런스'가 열립니다."
+    },
+    {
+      "cat": "건강",
+      "title": "해운대구정신건강복지센터 의뢰서양식",
+      "body": "부산광역시 해운대구 양운로 37번길 59 ｜ 전화번호 : 051-741-3567 ｜ 팩스 : 051-747-3567 ｜ E-mail : hmhc@hanmail.net Copyrightⓒ HEAUNDAEGU MENTAL HEALTH WELFARE CENTER All rights Reserved. LOGIN 회원가입…",
+      "source": "해운대구정신건강복지센터",
+      "sourceUrl": "http://www.hmhc.or.kr/bbs/board.php?bo_table=notice&wr_id=46",
+      "date": "2026-09-08",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "useful": true,
+      "aiSimplified": "해운대구정신건강복지센터의 주소는 부산광역시 해운대구 양운로 37번길 59이며, 전화번호는 051-741-3567입니다."
+    },
+    {
+      "cat": "문화",
+      "title": "2026년 생명사랑생명존중 허들링 문화제 공지",
+      "body": "부산광역시 해운대구 양운로 37번길 59 ｜ 전화번호 : 051-741-3567 ｜ 팩스 : 051-747-3567 ｜ E-mail : hmhc@hanmail.net Copyrightⓒ HEAUNDAEGU MENTAL HEALTH WELFARE CENTER All rights Reserved. LOGIN 회원가입…",
+      "source": "해운대구정신건강복지센터",
+      "sourceUrl": "http://www.hmhc.or.kr/bbs/board.php?bo_table=notice&wr_id=212",
+      "date": "2026-09-08",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "useful": true,
+      "aiSimplified": "2026년 생명사랑생명존중 허들링 문화제에 대한 자세한 내용은 부산 해운대구 양운로 37번길 59에 있는 정신건강복지센터에 문의해 주시기 바랍니다."
+    },
+    {
+      "cat": "생활",
+      "title": "온-트레이닝 비대면 접속 링크(마지막 회기)",
+      "body": "부산광역시 해운대구 양운로 37번길 59 ｜ 전화번호 : 051-741-3567 ｜ 팩스 : 051-747-3567 ｜ E-mail : hmhc@hanmail.net Copyrightⓒ HEAUNDAEGU MENTAL HEALTH WELFARE CENTER All rights Reserved. LOGIN 회원가입…",
+      "source": "해운대구정신건강복지센터",
+      "sourceUrl": "http://www.hmhc.or.kr/bbs/board.php?bo_table=notice&wr_id=201",
+      "date": "2026-09-08",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "aiSimplified": "부산 해운대구 양운로 37번길 59에 있는 정신건강복지센터의 마지막 온-트레이닝 비대면 접속 링크를 확인하시기 바랍니다."
+    },
+    {
+      "cat": "건강",
+      "title": "해운대구정신건강복지센터 생명존중 슬로건 공모전",
+      "body": "부산광역시 해운대구 양운로 37번길 59 ｜ 전화번호 : 051-741-3567 ｜ 팩스 : 051-747-3567 ｜ E-mail : hmhc@hanmail.net Copyrightⓒ HEAUNDAEGU MENTAL HEALTH WELFARE CENTER All rights Reserved. LOGIN 회원가입…",
+      "source": "해운대구정신건강복지센터",
+      "sourceUrl": "http://www.hmhc.or.kr/bbs/board.php?bo_table=notice&wr_id=197",
+      "date": "2026-09-08",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "useful": true,
+      "aiSimplified": "해운대구정신건강복지센터에서 생명존중 슬로건 공모전을 엽니다."
+    },
+    {
+      "cat": "생활",
+      "title": "해운대행복맵 리뉴얼 안내",
+      "body": "부산광역시 해운대구 양운로 37번길 59 ｜ 전화번호 : 051-741-3567 ｜ 팩스 : 051-747-3567 ｜ E-mail : hmhc@hanmail.net Copyrightⓒ HEAUNDAEGU MENTAL HEALTH WELFARE CENTER All rights Reserved. LOGIN 회원가입…",
+      "source": "해운대구정신건강복지센터",
+      "sourceUrl": "http://www.hmhc.or.kr/bbs/board.php?bo_table=notice&wr_id=192&page=2",
+      "date": "2026-09-08",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "aiSimplified": "해운대행복맵이 새롭게 바뀌었습니다. 궁금한 점은 051-741-3567로 전화해 주시면 됩니다."
+    },
+    {
+      "cat": "교육",
+      "title": "2025년도 아동청소년 교육 신청 안내",
+      "body": "부산광역시 해운대구 양운로 37번길 59 ｜ 전화번호 : 051-741-3567 ｜ 팩스 : 051-747-3567 ｜ E-mail : hmhc@hanmail.net Copyrightⓒ HEAUNDAEGU MENTAL HEALTH WELFARE CENTER All rights Reserved. LOGIN 회원가입…",
+      "source": "해운대구정신건강복지센터",
+      "sourceUrl": "http://www.hmhc.or.kr/bbs/board.php?bo_table=notice&wr_id=191&page=2",
+      "date": "2026-09-08",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "useful": true,
+      "aiSimplified": "2025년도 아동청소년 교육 신청에 대한 자세한 내용은 부산광역시 해운대구 양운로 37번길 59로 전화(051-741-3567)나 팩스(051-747-3567)로 문의해 주시기 바랍니다."
+    },
+    {
+      "cat": "생활",
+      "title": "[온-트레이닝] 8회기 링크입니다.",
+      "body": "부산광역시 해운대구 양운로 37번길 59 ｜ 전화번호 : 051-741-3567 ｜ 팩스 : 051-747-3567 ｜ E-mail : hmhc@hanmail.net Copyrightⓒ HEAUNDAEGU MENTAL HEALTH WELFARE CENTER All rights Reserved. LOGIN 회원가입…",
+      "source": "해운대구정신건강복지센터",
+      "sourceUrl": "http://www.hmhc.or.kr/bbs/board.php?bo_table=notice&wr_id=184&page=2",
+      "date": "2026-09-08",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "aiSimplified": "부산 해운대구 양운로 37번길 59에 있는 정신건강복지센터의 8회기 링크입니다. 전화는 051-741-3567로 하시면 됩니다."
+    },
+    {
+      "cat": "건강",
+      "title": "해운대정신건강복지센터 내 인터넷 문제",
+      "body": "페이지 정보 해운대구정신건강복지센터 댓글 0건 ,692회 24-07-17 11:56 본문 해운대정신건강복지센터를 이용하시는 회원분들께 양해 말씀 전달드립니다. 현재 본 기관 인터넷 문제로 인해 센터 전화 및 업무에 지장이 있음을 전달드립니다. 조속히 처리 한 후 이용할 수 있도록 하겠습니다. 문의사항 및 상담 등은 인터넷…",
+      "source": "해운대구정신건강복지센터",
+      "sourceUrl": "http://www.hmhc.or.kr/bbs/board.php?bo_table=notice&wr_id=178&page=2",
+      "date": "2026-09-08",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "useful": true,
+      "aiSimplified": "해운대정신건강복지센터의 인터넷 문제로 전화와 업무에 불편이 있으니 양해 부탁드립니다. 빨리 해결하도록 하겠습니다."
+    },
+    {
+      "cat": "생활",
+      "title": "2025. 05. 01.(목) 근로자의 날 휴무관련 안내",
+      "body": "부산광역시 해운대구 양운로 37번길 59 ｜ 전화번호 : 051-741-3567 ｜ 팩스 : 051-747-3567 ｜ E-mail : hmhc@hanmail.net Copyrightⓒ HEAUNDAEGU MENTAL HEALTH WELFARE CENTER All rights Reserved. LOGIN 회원가입…",
+      "source": "해운대구정신건강복지센터",
+      "sourceUrl": "http://www.hmhc.or.kr/bbs/board.php?bo_table=notice&wr_id=173&page=3",
+      "date": "2026-09-08",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "aiSimplified": "2025년 5월 1일 목요일은 근로자의 날로 휴무입니다."
+    },
+    {
+      "cat": "건강",
+      "title": "Heroes United (경찰관 및 소방대원들을 위한 힐링이벤트) 당첨기관 발표",
+      "body": "페이지 정보 해운대구정신건강복지센터 댓글 0건 ,697회 23-10-26 17:51 본문 < Heroes United 결과 발표!> 안녕하십니까 , 해운대구정신건강복 지센터입니다. 10월10일(화) ~ 10월25일(수)까지 진행된 이벤트 기간 동안 다양한 노력과 열정을 보여주신 모든 기관에 진심으로 감사드립니다 :) 참여…",
+      "source": "해운대구정신건강복지센터",
+      "sourceUrl": "http://www.hmhc.or.kr/bbs/board.php?bo_table=notice&wr_id=165&page=3",
+      "date": "2026-09-08",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "useful": true,
+      "aiSimplified": "해운대구정신건강복지센터에서 10월 10일부터 10월 25일까지 진행된 경찰관 및 소방대원들을 위한 힐링 이벤트에 참여해 주신 모든 기관에 감사드립니다."
+    },
+    {
+      "cat": "생활",
+      "title": "시간표입니다",
+      "body": "해운대생활체육센터 저희 실내 수영강습은 초보자부터 고급자까지 맞춤형 수업을 제공하며, 전문 강사가 체계적인 훈련을 통해 수영 능력을 빠르게 향상시킬 수 있도록 돕습니다.…",
+      "source": "해운대생활체육센터",
+      "sourceUrl": "http://www.haeundaeswim.com/bbs/board.php?bo_table=notice&wr_id=9",
+      "date": "2026-09-08",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "aiSimplified": "해운대생활체육센터에서는 초보자부터 고급자까지 맞춤형 실내 수영강습을 전문 강사가 제공합니다."
+    },
+    {
+      "cat": "생활",
+      "title": "환불 / 연기 규정",
+      "body": "해운대생활체육센터 저희 실내 수영강습은 초보자부터 고급자까지 맞춤형 수업을 제공하며, 전문 강사가 체계적인 훈련을 통해 수영 능력을 빠르게 향상시킬 수 있도록 돕습니다.…",
+      "source": "해운대생활체육센터",
+      "sourceUrl": "http://www.haeundaeswim.com/bbs/board.php?bo_table=notice&wr_id=6",
+      "date": "2026-09-08",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "aiSimplified": "해운대생활체육센터의 실내 수영강습은 초보자와 고급자 모두에게 맞춤형 수업을 제공하니, 전문 강사와 함께 수영 실력을 빠르게 늘릴 수 있습니다."
+    },
+    {
+      "cat": "생활",
+      "title": "일일입장 자유수영 안내",
+      "body": "해운대생활체육센터 저희 실내 수영강습은 초보자부터 고급자까지 맞춤형 수업을 제공하며, 전문 강사가 체계적인 훈련을 통해 수영 능력을 빠르게 향상시킬 수 있도록 돕습니다.…",
+      "source": "해운대생활체육센터",
+      "sourceUrl": "http://www.haeundaeswim.com/bbs/board.php?bo_table=notice&wr_id=5",
+      "date": "2026-09-08",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "aiSimplified": "해운대생활체육센터에서 초보자부터 고급자까지 맞춤형 수영 강습을 하고 있으며, 전문 강사가 수영 실력을 빠르게 높여드립니다."
+    },
+    {
+      "cat": "생활",
+      "title": "2026년 추석명절 청탁금지법 선물 바로알기!!",
+      "body": "인스타그램 트위터 페이스북 네이버 블로그 카카오스토리 유튜브채널 부산영어방송재단 부산시 120 콜센터 (지역번호 051, 유료) 051-120 평일 08:30 ~ 18:30 야간․공휴일 당직실 전환…",
+      "source": "부산시 통합공지사항",
+      "sourceUrl": "https://www.busan.go.kr/nbnews/1753382?curPage=&srchBeginDt=2025-09-09&srchEndDt=2026-09-09&srchKey=&srchText=",
+      "date": "2026-09-08",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "aiSimplified": "2026년 추석명절에 선물할 때 청탁금지법을 잘 알아두시기 바랍니다. 궁금한 점은 부산영어방송재단이나 부산시 120 콜센터(051-120)로 문의하시면 됩니다.",
+      "aiSimplifiedAt": "2026-09-08"
+    },
+    {
+      "cat": "교육",
+      "title": "2026년 여성농업인 농업기계 교육 참여자 모집",
+      "body": "인스타그램 트위터 페이스북 네이버 블로그 카카오스토리 유튜브채널 부산영어방송재단 부산시 120 콜센터 (지역번호 051, 유료) 051-120 평일 08:30 ~ 18:30 야간․공휴일 당직실 전환…",
+      "source": "부산시 통합공지사항",
+      "sourceUrl": "https://www.busan.go.kr/nbnews/1753375?curPage=&srchBeginDt=2025-09-09&srchEndDt=2026-09-09&srchKey=&srchText=",
+      "date": "2026-09-08",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "aiSimplified": "2026년 여성농업인을 위한 농업기계 교육에 참여하실 분을 모집합니다.",
+      "aiSimplifiedAt": "2026-09-08"
+    },
+    {
+      "cat": "행사",
+      "title": "추석 맞이 부산 전통시장 온누리상품권 환급 지원...99개 시장에서 장보고 알뜰한 혜택 챙기세요",
+      "body": "내용 🛒 전통시장 장보고, 온누리상품권 받아가세요! 추석을 앞두고 부산 전통시장 99곳에서 온누리상품권 환급 행사를 진행합니다🎁 💰4만 원 이상 구매 → 1만 원 환급 💰7만 원 이상 구매 → 2만 원 환급 ※ 행사 기간 1인 최대 2만 원 📅 9.11.(금)~9.12.(토) ⏰ 09:30~17:00 ※ 시장별 …",
+      "source": "부산시 통합공지사항",
+      "sourceUrl": "https://www.busan.go.kr/nbnews/1753374?curPage=&srchBeginDt=2025-09-09&srchEndDt=2026-09-09&srchKey=&srchText=",
+      "date": "2026-09-08",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "useful": true,
+      "aiSimplified": "추석을 맞아 부산 전통시장 99곳에서 장을 보시면 온누리상품권을 환급받을 수 있습니다. 4만 원 이상 구매하면 1만 원, 7만 원 이상 구매하면 2만 원을 환급받으며, 행사 기간은 9월 11일 금요일부터 9월 12일 토요일까지입니다.",
+      "aiSimplifiedAt": "2026-09-08"
+    },
+    {
+      "cat": "행사",
+      "title": "2026년 부산광역시 시민배심원단 모집",
+      "body": "인스타그램 트위터 페이스북 네이버 블로그 카카오스토리 유튜브채널 부산영어방송재단 부산시 120 콜센터 (지역번호 051, 유료) 051-120 평일 08:30 ~ 18:30 야간․공휴일 당직실 전환…",
+      "source": "부산시 통합공지사항",
+      "sourceUrl": "https://www.busan.go.kr/nbnews/1753350?curPage=&srchBeginDt=2025-09-09&srchEndDt=2026-09-09&srchKey=&srchText=",
+      "date": "2026-09-08",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "aiSimplified": "2026년 부산광역시 시민배심원단을 모집합니다. 자세한 내용은 부산영어방송재단이나 부산시 120 콜센터(051-120)로 문의해 주시기 바랍니다.",
+      "aiSimplifiedAt": "2026-09-08"
+    },
+    {
+      "cat": "생활",
+      "title": "2026년 8월 반여농산물도매시장 거래동향 분석 결과 알림",
+      "body": "인스타그램 트위터 페이스북 네이버 블로그 카카오스토리 유튜브채널 부산영어방송재단 부산시 120 콜센터 (지역번호 051, 유료) 051-120 평일 08:30 ~ 18:30 야간․공휴일 당직실 전환…",
+      "source": "부산시 통합공지사항",
+      "sourceUrl": "https://www.busan.go.kr/nbnews/1753347?curPage=&srchBeginDt=2025-09-09&srchEndDt=2026-09-09&srchKey=&srchText=",
+      "date": "2026-09-08",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "aiSimplified": "2026년 8월에 반여농산물도매시장에서 거래된 내용에 대한 분석 결과를 알려드립니다.",
+      "aiSimplifiedAt": "2026-09-08"
+    },
+    {
+      "cat": "생활",
+      "title": "주민등록 등.초본 발급 이렇게 달라집니다.",
+      "body": "인스타그램 트위터 페이스북 네이버 블로그 카카오스토리 유튜브채널 부산영어방송재단 부산시 120 콜센터 (지역번호 051, 유료) 051-120 평일 08:30 ~ 18:30 야간․공휴일 당직실 전환…",
+      "source": "부산시 통합공지사항",
+      "sourceUrl": "https://www.busan.go.kr/nbnews/1753324?curPage=&srchBeginDt=2025-09-09&srchEndDt=2026-09-09&srchKey=&srchText=",
+      "date": "2026-09-08",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "useful": true,
+      "aiSimplified": "주민등록 등·초본 발급 방법이 바뀌니, 자세한 내용은 부산영어방송재단이나 부산시 120 콜센터(051-120)로 문의해 주시기 바랍니다.",
+      "aiSimplifiedAt": "2026-09-08"
+    },
+    {
+      "cat": "안전",
+      "title": "2026년 하반기 종합화재안전조사 대상 공개",
+      "body": "내용 2026년 하반기 종합화 재안전조사 대상을 다음과 같이 공개합니다 . 가 . 조사기간 : 2026. 9. 30.(수 ) ~ 10. 2.(금 ) 나 . 조사대상 : 빌리브센트로(남구 분포로 61, 용호동) 다 . 조사인원 : 남부소방서 종합화재안전조사단 라 . 조사사유 - 안전위해요소 차단 및 화재안전관리 감독 강화 …",
+      "source": "부산시 통합공지사항",
+      "sourceUrl": "https://www.busan.go.kr/nbnews/1753293?curPage=&srchBeginDt=2025-09-09&srchEndDt=2026-09-09&srchKey=&srchText=",
+      "date": "2026-09-08",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "useful": true,
+      "aiSimplified": "2026년 9월 30일부터 10월 2일까지 빌리브센트로에서 화재안전조사가 진행됩니다. 조사팀은 남부소방서에서 나옵니다.",
+      "aiSimplifiedAt": "2026-09-08"
+    },
+    {
+      "cat": "문화",
+      "title": "2026년 낙동강하구 문화 특별전 개최",
+      "body": "내용 낙동강하구에코센터에서 낙동강하구의 생활문화와 생태를 주제로 한 문화 특별전 「흐르는 것들 : 낙동강하구, 어제에서 내일로」을 개최했습니다. 강과 바다가 만나는 낙동강하구는 철새가 찾아오는 땅이자, 재첩잡이와 뱃길로 이어져 온 삶의 터전이었습니다. 이번 전시는 센터가 소장해 온 옛 사진자료를 중심으로, 지금은 좀처럼 …",
+      "source": "부산시 통합공지사항",
+      "sourceUrl": "https://www.busan.go.kr/nbnews/1753283?curPage=&srchBeginDt=2025-09-09&srchEndDt=2026-09-09&srchKey=&srchText=",
+      "date": "2026-09-08",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "useful": true,
+      "aiSimplified": "2026년 낙동강하구에코센터에서 낙동강하구의 생활문화와 생태를 주제로 한 특별전이 열립니다.",
+      "aiSimplifiedAt": "2026-09-08"
+    },
+    {
+      "cat": "행사",
+      "title": "부산 콘텐츠코리아 랩 입주실 모집 선정평가 결과 안내 (2026년도 제2차)",
+      "body": "(48059) 부산광역시 해운대구 센텀동로 41 센텀벤처타운 205호 TEL) 051-731-6660 FAX) 051-731-6664 COPYRIGHTⓒ 부산정보산업진흥원 ALL RIGHTS RESERVED.…",
+      "source": "부산정보산업진흥원 공지사항",
+      "sourceUrl": "https://bipa.kr/board/notice/view?seq=85341",
+      "date": "2026-09-08",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "resident",
+        "senior"
+      ],
+      "aiSimplified": "부산 콘텐츠코리아 랩에서 입주실 모집 선정평가 결과를 안내드립니다.",
+      "aiSimplifiedAt": "2026-09-08"
+    },
+    {
+      "cat": "창업",
+      "title": "부산 IT&CT 기업을 위한 무료 법률자문",
+      "body": "(48059) 부산광역시 해운대구 센텀동로 41 센텀벤처타운 205호 TEL) 051-731-6660 FAX) 051-731-6664 COPYRIGHTⓒ 부산정보산업진흥원 ALL RIGHTS RESERVED.…",
+      "source": "부산정보산업진흥원 공지사항",
+      "sourceUrl": "https://bipa.kr/board/notice/view?seq=7100",
+      "date": "2026-09-08",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "resident",
+        "senior"
+      ],
+      "useful": true,
+      "aiSimplified": "부산 IT&CT 기업을 위해 무료로 법률 상담을 해드립니다."
+    },
+    {
+      "cat": "생활",
+      "title": "부산진구청과 부산영어방송이 함께 하는 청년라디오 <청년친화도시, 청...",
+      "body": "- 2화 : 2026년 9월 16일 수요일 11:35 - - 3화 : 2026년 9월 23일 수요일 11:35 - - 4화 : 2026년 9월 30일 수요일 11:35 - Episode 1: Wednesday, September 9, 2026 at 11:35 AM Episode 2: Wednesday, September …",
+      "source": "부산영어방송 공지사항",
+      "sourceUrl": "https://www.befm.or.kr/sub/template.php?midx=49&mode=view&page=1&intnum=4278",
+      "date": "2026-09-08",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "resident",
+        "senior"
+      ],
+      "useful": true,
+      "aiSimplified": "부산진구청과 부산영어방송이 함께하는 청년라디오가 2026년 9월 9일, 9월 16일, 9월 23일, 9월 30일 수요일 오전 11시 35분에 방송됩니다.",
+      "aiSimplifiedAt": "2026-09-08"
     },
     {
       "cat": "일자리",
@@ -339,22 +1535,6 @@
       ],
       "useful": true,
       "aiSimplified": "2026년 9월 8일에 오전 10시부터 오후 5시까지 제2전시장 4(A,B)홀에서 해양수산부와 대한민국 해군이 주최하는 취업박람회가 열립니다. 관람료는 무료입니다."
-    },
-    {
-      "cat": "생활",
-      "title": "2026 클라우드 컨퍼런스",
-      "body": "기간: 2026.09.08 ~ 2026.09.10 · 시간: 09시 ~ 18시 · 장소: 제1회의실 316-317호 · 주최: 주식회사 라쿤…",
-      "source": "벡스코 행사일정",
-      "sourceUrl": "https://www.bexco.co.kr/kor/CMS/EventScheduleMgr/view.do?mCode=MN214&&event_seq=16611",
-      "date": "2026-09-08",
-      "verified": "2026-09-08",
-      "auto": true,
-      "audience": [
-        "senior",
-        "resident",
-        "tourist"
-      ],
-      "aiSimplified": "2026년 9월 8일부터 10일까지 오전 9시부터 오후 6시까지 제1회의실 316-317호에서 '2026 클라우드 컨퍼런스'가 열립니다."
     },
     {
       "cat": "생활",
@@ -411,15 +1591,14 @@
       "source": "해운대구청 공지사항",
       "sourceUrl": "https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000038&menuCd=DOM_000000104001001000&paging=ok&startPage=1&dataSid=3173440",
       "date": "2026-09-07",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "https://www.haeundae.go.kr/upload_data/board_data/BBS_0000038/178875653221990.jpg",
       "audience": [
         "senior",
         "resident"
       ],
-      "aiSimplified": "부산시민 도시계획 아카데미 제11기 수강생을 모집합니다.",
-      "aiSimplifiedAt": "2026-09-07"
+      "aiSimplified": "부산시민 도시계획 아카데미 제11기 수강생을 모집합니다."
     },
     {
       "cat": "교육",
@@ -428,7 +1607,7 @@
       "source": "해운대구청 공지사항",
       "sourceUrl": "https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000038&menuCd=DOM_000000104001001000&paging=ok&startPage=1&dataSid=3173423",
       "date": "2026-09-07",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "https://www.haeundae.go.kr/upload_data/board_data/BBS_0000050/177422771280169.png",
       "region": [
@@ -439,8 +1618,7 @@
         "resident"
       ],
       "useful": true,
-      "aiSimplified": "2026년 제4분기 좌2동 주민자치 프로그램 수강생을 모집하니, 좌2동 주민은 2026년 9월 17일 목요일 오전 8시부터 신청하실 수 있습니다.",
-      "aiSimplifiedAt": "2026-09-07"
+      "aiSimplified": "2026년 제4분기 좌2동 주민자치 프로그램 수강생을 모집하니, 좌2동 주민은 2026년 9월 17일 목요일 오전 8시부터 신청하실 수 있습니다."
     },
     {
       "cat": "교육",
@@ -449,7 +1627,7 @@
       "source": "해운대구청 공지사항",
       "sourceUrl": "https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000038&menuCd=DOM_000000104001001000&paging=ok&startPage=1&dataSid=3173395",
       "date": "2026-09-07",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "https://www.haeundae.go.kr/upload_data/board_data/BBS_0000038/178874008155083.png",
       "region": [
@@ -460,24 +1638,214 @@
         "resident"
       ],
       "useful": true,
-      "aiSimplified": "2026년 4/4분기 좌3동 주민자치회 프로그램 수강생을 2026년 9월 16일부터 선착순으로 모집하니, 관심 있으신 분들은 좌3동 행정복지센터에 방문해 주시기 바랍니다. 프로그램은 2026년 10월 1일부터 12월 30일까지 진행됩니다.",
-      "aiSimplifiedAt": "2026-09-07"
+      "aiSimplified": "2026년 4/4분기 좌3동 주민자치회 프로그램 수강생을 2026년 9월 16일부터 선착순으로 모집하니, 관심 있으신 분들은 좌3동 행정복지센터에 방문해 주시기 바랍니다. 프로그램은 2026년 10월 1일부터 12월 30일까지 진행됩니다."
     },
     {
       "cat": "문화",
-      "title": "문화가 있는 날 두배로데이 확대 운영(매주 수요일)",
-      "body": "독서마당 독서교실 독서토론회 독서토론회 독서토론회 게시판 독서문화행사 도서관의 날 · 도서관주간 및 독서의 달 부산시민독후감공모 범시민독후감 원북원부산독후감 신착·추천자료 신착도서 우리가 뽑은 이달의 책 월별 선정도서 역대 이달의 책(2011-2024) 추천 도서 외부기관권장도서 원북원부산 독서퀴즈 어린이독서퀴즈 영어독서…",
-      "source": "해운대도서관 독서문화행사",
-      "sourceUrl": "https://home.pen.go.kr/haeundaelib/na/ntt/selectNttInfo.do?mi=11228&bbsId=3475&nttSn=993918",
+      "title": "부산현대미술관 추석연휴 운영일정 안내(2026. 9. 24. - 9. 27.)",
+      "body": "내용 2026 부산현대미술관 추석연휴 운영 일정을 안내드리오니 관람 및 이용에 참고하시기 바랍니다. - 9.24.(목)-9.26.(토) 소장품섬(지하 1층)·전시실(지하 1층~2층)* ·카페(1층) · 옥상레스토랑 운영 책그림섬(지하 1층)·모카이브(3층) 휴실 * 소장품섬_심준섭: 기관의 순환 2026. 8. 29.(토…",
+      "source": "부산시 통합공지사항",
+      "sourceUrl": "https://www.busan.go.kr/nbnews/1753260?curPage=&srchBeginDt=2025-09-09&srchEndDt=2026-09-09&srchKey=&srchText=",
       "date": "2026-09-07",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "audience": [
         "senior",
         "resident"
       ],
       "useful": true,
-      "aiSimplified": "매주 수요일에 문화가 있는 날 두배로데이를 운영합니다."
+      "aiSimplified": "2026년 9월 24일부터 9월 27일까지 부산현대미술관이 추석 연휴 동안 운영되며, 일부 공간은 휴실입니다.",
+      "aiSimplifiedAt": "2026-09-08"
+    },
+    {
+      "cat": "환경",
+      "title": "‘26. 9월 시민 나눔장터 개장 안내",
+      "body": "내용 ‘26. 9 월 부산 시민 나눔장터를 개장하오니 시민 여러분의 많은 참여를 바랍니다 . < 참가 유의사항 > ※ 마실 물 , 쓰레기 처리봉투 등은 참가자 개인별로 준비 (1 회용품 사용 자제 ) ※ 더운 날씨로 탈진 및 일사병 방지를 위한 양산 , 모자 , 차양막 등 준비 ※ 당첨자는 당일 9 시부터 9 시 40 분…",
+      "source": "부산시 통합공지사항",
+      "sourceUrl": "https://www.busan.go.kr/nbnews/1753171?curPage=2&srchBeginDt=2025-09-09&srchEndDt=2026-09-09&srchKey=&srchText=",
+      "date": "2026-09-07",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "useful": true,
+      "aiSimplified": "‘26. 9월 부산 시민 나눔장터가 열리니 많은 참여 부탁드립니다. 참가하실 때는 개인 물과 쓰레기 봉투를 준비하시고, 더운 날씨에 대비해 양산이나 모자도 챙기세요."
+    },
+    {
+      "cat": "문화",
+      "title": "[10월] 전시해설 프로그램 운영일정 변경 안내",
+      "body": "내용 [10월 전시해설 프로그램 운영일정 변경 안내] 부산근현대역사관에서는 관람객의 전시 이해를 돕기 위해 전시해설 프로그램을 운영하고 있습니다. 2026년 10월 1일 부터 전시해설 프로그램 운영일정이 변경되오니 관람객 여러분의 이용에 참고하여 주시기 바랍니다. ■ 변경 운영일정 구분 화 수 목 금 토 일 시간 1 회 …",
+      "source": "부산시 통합공지사항",
+      "sourceUrl": "https://www.busan.go.kr/nbnews/1753125?curPage=2&srchBeginDt=2025-09-09&srchEndDt=2026-09-09&srchKey=&srchText=",
+      "date": "2026-09-07",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "useful": true,
+      "aiSimplified": "부산근현대역사관의 전시해설 프로그램이 2026년 10월 1일부터 운영일정이 바뀌니 참고하시기 바랍니다."
+    },
+    {
+      "cat": "교육",
+      "title": "2026년 특별기획전 연계 교육프로그램 <갯마을 톡!톡!톡!> 운영 안내",
+      "body": "내용 - 2026년 특별기획전 연계 교육프로그램 <갯마을 톡!톡!톡! > 운영 안내 - 정관박물관에서는 특별기획전 <갯마을, 기장의 바다>와 연계하여 기장 어촌 마을의 역사와 문화를 탐구하고, 나만의 해녀 브릭베어를 꾸며보는 주말 교육프로그램을 운영합니다. 박물관에서 기장 바다의 다채로운 이야기와 함께 즐거운 추억을 만들…",
+      "source": "부산시 통합공지사항",
+      "sourceUrl": "https://www.busan.go.kr/nbnews/1753120?curPage=2&srchBeginDt=2025-09-09&srchEndDt=2026-09-09&srchKey=&srchText=",
+      "date": "2026-09-07",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "useful": true,
+      "aiSimplified": "2026년 특별기획전 <갯마을 톡!톡!톡!>에서는 기장 어촌 마을의 역사와 문화를 배우고, 해녀 브릭베어를 꾸미는 주말 교육프로그램을 정관박물관에서 운영합니다.",
+      "aiSimplifiedAt": "2026-09-08"
+    },
+    {
+      "cat": "안전",
+      "title": "무허가 위험물, 신고포상제 운영 안내",
+      "body": "내용 ★ 무허가 위험물, 안전을 위해서 신고해주세요! - 허가없이 위험물을 저장·취급하거나, 허가받은 품명 외 위험물을 저장·취급하는 행위는 신고 대상입니다. ★ 신고포상금 : 1건당 10만원 상당 ( ※ 동일 신고인이 연간 100만원 초과 포상 불가) ★ 신고 시 현장사진 등 증빙자료를 함께 제출해 주시기 바랍니다. ★…",
+      "source": "부산시 통합공지사항",
+      "sourceUrl": "https://www.busan.go.kr/nbnews/1753103?curPage=2&srchBeginDt=2025-09-09&srchEndDt=2026-09-09&srchKey=&srchText=",
+      "date": "2026-09-07",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "useful": true,
+      "aiSimplified": "무허가 위험물을 안전을 위해 신고해 주시면 1건당 10만원의 포상금을 드립니다."
+    },
+    {
+      "cat": "안전",
+      "title": "2026년 8월 화재안전조사 결과 공개",
+      "body": "내용 2026년 8월 화재안전조사 결과를 아래와 같이 공개합니다. ○ 조사기간 : `26.8.3.(월) ~ `26.8.31.(월) ○ 조사대상 : 「 뉴버리 하우스 」 등 39 개소 ( 세부내역 별첨 ) ○ 조사인원 : 동래소방서 화재안전조사반 3개조 6명 ○ 조사사유 : 중점관리대상, 자체점검 표본조사 등 ○ 조사방법 …",
+      "source": "부산시 통합공지사항",
+      "sourceUrl": "https://www.busan.go.kr/nbnews/1753101?curPage=2&srchBeginDt=2025-09-09&srchEndDt=2026-09-09&srchKey=&srchText=",
+      "date": "2026-09-07",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "useful": true,
+      "aiSimplified": "2026년 8월 1일부터 8월 31일까지 금정소방서에서 마이빌 등 26곳의 화재안전조사를 실시한 결과를 공개합니다."
+    },
+    {
+      "cat": "생활",
+      "title": "2026년 하반기 <찾아가는 역사관 > 운영 안내",
+      "body": "내용 부산근현대역사관은 관내 초등학교와 연계한 < 찾아가는 역사관 > 프로그램을 진행합니다 . 2026 년 하반기 < 찾아가는 역사관 > 은 대한민국 임시정부 를 주제로 진행됩니다 . 대한민국 임시정부의 수립과 독립을 위한 그들의 활동에 대한 흥미로운 강의와 체험이 준비되어 있으니 각 학교의 많은 관심과 참여를 바랍니다 …",
+      "source": "부산시 통합공지사항",
+      "sourceUrl": "https://www.busan.go.kr/nbnews/1753077?curPage=2&srchBeginDt=2025-09-09&srchEndDt=2026-09-09&srchKey=&srchText=",
+      "date": "2026-09-07",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "aiSimplified": "2026년 하반기에는 부산근현대역사관에서 초등학교와 함께 대한민국 임시정부에 대한 프로그램인 <찾아가는 역사관>을 진행하니 많은 관심과 참여를 부탁드립니다."
+    },
+    {
+      "cat": "문화",
+      "title": "복천박물관 특별기획전 <함께 달린 시간: 우리 곁의 말 이야기> 개최 안내",
+      "body": "내용 복천박물관 개관 30 주년 기념 특별기획전 < 함께 달린 시간 : 우리 곁의 말 이야기 > 개최 안내 복천박물관은 개관 30 주년을 맞아 오는 9 월 22 일 ( 화 ) 부터 11 월 22 일 ( 일 ) 까지 특별기획전 < 함께 달린 시간 : 우리 곁의 말 이야기 > 를 개최합니다 . 이번 전시는 삼한시대부터 조선시…",
+      "source": "부산시 통합공지사항",
+      "sourceUrl": "https://www.busan.go.kr/nbnews/1753058?curPage=2&srchBeginDt=2025-09-09&srchEndDt=2026-09-09&srchKey=&srchText=",
+      "date": "2026-09-07",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "useful": true,
+      "aiSimplified": "복천박물관이 개관 30주년을 기념하여 9월 22일 화요일부터 11월 22일 일요일까지 특별기획전 <함께 달린 시간: 우리 곁의 말 이야기>를 엽니다."
+    },
+    {
+      "cat": "창업",
+      "title": "[창업] 2026년 창업 직업교육훈련 사후관리 컨설팅 지원 안내",
+      "body": "내용 부산광역새일센터에서는 2026년 창업 직업교육훈련(1인 기업 도전! 드랍쉬핑 무재고 창업교육) 참여자 대상으로 사후관리(컨설팅) 운영을 통 하여 창업 실행 역량강화와 성공적인 창업을 지원하고자 전문가컨설팅을 지원하오니 많은 신청 바랍니다. ■ 기 간: 2026. 9. 7.(월) ~ 10. 16.(금) ※당해 사업 예…",
+      "source": "부산시 통합공지사항",
+      "sourceUrl": "https://www.busan.go.kr/nbnews/1753056?curPage=3&srchBeginDt=2025-09-09&srchEndDt=2026-09-09&srchKey=&srchText=",
+      "date": "2026-09-07",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "useful": true,
+      "aiSimplified": "부산광역새일센터에서 2026년 창업 직업교육훈련에 참여하신 분들을 위해 전문가의 도움을 받을 수 있는 컨설팅을 지원하니 많은 신청 부탁드립니다."
+    },
+    {
+      "cat": "환경",
+      "title": "녹지대 방제작업 시행에 따른 출입 통제 알림",
+      "body": "내용 < 녹지대 방제작업 시행에 따른 출입 통제 알림 > • 박물관 내 수목의 각종 병해충 , 진드기 , 말벌 등의 피해 예방 을 위하여 녹지대 방제작업 을 시행 하고자 합니다 . • 작업 시 작업 효율성 확보 및 안전사고 예방을 위하여 박물관 전 구간의 출입을 통제 하고자 하며 , 이로 인한 산책로 및 쉼터 등의 이용이…",
+      "source": "부산시 통합공지사항",
+      "sourceUrl": "https://www.busan.go.kr/nbnews/1753054?curPage=3&srchBeginDt=2025-09-09&srchEndDt=2026-09-09&srchKey=&srchText=",
+      "date": "2026-09-07",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "useful": true,
+      "aiSimplified": "박물관에서 나무를 보호하기 위해 방제작업을 하니, 그동안 박물관에 출입할 수 없다는 점을 알려드립니다."
+    },
+    {
+      "cat": "안전",
+      "title": "무허가 위험물 신고포상제 알림",
+      "body": "내용 금정소방서는 위험물의 불법 저장·취급 행위를 근절하고 화재·폭발 사고를 예방하기 위해 「무허가 위험물 신고포상제」를 운영하고 있습니다. 다음과 같은 위반행위가 의심되는 경우 관할 소방서로 신고해 주시기 바랍니다. ○ 주요 신고 대상 ● 허가받지 않은 장소에서 위험물을 저장·취급하는 경우 ● 허가받은 시설에서 허가 내…",
+      "source": "부산시 통합공지사항",
+      "sourceUrl": "https://www.busan.go.kr/nbnews/1753037?curPage=3&srchBeginDt=2025-09-09&srchEndDt=2026-09-09&srchKey=&srchText=",
+      "date": "2026-09-07",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "senior",
+        "resident"
+      ],
+      "useful": true,
+      "aiSimplified": "금정소방서에서는 위험물을 불법으로 저장하거나 다루는 것을 막기 위해 '무허가 위험물 신고포상제'를 운영하고 있습니다. 만약 이런 위반행위를 보시면 관할 소방서에 신고해 주시기 바랍니다."
+    },
+    {
+      "cat": "생활",
+      "title": "[이벤트] 9월 추석 이모지 이벤트",
+      "body": "창작자들을 위한 부산 콘텐츠코리아 랩 9월 이벤트🎉 부산 콘텐츠코리아 랩과 함께 나만의 추석 한 장면을 이모지로 표현 하고 선물 받아가세요! 🎁 나의 추석 한 장면을 설명과 함께 이모지로 표현하고, 친구를 태그해 보세요! 간단한 참여로 이벤트에 도전 할 수 있어요 😊 📌 참여 방법 1️⃣ ‘부산 콘텐츠코리아 랩’ …",
+      "source": "부산콘텐츠코리아랩 공지사항",
+      "sourceUrl": "https://www.cklbusan.com/WWW/boardview/47/161",
+      "date": "2026-09-07",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "resident",
+        "senior"
+      ],
+      "aiSimplified": "부산 콘텐츠코리아 랩에서 9월에 추석 이모지 이벤트를 하니, 나만의 추석 장면을 이모지로 표현하고 선물도 받아가세요!"
+    },
+    {
+      "cat": "생활",
+      "title": "2026 BeFM 부산영어방송 청취율(청취자 인식) 조사 실시",
+      "body": "This survey is the \"2025 BeFM Busan English Broadcasting Listening Rate and Listeners Survey\" and is conducted to identify listening behaviors, program satisfaction, and improvemen…",
+      "source": "부산영어방송 공지사항",
+      "sourceUrl": "https://www.befm.or.kr/sub/template.php?midx=49&mode=view&page=1&intnum=4273",
+      "date": "2026-09-07",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "resident",
+        "senior"
+      ],
+      "aiSimplified": "2026 BeFM 부산영어방송 청취율 조사가 실시됩니다. 이 조사는 청취자분들의 방송 듣는 습관과 프로그램 만족도를 알아보기 위해 진행됩니다."
     },
     {
       "cat": "생활",
@@ -628,564 +1996,6 @@
       "aiSimplifiedAt": "2026-09-07"
     },
     {
-      "cat": "안전",
-      "title": "우천 시 관람객 안전 유의사항(Visitor Safety Notice in Wet Weather)",
-      "body": "우천 시 이우환공간 진입로가 미끄러울 수 있으니, 방문객 여러분께서는 이동 시 안전에 각별히 유의하여 주시기 바랍니다. 특히 자갈길 및 경사진 구간에서는 천천히 이동해 주시고, 우산 사용 시 주변 관람객과 시설물에 유의하여 주시기 바랍니다. 강우량이 많거나 기상 상황이 좋지 않은 경우 관람객의 안전을 위해 일부 이동 동선…",
-      "source": "부산시립미술관 새소식",
-      "sourceUrl": "https://art.busan.go.kr/tblTsite07Bbs/viewNewsClient.nm?idx=2363",
-      "date": "2026-09-07",
-      "verified": "2026-09-08",
-      "auto": true,
-      "audience": [
-        "senior",
-        "resident",
-        "tourist"
-      ],
-      "useful": true,
-      "aiSimplified": "비 오는 날에는 이우환공간 길이 미끄러울 수 있으니, 조심해서 이동해 주시고, 특히 자갈길과 경사가 있는 곳에서는 천천히 걸어 주시기 바랍니다. 우산을 사용할 때는 주변 사람들과 시설물에 주의해 주세요."
-    },
-    {
-      "cat": "행사",
-      "title": "재개관 특별전 프로젝트 작업〈퍼포먼스 리뷰〉어시스턴트 모집",
-      "body": "부산시립미술관 재개관 특별전 《퓨처 뮤지올로지 Future Museology 》에서 참여작가 요나스 룬드(Jonas Lund)의 프로젝트 작업〈퍼포먼스 리뷰 Performance Review 〉에 참여할 어시스턴트를 모집합니다. 〈퍼포먼스 리뷰〉는 인공지능 에이전트가 디렉터가 되어 예술가들을 관리하고 평가하는 시스템을 실…",
-      "source": "부산시립미술관 새소식",
-      "sourceUrl": "https://art.busan.go.kr/tblTsite07Bbs/viewNewsClient.nm?idx=2360",
-      "date": "2026-09-07",
-      "verified": "2026-09-08",
-      "auto": true,
-      "audience": [
-        "senior",
-        "resident",
-        "tourist"
-      ],
-      "useful": true,
-      "aiSimplified": "부산시립미술관에서 특별전 《퓨처 뮤지올로지》에 참여할 어시스턴트를 모집합니다."
-    },
-    {
-      "cat": "문화",
-      "title": "2026년 부산시립미술관 도슨트 1차 서류심사 합격자 및 2차 심사 안내",
-      "body": "부산시립미술관 「 2026 년 부산시립미술관 도슨트 모집 」 1 차 서류심사 합격자 및 2 차 면접 &middot; 작품해설 시연 일정을 안내드립니다 . 1 차 서류심사 합격자 명단 및 2 차 심사 세부일정은 첨부된 공고문을 확인해 주시기 바랍니다 . ○ 작 품해설 시연 대상 작품 ① 방정아 , 〈 The Hall 〉 ,…",
-      "source": "부산시립미술관 새소식",
-      "sourceUrl": "https://art.busan.go.kr/tblTsite07Bbs/viewNewsClient.nm?idx=2359",
-      "date": "2026-09-07",
-      "verified": "2026-09-08",
-      "auto": true,
-      "audience": [
-        "senior",
-        "resident",
-        "tourist"
-      ],
-      "aiSimplified": "2026년 부산시립미술관 도슨트 1차 서류심사에 합격하신 분들과 2차 면접 및 작품해설 시연 일정에 대해 안내드립니다. 자세한 내용은 첨부된 공고문을 확인해 주시기 바랍니다."
-    },
-    {
-      "cat": "문화",
-      "title": "2025년도 소장품 수집 공고",
-      "body": "부산시립미술관 공고 제 2025-5 호 공 고 부 산시립미술관은 우수한 소장품 확보를 위하여 2025 년도 작품 구입 계획을 다음과 같이 공고합니다 . 역량 있는 국내외작가 , 개인 소장가 , 화랑 관계자 여러분의 많은 참여를 바랍니다 . 2025 년 6 월 25 일 부산시립미술관장 1. 구입 대상 작품 ○ 뉴미디 어 단…",
-      "source": "부산시립미술관 새소식",
-      "sourceUrl": "https://art.busan.go.kr/tblTsite07Bbs/viewNewsClient.nm?idx=2276",
-      "date": "2026-09-07",
-      "verified": "2026-09-08",
-      "auto": true,
-      "audience": [
-        "senior",
-        "resident",
-        "tourist"
-      ],
-      "useful": true,
-      "aiSimplified": "부산시립미술관에서 2025년도에 좋은 작품을 사기 위해 작품을 모집합니다. 많은 참여 부탁드립니다."
-    },
-    {
-      "cat": "복지",
-      "title": "[모집]2026 영유아기 발달장애인 부모교육지원사업 부모다움 참여자 모집",
-      "body": "- 내용: 꽃으로 채우는 힐링교육, 건강한 디저트 만들기, 나를 돌보는 색의 하루(백드롭페인팅), 힐링우드 클래스(다과상 만들기), 찾아가는 부모코칭 등…",
-      "source": "해운대종합사회복지관",
-      "sourceUrl": "http://haeundae.saem.or.kr/community/news1.php?mode=read&page=1&number=2841&keyfield=&key=",
-      "date": "2026-09-07",
-      "verified": "2026-09-08",
-      "auto": true,
-      "audience": [
-        "senior",
-        "resident"
-      ],
-      "useful": true,
-      "aiSimplified": "2026 영유아기 발달장애인 부모교육지원사업에 참여하실 부모님을 모집합니다. 다양한 힐링 교육과 활동이 준비되어 있습니다."
-    },
-    {
-      "cat": "교육",
-      "title": "[안내] 9·10월 사회교육프로그램 안내",
-      "body": "공지사항 게시판 읽기 [안내] 9·10월 사회교육프로그램 안내 해운대종합사회복지관의 9·10월 사회교육프로그램을 안내드립니다. 지역주민(성인) 누구나 이용 가능하며 이용 전 전화 등록 or 방문 등록 후 이용하실 수 있습니다.  예약문의 : 051-782-5005 자세한 내용은 홍보지를 참고해 주시기 바랍니다. 자 20…",
-      "source": "해운대종합사회복지관",
-      "sourceUrl": "http://haeundae.saem.or.kr/community/news1.php?mode=read&page=1&number=2840&keyfield=&key=",
-      "date": "2026-09-07",
-      "verified": "2026-09-08",
-      "auto": true,
-      "audience": [
-        "senior",
-        "resident"
-      ],
-      "for65": true,
-      "useful": true,
-      "aiSimplified": "해운대종합사회복지관에서 9·10월 사회교육프로그램을 안내드리니, 성인 주민 누구나 전화나 방문으로 등록 후 이용하실 수 있습니다. 예약 문의는 051-782-5005로 해 주시기 바랍니다."
-    },
-    {
-      "cat": "복지",
-      "title": "[안내] 9월 스크린파크골프 일반이용 예약 안내",
-      "body": "공지사항 게시판 읽기 [안내] 9월 스크린파크골프 일반이용 예약 안내 해운대종합사회복지관 스크린파크골프센터의 9월 일반이용 일정을 안내드립니다. 지역주민 누구나 이용 가능하며, 이용 전 전화 예약 후 이용하실 수 있습니다. ■ 이용안내 이용시간 : 타임별 2시간 이용료 : 이용권 1장(8,000원) 이용권 판매 : 5매 …",
-      "source": "해운대종합사회복지관",
-      "sourceUrl": "http://haeundae.saem.or.kr/community/news1.php?mode=read&page=2&number=2837&keyfield=&key=",
-      "date": "2026-09-07",
-      "verified": "2026-09-08",
-      "auto": true,
-      "audience": [
-        "senior",
-        "resident"
-      ],
-      "for65": true,
-      "useful": true,
-      "aiSimplified": "9월에 해운대종합사회복지관 스크린파크골프센터를 이용하시려면 전화로 예약하시고, 이용료는 8,000원입니다."
-    },
-    {
-      "cat": "교육",
-      "title": "[모집] 9월·10월 스크린 파크골프 아카데미 수강생 모집",
-      "body": "공지사항 게시판 읽기 [모집] 9월·10월 스크린 파크골프 아카데미 수강생 모집 해운대종합사회복지관 스크린파크골프센터에서는 지역주민을 대상으로 「9월·10월 스크린 파크골프 아카데미」 수강생을 모집합니다. 파크골프를 처음 접하는 입문자부터 실력 향상을 원하는 이용자까지 수준별 맞춤 교육을 제공하며, 전문 강사의 체계적인 …",
-      "source": "해운대종합사회복지관",
-      "sourceUrl": "http://haeundae.saem.or.kr/community/news1.php?mode=read&page=2&number=2836&keyfield=&key=",
-      "date": "2026-09-07",
-      "verified": "2026-09-08",
-      "auto": true,
-      "audience": [
-        "senior",
-        "resident"
-      ],
-      "for65": true,
-      "useful": true,
-      "aiSimplified": "해운대종합사회복지관에서 9월과 10월에 스크린 파크골프 아카데미 수강생을 모집하니, 관심 있으신 분들은 신청해 주시기 바랍니다."
-    },
-    {
-      "cat": "교육",
-      "title": "[모집] 파크골프 아카데미 방학특강 초등학생 모집",
-      "body": "공지사항 게시판 읽기 [모집] 파크골프 아카데미 방학특강 초등학생 모집 해운대종합사회복지관에서는 여름방학을 맞아 초등학생을 대상으로 「파크골프 방학특강」을 운영합니다. 스크린파크골프의 기본 이론부터 실전 기술까지 체계적으로 배우며 건강한 여가활동과 스포츠 경험을 제공하고자 하오니 많은 관심과 참여 바랍니다. ■ 교육기간:…",
-      "source": "해운대종합사회복지관",
-      "sourceUrl": "http://haeundae.saem.or.kr/community/news1.php?mode=read&page=2&number=2833&keyfield=&key=",
-      "date": "2026-09-07",
-      "verified": "2026-09-08",
-      "auto": true,
-      "audience": [
-        "senior",
-        "resident"
-      ],
-      "for65": true,
-      "useful": true,
-      "aiSimplified": "해운대종합사회복지관에서 초등학생을 위해 2026년 8월 11일(화)부터 8월 27일(목)까지 매주 화요일과 목요일에 파크골프 방학특강을 엽니다. 많은 관심과 참여 부탁드립니다."
-    },
-    {
-      "cat": "문화",
-      "title": "[모집]여송독서캠프 상상ON 스토리 캠프 참여자 모집",
-      "body": "공지사항 게시판 읽기 [모집]여송독서캠프 상상ON 스토리 캠프 참여자 모집 여름방학을 맞이하여 아이들의 디지털 문해력과 창의표현력 향상을 위한 미디어 독서 프로그램 참여자를 모집합니다. ★ 대상: 초등학생 3학년~6학년 10명 ★ 운영시간: 10시~12시(2시간) ★ 장소: 해운대종합사회복지관 ★ 참가비: 무료 ★사업기간…",
-      "source": "해운대종합사회복지관",
-      "sourceUrl": "http://haeundae.saem.or.kr/community/news1.php?mode=read&page=2&number=2832&keyfield=&key=",
-      "date": "2026-09-07",
-      "verified": "2026-09-08",
-      "auto": true,
-      "audience": [
-        "senior",
-        "resident"
-      ],
-      "for65": true,
-      "useful": true,
-      "aiSimplified": "여름방학 동안 초등학생 3학년에서 6학년까지 10명을 대상으로 하는 무료 미디어 독서 프로그램에 참여할 어린이를 모집합니다."
-    },
-    {
-      "cat": "복지",
-      "title": "[공지] 해운대종합사회복지관 산책로 네이밍 공모전 수상 결과 안내",
-      "body": "공지사항 게시판 읽기 [공지] 해운대종합사회복지관 산책로 네이밍 공모전 수상 결과 안내 안녕하세요. 해운대종합사회복지관입니다. 해운대종합사회복지관 산책로 네이밍 공모전에 많은 관심과 성원을 보내주시고, 소중한 아이디어를 제안해 주신 모든 분들께 진심으로 감사드립니다. 이번 공모전에는 총 24개의 작품이 접수되었으며, 공정…",
-      "source": "해운대종합사회복지관",
-      "sourceUrl": "http://haeundae.saem.or.kr/community/news1.php?mode=read&page=3&number=2830&keyfield=&key=",
-      "date": "2026-09-07",
-      "verified": "2026-09-08",
-      "auto": true,
-      "audience": [
-        "senior",
-        "resident"
-      ],
-      "for65": true,
-      "useful": true,
-      "aiSimplified": "해운대종합사회복지관에서 산책로 이름 공모전 결과를 발표했습니다. 많은 관심과 아이디어를 주신 분들께 감사드립니다."
-    },
-    {
-      "cat": "환경",
-      "title": "[공지] 제34회 청소년 가요제 홍보",
-      "body": "공지사항 게시판 읽기 [공지] 제34회 청소년 가요제 홍보 제34회 청소년 가요제 참가자 모집 해운대종합사회복지관에서는 청소년들의 문화적 재능을 발휘하고 건전한 청소년 문화를 조성하기 위해 「제34회 청소년 가요제」를 개최합니다. 노래를 좋아하는 청소년이라면 누구나 참여할 수 있으며, 솔로와 그룹 모두 참가 가능합니다. …",
-      "source": "해운대종합사회복지관",
-      "sourceUrl": "http://haeundae.saem.or.kr/community/news1.php?mode=read&page=3&number=2828&keyfield=&key=",
-      "date": "2026-09-07",
-      "verified": "2026-09-08",
-      "auto": true,
-      "audience": [
-        "senior",
-        "resident"
-      ],
-      "for65": true,
-      "useful": true,
-      "aiSimplified": "해운대종합사회복지관에서 제34회 청소년 가요제를 열고, 노래를 좋아하는 청소년은 누구나 솔로 또는 그룹으로 참가할 수 있습니다."
-    },
-    {
-      "cat": "복지",
-      "title": "[모집] 해운대종합사회복지관 산책로 네이밍 공모전",
-      "body": "복지관소개 현황 연혁 직원소개 오시는길 이용자만족 서비스 헌장 사업안내 사례관리기능 서비스제공기능 지역조직화기능 부설기관 LH행복꿈터 해운대지역아동센터 해운대 푸드마켓 해운대 푸드뱅크 프로그램 여성, 일반 유아, 아동, 청소년 어르신 장애인 무료특강 후원사업 후원안내 사례 자원봉사 자원봉사 안내 사례 알림마당 공지사항 공…",
-      "source": "해운대종합사회복지관",
-      "sourceUrl": "http://haeundae.saem.or.kr/community/news1.php?mode=read&page=3&number=2822&keyfield=&key=",
-      "date": "2026-09-07",
-      "verified": "2026-09-08",
-      "auto": true,
-      "audience": [
-        "senior",
-        "resident"
-      ],
-      "for65": true,
-      "useful": true,
-      "aiSimplified": "해운대종합사회복지관에서 산책로 이름을 정할 공모전을 엽니다."
-    },
-    {
-      "cat": "복지",
-      "title": "2026 영유아기 발달장애인 부모교육지원사업 부모다움 참여자 모집",
-      "body": "- 내용: 기본형 교육(부모반응성중재(RT)교육, 긍정적 행동지원, 발달장애 유아의 언어발달 교육, 정서발달 및 학습지원 활동 등), 자율형 교육(꽃으로 채우는 힐링교육, 건강한 디저트 만들기, 나를 돌보는 색의 하루(백드롭페인팅), 우리 함께 성장 운동 등)…",
-      "source": "해운대종합사회복지관",
-      "sourceUrl": "http://haeundae.saem.or.kr/community/news1.php?mode=read&page=5&number=2810&keyfield=&key=",
-      "date": "2026-09-07",
-      "verified": "2026-09-08",
-      "auto": true,
-      "audience": [
-        "senior",
-        "resident"
-      ],
-      "useful": true,
-      "aiSimplified": "2026 영유아기 발달장애인 부모교육지원사업에 참여할 부모님을 모집합니다. 교육 내용은 부모님이 아이를 잘 돌볼 수 있도록 돕는 여러 가지 프로그램입니다."
-    },
-    {
-      "cat": "교육",
-      "title": "[모집] 6월 스크린파크골프 아카데미 수강생 대모집",
-      "body": "공지사항 게시판 읽기 [모집] 6월 스크린파크골프 아카데미 수강생 대모집 2026년 스크린 파크골프 아카데미 수강생 모집 기초부터 실전까지! 전문 강사와 함께 배우는 스크린 파크골프 새로운 취미를 찾고 계신가요? 건강한 여가생활과 즐거운 운동을 동시에 누릴 수 있는 스크린 파크골프 아카데미 가 여러분을 기다립니다! 파크골…",
-      "source": "해운대종합사회복지관",
-      "sourceUrl": "http://haeundae.saem.or.kr/community/news1.php?mode=read&page=5&number=2804&keyfield=&key=",
-      "date": "2026-09-07",
-      "verified": "2026-09-08",
-      "auto": true,
-      "audience": [
-        "senior",
-        "resident"
-      ],
-      "useful": true,
-      "aiSimplified": "2026년 스크린파크골프 아카데미에서 수강생을 모집하니, 기초부터 배우고 싶으신 분들은 참여해 주세요."
-    },
-    {
-      "cat": "행사",
-      "title": "[모집] 5월 파크골프 체험의날 안내",
-      "body": "공지사항 게시판 읽기 [모집] 5월 파크골프 체험의날 안내 안녕하십니까, 해운대종합사회복지관입니다. 해운대종합사회복지관에서는 지역주민의 건강한 여가활동 지원을 위해 스크린파크골프 체험의 날 을 운영합니다. 파크골프를 처음 접하시는 분들도 쉽게 참여하실 수 있도록 기초 교육과 체험 중심으로 진행되오니 많은 관심과 참여 바랍…",
-      "source": "해운대종합사회복지관",
-      "sourceUrl": "http://haeundae.saem.or.kr/community/news1.php?mode=read&page=5&number=2795&keyfield=&key=",
-      "date": "2026-09-07",
-      "verified": "2026-09-08",
-      "auto": true,
-      "audience": [
-        "senior",
-        "resident"
-      ],
-      "for65": true,
-      "useful": true,
-      "aiSimplified": "5월에 해운대종합사회복지관에서 파크골프 체험의 날을 운영하니, 처음 하시는 분들도 쉽게 참여하실 수 있습니다. 많은 관심과 참여 부탁드립니다."
-    },
-    {
-      "cat": "행사",
-      "title": "[모집] 생일서비스 후원자 모집",
-      "body": "공지사항 게시판 읽기 [모집] 생일서비스 후원자 모집 ■ 생일서비스 후원자 모집 ▪ 지역 내 영세가정 및 복지사각지대 가정의 생일을 축하하실 후원자를 모집합니다 . ▪ 모집일자 : 상시모집 ▪ 참여방법 : 피자 , 치킨 , 케이크 , 모바일상품권 등 기프티콘 후원요청 ​ ( 후원 시 기부금 영수증 발행 가능 , 연말정산 …",
-      "source": "해운대종합사회복지관",
-      "sourceUrl": "http://haeundae.saem.or.kr/community/news1.php?mode=read&page=6&number=2793&keyfield=&key=",
-      "date": "2026-09-07",
-      "verified": "2026-09-08",
-      "auto": true,
-      "audience": [
-        "senior",
-        "resident"
-      ],
-      "useful": true,
-      "aiSimplified": "지역 내 어려운 가정의 생일을 축하해 주실 후원자를 상시 모집합니다. 피자, 치킨, 케이크, 모바일상품권 등으로 후원하실 수 있으며, 기부금 영수증도 발행됩니다."
-    },
-    {
-      "cat": "복지",
-      "title": "[공지]복지관 외부 행복한 숲 조성공사 안내",
-      "body": "5월 6일(수)-5월 30일(토)까지 해운대종합사회복지관 외부 '행복한 숲' 공사를 진행합니다. 소음이 발생할 수 있으며, 공사 구간 접근이 어렵습니다.…",
-      "source": "해운대종합사회복지관",
-      "sourceUrl": "http://haeundae.saem.or.kr/community/news1.php?mode=read&page=6&number=2791&keyfield=&key=",
-      "date": "2026-09-07",
-      "verified": "2026-09-08",
-      "auto": true,
-      "audience": [
-        "senior",
-        "resident"
-      ],
-      "for65": true,
-      "useful": true,
-      "aiSimplified": "5월 6일(수)부터 5월 30일(토)까지 해운대종합사회복지관 외부에서 '행복한 숲' 공사를 하니, 소음이 날 수 있고 공사 구간에 접근하기 어려울 수 있습니다."
-    },
-    {
-      "cat": "복지",
-      "title": "제46회 장애인의 날 기념 카드뉴스",
-      "body": "공지사항 게시판 읽기 제46회 장애인의 날 기념 카드뉴스 서로 다른 모습과 속도로 살아가지만, 우리 모두는 같은 마음으로 세상을 살아가고 있습니다.…",
-      "source": "해운대종합사회복지관",
-      "sourceUrl": "http://haeundae.saem.or.kr/community/news1.php?mode=read&page=6&number=2788&keyfield=&key=",
-      "date": "2026-09-07",
-      "verified": "2026-09-08",
-      "auto": true,
-      "audience": [
-        "senior",
-        "resident"
-      ],
-      "aiSimplified": "제46회 장애인의 날을 기념하는 카드뉴스가 게시되었습니다."
-    },
-    {
-      "cat": "행사",
-      "title": "[모집] 우리 동네 클리닝 참여자 모집",
-      "body": "공지사항 게시판 읽기 [모집] 우리 동네 클리닝 참여자 모집  우리 동네 클리닝 참여자 모집 해운대종합사회복지관과 함께하는 “우리 동네 클리닝” 플로깅 활동 참여자를 모집합니다! 무심코 지나쳤던 우리 동네 거리, 이제는 우리가 직접 깨끗하게 만들어보세요  플로깅은 걷거나 뛰면서 쓰레기를 줍는 친환경 실천 활동으로, 단…",
-      "source": "해운대종합사회복지관",
-      "sourceUrl": "http://haeundae.saem.or.kr/community/news1.php?mode=read&page=6&number=2787&keyfield=&key=",
-      "date": "2026-09-07",
-      "verified": "2026-09-08",
-      "auto": true,
-      "audience": [
-        "senior",
-        "resident"
-      ],
-      "for65": true,
-      "useful": true,
-      "aiSimplified": "해운대종합사회복지관에서 우리 동네를 깨끗하게 만들기 위해 플로깅 활동에 참여할 어르신을 모집합니다."
-    },
-    {
-      "cat": "행사",
-      "title": "[모집] 파크골프 4월 체험의 날 안내",
-      "body": "공지사항 게시판 읽기 [모집] 파크골프 4월 체험의 날 안내 안녕하십니까, 해운대종합사회복지관입니다. 해운대종합사회복지관에서는 지역주민의 건강한 여가활동 지원을 위해 스크린파크골프 체험의 날 을 운영합니다. 파크골프를 처음 접하시는 분들도 쉽게 참여하실 수 있도록 기초 교육과 체험 중심으로 진행되오니 많은 관심과 참여 바…",
-      "source": "해운대종합사회복지관",
-      "sourceUrl": "http://haeundae.saem.or.kr/community/news1.php?mode=read&page=7&number=2781&keyfield=&key=",
-      "date": "2026-09-07",
-      "verified": "2026-09-08",
-      "auto": true,
-      "audience": [
-        "senior",
-        "resident"
-      ],
-      "for65": true,
-      "useful": true,
-      "aiSimplified": "해운대종합사회복지관에서 4월에 스크린파크골프 체험의 날을 운영하니, 처음 하시는 분들도 쉽게 참여하실 수 있습니다."
-    },
-    {
-      "cat": "교육",
-      "title": "[모집] 파크골프 아카데미 참여자 모집",
-      "body": "공지사항 게시판 읽기 [모집] 파크골프 아카데미 참여자 모집 안녕하십니까, 해운대종합사회복지관입니다. 해운대종합사회복지관에서는 지역주민의 건강 증진과 여가 활성화를 위해 다양한 복지 프로그램을 운영하고 있습니다. 최근 많은 관심을 받고 있는 생활체육 **‘파크골프’**를 배우고 즐길 수 있는 프로그램을 아래와 같이 진행하…",
-      "source": "해운대종합사회복지관",
-      "sourceUrl": "http://haeundae.saem.or.kr/community/news1.php?mode=read&page=7&number=2780&keyfield=&key=",
-      "date": "2026-09-07",
-      "verified": "2026-09-08",
-      "auto": true,
-      "audience": [
-        "senior",
-        "resident"
-      ],
-      "for65": true,
-      "useful": true,
-      "aiSimplified": "해운대종합사회복지관에서 파크골프 아카데미 참여자를 모집합니다."
-    },
-    {
-      "cat": "교육",
-      "title": "2026년 시나브로 배움터 「꿈꾸는 힐링Ⅱ」 참여자 모집",
-      "body": "공지사항 게시판 읽기 2026년 시나브로 배움터 「꿈꾸는 힐링Ⅱ」 참여자 모집 안녕하세요. 해운대종합사회복지관입니다. 청소년의 또래 관계 확장 및 정서 안정을 위한 청소년 사회적응력 프로그램, 2026년 시나브로 배움터 「꿈꾸는 힐링Ⅱ」 참여자를 모집합니다. ▪ 모집일자 : 2026년 3월 31일(화)까지 *모집 인원 미…",
-      "source": "해운대종합사회복지관",
-      "sourceUrl": "http://haeundae.saem.or.kr/community/news1.php?mode=read&page=7&number=2777&keyfield=&key=",
-      "date": "2026-09-07",
-      "verified": "2026-09-08",
-      "auto": true,
-      "audience": [
-        "senior",
-        "resident"
-      ],
-      "for65": true,
-      "useful": true,
-      "aiSimplified": "2026년 3월 31일(화)까지 청소년을 위한 프로그램인 시나브로 배움터 「꿈꾸는 힐링Ⅱ」에 참여할 분을 모집합니다."
-    },
-    {
-      "cat": "복지",
-      "title": "[모집] 2026 성인장애인 평생학습 「나만의 쌀베이킹」 참여자 모집",
-      "body": "공지사항 게시판 읽기 [모집] 2026 성인장애인 평생학습 「나만의 쌀베이킹」 참여자 모집 홈베이킹 프로그램에 참여할 성인장애인을 모집합니다. 쌀을 이용하여 쉽고 간단하고 재밌게 만들어보는 베이킹! 수강료 및 재료비 전액 무료이니, 많은 관심과 참여 부탁드립니다 :) ■ 대상: 성인장애인 8명 ■ 교육일정: 2026년 4…",
-      "source": "해운대종합사회복지관",
-      "sourceUrl": "http://haeundae.saem.or.kr/community/news1.php?mode=read&page=7&number=2762&keyfield=&key=",
-      "date": "2026-09-07",
-      "verified": "2026-09-08",
-      "auto": true,
-      "audience": [
-        "senior",
-        "resident"
-      ],
-      "useful": true,
-      "aiSimplified": "2026년 4월부터 시작하는 '나만의 쌀베이킹' 프로그램에 참여할 성인장애인 8명을 모집합니다. 수강료와 재료비는 무료이니 많은 관심 부탁드립니다."
-    },
-    {
-      "cat": "교육",
-      "title": "[모집] 2026 지식정보취약계층 평생학습프로그램 「실버스윙」 참여자 모집",
-      "body": "복지관소개 현황 연혁 직원소개 오시는길 이용자만족 서비스 헌장 사업안내 사례관리기능 서비스제공기능 지역조직화기능 부설기관 LH행복꿈터 해운대지역아동센터 해운대 푸드마켓 해운대 푸드뱅크 프로그램 여성, 일반 유아, 아동, 청소년 어르신 장애인 무료특강 후원사업 후원안내 사례 자원봉사 자원봉사 안내 사례 알림마당 공지사항 공…",
-      "source": "해운대종합사회복지관",
-      "sourceUrl": "http://haeundae.saem.or.kr/community/news1.php?mode=read&page=7&number=2761&keyfield=&key=",
-      "date": "2026-09-07",
-      "verified": "2026-09-08",
-      "auto": true,
-      "audience": [
-        "senior",
-        "resident"
-      ],
-      "for65": true,
-      "useful": true,
-      "aiSimplified": "2026년 지식정보취약계층을 위한 평생학습프로그램 「실버스윙」에 참여할 어르신을 모집합니다."
-    },
-    {
-      "cat": "복지",
-      "title": "[모집] 2026 성인장애인 밴드교실 「THE 울림」 참여자 모집",
-      "body": "공지사항 게시판 읽기 [모집] 2026 성인장애인 밴드교실 「THE 울림」 참여자 모집 해운대복지관에서는 성인장애인 대상 밴드교실을 운영하고 있습니다. 보컬, 베이스기타 및 통기타 연주가 가능한 성인장애인은 누구나 참여 가능합니다. 음악밴드 개인연습 지도부터 합주연습, 연말 공연까지! 음악으로 하나되는 기회를 놓치지 마세…",
-      "source": "해운대종합사회복지관",
-      "sourceUrl": "http://haeundae.saem.or.kr/community/news1.php?mode=read&page=8&number=2758&keyfield=&key=",
-      "date": "2026-09-07",
-      "verified": "2026-09-08",
-      "auto": true,
-      "audience": [
-        "senior",
-        "resident"
-      ],
-      "for65": true,
-      "useful": true,
-      "aiSimplified": "해운대복지관에서 2026 성인장애인 밴드교실 「THE 울림」에 참여할 성인장애인을 모집합니다. 보컬, 베이스기타, 통기타를 할 수 있는 분은 누구나 참여하실 수 있습니다."
-    },
-    {
-      "cat": "복지",
-      "title": "[모집] 2026년 국민연금 수급자 아카데미 <生生투게더> 참여자 모집",
-      "body": "공지사항 게시판 읽기 [모집] 2026년 국민연금 수급자 아카데미 <生生투게더> 참여자 모집 안녕하세요~ 해운대종합사회복지관입니다:) 건강하고 행복한 노후를 위한 힐링교육프로그램 국민연금 수급자 아카데미 <生生투게더> 참여자를 모집 합니다! ■ 모집대상 선정기준에 해당하는 성인 30명 ① 국민연금 수급자(일시금 수급자 제…",
-      "source": "해운대종합사회복지관",
-      "sourceUrl": "http://haeundae.saem.or.kr/community/news1.php?mode=read&page=8&number=2748&keyfield=&key=",
-      "date": "2026-09-07",
-      "verified": "2026-09-08",
-      "auto": true,
-      "audience": [
-        "senior",
-        "resident"
-      ],
-      "for65": true,
-      "useful": true,
-      "aiSimplified": "2026년 국민연금 수급자 아카데미 <生生투게더>에 참여할 어르신 30명을 모집합니다."
-    },
-    {
-      "cat": "교육",
-      "title": "[모집] 스크린파크골프센터 아카데미 참여자 모집",
-      "body": "공지사항 게시판 읽기 [모집] 스크린파크골프센터 아카데미 참여자 모집 안녕하십니까 해운대종합사회복지관입니다.:) 2026년 스크린파크골프 프로그램이 개설되었습니다! 참여자 모집 마감 전까지 상시 모집 진행 예정이며, 많은 관심 부탁드립니다. 감사합니다.​…",
-      "source": "해운대종합사회복지관",
-      "sourceUrl": "http://haeundae.saem.or.kr/community/news1.php?mode=read&page=8&number=2744&keyfield=&key=",
-      "date": "2026-09-07",
-      "verified": "2026-09-08",
-      "auto": true,
-      "audience": [
-        "senior",
-        "resident"
-      ],
-      "for65": true,
-      "useful": true,
-      "aiSimplified": "2026년 스크린파크골프센터 아카데미에 참여할 분을 모집하니 많은 관심 부탁드립니다."
-    },
-    {
-      "cat": "관광",
-      "title": "2026 부산돼지국밥대전 2026-08-16 ~ 2026-10-18",
-      "body": "돼지국밥 한 그릇으로 부산 여행! 「2026 부산돼지국밥대전」 부산 사람들의 일상과 오랜 시간 함께해 온 대표 음식, 돼지국밥. 가게마다 다른 맛과 개성, 동네마다 담긴 이야기를 따라 부산의 돼지국밥을 새롭게 만나보는 시민참여형 미식관광 프로젝트 「2026 부산돼지국밥대전」이 시작됩니다. 시민과 관광객의 추천을 시작으로 …",
-      "source": "비지트부산 축제·행사",
-      "sourceUrl": "https://www.visitbusan.net/schedule/view.do?boardId=BBS_0000009&menuCd=DOM_000000204012000000&dataSid=6338",
-      "date": "2026-09-07",
-      "verified": "2026-09-08",
-      "auto": true,
-      "imageUrl": "https://www.visitbusan.net/upload_data/board_data/BBS_0000009/178728747747519.jpg",
-      "audience": [
-        "tourist",
-        "resident",
-        "senior"
-      ],
-      "useful": true,
-      "aiSimplified": "2026년 8월 16일부터 10월 18일까지 부산에서 돼지국밥을 즐기며 여행하는 '2026 부산돼지국밥대전'이 열립니다."
-    },
-    {
-      "cat": "생활",
-      "title": "2026 9월 별바다부산 나이트마켓 2026-09-26 ~ 2026-10-18",
-      "body": "부산의 가을바람과 함께, 낭만이 반짝이는 순간으로 다시 돌아왔습니다. 〈2026 별바다부산 나이트마켓〉이 이번엔 9월, 여러분을 다시 찾아갑니다. 초여름 밤을 수놓았던 그 설렘, 이제 가을의 정취를 담아 한층 더 깊어진 이야기로 돌아왔어요. 많은 방문과 참여 부탁드립니다! 1. 일시 : 2026년 9월 26일(토) ~ 1…",
-      "source": "비지트부산 축제·행사",
-      "sourceUrl": "https://www.visitbusan.net/schedule/view.do?boardId=BBS_0000009&menuCd=DOM_000000204012000000&dataSid=6353",
-      "date": "2026-09-07",
-      "verified": "2026-09-08",
-      "auto": true,
-      "imageUrl": "https://www.visitbusan.net/upload_data/board_data/BBS_0000009/178841096537797.jpg",
-      "audience": [
-        "tourist",
-        "resident",
-        "senior"
-      ],
-      "useful": true,
-      "aiSimplified": "2026년 9월 26일부터 10월 18일까지 부산에서 별바다부산 나이트마켓이 열립니다. 많은 참여 부탁드립니다!"
-    },
-    {
-      "cat": "교통",
-      "title": "2026 월드 스마트시티 엑스포 2026-09-09 ~ 2026-09-11",
-      "body": "-2026 월드 스마트시티 엑스포- ○ 기간/장소 : &rsquo;26.9.9.(수) ~ 11.(금) / 벡스코 제1전시장 ○ 주 제 :&lsquo;Beyond Smart City, Into AI City ○ 내 용 : 공식행사(개막식, 전시투어), 전시, 비즈니스, 콘퍼런스, 투어 등 ○ 주 최 : 부산광역시, 국토교통…",
-      "source": "비지트부산 축제·행사",
-      "sourceUrl": "https://www.visitbusan.net/schedule/view.do?boardId=BBS_0000009&menuCd=DOM_000000204012000000&dataSid=6314",
-      "date": "2026-09-07",
-      "verified": "2026-09-08",
-      "auto": true,
-      "imageUrl": "https://www.visitbusan.net/upload_data/board_data/BBS_0000009/178635065899065.jpg",
-      "audience": [
-        "tourist",
-        "resident",
-        "senior"
-      ],
-      "useful": true,
-      "aiSimplified": "2026년 9월 9일부터 11일까지 벡스코 제1전시장에서 '2026 월드 스마트시티 엑스포'가 열립니다. 이 행사에서는 개막식, 전시, 비즈니스 회의 등 다양한 활동이 진행됩니다."
-    },
-    {
-      "cat": "문화",
-      "title": "「광안리 M 드론라이트쇼」 9월 공연 프로그램 안내 2026-09-05 ~ 2026-09-26",
-      "body": "「광안리 M 드론라이트쇼」 9월 공연 프로그램 안내 ○ 9. 5.(토) : 숲의 멜로디 ○ 9. 12.(토) : 2026 LCK with 광안리 ○ 9. 19.(토) : 빛나는 청춘을 위해 ○ 9. 26.(토): 한가위 달밤의 연회 with 레이저쇼 &zwj; ※ 9월 26일(토) \"한가위 달밤의 연회 with 레이저쇼\"…",
-      "source": "비지트부산 축제·행사",
-      "sourceUrl": "https://www.visitbusan.net/schedule/view.do?boardId=BBS_0000009&menuCd=DOM_000000204012000000&dataSid=6342",
-      "date": "2026-09-07",
-      "verified": "2026-09-08",
-      "auto": true,
-      "imageUrl": "https://www.visitbusan.net/upload_data/board_data/BBS_0000009/178773228374762.png",
-      "audience": [
-        "tourist",
-        "resident",
-        "senior"
-      ],
-      "useful": true,
-      "aiSimplified": "2026년 9월 5일부터 9월 26일까지 광안리에서 드론라이트쇼가 열리며, 매주 토요일마다 다른 공연이 있습니다."
-    },
-    {
-      "cat": "문화",
-      "title": "해녀와 함께 바다를 배우다 2026-08-04 ~ 2026-09-19",
-      "body": "부산 바다의 숨겨진 이야기를 만나는 특별한 체험! 해녀에게 직접 듣는 숨비소리와 바다 이야기 스노클링과 해양생물 관찰을 통해부산 해녀문화와 바다를 가까이에서 경험해보세요 체험 안내 대상 : 초등학교 4학년 이상 누구나 운영 : 8월 4일(화) ~ 9월 초 / 총 20회 참가비 : 1인 30,000원 포함사항 ✔ 슈트 &m…",
-      "source": "비지트부산 축제·행사",
-      "sourceUrl": "https://www.visitbusan.net/schedule/view.do?boardId=BBS_0000009&menuCd=DOM_000000204012000000&dataSid=6294",
-      "date": "2026-09-07",
-      "verified": "2026-09-08",
-      "auto": true,
-      "imageUrl": "https://www.visitbusan.net/upload_data/board_data/BBS_0000009/178657896989513.png",
-      "audience": [
-        "tourist",
-        "resident",
-        "senior"
-      ],
-      "useful": true,
-      "aiSimplified": "부산 바다에서 해녀와 함께 바다를 배우는 특별한 체험이 있습니다. 초등학교 4학년 이상 누구나 참여할 수 있으며, 2026년 8월 4일부터 9월 19일까지 총 20회 진행됩니다. 참가비는 1인 30,000원입니다."
-    },
-    {
       "cat": "문화",
       "title": "2026 별바다부산 나이트페스타 2026-08-01 ~ 2026-12-31",
       "body": "밤이 되면 더욱 빛나는 야간관광 특화도시, 부산 아름다운 야경부터 특별한 야시장. 캠크닉, 거리 음악 공연과 축제까지! 별빛이 내려앉은 부산의 밤, 다채로운 즐거움이 반짝이는 특별한 밤이 시작됩니다. 2026년 7월 ~ 12월 부산의 밤을 따라 펼쳐지는 특별한 이야기, 그 여정의 주인공이 되어보세요. 별바다부산 나이트페스…",
@@ -1202,207 +2012,6 @@
       ],
       "useful": true,
       "aiSimplified": "2026년 8월 1일부터 12월 31일까지 부산에서 밤에 즐길 수 있는 특별한 축제가 열립니다. 아름다운 야경과 다양한 공연, 야시장을 즐기며 특별한 밤을 경험해 보세요."
-    },
-    {
-      "cat": "건강",
-      "title": "해운대구정신건강복지센터 의뢰서양식",
-      "body": "부산광역시 해운대구 양운로 37번길 59 ｜ 전화번호 : 051-741-3567 ｜ 팩스 : 051-747-3567 ｜ E-mail : hmhc@hanmail.net Copyrightⓒ HEAUNDAEGU MENTAL HEALTH WELFARE CENTER All rights Reserved. LOGIN 회원가입…",
-      "source": "해운대구정신건강복지센터",
-      "sourceUrl": "http://www.hmhc.or.kr/bbs/board.php?bo_table=notice&wr_id=46",
-      "date": "2026-09-07",
-      "verified": "2026-09-08",
-      "auto": true,
-      "audience": [
-        "senior",
-        "resident"
-      ],
-      "useful": true,
-      "aiSimplified": "해운대구정신건강복지센터의 주소는 부산광역시 해운대구 양운로 37번길 59이며, 전화번호는 051-741-3567입니다."
-    },
-    {
-      "cat": "문화",
-      "title": "2026년 생명사랑생명존중 허들링 문화제 공지",
-      "body": "부산광역시 해운대구 양운로 37번길 59 ｜ 전화번호 : 051-741-3567 ｜ 팩스 : 051-747-3567 ｜ E-mail : hmhc@hanmail.net Copyrightⓒ HEAUNDAEGU MENTAL HEALTH WELFARE CENTER All rights Reserved. LOGIN 회원가입…",
-      "source": "해운대구정신건강복지센터",
-      "sourceUrl": "http://www.hmhc.or.kr/bbs/board.php?bo_table=notice&wr_id=212",
-      "date": "2026-09-07",
-      "verified": "2026-09-08",
-      "auto": true,
-      "audience": [
-        "senior",
-        "resident"
-      ],
-      "useful": true,
-      "aiSimplified": "2026년 생명사랑생명존중 허들링 문화제에 대한 자세한 내용은 부산 해운대구 양운로 37번길 59에 있는 정신건강복지센터에 문의해 주시기 바랍니다."
-    },
-    {
-      "cat": "생활",
-      "title": "온-트레이닝 비대면 접속 링크(마지막 회기)",
-      "body": "부산광역시 해운대구 양운로 37번길 59 ｜ 전화번호 : 051-741-3567 ｜ 팩스 : 051-747-3567 ｜ E-mail : hmhc@hanmail.net Copyrightⓒ HEAUNDAEGU MENTAL HEALTH WELFARE CENTER All rights Reserved. LOGIN 회원가입…",
-      "source": "해운대구정신건강복지센터",
-      "sourceUrl": "http://www.hmhc.or.kr/bbs/board.php?bo_table=notice&wr_id=201",
-      "date": "2026-09-07",
-      "verified": "2026-09-08",
-      "auto": true,
-      "audience": [
-        "senior",
-        "resident"
-      ],
-      "aiSimplified": "부산 해운대구 양운로 37번길 59에 있는 정신건강복지센터의 마지막 온-트레이닝 비대면 접속 링크를 확인하시기 바랍니다."
-    },
-    {
-      "cat": "건강",
-      "title": "해운대구정신건강복지센터 생명존중 슬로건 공모전",
-      "body": "부산광역시 해운대구 양운로 37번길 59 ｜ 전화번호 : 051-741-3567 ｜ 팩스 : 051-747-3567 ｜ E-mail : hmhc@hanmail.net Copyrightⓒ HEAUNDAEGU MENTAL HEALTH WELFARE CENTER All rights Reserved. LOGIN 회원가입…",
-      "source": "해운대구정신건강복지센터",
-      "sourceUrl": "http://www.hmhc.or.kr/bbs/board.php?bo_table=notice&wr_id=197",
-      "date": "2026-09-07",
-      "verified": "2026-09-08",
-      "auto": true,
-      "audience": [
-        "senior",
-        "resident"
-      ],
-      "useful": true,
-      "aiSimplified": "해운대구정신건강복지센터에서 생명존중 슬로건 공모전을 엽니다."
-    },
-    {
-      "cat": "생활",
-      "title": "해운대행복맵 리뉴얼 안내",
-      "body": "부산광역시 해운대구 양운로 37번길 59 ｜ 전화번호 : 051-741-3567 ｜ 팩스 : 051-747-3567 ｜ E-mail : hmhc@hanmail.net Copyrightⓒ HEAUNDAEGU MENTAL HEALTH WELFARE CENTER All rights Reserved. LOGIN 회원가입…",
-      "source": "해운대구정신건강복지센터",
-      "sourceUrl": "http://www.hmhc.or.kr/bbs/board.php?bo_table=notice&wr_id=192&page=2",
-      "date": "2026-09-07",
-      "verified": "2026-09-08",
-      "auto": true,
-      "audience": [
-        "senior",
-        "resident"
-      ],
-      "aiSimplified": "해운대행복맵이 새롭게 바뀌었습니다. 궁금한 점은 051-741-3567로 전화해 주시면 됩니다."
-    },
-    {
-      "cat": "교육",
-      "title": "2025년도 아동청소년 교육 신청 안내",
-      "body": "부산광역시 해운대구 양운로 37번길 59 ｜ 전화번호 : 051-741-3567 ｜ 팩스 : 051-747-3567 ｜ E-mail : hmhc@hanmail.net Copyrightⓒ HEAUNDAEGU MENTAL HEALTH WELFARE CENTER All rights Reserved. LOGIN 회원가입…",
-      "source": "해운대구정신건강복지센터",
-      "sourceUrl": "http://www.hmhc.or.kr/bbs/board.php?bo_table=notice&wr_id=191&page=2",
-      "date": "2026-09-07",
-      "verified": "2026-09-08",
-      "auto": true,
-      "audience": [
-        "senior",
-        "resident"
-      ],
-      "useful": true,
-      "aiSimplified": "2025년도 아동청소년 교육 신청에 대한 자세한 내용은 부산광역시 해운대구 양운로 37번길 59로 전화(051-741-3567)나 팩스(051-747-3567)로 문의해 주시기 바랍니다."
-    },
-    {
-      "cat": "생활",
-      "title": "[온-트레이닝] 8회기 링크입니다.",
-      "body": "부산광역시 해운대구 양운로 37번길 59 ｜ 전화번호 : 051-741-3567 ｜ 팩스 : 051-747-3567 ｜ E-mail : hmhc@hanmail.net Copyrightⓒ HEAUNDAEGU MENTAL HEALTH WELFARE CENTER All rights Reserved. LOGIN 회원가입…",
-      "source": "해운대구정신건강복지센터",
-      "sourceUrl": "http://www.hmhc.or.kr/bbs/board.php?bo_table=notice&wr_id=184&page=2",
-      "date": "2026-09-07",
-      "verified": "2026-09-08",
-      "auto": true,
-      "audience": [
-        "senior",
-        "resident"
-      ],
-      "aiSimplified": "부산 해운대구 양운로 37번길 59에 있는 정신건강복지센터의 8회기 링크입니다. 전화는 051-741-3567로 하시면 됩니다."
-    },
-    {
-      "cat": "건강",
-      "title": "해운대정신건강복지센터 내 인터넷 문제",
-      "body": "페이지 정보 해운대구정신건강복지센터 댓글 0건 ,686회 24-07-17 11:56 본문 해운대정신건강복지센터를 이용하시는 회원분들께 양해 말씀 전달드립니다. 현재 본 기관 인터넷 문제로 인해 센터 전화 및 업무에 지장이 있음을 전달드립니다. 조속히 처리 한 후 이용할 수 있도록 하겠습니다. 문의사항 및 상담 등은 인터넷…",
-      "source": "해운대구정신건강복지센터",
-      "sourceUrl": "http://www.hmhc.or.kr/bbs/board.php?bo_table=notice&wr_id=178&page=2",
-      "date": "2026-09-07",
-      "verified": "2026-09-08",
-      "auto": true,
-      "audience": [
-        "senior",
-        "resident"
-      ],
-      "useful": true,
-      "aiSimplified": "해운대정신건강복지센터의 인터넷 문제로 전화와 업무에 불편이 있으니 양해 부탁드립니다. 빨리 해결하도록 하겠습니다."
-    },
-    {
-      "cat": "생활",
-      "title": "2025. 05. 01.(목) 근로자의 날 휴무관련 안내",
-      "body": "부산광역시 해운대구 양운로 37번길 59 ｜ 전화번호 : 051-741-3567 ｜ 팩스 : 051-747-3567 ｜ E-mail : hmhc@hanmail.net Copyrightⓒ HEAUNDAEGU MENTAL HEALTH WELFARE CENTER All rights Reserved. LOGIN 회원가입…",
-      "source": "해운대구정신건강복지센터",
-      "sourceUrl": "http://www.hmhc.or.kr/bbs/board.php?bo_table=notice&wr_id=173&page=3",
-      "date": "2026-09-07",
-      "verified": "2026-09-08",
-      "auto": true,
-      "audience": [
-        "senior",
-        "resident"
-      ],
-      "aiSimplified": "2025년 5월 1일 목요일은 근로자의 날로 휴무입니다."
-    },
-    {
-      "cat": "건강",
-      "title": "Heroes United (경찰관 및 소방대원들을 위한 힐링이벤트) 당첨기관 발표",
-      "body": "페이지 정보 해운대구정신건강복지센터 댓글 0건 ,694회 23-10-26 17:51 본문 < Heroes United 결과 발표!> 안녕하십니까 , 해운대구정신건강복 지센터입니다. 10월10일(화) ~ 10월25일(수)까지 진행된 이벤트 기간 동안 다양한 노력과 열정을 보여주신 모든 기관에 진심으로 감사드립니다 :) 참여…",
-      "source": "해운대구정신건강복지센터",
-      "sourceUrl": "http://www.hmhc.or.kr/bbs/board.php?bo_table=notice&wr_id=165&page=3",
-      "date": "2026-09-07",
-      "verified": "2026-09-08",
-      "auto": true,
-      "audience": [
-        "senior",
-        "resident"
-      ],
-      "useful": true,
-      "aiSimplified": "해운대구정신건강복지센터에서 10월 10일부터 10월 25일까지 진행된 경찰관 및 소방대원들을 위한 힐링 이벤트에 참여해 주신 모든 기관에 감사드립니다."
-    },
-    {
-      "cat": "생활",
-      "title": "시간표입니다",
-      "body": "해운대생활체육센터 저희 실내 수영강습은 초보자부터 고급자까지 맞춤형 수업을 제공하며, 전문 강사가 체계적인 훈련을 통해 수영 능력을 빠르게 향상시킬 수 있도록 돕습니다.…",
-      "source": "해운대생활체육센터",
-      "sourceUrl": "http://www.haeundaeswim.com/bbs/board.php?bo_table=notice&wr_id=9",
-      "date": "2026-09-07",
-      "verified": "2026-09-08",
-      "auto": true,
-      "audience": [
-        "senior",
-        "resident"
-      ],
-      "aiSimplified": "해운대생활체육센터에서는 초보자부터 고급자까지 맞춤형 실내 수영강습을 전문 강사가 제공합니다."
-    },
-    {
-      "cat": "생활",
-      "title": "환불 / 연기 규정",
-      "body": "해운대생활체육센터 저희 실내 수영강습은 초보자부터 고급자까지 맞춤형 수업을 제공하며, 전문 강사가 체계적인 훈련을 통해 수영 능력을 빠르게 향상시킬 수 있도록 돕습니다.…",
-      "source": "해운대생활체육센터",
-      "sourceUrl": "http://www.haeundaeswim.com/bbs/board.php?bo_table=notice&wr_id=6",
-      "date": "2026-09-07",
-      "verified": "2026-09-08",
-      "auto": true,
-      "audience": [
-        "senior",
-        "resident"
-      ],
-      "aiSimplified": "해운대생활체육센터의 실내 수영강습은 초보자와 고급자 모두에게 맞춤형 수업을 제공하니, 전문 강사와 함께 수영 실력을 빠르게 늘릴 수 있습니다."
-    },
-    {
-      "cat": "생활",
-      "title": "일일입장 자유수영 안내",
-      "body": "해운대생활체육센터 저희 실내 수영강습은 초보자부터 고급자까지 맞춤형 수업을 제공하며, 전문 강사가 체계적인 훈련을 통해 수영 능력을 빠르게 향상시킬 수 있도록 돕습니다.…",
-      "source": "해운대생활체육센터",
-      "sourceUrl": "http://www.haeundaeswim.com/bbs/board.php?bo_table=notice&wr_id=5",
-      "date": "2026-09-07",
-      "verified": "2026-09-08",
-      "auto": true,
-      "audience": [
-        "senior",
-        "resident"
-      ],
-      "aiSimplified": "해운대생활체육센터에서 초보자부터 고급자까지 맞춤형 수영 강습을 하고 있으며, 전문 강사가 수영 실력을 빠르게 높여드립니다."
     },
     {
       "cat": "문화",
@@ -1453,205 +2062,6 @@
       "aiSimplified": "2026년 9월 11일 오전 11시에 영화의전당에서 '컨템포러리 필름뮤직' 영화음악콘서트가 열립니다."
     },
     {
-      "cat": "환경",
-      "title": "‘26. 9월 시민 나눔장터 개장 안내",
-      "body": "내용 ‘26. 9 월 부산 시민 나눔장터를 개장하오니 시민 여러분의 많은 참여를 바랍니다 . < 참가 유의사항 > ※ 마실 물 , 쓰레기 처리봉투 등은 참가자 개인별로 준비 (1 회용품 사용 자제 ) ※ 더운 날씨로 탈진 및 일사병 방지를 위한 양산 , 모자 , 차양막 등 준비 ※ 당첨자는 당일 9 시부터 9 시 40 분…",
-      "source": "부산시 통합공지사항",
-      "sourceUrl": "https://www.busan.go.kr/nbnews/1753171?curPage=&srchBeginDt=2025-09-08&srchEndDt=2026-09-08&srchKey=&srchText=",
-      "date": "2026-09-07",
-      "verified": "2026-09-08",
-      "auto": true,
-      "audience": [
-        "senior",
-        "resident"
-      ],
-      "useful": true,
-      "aiSimplified": "‘26. 9월 부산 시민 나눔장터가 열리니 많은 참여 부탁드립니다. 참가하실 때는 개인 물과 쓰레기 봉투를 준비하시고, 더운 날씨에 대비해 양산이나 모자도 챙기세요.",
-      "aiSimplifiedAt": "2026-09-07"
-    },
-    {
-      "cat": "문화",
-      "title": "[10월] 전시해설 프로그램 운영일정 변경 안내",
-      "body": "내용 [10월 전시해설 프로그램 운영일정 변경 안내] 부산근현대역사관에서는 관람객의 전시 이해를 돕기 위해 전시해설 프로그램을 운영하고 있습니다. 2026년 10월 1일 부터 전시해설 프로그램 운영일정이 변경되오니 관람객 여러분의 이용에 참고하여 주시기 바랍니다. ■ 변경 운영일정 구분 화 수 목 금 토 일 시간 1 회 …",
-      "source": "부산시 통합공지사항",
-      "sourceUrl": "https://www.busan.go.kr/nbnews/1753125?curPage=&srchBeginDt=2025-09-08&srchEndDt=2026-09-08&srchKey=&srchText=",
-      "date": "2026-09-07",
-      "verified": "2026-09-08",
-      "auto": true,
-      "audience": [
-        "senior",
-        "resident"
-      ],
-      "useful": true,
-      "aiSimplified": "부산근현대역사관의 전시해설 프로그램이 2026년 10월 1일부터 운영일정이 바뀌니 참고하시기 바랍니다.",
-      "aiSimplifiedAt": "2026-09-07"
-    },
-    {
-      "cat": "안전",
-      "title": "무허가 위험물, 신고포상제 운영 안내",
-      "body": "내용 ★ 무허가 위험물, 안전을 위해서 신고해주세요! - 허가없이 위험물을 저장·취급하거나, 허가받은 품명 외 위험물을 저장·취급하는 행위는 신고 대상입니다. ★ 신고포상금 : 1건당 10만원 상당 ( ※ 동일 신고인이 연간 100만원 초과 포상 불가) ★ 신고 시 현장사진 등 증빙자료를 함께 제출해 주시기 바랍니다. ★…",
-      "source": "부산시 통합공지사항",
-      "sourceUrl": "https://www.busan.go.kr/nbnews/1753103?curPage=&srchBeginDt=2025-09-08&srchEndDt=2026-09-08&srchKey=&srchText=",
-      "date": "2026-09-07",
-      "verified": "2026-09-08",
-      "auto": true,
-      "audience": [
-        "senior",
-        "resident"
-      ],
-      "useful": true,
-      "aiSimplified": "무허가 위험물을 안전을 위해 신고해 주시면 1건당 10만원의 포상금을 드립니다.",
-      "aiSimplifiedAt": "2026-09-07"
-    },
-    {
-      "cat": "안전",
-      "title": "2026년 8월 화재안전조사 결과 공개",
-      "body": "내용 2026년 8월 화재안전조사 결과를 아래와 같이 공개합니다. ○ 조사기간 : `26.8.3.(월) ~ `26.8.31.(월) ○ 조사대상 : 「 뉴버리 하우스 」 등 39 개소 ( 세부내역 별첨 ) ○ 조사인원 : 동래소방서 화재안전조사반 3개조 6명 ○ 조사사유 : 중점관리대상, 자체점검 표본조사 등 ○ 조사방법 …",
-      "source": "부산시 통합공지사항",
-      "sourceUrl": "https://www.busan.go.kr/nbnews/1753101?curPage=&srchBeginDt=2025-09-08&srchEndDt=2026-09-08&srchKey=&srchText=",
-      "date": "2026-09-07",
-      "verified": "2026-09-08",
-      "auto": true,
-      "audience": [
-        "senior",
-        "resident"
-      ],
-      "useful": true,
-      "aiSimplified": "2026년 8월 1일부터 8월 31일까지 금정소방서에서 마이빌 등 26곳의 화재안전조사를 실시한 결과를 공개합니다."
-    },
-    {
-      "cat": "생활",
-      "title": "2026년 하반기 <찾아가는 역사관 > 운영 안내",
-      "body": "내용 부산근현대역사관은 관내 초등학교와 연계한 < 찾아가는 역사관 > 프로그램을 진행합니다 . 2026 년 하반기 < 찾아가는 역사관 > 은 대한민국 임시정부 를 주제로 진행됩니다 . 대한민국 임시정부의 수립과 독립을 위한 그들의 활동에 대한 흥미로운 강의와 체험이 준비되어 있으니 각 학교의 많은 관심과 참여를 바랍니다 …",
-      "source": "부산시 통합공지사항",
-      "sourceUrl": "https://www.busan.go.kr/nbnews/1753077?curPage=&srchBeginDt=2025-09-08&srchEndDt=2026-09-08&srchKey=&srchText=",
-      "date": "2026-09-07",
-      "verified": "2026-09-08",
-      "auto": true,
-      "audience": [
-        "senior",
-        "resident"
-      ],
-      "aiSimplified": "2026년 하반기에는 부산근현대역사관에서 초등학교와 함께 대한민국 임시정부에 대한 프로그램인 <찾아가는 역사관>을 진행하니 많은 관심과 참여를 부탁드립니다.",
-      "aiSimplifiedAt": "2026-09-07"
-    },
-    {
-      "cat": "문화",
-      "title": "복천박물관 특별기획전 <함께 달린 시간: 우리 곁의 말 이야기> 개최 안내",
-      "body": "내용 복천박물관 개관 30 주년 기념 특별기획전 < 함께 달린 시간 : 우리 곁의 말 이야기 > 개최 안내 복천박물관은 개관 30 주년을 맞아 오는 9 월 22 일 ( 화 ) 부터 11 월 22 일 ( 일 ) 까지 특별기획전 < 함께 달린 시간 : 우리 곁의 말 이야기 > 를 개최합니다 . 이번 전시는 삼한시대부터 조선시…",
-      "source": "부산시 통합공지사항",
-      "sourceUrl": "https://www.busan.go.kr/nbnews/1753058?curPage=&srchBeginDt=2025-09-08&srchEndDt=2026-09-08&srchKey=&srchText=",
-      "date": "2026-09-07",
-      "verified": "2026-09-08",
-      "auto": true,
-      "audience": [
-        "senior",
-        "resident"
-      ],
-      "useful": true,
-      "aiSimplified": "복천박물관이 개관 30주년을 기념하여 9월 22일 화요일부터 11월 22일 일요일까지 특별기획전 <함께 달린 시간: 우리 곁의 말 이야기>를 엽니다.",
-      "aiSimplifiedAt": "2026-09-07"
-    },
-    {
-      "cat": "창업",
-      "title": "[창업] 2026년 창업 직업교육훈련 사후관리 컨설팅 지원 안내",
-      "body": "내용 부산광역새일센터에서는 2026년 창업 직업교육훈련(1인 기업 도전! 드랍쉬핑 무재고 창업교육) 참여자 대상으로 사후관리(컨설팅) 운영을 통 하여 창업 실행 역량강화와 성공적인 창업을 지원하고자 전문가컨설팅을 지원하오니 많은 신청 바랍니다. ■ 기 간: 2026. 9. 7.(월) ~ 10. 16.(금) ※당해 사업 예…",
-      "source": "부산시 통합공지사항",
-      "sourceUrl": "https://www.busan.go.kr/nbnews/1753056?curPage=&srchBeginDt=2025-09-08&srchEndDt=2026-09-08&srchKey=&srchText=",
-      "date": "2026-09-07",
-      "verified": "2026-09-08",
-      "auto": true,
-      "audience": [
-        "senior",
-        "resident"
-      ],
-      "useful": true,
-      "aiSimplified": "부산광역새일센터에서 2026년 창업 직업교육훈련에 참여하신 분들을 위해 전문가의 도움을 받을 수 있는 컨설팅을 지원하니 많은 신청 부탁드립니다.",
-      "aiSimplifiedAt": "2026-09-07"
-    },
-    {
-      "cat": "환경",
-      "title": "녹지대 방제작업 시행에 따른 출입 통제 알림",
-      "body": "내용 < 녹지대 방제작업 시행에 따른 출입 통제 알림 > • 박물관 내 수목의 각종 병해충 , 진드기 , 말벌 등의 피해 예방 을 위하여 녹지대 방제작업 을 시행 하고자 합니다 . • 작업 시 작업 효율성 확보 및 안전사고 예방을 위하여 박물관 전 구간의 출입을 통제 하고자 하며 , 이로 인한 산책로 및 쉼터 등의 이용이…",
-      "source": "부산시 통합공지사항",
-      "sourceUrl": "https://www.busan.go.kr/nbnews/1753054?curPage=2&srchBeginDt=2025-09-08&srchEndDt=2026-09-08&srchKey=&srchText=",
-      "date": "2026-09-07",
-      "verified": "2026-09-08",
-      "auto": true,
-      "audience": [
-        "senior",
-        "resident"
-      ],
-      "useful": true,
-      "aiSimplified": "박물관에서 나무를 보호하기 위해 방제작업을 하니, 그동안 박물관에 출입할 수 없다는 점을 알려드립니다.",
-      "aiSimplifiedAt": "2026-09-07"
-    },
-    {
-      "cat": "안전",
-      "title": "무허가 위험물 신고포상제 알림",
-      "body": "내용 금정소방서는 위험물의 불법 저장·취급 행위를 근절하고 화재·폭발 사고를 예방하기 위해 「무허가 위험물 신고포상제」를 운영하고 있습니다. 다음과 같은 위반행위가 의심되는 경우 관할 소방서로 신고해 주시기 바랍니다. ○ 주요 신고 대상 ● 허가받지 않은 장소에서 위험물을 저장·취급하는 경우 ● 허가받은 시설에서 허가 내…",
-      "source": "부산시 통합공지사항",
-      "sourceUrl": "https://www.busan.go.kr/nbnews/1753037?curPage=2&srchBeginDt=2025-09-08&srchEndDt=2026-09-08&srchKey=&srchText=",
-      "date": "2026-09-07",
-      "verified": "2026-09-08",
-      "auto": true,
-      "audience": [
-        "senior",
-        "resident"
-      ],
-      "useful": true,
-      "aiSimplified": "금정소방서에서는 위험물을 불법으로 저장하거나 다루는 것을 막기 위해 '무허가 위험물 신고포상제'를 운영하고 있습니다. 만약 이런 위반행위를 보시면 관할 소방서에 신고해 주시기 바랍니다.",
-      "aiSimplifiedAt": "2026-09-07"
-    },
-    {
-      "cat": "창업",
-      "title": "부산 IT&CT 기업을 위한 무료 법률자문",
-      "body": "(48059) 부산광역시 해운대구 센텀동로 41 센텀벤처타운 205호 TEL) 051-731-6660 FAX) 051-731-6664 COPYRIGHTⓒ 부산정보산업진흥원 ALL RIGHTS RESERVED.…",
-      "source": "부산정보산업진흥원 공지사항",
-      "sourceUrl": "https://bipa.kr/board/notice/view?seq=7100",
-      "date": "2026-09-07",
-      "verified": "2026-09-08",
-      "auto": true,
-      "audience": [
-        "resident",
-        "senior"
-      ],
-      "useful": true,
-      "aiSimplified": "부산 IT&CT 기업을 위해 무료로 법률 상담을 해드립니다."
-    },
-    {
-      "cat": "생활",
-      "title": "[이벤트] 9월 추석 이모지 이벤트",
-      "body": "창작자들을 위한 부산 콘텐츠코리아 랩 9월 이벤트🎉 부산 콘텐츠코리아 랩과 함께 나만의 추석 한 장면을 이모지로 표현 하고 선물 받아가세요! 🎁 나의 추석 한 장면을 설명과 함께 이모지로 표현하고, 친구를 태그해 보세요! 간단한 참여로 이벤트에 도전 할 수 있어요 😊 📌 참여 방법 1️⃣ ‘부산 콘텐츠코리아 랩’ …",
-      "source": "부산콘텐츠코리아랩 공지사항",
-      "sourceUrl": "https://www.cklbusan.com/WWW/boardview/47/161",
-      "date": "2026-09-07",
-      "verified": "2026-09-08",
-      "auto": true,
-      "audience": [
-        "resident",
-        "senior"
-      ],
-      "aiSimplified": "부산 콘텐츠코리아 랩에서 9월에 추석 이모지 이벤트를 하니, 나만의 추석 장면을 이모지로 표현하고 선물도 받아가세요!",
-      "aiSimplifiedAt": "2026-09-07"
-    },
-    {
-      "cat": "생활",
-      "title": "2026 BeFM 부산영어방송 청취율(청취자 인식) 조사 실시",
-      "body": "This survey is the \"2025 BeFM Busan English Broadcasting Listening Rate and Listeners Survey\" and is conducted to identify listening behaviors, program satisfaction, and improvemen…",
-      "source": "부산영어방송 공지사항",
-      "sourceUrl": "https://www.befm.or.kr/sub/template.php?midx=49&mode=view&page=1&intnum=4273",
-      "date": "2026-09-07",
-      "verified": "2026-09-08",
-      "auto": true,
-      "audience": [
-        "resident",
-        "senior"
-      ],
-      "aiSimplified": "2026 BeFM 부산영어방송 청취율 조사가 실시됩니다. 이 조사는 청취자분들의 방송 듣는 습관과 프로그램 만족도를 알아보기 위해 진행됩니다.",
-      "aiSimplifiedAt": "2026-09-07"
-    },
-    {
       "cat": "생활",
       "title": "2027학년도 부산해군과학기술고등학교 입학설명회",
       "body": "기간: 2026.09.07 ~ 2026.09.07 · 시간: 13시 ~ 18시 · 장소: 제1회의실 211-212호 · 주최: 부산해군과학기술고등학교…",
@@ -1672,17 +2082,16 @@
       "title": "2026년 치유농업센터 홍보 프로그램(22회차) 교육 신청 안내",
       "body": "내용 치유농업센터의 공간을 활용한 치유농업 체험을 통해 일상에 지친 몸과 마음에 휴식과 활력을 더하는 시간을 마련하였으니 , 관심 있는 부산 시민 여러분의 많은 신청을 바랍니다. 1. 교 육 명 : 치유농업센터 홍보 프로그램 (22 회차 ) 2. 교육일시 : 2026. 9. 22.( 화 ) 14:00~16:00 3. 장 …",
       "source": "부산시 통합공지사항",
-      "sourceUrl": "https://www.busan.go.kr/nbnews/1753008?curPage=2&srchBeginDt=2025-09-08&srchEndDt=2026-09-08&srchKey=&srchText=",
+      "sourceUrl": "https://www.busan.go.kr/nbnews/1753008?curPage=3&srchBeginDt=2025-09-09&srchEndDt=2026-09-09&srchKey=&srchText=",
       "date": "2026-09-06",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "audience": [
         "senior",
         "resident"
       ],
       "useful": true,
-      "aiSimplified": "2026년 9월 22일 화요일 오후 2시부터 4시까지 치유농업센터에서 몸과 마음을 편안하게 하는 프로그램이 있으니, 관심 있는 부산 시민 여러분의 많은 신청을 바랍니다.",
-      "aiSimplifiedAt": "2026-09-07"
+      "aiSimplified": "2026년 9월 22일 화요일 오후 2시부터 4시까지 치유농업센터에서 몸과 마음을 편안하게 하는 프로그램이 있으니, 관심 있는 부산 시민 여러분의 많은 신청을 바랍니다."
     },
     {
       "cat": "관광",
@@ -1805,7 +2214,7 @@
       "source": "해운대구청 공지사항",
       "sourceUrl": "https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000038&menuCd=DOM_000000104001001000&paging=ok&startPage=1&dataSid=3173313",
       "date": "2026-09-04",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "https://www.haeundae.go.kr/upload_data/board_data/BBS_0000050/177422771280169.png",
       "region": [
@@ -1825,7 +2234,7 @@
       "source": "해운대구청 공지사항",
       "sourceUrl": "https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000038&menuCd=DOM_000000104001001000&paging=ok&startPage=1&dataSid=3173305",
       "date": "2026-09-04",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "https://www.haeundae.go.kr/upload_data/board_data/BBS_0000050/177422771280169.png",
       "audience": [
@@ -1842,7 +2251,7 @@
       "source": "해운대구청 공지사항",
       "sourceUrl": "https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000038&menuCd=DOM_000000104001001000&paging=ok&startPage=1&dataSid=3173301",
       "date": "2026-09-04",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "https://www.haeundae.go.kr/upload_data/board_data/BBS_0000050/177422771280169.png",
       "audience": [
@@ -1858,7 +2267,7 @@
       "source": "해운대종합사회복지관",
       "sourceUrl": "http://haeundae.saem.or.kr/community/news1.php?mode=read&page=1&number=2855&keyfield=&key=",
       "date": "2026-09-04",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "audience": [
         "senior",
@@ -1875,7 +2284,7 @@
       "source": "비지트부산 축제·행사",
       "sourceUrl": "https://www.visitbusan.net/schedule/view.do?boardId=BBS_0000009&menuCd=DOM_000000204012000000&dataSid=6313",
       "date": "2026-09-04",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "https://www.visitbusan.net/upload_data/board_data/BBS_0000009/178632307619083.jpg",
       "audience": [
@@ -1891,9 +2300,9 @@
       "title": "2026년 가족톡톡스쿨(부산 가족 생애주기별 소통교육) 운영 알림",
       "body": "내용 가족과의 소통이 필요할 때 ! 부산 가족분들의 소통 고민을 해결해 드리는 2026 년 가족톡톡스쿨 을 진행합니다 ! 영유아 · 청소년 자녀 양육부터 성인 자녀와의 관계 , 결혼 생활 준비까지 생애주기별 꼭 필요한 맞춤형 소통 강연 들로 알차게 준비했으니 , 부산 시민 여러분의 많은 관심과 참여 부탁드립니다 ! [ 신…",
       "source": "부산시 통합공지사항",
-      "sourceUrl": "https://www.busan.go.kr/nbnews/1752949?curPage=2&srchBeginDt=2025-09-08&srchEndDt=2026-09-08&srchKey=&srchText=",
+      "sourceUrl": "https://www.busan.go.kr/nbnews/1752949?curPage=3&srchBeginDt=2025-09-09&srchEndDt=2026-09-09&srchKey=&srchText=",
       "date": "2026-09-04",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "audience": [
         "senior",
@@ -1907,9 +2316,9 @@
       "title": "2026 위드펫스타(제2회 동물보호의 날 축제) 개최 안",
       "body": "내용 부산광역시에서 같이하는 발걸음, 가치 있는 동물사랑 사람과 반려동물이 함께 행복한 축제 2026 위드펫스타 (제2회 동물보호의 날 축제) 를 진행합니다 ● 일시 : 10월3일(토) ~ 4(일) 10:00~17:00 ● 장소 : 부산 북구 화명생태공원 잔디광장 (P4 주차장, 수생식물원 주변) ● 행사내용 - 강형욱 …",
       "source": "부산시 통합공지사항",
-      "sourceUrl": "https://www.busan.go.kr/nbnews/1752891?curPage=2&srchBeginDt=2025-09-08&srchEndDt=2026-09-08&srchKey=&srchText=",
+      "sourceUrl": "https://www.busan.go.kr/nbnews/1752891?curPage=3&srchBeginDt=2025-09-09&srchEndDt=2026-09-09&srchKey=&srchText=",
       "date": "2026-09-04",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "audience": [
         "senior",
@@ -1923,9 +2332,9 @@
       "title": "2026년 10월 다중이용업소 소방안전교육 알림",
       "body": "내용 ◎ 2026년 10월 다중이용업소 소방안전교육 알림 일 시: 10 . 29 .(목) 14:00 ~ 교육대상 : 업소 당 2인 이상 (영업주 단독 운영 시 영업주 1인) - 다중이용업주 1인 및 영업장 종사하는 종업원 1인 이상⇒2인이상 - 다중이용업주가 둘 이상의 영업장 운영으로 직접 운영하지 않는 경우 ⇒ 업주를 …",
       "source": "부산시 통합공지사항",
-      "sourceUrl": "https://www.busan.go.kr/nbnews/1752792?curPage=2&srchBeginDt=2025-09-08&srchEndDt=2026-09-08&srchKey=&srchText=",
+      "sourceUrl": "https://www.busan.go.kr/nbnews/1752792?curPage=3&srchBeginDt=2025-09-09&srchEndDt=2026-09-09&srchKey=&srchText=",
       "date": "2026-09-04",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "audience": [
         "senior",
@@ -1933,6 +2342,36 @@
       ],
       "useful": true,
       "aiSimplified": "2026년 10월 29일 목요일 오후 2시에 다중이용업소 소방안전교육이 있으니, 업소마다 2명 이상 참석해 주시기 바랍니다."
+    },
+    {
+      "cat": "생활",
+      "title": "[이벤트] 9월 부콘랩 카카오톡 채널 추가 이벤트",
+      "body": "창작자들을 위한 부산 콘텐츠코리아 랩 9월 이벤트 🎉 부산 콘텐츠코리아 랩과 함께 부콘랩 카카오톡 채널 추가&캡쳐 인증 한 뒤 선물 받아가세요! 🎁 카카오톡 채널 추가하고 인스타 게시글에 친구를 태그해 보세요! 간단한 참여로 이벤트에 도전 할 수 있어요 😊 📌 참여 방법 1️⃣ ‘부산 콘텐츠코리아 랩’ 인스타그램 …",
+      "source": "부산콘텐츠코리아랩 공지사항",
+      "sourceUrl": "https://www.cklbusan.com/WWW/boardview/47/160",
+      "date": "2026-09-04",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "resident",
+        "senior"
+      ],
+      "aiSimplified": "부산 콘텐츠코리아 랩에서 9월에 카카오톡 채널을 추가하고 인증하면 선물을 드리는 이벤트를 합니다. 참여 방법은 카카오톡 채널을 추가하고 인스타그램에 친구를 태그하는 것입니다."
+    },
+    {
+      "cat": "생활",
+      "title": "[공지] 부산 콘텐츠코리아 랩 9월 휴관 안내",
+      "body": "📢 [9월 24일, 25일, 26일 휴관 안내] 📢 ⠀ 안녕하세요! 부산 콘텐츠코리아 랩입니다 😊 부산 콘텐츠코리아 랩은 9월 24일~26일 (목, 금, 토) 추석 연휴로 모든 시설이 휴관하오니 시설 이용 및 예약에 참고 바랍니다. 📍부산 콘텐츠코리아 랩 센텀메인센터 🔗 홈페이지: http://cklbusan.c…",
+      "source": "부산콘텐츠코리아랩 공지사항",
+      "sourceUrl": "https://www.cklbusan.com/WWW/boardview/47/159",
+      "date": "2026-09-04",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "resident",
+        "senior"
+      ],
+      "aiSimplified": "부산 콘텐츠코리아 랩은 9월 24일, 25일, 26일에 추석 연휴로 쉬니 이용과 예약에 참고하시기 바랍니다."
     },
     {
       "cat": "안전",
@@ -1996,36 +2435,6 @@
         "resident"
       ],
       "aiSimplified": "2026년 추석 명절 동안(9월 1일부터 30일까지) 공직자들이 청렴하게 일하도록 주의하라는 청렴주의보가 발령되었습니다."
-    },
-    {
-      "cat": "생활",
-      "title": "[이벤트] 9월 부콘랩 카카오톡 채널 추가 이벤트",
-      "body": "창작자들을 위한 부산 콘텐츠코리아 랩 9월 이벤트 🎉 부산 콘텐츠코리아 랩과 함께 부콘랩 카카오톡 채널 추가&캡쳐 인증 한 뒤 선물 받아가세요! 🎁 카카오톡 채널 추가하고 인스타 게시글에 친구를 태그해 보세요! 간단한 참여로 이벤트에 도전 할 수 있어요 😊 📌 참여 방법 1️⃣ ‘부산 콘텐츠코리아 랩’ 인스타그램 …",
-      "source": "부산콘텐츠코리아랩 공지사항",
-      "sourceUrl": "https://www.cklbusan.com/WWW/boardview/47/160",
-      "date": "2026-09-04",
-      "verified": "2026-09-08",
-      "auto": true,
-      "audience": [
-        "resident",
-        "senior"
-      ],
-      "aiSimplified": "부산 콘텐츠코리아 랩에서 9월에 카카오톡 채널을 추가하고 인증하면 선물을 드리는 이벤트를 합니다. 참여 방법은 카카오톡 채널을 추가하고 인스타그램에 친구를 태그하는 것입니다."
-    },
-    {
-      "cat": "생활",
-      "title": "[공지] 부산 콘텐츠코리아 랩 9월 휴관 안내",
-      "body": "📢 [9월 24일, 25일, 26일 휴관 안내] 📢 ⠀ 안녕하세요! 부산 콘텐츠코리아 랩입니다 😊 부산 콘텐츠코리아 랩은 9월 24일~26일 (목, 금, 토) 추석 연휴로 모든 시설이 휴관하오니 시설 이용 및 예약에 참고 바랍니다. 📍부산 콘텐츠코리아 랩 센텀메인센터 🔗 홈페이지: http://cklbusan.c…",
-      "source": "부산콘텐츠코리아랩 공지사항",
-      "sourceUrl": "https://www.cklbusan.com/WWW/boardview/47/159",
-      "date": "2026-09-04",
-      "verified": "2026-09-08",
-      "auto": true,
-      "audience": [
-        "resident",
-        "senior"
-      ],
-      "aiSimplified": "부산 콘텐츠코리아 랩은 9월 24일, 25일, 26일에 추석 연휴로 쉬니 이용과 예약에 참고하시기 바랍니다."
     },
     {
       "cat": "창업",
@@ -2097,7 +2506,7 @@
       "source": "해운대구청 공지사항",
       "sourceUrl": "https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000038&menuCd=DOM_000000104001001000&paging=ok&startPage=1&dataSid=3173281",
       "date": "2026-09-03",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "https://www.haeundae.go.kr/upload_data/board_data/BBS_0000038/178842618255936.jpg",
       "audience": [
@@ -2114,7 +2523,7 @@
       "source": "해운대구청 공지사항",
       "sourceUrl": "https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000038&menuCd=DOM_000000104001001000&paging=ok&startPage=1&dataSid=3173254",
       "date": "2026-09-03",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "https://www.haeundae.go.kr/upload_data/board_data/BBS_0000050/177422771280169.png",
       "audience": [
@@ -2131,7 +2540,7 @@
       "source": "해운대문화회관",
       "sourceUrl": "http://www.haeundae.go.kr/board/view.do?boardId=BBS_0000110&menuCd=DOM_000000904004000000&paging=ok&startPage=1&dataSid=3173234",
       "date": "2026-09-03",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "http://www.haeundae.go.kr/upload_data/board_data/BBS_0000110/178839867332891.jpg",
       "audience": [
@@ -2148,7 +2557,7 @@
       "source": "해운대문화회관",
       "sourceUrl": "http://www.haeundae.go.kr/board/view.do?boardId=BBS_0000110&menuCd=DOM_000000904004000000&paging=ok&startPage=1&dataSid=3173233",
       "date": "2026-09-03",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "http://www.haeundae.go.kr/upload_data/board_data/BBS_0000110/178839844205112.jpg",
       "audience": [
@@ -2165,7 +2574,7 @@
       "source": "해운대종합사회복지관",
       "sourceUrl": "http://haeundae.saem.or.kr/community/news1.php?mode=read&page=1&number=2854&keyfield=&key=",
       "date": "2026-09-03",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "audience": [
         "senior",
@@ -2179,9 +2588,9 @@
       "title": "부산시, 오륙도 해역 예인선 전복사고 관련 \"사고수습본부\" 가동",
       "body": "내용 부산시, 오륙도 해역 예인선 전복사고 관련 ‘사고수습본부’ 가동 9월 2일 오후 1시 29분경, 오륙도 남동부 약 5마일 해상에서 8명이 탑승한 예인선이 전복되는 사고가 발생했습니다. 부산시는 신속한 실종자 수색·구조와 사고 수습을 위해 관계기관과 긴밀한 대응체계를 가동하고 있습니다. 이날 오후 3시 30분 긴급 대…",
       "source": "부산시 통합공지사항",
-      "sourceUrl": "https://www.busan.go.kr/nbnews/1752573?curPage=&srchBeginDt=2025-09-08&srchEndDt=2026-09-08&searchKey=&searchText=",
+      "sourceUrl": "https://www.busan.go.kr/nbnews/1752573?curPage=&srchBeginDt=2025-09-09&srchEndDt=2026-09-09&searchKey=&searchText=",
       "date": "2026-09-03",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "audience": [
         "senior",
@@ -2189,6 +2598,21 @@
       ],
       "useful": true,
       "aiSimplified": "부산시가 9월 2일 오후 1시 29분에 오륙도 해역에서 전복된 예인선 사고를 처리하기 위해 '사고수습본부'를 운영하고 있습니다."
+    },
+    {
+      "cat": "생활",
+      "title": "K-ICT WEEK in Busan 「부산AX포럼」 개최 안내",
+      "body": "(48059) 부산광역시 해운대구 센텀동로 41 센텀벤처타운 205호 TEL) 051-731-6660 FAX) 051-731-6664 COPYRIGHTⓒ 부산정보산업진흥원 ALL RIGHTS RESERVED.…",
+      "source": "부산정보산업진흥원 공지사항",
+      "sourceUrl": "https://bipa.kr/board/notice/view?seq=85334",
+      "date": "2026-09-03",
+      "verified": "2026-09-09",
+      "auto": true,
+      "audience": [
+        "resident",
+        "senior"
+      ],
+      "aiSimplified": "부산AX포럼이 부산 해운대구 센텀벤처타운 205호에서 열립니다."
     },
     {
       "cat": "생활",
@@ -2253,21 +2677,6 @@
       "for65": true,
       "useful": true,
       "aiSimplified": "부산광역시농업기술센터에서 2026년 찾아가는 반려식물 공개강좌를 진행하니, 신청하고 싶으신 종합사회복지관은 9월 10일 목요일 오후 6시까지 신청서를 제출해 주시기 바랍니다."
-    },
-    {
-      "cat": "생활",
-      "title": "K-ICT WEEK in Busan 「부산AX포럼」 개최 안내",
-      "body": "(48059) 부산광역시 해운대구 센텀동로 41 센텀벤처타운 205호 TEL) 051-731-6660 FAX) 051-731-6664 COPYRIGHTⓒ 부산정보산업진흥원 ALL RIGHTS RESERVED.…",
-      "source": "부산정보산업진흥원 공지사항",
-      "sourceUrl": "https://bipa.kr/board/notice/view?seq=85334",
-      "date": "2026-09-03",
-      "verified": "2026-09-08",
-      "auto": true,
-      "audience": [
-        "resident",
-        "senior"
-      ],
-      "aiSimplified": "부산AX포럼이 부산 해운대구 센텀벤처타운 205호에서 열립니다."
     },
     {
       "cat": "교통",
@@ -2486,7 +2895,7 @@
       "source": "해운대구청 공지사항",
       "sourceUrl": "https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000038&menuCd=DOM_000000104001001000&paging=ok&startPage=1&dataSid=3173187",
       "date": "2026-09-02",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "https://www.haeundae.go.kr/upload_data/board_data/BBS_0000038/178832413979128.png",
       "region": [
@@ -2505,7 +2914,7 @@
       "source": "해운대구청 공지사항",
       "sourceUrl": "https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000038&menuCd=DOM_000000104001001000&paging=ok&startPage=1&dataSid=3173184",
       "date": "2026-09-02",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "https://www.haeundae.go.kr/upload_data/board_data/BBS_0000038/178831808667526.png",
       "region": [
@@ -2523,9 +2932,9 @@
       "title": "2026 중장년 리스타트 잡페어(9.3.~9.4. 벡스..",
       "body": "2026 중장년 리스타트 잡페어(9.3.~9.4. 벡스코 제1전시장 3홀) 일자리정책과 2026.09.02…",
       "source": "해운대구청 공지사항",
-      "sourceUrl": "https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000038&menuCd=DOM_000000104001001000&paging=ok&startPage=1&dataSid=3173149",
+      "sourceUrl": "https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000038&menuCd=DOM_000000104001001000&paging=ok&startPage=2&dataSid=3173149",
       "date": "2026-09-02",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "https://www.haeundae.go.kr/upload_data/board_data/BBS_0000038/178830335162921.png",
       "audience": [
@@ -2542,7 +2951,7 @@
       "source": "해운대구청 공지사항",
       "sourceUrl": "https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000038&menuCd=DOM_000000104001001000&paging=ok&startPage=2&dataSid=3173148",
       "date": "2026-09-02",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "https://www.haeundae.go.kr/upload_data/board_data/BBS_0000050/177422771280169.png",
       "audience": [
@@ -2559,7 +2968,7 @@
       "source": "해운대문화회관",
       "sourceUrl": "http://www.haeundae.go.kr/board/view.do?boardId=BBS_0000110&menuCd=DOM_000000904004000000&paging=ok&startPage=1&dataSid=3173178",
       "date": "2026-09-02",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "http://www.haeundae.go.kr/upload_data/board_data/BBS_0000110/178831575649105.jpg",
       "audience": [
@@ -2572,11 +2981,11 @@
     {
       "cat": "문화",
       "title": "[어린이실] 9월 북큐레이션 <책은 상상력 발전소>",
-      "body": "독서문화행사 게시판 상세보기 테이블 [어린이실] 9월 북큐레이션 <책은 상상력 발전소> 해운대도서관 어린이실 등록일 2026.09.02 다운로드 횟수 9월 북큐레이션 도서 .xlsx ( 2회 ) 미리보기…",
+      "body": "독서문화행사 게시판 상세보기 테이블 [어린이실] 9월 북큐레이션 <책은 상상력 발전소> 해운대도서관 어린이실 등록일 2026.09.02 다운로드 횟수 9월 북큐레이션 도서 .xlsx ( 3회 ) 미리보기…",
       "source": "해운대도서관 독서문화행사",
       "sourceUrl": "https://home.pen.go.kr/haeundaelib/na/ntt/selectNttInfo.do?mi=11228&bbsId=3475&nttSn=1014548",
       "date": "2026-09-02",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "audience": [
         "senior",
@@ -2771,21 +3180,6 @@
         "resident"
       ],
       "aiSimplified": "2026년도 부산광역시 산업단지 지정계획이 변경되었음을 알려드립니다."
-    },
-    {
-      "cat": "환경",
-      "title": "하천점용허가고시",
-      "body": "내용 부산광역시 고시 제2026-305호 하 천 점 용 허 가 고 시 하천법 제33조 제7항 및 동법 시행령 제38조의 규정에 의거 하천부지 점용 허가사항에 대하여 다음과 같이 고시합니다. 2026. 9. 2. 부 산 광 역 시 장 1. 하천 명칭 : 낙동강(국가하천) 2. 피허가자 : 티케이지태광(주) 3. 점용목적 및…",
-      "source": "부산광역시 고시공고",
-      "sourceUrl": "https://www.busan.go.kr/nbgosi/view?sno=79362&gosiGbn=N&curPage=3",
-      "date": "2026-09-02",
-      "verified": "2026-09-04",
-      "auto": true,
-      "audience": [
-        "senior",
-        "resident"
-      ],
-      "aiSimplified": "부산광역시에서 낙동강의 하천부지 점용 허가에 대한 내용을 2026년 9월 2일에 발표했습니다."
     },
     {
       "cat": "안전",
@@ -3052,7 +3446,7 @@
       "source": "해운대구청 공지사항",
       "sourceUrl": "https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000038&menuCd=DOM_000000104001001000&paging=ok&startPage=2&dataSid=3173136",
       "date": "2026-09-01",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "https://www.haeundae.go.kr/upload_data/board_data/BBS_0000050/177422771280169.png",
       "region": [
@@ -3072,7 +3466,7 @@
       "source": "해운대구청 공지사항",
       "sourceUrl": "https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000038&menuCd=DOM_000000104001001000&paging=ok&startPage=2&dataSid=3173066",
       "date": "2026-09-01",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "https://www.haeundae.go.kr/upload_data/board_data/BBS_0000038/178822783526359.jpg",
       "audience": [
@@ -3089,7 +3483,7 @@
       "source": "해운대구청 공지사항",
       "sourceUrl": "https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000038&menuCd=DOM_000000104001001000&paging=ok&startPage=2&dataSid=3173058",
       "date": "2026-09-01",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "https://www.haeundae.go.kr/upload_data/board_data/BBS_0000038/178822454701378.jpg",
       "audience": [
@@ -3105,7 +3499,7 @@
       "source": "해운대구청 공지사항",
       "sourceUrl": "https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000038&menuCd=DOM_000000104001001000&paging=ok&startPage=2&dataSid=3173051",
       "date": "2026-09-01",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "https://www.haeundae.go.kr/upload_data/board_data/BBS_0000038/178823085742002.jpg",
       "region": [
@@ -3125,7 +3519,7 @@
       "source": "해운대도서관 독서문화행사",
       "sourceUrl": "https://home.pen.go.kr/haeundaelib/na/ntt/selectNttInfo.do?mi=11228&bbsId=3475&nttSn=1014191",
       "date": "2026-09-01",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "audience": [
         "senior",
@@ -3141,7 +3535,7 @@
       "source": "해운대도서관 독서문화행사",
       "sourceUrl": "https://home.pen.go.kr/haeundaelib/na/ntt/selectNttInfo.do?mi=11228&bbsId=3475&nttSn=1014104",
       "date": "2026-09-01",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "audience": [
         "senior",
@@ -3425,7 +3819,7 @@
       "source": "해운대구청 공지사항",
       "sourceUrl": "https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000038&menuCd=DOM_000000104001001000&paging=ok&startPage=2&dataSid=3173012",
       "date": "2026-08-31",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "https://www.haeundae.go.kr/upload_data/board_data/BBS_0000038/178816390731644.jpg",
       "region": [
@@ -3445,7 +3839,7 @@
       "source": "부산시립미술관 새소식",
       "sourceUrl": "https://art.busan.go.kr/tblTsite07Bbs/viewNewsClient.nm?idx=2362",
       "date": "2026-08-31",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "audience": [
         "senior",
@@ -3608,7 +4002,7 @@
       "source": "해운대도서관 독서문화행사",
       "sourceUrl": "https://home.pen.go.kr/haeundaelib/na/ntt/selectNttInfo.do?mi=11228&bbsId=3475&nttSn=1013871",
       "date": "2026-08-30",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "audience": [
         "senior",
@@ -3704,7 +4098,7 @@
       "source": "비지트부산 축제·행사",
       "sourceUrl": "https://www.visitbusan.net/schedule/view.do?boardId=BBS_0000009&menuCd=DOM_000000204012000000&dataSid=6319",
       "date": "2026-08-29",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "https://www.visitbusan.net/upload_data/board_data/BBS_0000009/178651213448235.jpg",
       "audience": [
@@ -3903,7 +4297,7 @@
       "source": "해운대구보건소",
       "sourceUrl": "https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000090&menuCd=DOM_000000805001000000&paging=ok&startPage=1&dataSid=3172819",
       "date": "2026-08-28",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "audience": [
         "senior",
@@ -3919,7 +4313,7 @@
       "source": "해운대구보건소",
       "sourceUrl": "https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000090&menuCd=DOM_000000805001000000&paging=ok&startPage=1&dataSid=3172317",
       "date": "2026-08-28",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "audience": [
         "senior",
@@ -3935,7 +4329,7 @@
       "source": "해운대종합사회복지관",
       "sourceUrl": "http://haeundae.saem.or.kr/community/news1.php?mode=read&page=1&number=2848&keyfield=&key=",
       "date": "2026-08-28",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "audience": [
         "senior",
@@ -4094,7 +4488,7 @@
       "source": "해운대구청 공지사항",
       "sourceUrl": "https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000038&menuCd=DOM_000000104001001000&paging=ok&startPage=2&dataSid=3172795",
       "date": "2026-08-27",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "https://www.haeundae.go.kr/upload_data/board_data/BBS_0000050/177422771280169.png",
       "audience": [
@@ -4111,7 +4505,7 @@
       "source": "해운대구청 공지사항",
       "sourceUrl": "https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000038&menuCd=DOM_000000104001001000&paging=ok&startPage=2&dataSid=3172789",
       "date": "2026-08-27",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "https://www.haeundae.go.kr/upload_data/board_data/BBS_0000050/177422771280169.png",
       "audience": [
@@ -4128,7 +4522,7 @@
       "source": "해운대구청 공지사항",
       "sourceUrl": "https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000038&menuCd=DOM_000000104001001000&paging=ok&startPage=2&dataSid=3172787",
       "date": "2026-08-27",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "https://www.haeundae.go.kr/upload_data/board_data/BBS_0000038/178781290975447.jpg",
       "audience": [
@@ -4382,7 +4776,7 @@
       "source": "해운대구청 공지사항",
       "sourceUrl": "https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000038&menuCd=DOM_000000104001001000&paging=ok&startPage=2&dataSid=3172674",
       "date": "2026-08-26",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "https://www.haeundae.go.kr/upload_data/board_data/BBS_0000050/177422771280169.png",
       "region": [
@@ -4401,7 +4795,7 @@
       "source": "해운대문화회관",
       "sourceUrl": "http://www.haeundae.go.kr/board/view.do?boardId=BBS_0000110&menuCd=DOM_000000904004000000&paging=ok&startPage=1&dataSid=3172696",
       "date": "2026-08-26",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "audience": [
         "senior",
@@ -4417,7 +4811,7 @@
       "source": "해운대문화회관",
       "sourceUrl": "http://www.haeundae.go.kr/board/view.do?boardId=BBS_0000110&menuCd=DOM_000000904004000000&paging=ok&startPage=1&dataSid=3172694",
       "date": "2026-08-26",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "http://www.haeundae.go.kr/upload_data/board_data/BBS_0000110/178772062035967.png",
       "audience": [
@@ -4434,7 +4828,7 @@
       "source": "해운대구보건소",
       "sourceUrl": "https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000090&menuCd=DOM_000000805001000000&paging=ok&startPage=1&dataSid=3172741",
       "date": "2026-08-26",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "audience": [
         "senior",
@@ -4642,7 +5036,7 @@
       "source": "해운대구청 공지사항",
       "sourceUrl": "https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000038&menuCd=DOM_000000104001001000&paging=ok&startPage=2&dataSid=3172631",
       "date": "2026-08-25",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "https://www.haeundae.go.kr/upload_data/board_data/BBS_0000038/178764047440325.png",
       "region": [
@@ -4660,9 +5054,9 @@
       "title": "2026년 하반기 퇴직공무원 포상 추천 대상자 공개검증",
       "body": "정부포상 업무지침에 따라 2026 년도 하반기 퇴직공무원 포상 추천 대상자를 붙임과 같이 공개하여 주민 의견을 수렴하고자 합니다 . 1. 공개기간 : 2026.08.25.( 화 ) ~ 2026.09.09.(수 ) / 15 일간 2. 추천대상 : 14 명 3. 공개목적 : 정부포상 추천대상자의 추천제한 해당 여부 검토 4.…",
       "source": "해운대구청 공지사항",
-      "sourceUrl": "https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000038&menuCd=DOM_000000104001001000&paging=ok&startPage=2&dataSid=3172622",
+      "sourceUrl": "https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000038&menuCd=DOM_000000104001001000&paging=ok&startPage=3&dataSid=3172622",
       "date": "2026-08-25",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "https://www.haeundae.go.kr/upload_data/board_data/BBS_0000050/177422771280169.png",
       "audience": [
@@ -4679,7 +5073,7 @@
       "source": "해운대구청 공지사항",
       "sourceUrl": "https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000038&menuCd=DOM_000000104001001000&paging=ok&startPage=3&dataSid=3172600",
       "date": "2026-08-25",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "https://www.haeundae.go.kr/upload_data/board_data/BBS_0000038/178762264492875.png",
       "region": [
@@ -4699,7 +5093,7 @@
       "source": "해운대구보건소",
       "sourceUrl": "https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000090&menuCd=DOM_000000805001000000&paging=ok&startPage=1&dataSid=3172625",
       "date": "2026-08-25",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "https://www.haeundae.go.kr/upload_data/board_data/BBS_0000090/178763662237126.jpg",
       "audience": [
@@ -4716,7 +5110,7 @@
       "source": "해운대구보건소",
       "sourceUrl": "https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000090&menuCd=DOM_000000805001000000&paging=ok&startPage=1&dataSid=3172623",
       "date": "2026-08-25",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "https://www.haeundae.go.kr/upload_data/board_data/BBS_0000090/178763633203727.png",
       "audience": [
@@ -4734,7 +5128,7 @@
       "source": "비지트부산 공지",
       "sourceUrl": "https://www.visitbusan.net/board/view.do?boardId=BBS_0000001&menuCd=DOM_000000204001000000&paging=ok&startPage=1&dataSid=6341",
       "date": "2026-08-25",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "https://www.visitbusan.net/upload_data/board_data/BBS_0000014/178763793354115.png",
       "audience": [
@@ -4917,7 +5311,7 @@
       "source": "부산정보산업진흥원 공지사항",
       "sourceUrl": "https://bipa.kr/board/notice/view?seq=85317",
       "date": "2026-08-24",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "audience": [
         "resident",
@@ -5184,7 +5578,7 @@
       "source": "부산콘텐츠코리아랩 공지사항",
       "sourceUrl": "https://www.cklbusan.com/WWW/boardview/47/158",
       "date": "2026-08-21",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "audience": [
         "resident",
@@ -5199,7 +5593,7 @@
       "source": "부산영어방송 공지사항",
       "sourceUrl": "https://www.befm.or.kr/sub/template.php?midx=49&mode=view&page=1&intnum=4270",
       "date": "2026-08-21",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "audience": [
         "resident",
@@ -5247,7 +5641,7 @@
       "source": "해운대구청 공지사항",
       "sourceUrl": "https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000038&menuCd=DOM_000000104001001000&paging=ok&startPage=3&dataSid=3172424",
       "date": "2026-08-20",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "https://www.haeundae.go.kr/upload_data/board_data/BBS_0000050/177422771280169.png",
       "audience": [
@@ -5264,7 +5658,7 @@
       "source": "비지트부산 공지",
       "sourceUrl": "https://www.visitbusan.net/board/view.do?boardId=BBS_0000001&menuCd=DOM_000000204001000000&paging=ok&startPage=1&dataSid=6332",
       "date": "2026-08-20",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "https://www.visitbusan.net/upload_data/board_data/BBS_0000001/178720659654819.png",
       "audience": [
@@ -5281,7 +5675,7 @@
       "source": "해운대구청 공지사항",
       "sourceUrl": "https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000038&menuCd=DOM_000000104001001000&paging=ok&startPage=3&dataSid=3172370",
       "date": "2026-08-19",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "https://www.haeundae.go.kr/upload_data/board_data/BBS_0000038/178712818131941.jpg",
       "audience": [
@@ -5298,7 +5692,7 @@
       "source": "해운대구보건소",
       "sourceUrl": "https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000090&menuCd=DOM_000000805001000000&paging=ok&startPage=1&dataSid=3172364",
       "date": "2026-08-19",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "audience": [
         "senior",
@@ -5332,7 +5726,7 @@
       "source": "해운대구청 공지사항",
       "sourceUrl": "https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000038&menuCd=DOM_000000104001001000&paging=ok&startPage=3&dataSid=3172200",
       "date": "2026-08-14",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "https://www.haeundae.go.kr/upload_data/board_data/BBS_0000050/177422771280169.png",
       "audience": [
@@ -5349,7 +5743,7 @@
       "source": "해운대구청 공지사항",
       "sourceUrl": "https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000038&menuCd=DOM_000000104001001000&paging=ok&startPage=3&dataSid=3172174",
       "date": "2026-08-14",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "https://www.haeundae.go.kr/upload_data/board_data/BBS_0000038/178666739448705.jpg",
       "region": [
@@ -5369,7 +5763,7 @@
       "source": "벡스코 공지사항",
       "sourceUrl": "https://www.bexco.co.kr/kor/CMS/Board/Board.do?mCode=MN105&mode=view&mgr_seq=13&board_seq=31774",
       "date": "2026-08-14",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "audience": [
         "senior",
@@ -5384,9 +5778,9 @@
       "title": "제3회 추경 예산 6,374억 원 편성… 민생은 즉시, 다시 뛰는 부산!",
       "body": "내용 💪 민생은 즉시, 다시 뛰는 부산! 부산시는 시민의 삶을 뒷받침하고 민생경제 회복에 속도를 더하기 위해 제3회 추가경정예산안 6,374억 원을 편성했습니다. 민생경제 회복으로 다시 뛰는 부산 - 소상공인 경영위기 지원(961억원) - 시민부담 경감 및 상권 활성화(1,611억원) - 민생 안전망 구축을 위한 사각지…",
       "source": "부산시 통합공지사항",
-      "sourceUrl": "https://www.busan.go.kr/nbnews/1749349?curPage=&srchBeginDt=2025-09-08&srchEndDt=2026-09-08&searchKey=&searchText=",
+      "sourceUrl": "https://www.busan.go.kr/nbnews/1749349?curPage=&srchBeginDt=2025-09-09&srchEndDt=2026-09-09&searchKey=&searchText=",
       "date": "2026-08-14",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "audience": [
         "senior",
@@ -5402,7 +5796,7 @@
       "source": "부산콘텐츠코리아랩 공지사항",
       "sourceUrl": "https://www.cklbusan.com/WWW/boardview/47/157",
       "date": "2026-08-14",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "audience": [
         "resident",
@@ -5417,7 +5811,7 @@
       "source": "해운대구청 공지사항",
       "sourceUrl": "https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000038&menuCd=DOM_000000104001001000&paging=ok&startPage=3&dataSid=3172139",
       "date": "2026-08-13",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "https://www.haeundae.go.kr/upload_data/board_data/BBS_0000050/177422771280169.png",
       "audience": [
@@ -5434,7 +5828,7 @@
       "source": "해운대도서관 독서문화행사",
       "sourceUrl": "https://home.pen.go.kr/haeundaelib/na/ntt/selectNttInfo.do?mi=11228&bbsId=3475&nttSn=1012363",
       "date": "2026-08-13",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "audience": [
         "senior",
@@ -5450,7 +5844,7 @@
       "source": "비지트부산 공지",
       "sourceUrl": "https://www.visitbusan.net/board/view.do?boardId=BBS_0000001&menuCd=DOM_000000204001000000&paging=ok&startPage=1&dataSid=6323",
       "date": "2026-08-13",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "https://www.visitbusan.net/upload_data/board_data/BBS_0000001/178729573333007.png",
       "audience": [
@@ -5466,7 +5860,7 @@
       "source": "해운대구청 공지사항",
       "sourceUrl": "https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000038&menuCd=DOM_000000104001001000&paging=ok&startPage=3&dataSid=3172084",
       "date": "2026-08-12",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "https://www.haeundae.go.kr/upload_data/board_data/BBS_0000038/178651169052741.png",
       "region": [
@@ -5485,7 +5879,7 @@
       "source": "해운대구청 공지사항",
       "sourceUrl": "https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000038&menuCd=DOM_000000104001001000&paging=ok&startPage=3&dataSid=3172061",
       "date": "2026-08-12",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "https://www.haeundae.go.kr/upload_data/board_data/BBS_0000038/178650137208018.jpg",
       "region": [
@@ -5505,7 +5899,7 @@
       "source": "해운대구보건소",
       "sourceUrl": "https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000090&menuCd=DOM_000000805001000000&paging=ok&startPage=1&dataSid=3172106",
       "date": "2026-08-12",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "https://www.haeundae.go.kr/upload_data/board_data/BBS_0000090/178651930298954.jpg",
       "audience": [
@@ -5522,7 +5916,7 @@
       "source": "해운대종합사회복지관",
       "sourceUrl": "http://haeundae.saem.or.kr/community/news1.php?mode=read&page=2&number=2834&keyfield=&key=",
       "date": "2026-08-12",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "audience": [
         "senior",
@@ -5539,7 +5933,7 @@
       "source": "해운대구 반상회 소식",
       "sourceUrl": "https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000012&menuCd=DOM_000000104002014000&paging=ok&startPage=1&dataSid=3172103",
       "date": "2026-08-12",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "https://www.haeundae.go.kr/upload_data/board_data/BBS_0000050/177422771280169.png",
       "audience": [
@@ -5555,7 +5949,7 @@
       "source": "부산자원봉사센터(해운대 필터)",
       "sourceUrl": "https://www.busan1365.kr/bbs/board.php?bo_table=news&wr_id=3355",
       "date": "2026-08-12",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "audience": [
         "senior",
@@ -5570,7 +5964,7 @@
       "source": "부산콘텐츠코리아랩 공지사항",
       "sourceUrl": "https://www.cklbusan.com/WWW/boardview/47/156",
       "date": "2026-08-12",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "audience": [
         "resident",
@@ -5604,9 +5998,9 @@
       "title": "승용차요일제 신규가입자 대상 기념품 증정",
       "body": "재송1동 2026.08.10 ❍ 추진기간: 2026. 7. 27.(월) ~ 상품 소진 시까지 ❍ 제공대상: 승용차요일제 신규가입자 80명 ❍ 신청방법: 재송1동 행정복지센터 방문신청 ※인터넷 가입 시 제외 ❍ 구비서류: 신분증, 자동차등록증 ❍ 제공물품: 차량용 비상용 망치 ❍ 문 의: 재송1동 행정복지센터(☎749-59…",
       "source": "해운대구청 공지사항",
-      "sourceUrl": "https://www.haeundae.go.kr/councilk/board/view.do?boardId=BBS_0000038&menuCd=DOM_000000104001001000&paging=ok&startPage=4&dataSid=3171864",
+      "sourceUrl": "https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000038&menuCd=DOM_000000104001001000&paging=ok&startPage=4&dataSid=3171864",
       "date": "2026-08-10",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "https://www.haeundae.go.kr/upload_data/board_data/BBS_0000038/178633102783427.png",
       "region": [
@@ -5624,9 +6018,9 @@
       "title": "「수요일은 재활용품 교환의 날」운영",
       "body": "재송1동 2026.08.10 > ​1. 운영기간: 2026년 1월 ~ 12월, 매주 수요일 (※ 교환 물품 구입 예산 소진 시 조기 종료 가능) 2. 운영장소: 동 행정복지센터 3. 교환품목: 폐건전지, 종이팩(일반팩·멸균팩), 투명페트병 라벨 4. 교환물품: 건전지, 종량제봉투, 화장지…",
       "source": "해운대구청 공지사항",
-      "sourceUrl": "https://www.haeundae.go.kr/councilk/board/view.do?boardId=BBS_0000038&menuCd=DOM_000000104001001000&paging=ok&startPage=4&dataSid=3171856",
+      "sourceUrl": "https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000038&menuCd=DOM_000000104001001000&paging=ok&startPage=4&dataSid=3171856",
       "date": "2026-08-10",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "https://www.haeundae.go.kr/upload_data/board_data/BBS_0000038/178632743503364.png",
       "region": [
@@ -5644,9 +6038,9 @@
       "title": "「여름밤 우리동네 책 쉼터(달빛도서관)」 운영",
       "body": "재송1동 2026.08.10 「여름밤 우리동네 책 쉼터(달빛도서관)」 운영 ​ 안내 ​ ​ 재송1동 새마을문고에서는 여름밤 주민들이 편안하게 책을 읽고 쉬어갈 수 있는 공간을 마련하고자 「여름밤 우리동네 책 쉼터(달빛도서관)」 을 운영합니다. 1. 운영 안내 ❍ 기 간: 2026. 8. 10.(월) ~ 8. 14.(금) …",
       "source": "해운대구청 공지사항",
-      "sourceUrl": "https://www.haeundae.go.kr/councilk/board/view.do?boardId=BBS_0000038&menuCd=DOM_000000104001001000&paging=ok&startPage=4&dataSid=3171845",
+      "sourceUrl": "https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000038&menuCd=DOM_000000104001001000&paging=ok&startPage=4&dataSid=3171845",
       "date": "2026-08-10",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "https://www.haeundae.go.kr/upload_data/board_data/BBS_0000038/178632408010755.png",
       "region": [
@@ -5666,7 +6060,7 @@
       "source": "부산정보산업진흥원 공지사항",
       "sourceUrl": "https://bipa.kr/board/notice/view?seq=85294",
       "date": "2026-08-10",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "audience": [
         "resident",
@@ -5681,7 +6075,7 @@
       "source": "부산콘텐츠코리아랩 공지사항",
       "sourceUrl": "https://www.cklbusan.com/WWW/boardview/47/155",
       "date": "2026-08-10",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "audience": [
         "resident",
@@ -5696,7 +6090,7 @@
       "source": "부산영어방송 공지사항",
       "sourceUrl": "https://www.befm.or.kr/sub/template.php?midx=49&mode=view&page=1&intnum=4267",
       "date": "2026-08-10",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "audience": [
         "resident",
@@ -5728,7 +6122,7 @@
       "source": "해운대도서관 독서문화행사",
       "sourceUrl": "https://home.pen.go.kr/haeundaelib/na/ntt/selectNttInfo.do?mi=11228&bbsId=3475&nttSn=1012027",
       "date": "2026-08-08",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "audience": [
         "senior",
@@ -5759,9 +6153,9 @@
       "title": "2026 반여2동시장 반할맥 페스티벌 개최",
       "body": "​ ​ ★ ​ ★ 2026 반여2동시장 반할맥 페스티벌 ★ ★ ​ ​ ​ ○ ​ ​행사기간 : 2026. 9. 3.(목) ~ 9. 5.(토 ​ ), 14~21시 ​ ○ ​ ​ ​ 행사장소 : 반여시장, 반여2동상가시장 ​ ​ ○ ​ ​ ​ 행사내용 : 할인·경품행사, 반할맥 포차촌, 맥주 무료쿠폰 배부, 반여노래자랑, 맥…",
       "source": "해운대구청 공지사항",
-      "sourceUrl": "https://www.haeundae.go.kr/councilk/board/view.do?boardId=BBS_0000038&menuCd=DOM_000000104001001000&paging=ok&startPage=4&dataSid=3171761",
+      "sourceUrl": "https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000038&menuCd=DOM_000000104001001000&paging=ok&startPage=4&dataSid=3171761",
       "date": "2026-08-07",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "https://www.haeundae.go.kr/upload_data/board_data/BBS_0000038/178608231847134.jpeg",
       "region": [
@@ -5779,9 +6173,9 @@
       "title": "2026. 해운대구 평생학습관 하반기 특별강좌 수강생 ..",
       "body": "2026. 해운대구 평생학습관 하반기 특별강좌 수강생 모집 저작물은 공공누리 “출처표시+상업적이용금지+변경금지” 조건에 따라 이용할 수 있습니다.…",
       "source": "해운대구청 공지사항",
-      "sourceUrl": "https://www.haeundae.go.kr/councilk/board/view.do?boardId=BBS_0000038&menuCd=DOM_000000104001001000&paging=ok&startPage=4&dataSid=3171751",
+      "sourceUrl": "https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000038&menuCd=DOM_000000104001001000&paging=ok&startPage=4&dataSid=3171751",
       "date": "2026-08-07",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "https://www.haeundae.go.kr/upload_data/board_data/BBS_0000038/178607931060017.jpg",
       "audience": [
@@ -5796,9 +6190,9 @@
       "title": "해누리길 달빛걷기(1코스/8코스) 참여자 모집",
       "body": "해운대 해누리길 , 여름밤의 달빛걷기 ! 시원한 바람과 은은한 달빛 아래서 즐기는 낭만적인 휴식 . 한여름 밤의 특별한 걸음에 여러분을 초대합니다 . ​ ​ ❍​ 행 사 명 : 해누리길 달빛 걷기 (1 코스 /8 코스 ) ❍ 일 시 : 2026.8.28.( 금 ) 오후 7 시 ​​​ ❍​ 집 결 지 : 해운대스퀘어 ( 구…",
       "source": "해운대구청 공지사항",
-      "sourceUrl": "https://www.haeundae.go.kr/councilk/board/view.do?boardId=BBS_0000038&menuCd=DOM_000000104001001000&paging=ok&startPage=4&dataSid=3171735",
+      "sourceUrl": "https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000038&menuCd=DOM_000000104001001000&paging=ok&startPage=4&dataSid=3171735",
       "date": "2026-08-07",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "https://www.haeundae.go.kr/upload_data/board_data/BBS_0000038/178607103586454.jpg",
       "audience": [
@@ -5813,9 +6207,9 @@
       "title": "중1동「온천길 애장품 플리마켓 이음」 참여자 모집",
       "body": "중1동 2026.08.07 중1동 2026년 우리동네 마을 의제사업 「온천길 애장품 플리마켓 이음」 참여자 모집 안내 ​ 《 행사 안내 》 ○ 일 시 : 2026. 10. 16.( 금 ) 14:00 ~ 18:00 ※ 우천 시 일정 변경 ​ ○ 장 소 : 해운대구청 앞 온천길 일원 ​ ○ ​ 내 용 : 상가 재고 ( 중고 …",
       "source": "해운대구청 공지사항",
-      "sourceUrl": "https://www.haeundae.go.kr/councilk/board/view.do?boardId=BBS_0000038&menuCd=DOM_000000104001001000&paging=ok&startPage=4&dataSid=3171728",
+      "sourceUrl": "https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000038&menuCd=DOM_000000104001001000&paging=ok&startPage=4&dataSid=3171728",
       "date": "2026-08-07",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "https://www.haeundae.go.kr/upload_data/board_data/BBS_0000038/178606769002548.png",
       "region": [
@@ -5835,7 +6229,7 @@
       "source": "부산정보산업진흥원 공지사항",
       "sourceUrl": "https://bipa.kr/board/notice/view?seq=85290",
       "date": "2026-08-07",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "audience": [
         "resident",
@@ -5851,7 +6245,7 @@
       "source": "부산콘텐츠코리아랩 공지사항",
       "sourceUrl": "https://www.cklbusan.com/WWW/boardview/47/154",
       "date": "2026-08-07",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "audience": [
         "resident",
@@ -5866,7 +6260,7 @@
       "source": "부산영어방송 공지사항",
       "sourceUrl": "https://www.befm.or.kr/sub/template.php?midx=49&mode=view&page=1&intnum=4266",
       "date": "2026-08-07",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "audience": [
         "resident",
@@ -5879,9 +6273,9 @@
       "title": "2026년 생태아동지도사 3급 자격과정(13기) 운영 ..",
       "body": "2026년 생태아동지도사 3급 자격과정(13기) 운영 안내 가족복지과 2026.08.06 우리 구에서는 영유아의 전인적 발달 및 보육 환경 개선, 관내 보육교직원의 자기 계발 기회를 제공하기 위해「생태아동지도사 3급 자격과정(제13기)」을 아래와 같이 운영하오니, 생태유아교육에 관심 있는 어린이집 원장님 및 보육교직원분들…",
       "source": "해운대구청 공지사항",
-      "sourceUrl": "https://www.haeundae.go.kr/councilk/board/view.do?boardId=BBS_0000038&menuCd=DOM_000000104001001000&paging=ok&startPage=4&dataSid=3171682",
+      "sourceUrl": "https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000038&menuCd=DOM_000000104001001000&paging=ok&startPage=4&dataSid=3171682",
       "date": "2026-08-06",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "https://www.haeundae.go.kr/upload_data/board_data/BBS_0000038/178764367915594.jpg",
       "audience": [
@@ -5896,9 +6290,9 @@
       "title": "『동네방네 무료 노무상담소』 26년 8월 운영 안내",
       "body": "▣ 운영일정 : 2026년 1월~12월 매월 첫째, 셋째 수요일 14:00~17:00 (8월 일정 : 8.19(수) 운영) ▣ 운영장소 : 해운대구청 1층 일자리센터 내 ▣ 상 담 관 : 1명(한국공인노무사회 선정 위촉 공인노무사) ▣ 지원대상 : 취약계층 근로자(비정규직, 일용근로 및 감정노동자 등), 실직자 등 일반 …",
       "source": "해운대구청 공지사항",
-      "sourceUrl": "https://www.haeundae.go.kr/councilk/board/view.do?boardId=BBS_0000038&menuCd=DOM_000000104001001000&paging=ok&startPage=4&dataSid=3171664",
+      "sourceUrl": "https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000038&menuCd=DOM_000000104001001000&paging=ok&startPage=4&dataSid=3171664",
       "date": "2026-08-06",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "https://www.haeundae.go.kr/upload_data/board_data/BBS_0000050/177422771280169.png",
       "audience": [
@@ -5913,9 +6307,9 @@
       "title": "2026 하반기 경비원 및 냉난방기세척관리사 양성교육생..",
       "body": "2026 하반기 경비원 및 냉난방기세척관리사 양성교육생 모집 일자리정책과 2026.08.06 1. 교육개요 가. 교 육 명: 2026 하반기 경비원 및 냉난방기세척관리사 양성교육 나. 교육기간: 2026. 9. 7.(월) ~ 10. 8.(목) 다. 교육일정 및 장소 (1) 2026 하반기 경비원 양성교육: 3일 총24시간…",
       "source": "해운대구청 공지사항",
-      "sourceUrl": "https://www.haeundae.go.kr/councilk/board/view.do?boardId=BBS_0000038&menuCd=DOM_000000104001001000&paging=ok&startPage=4&dataSid=3171661",
+      "sourceUrl": "https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000038&menuCd=DOM_000000104001001000&paging=ok&startPage=4&dataSid=3171661",
       "date": "2026-08-06",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "https://www.haeundae.go.kr/upload_data/board_data/BBS_0000050/177422771280169.png",
       "audience": [
@@ -5932,7 +6326,7 @@
       "source": "부산콘텐츠코리아랩 공지사항",
       "sourceUrl": "https://www.cklbusan.com/WWW/boardview/47/153",
       "date": "2026-08-06",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "audience": [
         "resident",
@@ -5962,9 +6356,9 @@
       "title": "​2026년 7월분 공동주택 음식물류 폐기물 배출량 및..",
       "body": "​2026년 7월분 공동주택 음식물류 폐기물 배출량 및 수수료 내역 자원순환과 2026.08.05 ​ 2026년 7월분 공동주택 음식물류 폐기물 배출량 및 수수료 부과내역 입니다.(붙임 파일) 기타 문의사항은 해운대구 자원순환과 음식물류폐기물 담당자(051-749-4454)에게 연락주시기 바랍니다. (파일 하단 탭에 공동…",
       "source": "해운대구청 공지사항",
-      "sourceUrl": "https://www.haeundae.go.kr/councilk/board/view.do?boardId=BBS_0000038&menuCd=DOM_000000104001001000&paging=ok&startPage=4&dataSid=3171590",
+      "sourceUrl": "https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000038&menuCd=DOM_000000104001001000&paging=ok&startPage=4&dataSid=3171590",
       "date": "2026-08-05",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "https://www.haeundae.go.kr/upload_data/board_data/BBS_0000050/177422771280169.png",
       "audience": [
@@ -5980,7 +6374,7 @@
       "source": "부산정보산업진흥원 공지사항",
       "sourceUrl": "https://bipa.kr/board/notice/view?seq=85289",
       "date": "2026-08-05",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "audience": [
         "resident",
@@ -5993,9 +6387,9 @@
       "title": "좌2동 평생학습센터 「AI와 함께하는 슬기로운 스마트폰..",
       "body": "좌2동 평생학습센터 「AI와 함께하는 슬기로운 스마트폰 생활」 수강생 모집 안내 좌2동 2026.08.04 선착순 마감 됐습니다.​…",
       "source": "해운대구청 공지사항",
-      "sourceUrl": "https://www.haeundae.go.kr/councilk/board/view.do?boardId=BBS_0000038&menuCd=DOM_000000104001001000&paging=ok&startPage=4&dataSid=3171544",
+      "sourceUrl": "https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000038&menuCd=DOM_000000104001001000&paging=ok&startPage=5&dataSid=3171544",
       "date": "2026-08-04",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "https://www.haeundae.go.kr/upload_data/board_data/BBS_0000038/178582212018986.jpg",
       "region": [
@@ -6014,7 +6408,7 @@
       "source": "해운대구청 공지사항",
       "sourceUrl": "https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000038&menuCd=DOM_000000104001001000&paging=ok&startPage=5&dataSid=3171515",
       "date": "2026-08-04",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "https://www.haeundae.go.kr/upload_data/board_data/BBS_0000050/177422771280169.png",
       "region": [
@@ -6034,7 +6428,7 @@
       "source": "부산정보산업진흥원 공지사항",
       "sourceUrl": "https://bipa.kr/board/notice/view?seq=85283",
       "date": "2026-08-04",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "audience": [
         "resident",
@@ -6050,7 +6444,7 @@
       "source": "해운대구청 공지사항",
       "sourceUrl": "https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000038&menuCd=DOM_000000104001001000&paging=ok&startPage=5&dataSid=3171409",
       "date": "2026-08-03",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "https://www.haeundae.go.kr/upload_data/board_data/BBS_0000038/178572024754431.jpg",
       "region": [
@@ -6070,7 +6464,7 @@
       "source": "해운대구청 공지사항",
       "sourceUrl": "https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000038&menuCd=DOM_000000104001001000&paging=ok&startPage=5&dataSid=3171407",
       "date": "2026-08-03",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "https://www.haeundae.go.kr/upload_data/board_data/BBS_0000050/177422771280169.png",
       "audience": [
@@ -6087,7 +6481,7 @@
       "source": "해운대도서관 독서문화행사",
       "sourceUrl": "https://home.pen.go.kr/haeundaelib/na/ntt/selectNttInfo.do?mi=11228&bbsId=3475&nttSn=1011570",
       "date": "2026-08-03",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "audience": [
         "senior",
@@ -6136,7 +6530,7 @@
       "source": "해운대도서관 독서문화행사",
       "sourceUrl": "https://home.pen.go.kr/haeundaelib/na/ntt/selectNttInfo.do?mi=11228&bbsId=3475&nttSn=1011487",
       "date": "2026-08-01",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "audience": [
         "senior",
@@ -6169,7 +6563,7 @@
       "source": "부산영어방송 공지사항",
       "sourceUrl": "https://www.befm.or.kr/sub/template.php?midx=49&mode=view&page=1&intnum=4265",
       "date": "2026-07-31",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "audience": [
         "resident",
@@ -6184,7 +6578,7 @@
       "source": "해운대구청 공지사항",
       "sourceUrl": "https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000038&menuCd=DOM_000000104001001000&paging=ok&startPage=5&dataSid=3171287",
       "date": "2026-07-30",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "https://www.haeundae.go.kr/upload_data/board_data/BBS_0000038/178539996912293.jpg",
       "audience": [
@@ -6201,7 +6595,7 @@
       "source": "해운대도서관 독서문화행사",
       "sourceUrl": "https://home.pen.go.kr/haeundaelib/na/ntt/selectNttInfo.do?mi=11228&bbsId=3475&nttSn=1011350",
       "date": "2026-07-30",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "audience": [
         "senior",
@@ -6217,7 +6611,7 @@
       "source": "해운대구 반상회 소식",
       "sourceUrl": "https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000012&menuCd=DOM_000000104002014000&paging=ok&startPage=1&dataSid=3171237",
       "date": "2026-07-30",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "https://www.haeundae.go.kr/upload_data/board_data/BBS_0000050/177422771280169.png",
       "audience": [
@@ -6233,7 +6627,7 @@
       "source": "해운대구 반상회 소식",
       "sourceUrl": "https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000012&menuCd=DOM_000000104002014000&paging=ok&startPage=1&dataSid=3171236",
       "date": "2026-07-30",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "https://www.haeundae.go.kr/upload_data/board_data/BBS_0000050/177422771280169.png",
       "audience": [
@@ -6249,7 +6643,7 @@
       "source": "해운대구 반상회 소식",
       "sourceUrl": "https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000012&menuCd=DOM_000000104002014000&paging=ok&startPage=1&dataSid=3171234",
       "date": "2026-07-30",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "https://www.haeundae.go.kr/upload_data/board_data/BBS_0000050/177422771280169.png",
       "audience": [
@@ -6265,7 +6659,7 @@
       "source": "해운대구 반상회 소식",
       "sourceUrl": "https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000012&menuCd=DOM_000000104002014000&paging=ok&startPage=1&dataSid=3171233",
       "date": "2026-07-30",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "https://www.haeundae.go.kr/upload_data/board_data/BBS_0000050/177422771280169.png",
       "audience": [
@@ -6281,7 +6675,7 @@
       "source": "해운대구 반상회 소식",
       "sourceUrl": "https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000012&menuCd=DOM_000000104002014000&paging=ok&startPage=1&dataSid=3171232",
       "date": "2026-07-30",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "https://www.haeundae.go.kr/upload_data/board_data/BBS_0000050/177422771280169.png",
       "audience": [
@@ -6297,7 +6691,7 @@
       "source": "해운대구 반상회 소식",
       "sourceUrl": "https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000012&menuCd=DOM_000000104002014000&paging=ok&startPage=1&dataSid=3171230",
       "date": "2026-07-30",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "https://www.haeundae.go.kr/upload_data/board_data/BBS_0000050/177422771280169.png",
       "audience": [
@@ -6313,7 +6707,7 @@
       "source": "해운대구 반상회 소식",
       "sourceUrl": "https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000012&menuCd=DOM_000000104002014000&paging=ok&startPage=1&dataSid=3171229",
       "date": "2026-07-30",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "https://www.haeundae.go.kr/upload_data/board_data/BBS_0000050/177422771280169.png",
       "audience": [
@@ -6329,7 +6723,7 @@
       "source": "해운대구 반상회 소식",
       "sourceUrl": "https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000012&menuCd=DOM_000000104002014000&paging=ok&startPage=1&dataSid=3171227",
       "date": "2026-07-30",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "https://www.haeundae.go.kr/upload_data/board_data/BBS_0000050/177422771280169.png",
       "audience": [
@@ -6345,7 +6739,7 @@
       "source": "해운대구 반상회 소식",
       "sourceUrl": "https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000012&menuCd=DOM_000000104002014000&paging=ok&startPage=1&dataSid=3171226",
       "date": "2026-07-30",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "https://www.haeundae.go.kr/upload_data/board_data/BBS_0000050/177422771280169.png",
       "audience": [
@@ -6361,7 +6755,7 @@
       "source": "해운대구청 공지사항",
       "sourceUrl": "https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000038&menuCd=DOM_000000104001001000&paging=ok&startPage=5&dataSid=3171180",
       "date": "2026-07-29",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "https://www.haeundae.go.kr/upload_data/board_data/BBS_0000038/178530842734739.jpg",
       "region": [
@@ -6381,7 +6775,7 @@
       "source": "부산정보산업진흥원 공지사항",
       "sourceUrl": "https://bipa.kr/board/notice/view?seq=85271",
       "date": "2026-07-29",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "audience": [
         "resident",
@@ -6397,7 +6791,7 @@
       "source": "부산영어방송 공지사항",
       "sourceUrl": "https://www.befm.or.kr/sub/template.php?midx=49&mode=view&page=1&intnum=4262",
       "date": "2026-07-29",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "audience": [
         "resident",
@@ -6446,7 +6840,7 @@
       "source": "해운대구청 공지사항",
       "sourceUrl": "https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000038&menuCd=DOM_000000104001001000&paging=ok&startPage=5&dataSid=3171106",
       "date": "2026-07-28",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "https://www.haeundae.go.kr/upload_data/board_data/BBS_0000050/177422771280169.png",
       "audience": [
@@ -6462,7 +6856,7 @@
       "source": "해운대구청 공지사항",
       "sourceUrl": "https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000038&menuCd=DOM_000000104001001000&paging=ok&startPage=5&dataSid=3171101",
       "date": "2026-07-28",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "https://www.haeundae.go.kr/upload_data/board_data/BBS_0000038/178562485547021.png",
       "audience": [
@@ -6479,7 +6873,7 @@
       "source": "해운대구청 공지사항",
       "sourceUrl": "https://www.haeundae.go.kr/board/view.do?boardId=BBS_0000038&menuCd=DOM_000000104001001000&paging=ok&startPage=5&dataSid=3171075",
       "date": "2026-07-27",
-      "verified": "2026-09-08",
+      "verified": "2026-09-09",
       "auto": true,
       "imageUrl": "https://www.haeundae.go.kr/upload_data/board_data/BBS_0000038/178515032237648.png",
       "region": [
@@ -6708,12 +7102,12 @@
     }
   ],
   "brief": {
-    "date": "2026-09-08",
+    "date": "2026-09-09",
     "items": [
       {
         "title": "[안내] 9월 스크린파크골프 일반이용 예약 안내",
         "plain": "9월에 해운대종합사회복지관 스크린파크골프센터를 이용하시려면 전화로 예약하시고, 이용료는 8,000원입니다.",
-        "why": "스크린파크골프는 어르신들이 건강을 유지하는 데 도움이 됩니다.",
+        "why": "스크린파크골프는 어르신들이 즐길 수 있는 좋은 운동입니다.",
         "cat": "복지",
         "source": "해운대종합사회복지관",
         "sourceUrl": "http://haeundae.saem.or.kr/community/news1.php?mode=read&page=2&number=2837&keyfield=&key="
@@ -6721,18 +7115,18 @@
       {
         "title": "[모집] 2026년 국민연금 수급자 아카데미 <生生투게더> 참여자 모집",
         "plain": "2026년 국민연금 수급자 아카데미 <生生투게더>에 참여할 어르신 30명을 모집합니다.",
-        "why": "국민연금 수급자 아카데미는 어르신들에게 유익한 정보를 제공하여 삶의 질을 높일 수 있습니다.",
+        "why": "어르신들이 서로 소통하고 배울 수 있는 기회입니다.",
         "cat": "복지",
         "source": "해운대종합사회복지관",
         "sourceUrl": "http://haeundae.saem.or.kr/community/news1.php?mode=read&page=8&number=2748&keyfield=&key="
       },
       {
-        "title": "2026년 부산광역시 장애인 평생교육이용권 신청접수(3차) 공고",
-        "plain": "2026년 부산광역시에서 19세 이상 등록 장애인을 위한 평생교육이용권 신청을 받습니다.",
-        "why": "장애인 어르신들에게 평생교육을 통해 새로운 배움의 기회를 제공합니다.",
+        "title": "[모집] 2026 성인장애인 평생학습 「나만의 쌀베이킹」 참여자 모집",
+        "plain": "2026년 4월부터 시작하는 '나만의 쌀베이킹' 프로그램에 참여할 성인장애인 8명을 모집합니다.",
+        "why": "무료로 참여할 수 있는 유익한 프로그램입니다.",
         "cat": "복지",
-        "source": "부산광역시 고시공고",
-        "sourceUrl": "https://www.busan.go.kr/nbgosi/view?sno=79483&gosiGbn=A&curPage=1"
+        "source": "해운대종합사회복지관",
+        "sourceUrl": "http://haeundae.saem.or.kr/community/news1.php?mode=read&page=7&number=2762&keyfield=&key="
       }
     ]
   }
